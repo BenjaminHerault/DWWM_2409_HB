@@ -1,20 +1,28 @@
-﻿/*Variable*/
+﻿
+        /*Variable*/
 
-int JoursNaissance;
-int MoisNaissance;
-int AnneeNaissance;
+    int AnneeNaissance;
+    int Age;
 
-/*Traitement*/
-DateTime localDate = DateTime.Now;
+        /*Traitement*/
+    DateTime localDate = DateTime.Now;
+    Console.WriteLine("donner moi votre année de naissance");
+    AnneeNaissance = int.Parse(Console.ReadLine());
 
-Console.WriteLine("donner moi votre jours de naissance");
-JoursNaissance = int.Parse(Console.ReadLine());
+    Age = localDate.Year - AnneeNaissance;
 
-Console.WriteLine("donner moi votre mois de naissance");
-MoisNaissance = int.Parse(Console.ReadLine());
+        /*Affichage*/
+    if (18 <= Age)
+    {
+        Console.WriteLine("Vous êtes majeur vous avez "+Age+ " ans");
+    }   
+        else if (18 >= Age && 1<= Age)
+        {
+            Console.WriteLine("Vous êtes mineur vous avez " + Age+" ans");
+        }
+            else
+            {
+                Console.WriteLine("Vous n'êtes pas encore né ");
+            }
 
-Console.WriteLine("donner moi votre année de naissance");
-AnneeNaissance = int.Parse(Console.ReadLine());
-
-Console.WriteLine(localDate.Year);
-
+    Console.WriteLine();
