@@ -1,5 +1,7 @@
 ﻿/*Variable*/
 
+using System.Formats.Asn1;
+
 bool ReparationsImmédiates = new Random().Next(100) <= 50 ? true : false;
 bool trouveLeLivreMaison = new Random().Next(100) <= 50 ? true : false;
 bool trouverLeLivreBibliotheque = new Random().Next(100) <= 50 ? true : false;
@@ -22,10 +24,10 @@ do
 {
     Console.WriteLine("Fait-il beau ? oui (o) ou Non (n)");
     pluie = Console.ReadLine();
-    pluie = pluie.ToLower();
-} while (pluie != "oui" && pluie != "o" && pluie != "non" && pluie != "n" && pluie != "y" );
+    pluie = pluie.ToLower();    // Une lettres en majuscule serra convertie en minuscules  
+} while (pluie != "oui" && pluie != "o" && pluie != "non" && pluie != "n" && pluie != "y" );    //les touche qui vont avoir une action
 
-beau = pluie == "oui" || pluie == "o" || pluie == "y";
+beau = pluie == "oui" || pluie == "o" || pluie == "y";      //les touche qui fon accepter si il faut beau 
 
 
 if (beau)

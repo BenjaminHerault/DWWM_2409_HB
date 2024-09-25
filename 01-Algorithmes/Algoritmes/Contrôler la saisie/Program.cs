@@ -8,10 +8,10 @@ do
     prenomOk = true;
     Console.WriteLine("Saisir votre prénom");
     prenom = Console.ReadLine();
-    if (prenom.Length < 2)
+    if (prenom.Length < 2)             // Pour controler si le nom fait bien mini 2 caractères
     {
         Console.WriteLine("Il faut minimum 2 caractères !");
-        prenomOk = false;
+        prenomOk = false;               
     }
     else if (!prenom.All(char.IsLetter))
     {
