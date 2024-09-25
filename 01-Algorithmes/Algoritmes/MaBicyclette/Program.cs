@@ -1,14 +1,36 @@
 ﻿/*Variable*/
 
-bool beau = false;
-bool ReparationsImmédiates = false;
-bool trouveLeLivreMaison = false;
-bool trouverLeLivreBibliotheque = false;
+bool ReparationsImmédiates = new Random().Next(100) <= 50 ? true : false;
+bool trouveLeLivreMaison = new Random().Next(100) <= 50 ? true : false;
+bool trouverLeLivreBibliotheque = new Random().Next(100) <= 50 ? true : false;
+string pluie;
+bool beau;
 
+/*
+// maVariable = (Si maCondition) (alors (?) ok (true)), (sinon (:) !ok(false))
+bool bicycleState = new Random().Next(100) <= 50 ? true : false;
+
+int var1 = 100;
+int var2 = 1000;
+
+string var3 = var1 > var2 ? "var1 est + grand (true)" : "var1 est plus petit (false)";
+
+Console.WriteLine(var3);*/
 /*traitement*/
-if (beau == true)
+
+do
 {
-    if (ReparationsImmédiates == true)
+    Console.WriteLine("Fait-il beau ? oui (o) ou Non (n)");
+    pluie = Console.ReadLine();
+    pluie = pluie.ToLower();
+} while (pluie != "oui" && pluie != "o" && pluie != "non" && pluie != "n" && pluie != "y" );
+
+beau = pluie == "oui" || pluie == "o" || pluie == "y";
+
+
+if (beau)
+{
+    if (ReparationsImmédiates)
     {
         Console.WriteLine("j'irai faire une balade à bicyclette");
     }
@@ -21,11 +43,11 @@ if (beau == true)
 else
 {
     Console.WriteLine("je consacrerai ma journée à la lecture");
-    if (trouveLeLivreMaison == true)
+    if (trouveLeLivreMaison)
     {
         Console.WriteLine("je m’installerai confortablement dans un fauteuil et je me plongerai dans la lecture de Game of Thrones");
     }
-    else if (trouverLeLivreBibliotheque == true)
+    else if (trouverLeLivreBibliotheque)
     {
         Console.WriteLine("J'emprunter le livre à la bibliothèque et je rentre a la maison pour le lire Game of Thrones ");
     }
