@@ -17,9 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriDeNombreV2", "TriDeNombr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaBicyclette", "MaBicyclette\MaBicyclette.csproj", "{EE97DEE5-D29F-47B6-AF71-EB10038D3728}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlerLaSaisie", "Contrôler la saisie\ControlerLaSaisie.csproj", "{54488AB9-07E9-41F9-9198-9E8618EC8DCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlerLaSaisie", "Contrôler la saisie\ControlerLaSaisie.csproj", "{54488AB9-07E9-41F9-9198-9E8618EC8DCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "controleLaSaisieAvecLimite", "controleLaSaisieAvecLimite\controleLaSaisieAvecLimite.csproj", "{7E7A37B7-D8A5-46E3-83D5-E095EDD1A842}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "controleLaSaisieAvecLimite", "controleLaSaisieAvecLimite\controleLaSaisieAvecLimite.csproj", "{7E7A37B7-D8A5-46E3-83D5-E095EDD1A842}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntervalleEntre2Nombres", "IntervalleEntre2Nombres\IntervalleEntre2Nombres.csproj", "{F9F08080-456F-46C7-BDEE-B8514D252341}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{7E7A37B7-D8A5-46E3-83D5-E095EDD1A842}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E7A37B7-D8A5-46E3-83D5-E095EDD1A842}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E7A37B7-D8A5-46E3-83D5-E095EDD1A842}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9F08080-456F-46C7-BDEE-B8514D252341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9F08080-456F-46C7-BDEE-B8514D252341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9F08080-456F-46C7-BDEE-B8514D252341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9F08080-456F-46C7-BDEE-B8514D252341}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
