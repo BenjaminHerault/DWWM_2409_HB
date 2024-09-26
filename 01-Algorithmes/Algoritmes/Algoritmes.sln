@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntervalleEntre2Nombres", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NombrePremier", "NombrePremier\NombrePremier.csproj", "{96E6B60D-2245-44F4-8FAE-08AEF07C3BEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rechercheDesDiviseursDunNombre", "rechercheDesDiviseursDunNombre\rechercheDesDiviseursDunNombre.csproj", "{12C727D1-6711-4FCB-BFEF-D7E8460F8285}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{96E6B60D-2245-44F4-8FAE-08AEF07C3BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96E6B60D-2245-44F4-8FAE-08AEF07C3BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96E6B60D-2245-44F4-8FAE-08AEF07C3BEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12C727D1-6711-4FCB-BFEF-D7E8460F8285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C727D1-6711-4FCB-BFEF-D7E8460F8285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C727D1-6711-4FCB-BFEF-D7E8460F8285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C727D1-6711-4FCB-BFEF-D7E8460F8285}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
