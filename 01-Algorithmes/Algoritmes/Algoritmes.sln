@@ -21,11 +21,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlerLaSaisie", "Contr√
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "controleLaSaisieAvecLimite", "controleLaSaisieAvecLimite\controleLaSaisieAvecLimite.csproj", "{7E7A37B7-D8A5-46E3-83D5-E095EDD1A842}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntervalleEntre2Nombres", "IntervalleEntre2Nombres\IntervalleEntre2Nombres.csproj", "{F9F08080-456F-46C7-BDEE-B8514D252341}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntervalleEntre2Nombres", "IntervalleEntre2Nombres\IntervalleEntre2Nombres.csproj", "{F9F08080-456F-46C7-BDEE-B8514D252341}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NombrePremier", "NombrePremier\NombrePremier.csproj", "{96E6B60D-2245-44F4-8FAE-08AEF07C3BEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NombrePremier", "NombrePremier\NombrePremier.csproj", "{96E6B60D-2245-44F4-8FAE-08AEF07C3BEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rechercheDesDiviseursDunNombre", "rechercheDesDiviseursDunNombre\rechercheDesDiviseursDunNombre.csproj", "{12C727D1-6711-4FCB-BFEF-D7E8460F8285}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rechercheDesDiviseursDunNombre", "rechercheDesDiviseursDunNombre\rechercheDesDiviseursDunNombre.csproj", "{12C727D1-6711-4FCB-BFEF-D7E8460F8285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jeuDeLaFourchette", "jeuDeLaFourchette\jeuDeLaFourchette.csproj", "{C90F54D2-E265-49C5-A439-55779310F2DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{12C727D1-6711-4FCB-BFEF-D7E8460F8285}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12C727D1-6711-4FCB-BFEF-D7E8460F8285}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12C727D1-6711-4FCB-BFEF-D7E8460F8285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C90F54D2-E265-49C5-A439-55779310F2DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C90F54D2-E265-49C5-A439-55779310F2DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C90F54D2-E265-49C5-A439-55779310F2DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C90F54D2-E265-49C5-A439-55779310F2DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
