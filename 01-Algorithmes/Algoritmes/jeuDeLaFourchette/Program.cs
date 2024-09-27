@@ -1,2 +1,2 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿Random aleatoir = new Random();
+int NombreAleatoir = aleatoir.Next(1, 2);
