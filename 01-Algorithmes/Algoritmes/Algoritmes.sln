@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jeuDeLaFourchette", "jeuDeL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarnabeFaitSesCourses", "BarnabeFaitSesCourses\BarnabeFaitSesCourses.csproj", "{0A45E9A7-1BA0-4AA8-AA2A-F74111FF770D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rechercherUnNombreDansUnTableau", "tableauxPartieCinq\rechercherUnNombreDansUnTableau.csproj", "{3B9D1608-9B05-4BAB-AE21-8F80E8E6D039}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{0A45E9A7-1BA0-4AA8-AA2A-F74111FF770D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A45E9A7-1BA0-4AA8-AA2A-F74111FF770D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A45E9A7-1BA0-4AA8-AA2A-F74111FF770D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B9D1608-9B05-4BAB-AE21-8F80E8E6D039}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B9D1608-9B05-4BAB-AE21-8F80E8E6D039}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B9D1608-9B05-4BAB-AE21-8F80E8E6D039}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B9D1608-9B05-4BAB-AE21-8F80E8E6D039}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
