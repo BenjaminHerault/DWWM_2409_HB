@@ -10,10 +10,10 @@ B = int.Parse(Console.ReadLine());
 
 while (A < B-1)
 {
-    A ++;
-    Console.Write(A+" ");
+    A++;
+    Console.Write(A + " ");
 }
-while (A > B+1)
+while (A >= B)
 {
     A--;
     Console.Write(A + " ");
