@@ -1,7 +1,6 @@
 ﻿string laPhrase ="";
 string rechereche = "";
 int compteur = 0;
-string verifiacationPoin;
 
 Console.WriteLine("écrivez un message");
 laPhrase = Console.ReadLine().ToLower();
@@ -25,7 +24,7 @@ if (laPhrase.EndsWith("."))   //EndsWith = Détermine si la fin de cette instanc
     {
         Console.WriteLine("LA CHAINE EST VIDE");
     }
-    if (compteur == 0 && laPhrase != "")
+    if (compteur == 0 && laPhrase != "" )
     {
         Console.WriteLine($"La lettre \"{rechereche}\" n’est pas présente");
     }
