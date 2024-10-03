@@ -39,7 +39,7 @@ internal class Program
 
         regexCaracteresSpeciaux = "[^a-zA-Z0-9]+";
         if (
-            Regex.IsMatch(motDePasse, regexMinuscules) &&
+            Regex.IsMatch(motDePasse, regexMinuscules) &&               
             Regex.IsMatch(motDePasse, regexMajuscules) &&
             Regex.IsMatch(motDePasse, regexChiffres) &&
             Regex.IsMatch(motDePasse, regexCaracteresSpeciaux) &&

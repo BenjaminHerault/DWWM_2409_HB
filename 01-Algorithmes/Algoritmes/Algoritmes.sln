@@ -37,11 +37,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rechercherLeNombreDoccurenc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RechercherLeNombreOccurencesUneLettreDansUnePhraseVdeux", "RechercherLeNombreOccurencesUneLettreDansUnePhraseVdeux\RechercherLeNombreOccurencesUneLettreDansUnePhraseVdeux.csproj", "{648F2FC1-9168-4403-8D36-9411E6C1172B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DenombrerLesLettresDeLalphabetDansUnTableau", "DenombrerLesLettresDeLalphabetDansUnTableau\DenombrerLesLettresDeLalphabetDansUnTableau.csproj", "{D73069F2-DBEB-44CD-BCF3-496BA055443F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DenombrerLesLettresDeLalphabetDansUnTableau", "DenombrerLesLettresDeLalphabetDansUnTableau\DenombrerLesLettresDeLalphabetDansUnTableau.csproj", "{D73069F2-DBEB-44CD-BCF3-496BA055443F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LesCapitales", "LesCapitales\LesCapitales.csproj", "{D68BD337-F2DB-4F70-8E01-CCB98B562F08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LesCapitales", "LesCapitales\LesCapitales.csproj", "{D68BD337-F2DB-4F70-8E01-CCB98B562F08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportentRegex", "ImportentRegex\ImportentRegex.csproj", "{D7A5F955-308C-4D30-A744-AD5883AB6222}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImportentRegex", "ImportentRegex\ImportentRegex.csproj", "{D7A5F955-308C-4D30-A744-AD5883AB6222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BouclesMotDePasseSecursPasDeMoi", "BouclesMotDePasseSecursPasDeMoi\BouclesMotDePasseSecursPasDeMoi.csproj", "{DB7EC84B-3FF9-4032-8747-098884253BC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "motDePasseLong", "motDePasseLong\motDePasseLong.csproj", "{F78A6CE9-4260-42F6-97EF-D946108C029F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BheraultTools", "BheraultTools\BheraultTools.csproj", "{3C7D8111-896D-4697-9D4D-4A8BD744F596}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +135,18 @@ Global
 		{D7A5F955-308C-4D30-A744-AD5883AB6222}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7A5F955-308C-4D30-A744-AD5883AB6222}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7A5F955-308C-4D30-A744-AD5883AB6222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB7EC84B-3FF9-4032-8747-098884253BC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB7EC84B-3FF9-4032-8747-098884253BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB7EC84B-3FF9-4032-8747-098884253BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB7EC84B-3FF9-4032-8747-098884253BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F78A6CE9-4260-42F6-97EF-D946108C029F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F78A6CE9-4260-42F6-97EF-D946108C029F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F78A6CE9-4260-42F6-97EF-D946108C029F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F78A6CE9-4260-42F6-97EF-D946108C029F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C7D8111-896D-4697-9D4D-4A8BD744F596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C7D8111-896D-4697-9D4D-4A8BD744F596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C7D8111-896D-4697-9D4D-4A8BD744F596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C7D8111-896D-4697-9D4D-4A8BD744F596}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

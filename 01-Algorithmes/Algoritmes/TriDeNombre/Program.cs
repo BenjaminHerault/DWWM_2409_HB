@@ -1,6 +1,12 @@
 ﻿using System;
 
-namespace TriDeNombre{
+using BheraultTools;
+// on appele notre ConoleTools pour l'utiliser
+// nombreA = ConsoleTools.DemanderNombreENtier 
+// ConsoleTools.DemanderNombreENtier = insigne la varible avec le nom 
+
+namespace TriDeNombre
+{
     internal class Program{
         
         static void Main(string[] args){
@@ -10,12 +16,9 @@ namespace TriDeNombre{
 
             /* DEBUT PROGRAMME */
 
-            Console.WriteLine("Entrez un nombre A : ");
-            nombreA = int.Parse(Console.ReadLine());
-            Console.WriteLine("Entrez un nombre B : ");
-            nombreB = int.Parse(Console.ReadLine());
-            Console.WriteLine("Entrez un nombre C : ");
-            nombreC = int.Parse(Console.ReadLine());
+            nombreA = ConsoleTools.DemanderNombreENtier("Entrez un nombre A : ");
+            nombreB = ConsoleTools.DemanderNombreENtier("Entrez un nombre B : ");
+            nombreC = ConsoleTools.DemanderNombreENtier("Entrez un nombre C : ");
 
                 /*DEBUT du grand si*/
 
