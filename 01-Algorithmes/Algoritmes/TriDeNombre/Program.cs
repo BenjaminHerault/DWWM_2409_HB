@@ -3,7 +3,7 @@
 using BheraultTools;
 // on appele notre ConoleTools pour l'utiliser
 // nombreA = ConsoleTools.DemanderNombreENtier 
-// ConsoleTools.DemanderNombreENtier = insigne la varible avec le nom 
+// ConsoleTools.DemanderNombreENtier = insigne la variable avec le nom pour l'utiliser
 
 namespace TriDeNombre
 {
