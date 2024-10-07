@@ -1,4 +1,6 @@
-﻿namespace BheraultTools
+﻿using System.Text.RegularExpressions;
+
+namespace BheraultTools
 {
     public class ConsoleTools
     {
@@ -45,6 +47,7 @@
 
                 saisieUtilisateur = Console.ReadLine() ?? "";
 
+                
                 saisieOk = float.TryParse(saisieUtilisateur, out valeurRetour) && valeurRetour >= 0;
                 Console.WriteLine(valeurRetour);
 
@@ -56,6 +59,40 @@
             } while (!saisieOk);
 
             return valeurRetour;
+        }
+        public static string DemanderUnNumeroValide(string _question)
+        {
+            /*Variable*/
+            string numeroDeTelephoneValide;
+            string regexNumeroDeTelephone;
+            bool saisieOk;
+
+            /*Regex*/
+            regexNumeroDeTelephone = "^[0]";
+
+           // Console.WriteLine("Donnez moi un numero de telephone.");
+           // numeroDeTelephoneValide = Console.ReadLine() ?? "";
+
+            do
+            {
+                Console.WriteLine(_question);
+                // les ?? "" pour retourne une valeurs null 
+                numeroDeTelephoneValide = Console.ReadLine() ?? "";
+
+                // saisieOk verifier si ce vrai Regex.IsMatch(regexNumeroDeTelephone, numeroDeTelephoneValide);
+                // on quitte la boucle dans se cas la 
+                saisieOk = Regex.IsMatch(regexNumeroDeTelephone, numeroDeTelephoneValide);
+                Console.WriteLine(numeroDeTelephoneValide);
+
+                // on demande une valeur valide pour quitter la boucle 
+                if (!saisieOk) {
+                    Console.WriteLine("Ceci n'est pas un numéro de téléphone valide ");
+                }
+
+            } while (!saisieOk);
+            Console.WriteLine($"Le numero {numeroDeTelephoneValide} et nickel");
+            return numeroDeTelephoneValide;
+
         }
     }
 }

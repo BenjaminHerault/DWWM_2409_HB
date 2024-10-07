@@ -12,13 +12,13 @@ namespace TriDeNombre
         static void Main(string[] args){
             /* VARIABLES */
 
-            int nombreA,nombreB,nombreC;
+            float nombreA,nombreB,nombreC;
 
             /* DEBUT PROGRAMME */
 
-            nombreA = ConsoleTools.DemanderNombreENtier("Entrez un nombre A : ");
-            nombreB = ConsoleTools.DemanderNombreENtier("Entrez un nombre B : ");
-            nombreC = ConsoleTools.DemanderNombreENtier("Entrez un nombre C : ");
+            nombreA = ConsoleTools.DemanderFloatPositif("Entrez un nombre A : ");
+            nombreB = ConsoleTools.DemanderFloatPositif("Entrez un nombre B : ");
+            nombreC = ConsoleTools.DemanderFloatPositif("Entrez un nombre C : ");
 
                 /*DEBUT du grand si*/
 
