@@ -64,14 +64,14 @@ namespace BheraultTools
         {
             /*Variable*/
             string numeroDeTelephoneValide;
-            string regexNumeroDeTelephone;
+            string regexNumeroDeTelephone;      // String/ Int premier letre en mascule pour les regex 
             bool saisieOk;
 
             /*Regex*/
-            regexNumeroDeTelephone = "^[0]";
-
-           // Console.WriteLine("Donnez moi un numero de telephone.");
-           // numeroDeTelephoneValide = Console.ReadLine() ?? "";
+            //regexNumeroDeTelephone = "^0[1-79]{1}[0-9]{8}$";
+            regexNumeroDeTelephone = "^0[1-79]{1}[0{2}1-9]{8}$";
+            // Console.WriteLine("Donnez moi un numero de telephone.");
+            // numeroDeTelephoneValide = Console.ReadLine() ?? "";
 
             do
             {
@@ -81,7 +81,8 @@ namespace BheraultTools
 
                 // saisieOk verifier si ce vrai Regex.IsMatch(regexNumeroDeTelephone, numeroDeTelephoneValide);
                 // on quitte la boucle dans se cas la 
-                saisieOk = Regex.IsMatch(regexNumeroDeTelephone, numeroDeTelephoneValide);
+                saisieOk = Regex.IsMatch(numeroDeTelephoneValide, regexNumeroDeTelephone);
+                // numeroDeTelephoneValide la chose a verifier avec regexNumeroDeTelephone 
                 Console.WriteLine(numeroDeTelephoneValide);
 
                 // on demande une valeur valide pour quitter la boucle 
@@ -90,7 +91,7 @@ namespace BheraultTools
                 }
 
             } while (!saisieOk);
-            Console.WriteLine($"Le numero {numeroDeTelephoneValide} et nickel");
+            Console.WriteLine($"Le numero {numeroDeTelephoneValide} fonctionne");
             return numeroDeTelephoneValide;
 
         }
