@@ -68,10 +68,7 @@ namespace BheraultTools
             bool saisieOk;
 
             /*Regex*/
-            //regexNumeroDeTelephone = "^0[1-79]{1}[0-9]{8}$";
-            regexNumeroDeTelephone = "^0[1-79]{1}[0{2}1-9]{8}$";
-            // Console.WriteLine("Donnez moi un numero de telephone.");
-            // numeroDeTelephoneValide = Console.ReadLine() ?? "";
+            regexNumeroDeTelephone = "^0[1-79]{1}[0-9]{8}$";
 
             do
             {
@@ -85,8 +82,34 @@ namespace BheraultTools
                 // numeroDeTelephoneValide la chose a verifier avec regexNumeroDeTelephone 
                 Console.WriteLine(numeroDeTelephoneValide);
 
+                int mesZeros = 0;
+
+                // 06 02030005
+                for (int i = 2; i < numeroDeTelephoneValide.Length; i++)
+                {
+                   /* if (numeroDeTelephoneValide[i] == '0')
+                    {
+                        mesZeros = mesZeros + 1;
+                    } else
+                    {
+                        mesZeros = 0;
+                    }*/
+
+                   // 01 00456000
+                    mesZeros = (numeroDeTelephoneValide[i] == '0') ? mesZeros + 1 : 0;
+                    //mesZeros = (numeroDeTelephoneValide[i] == '0') ? mesZeros + 1 : 0;
+                    // mesZeros mon compteur de 0
+                    // numeroDeTelephoneValide le numero a virifer avec quoi == '0'
+                    // ? = sinon mesZeros +1 quand il a un zero on fait +1 
+                    // : sinon = le compteur mesZeros reviend a 0 si on trouve pas le zero 
+                    if (mesZeros == 3)
+                    {
+                        saisieOk = false;
+                    }
+                }
+
                 // on demande une valeur valide pour quitter la boucle 
-                if (!saisieOk) {
+                if (!saisieOk ) {
                     Console.WriteLine("Ceci n'est pas un numéro de téléphone valide ");
                 }
 
