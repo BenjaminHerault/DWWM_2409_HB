@@ -118,6 +118,15 @@ namespace BheraultTools
             return numeroDeTelephoneValide;
 
         }
+
+        public static string DemanderNbrOccurences(string _question)
+        {
+            string texteALire;
+            Regex 
+
+            test = new Regex("[a-z]");
+        }
+
     }
 }
 
