@@ -1,3 +1,4 @@
+```
 Solutionnez la problématique suivante dans une application en mode « Console » dans un des langages suivants : 
 C#.
 
@@ -61,4 +62,4 @@ lire nomUtulisateur
 					!seOk
 
 		while !seOk 
-
+```

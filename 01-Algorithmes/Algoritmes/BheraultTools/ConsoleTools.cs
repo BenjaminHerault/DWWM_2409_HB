@@ -122,7 +122,7 @@ namespace BheraultTools
         public static string DemanderNbrOccurences(string _question)
         {
             string texteALire;
-            Regex 
+            Regex test;
 
             test = new Regex("[a-z]");
         }
