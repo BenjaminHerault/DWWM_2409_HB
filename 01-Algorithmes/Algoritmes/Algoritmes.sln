@@ -53,7 +53,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "numeroTelephone", "numeroTe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "carteCrm", "carteCrm\carteCrm.csproj", "{D532F6FC-BDDC-4D1D-BBFD-0A9553E3259E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tableauxEtBoucle", "tableauxEtBoucle\tableauxEtBoucle.csproj", "{E8F8EE9D-A458-414F-AE77-786730029FBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tableauxEtBoucle", "tableauxEtBoucle\tableauxEtBoucle.csproj", "{E8F8EE9D-A458-414F-AE77-786730029FBB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tableauDynamiqueMajeurMineur", "tableauDynamiqueMajeurMineur\tableauDynamiqueMajeurMineur.csproj", "{E473DF47-96EB-429D-8994-F5B7BF878749}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,6 +167,10 @@ Global
 		{E8F8EE9D-A458-414F-AE77-786730029FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8F8EE9D-A458-414F-AE77-786730029FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8F8EE9D-A458-414F-AE77-786730029FBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E473DF47-96EB-429D-8994-F5B7BF878749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E473DF47-96EB-429D-8994-F5B7BF878749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E473DF47-96EB-429D-8994-F5B7BF878749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E473DF47-96EB-429D-8994-F5B7BF878749}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
