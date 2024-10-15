@@ -57,6 +57,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tableauxEtBoucle", "tableau
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tableauDynamiqueMajeurMineur", "tableauDynamiqueMajeurMineur\tableauDynamiqueMajeurMineur.csproj", "{E473DF47-96EB-429D-8994-F5B7BF878749}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "videoSurYtbCours", "videoSurYtbCours\videoSurYtbCours.csproj", "{D04B89B5-A130-4BBF-BE62-3F0DE37819B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -171,6 +173,10 @@ Global
 		{E473DF47-96EB-429D-8994-F5B7BF878749}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E473DF47-96EB-429D-8994-F5B7BF878749}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E473DF47-96EB-429D-8994-F5B7BF878749}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D04B89B5-A130-4BBF-BE62-3F0DE37819B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D04B89B5-A130-4BBF-BE62-3F0DE37819B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D04B89B5-A130-4BBF-BE62-3F0DE37819B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D04B89B5-A130-4BBF-BE62-3F0DE37819B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

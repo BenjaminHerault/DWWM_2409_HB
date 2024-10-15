@@ -10,6 +10,7 @@ string dateNaissance = "";
 int age = 0;
 char saisieOuiNon;
 bool nomValide = true;
+bool validMetierOuCouleur = true;
 
 // craction de ma liste utilisateur qui sera fortement typée
 // List <List<string>> quand on aura plusier list et List <string> quand on a une list !
@@ -17,9 +18,9 @@ bool nomValide = true;
 List<List<string>> utilisateurs = new List<List<string>>();
 
 /*Regex implemantation*/
-Regex regexVerificationNomPrenom;
+Regex regexVerificationNomPrenomMetierOuCouleur;
 // on assigne une valeur a la regex 
-regexVerificationNomPrenom = new Regex(@"^[a-zàâéèëêïîôöùüûçñ -]+$", RegexOptions.IgnoreCase);
+regexVerificationNomPrenomMetierOuCouleur = new Regex(@"^[a-zàâéèëêïîôöùüûçñ -]+$", RegexOptions.IgnoreCase);
 /*Traitement*/
 // debut du do while
 do
@@ -31,14 +32,14 @@ do
         Console.WriteLine("Saisier un nom et prénom.");
         nomPrenom = Console.ReadLine() ?? "";
         //IsMatch = Indique si l’expression régulière trouve une correspondance dans la chaîne d’entrée.
-        nomValide = regexVerificationNomPrenom.IsMatch(nomPrenom);
+        nomValide = regexVerificationNomPrenomMetierOuCouleur.IsMatch(nomPrenom);
         if (!nomValide)
         {
             Console.WriteLine("Format invalide.");
         }
     }
-    while (!nomValide);
 
+    while (!nomValide);
     // Pour demande l'age d'une personne 
     Console.WriteLine("Saisiez une date de naissance (01/01/2000");
     dateNaissance = Console.ReadLine()??"";
@@ -52,23 +53,30 @@ do
         //TimeSpan = Représente un intervalle de temps. Pour avoir une valeur precise
         TimeSpan ageEnIntervaleDeTemps = dateActuelle - maDate;
         //Pour cacluer l'age en annee on utilise un Cast = Pour converti le TimeSpan.Days en int
-        age = (int)(ageEnIntervaleDeTemps.Days/365.25);     
-        if(age <18)
+        age = (int)(ageEnIntervaleDeTemps.Days / 365.25);
+        do
         {
-            Console.WriteLine("Quelle est votre couleur préferée.");
-        }
-        else
-        {
-            Console.WriteLine("Quelle est votre métier");
-        }
-        // Comment on a deux demande qui prennet la meme variable on peux assigner la valeur a la fin pour eviter les repetition
-        metierOuCouleur = Console.ReadLine() ?? "";
+            if (age < 18)
+            {
+                Console.WriteLine("Quelle est votre couleur préferée.");
+            }
+            else
+            {
+                Console.WriteLine("Quelle est votre métier");
+            }
+            // Comment on a deux demande qui prennet la meme variable on peux assigner la valeur a la fin pour eviter les repetition
+            metierOuCouleur = Console.ReadLine() ?? "";
+            validMetierOuCouleur = regexVerificationNomPrenomMetierOuCouleur.IsMatch(metierOuCouleur);
+            if (!validMetierOuCouleur)
+            {
+                Console.WriteLine("Format invalide.");
+            }
+        } while (!validMetierOuCouleur);
     }
     else
     {
         Console.WriteLine("Pas valide");
     }
-
     //  On converti un int en string avec ToString
     ageString = age.ToString();       
     // ToLongDateString = Convertit la valeur de
