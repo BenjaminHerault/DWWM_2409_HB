@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 
 string nomPrenom = "";
-string metierOuCouleur = "";
+string? metierOuCouleur = null;     // ? = pour mettre accepter les valeur nul 
 string ageString = "";              // Je converti age qui et en int en string  
 string maDateString = "";           // Je converti dateNaissance qui et en int en string 
 string dateNaissance = "";     
@@ -40,11 +40,12 @@ do
     }
 
     while (!nomValide);
+    
     // Pour demande l'age d'une personne 
     Console.WriteLine("Saisiez une date de naissance (01/01/2000");
     dateNaissance = Console.ReadLine()??"";
-    // debut de si
 
+    // debut de si
     //DateTime = Représente un instant, généralement exprimé sous la forme d’une date ou d’une heure.
     if (DateTime.TryParse(dateNaissance, out DateTime maDate)) 
     {
@@ -85,7 +86,7 @@ do
     maDateString = maDate.ToLongDateString();
 
     // utilisateurs et une liste et on lui donne comme valeur  nomPrenom, maDateString, ageString, metierOuCouleur
-    utilisateurs.Add([nomPrenom, maDateString, ageString, metierOuCouleur]);
+    utilisateurs.Add([nomPrenom, maDateString, "("+ageString+" ans)", metierOuCouleur]);
 
     //On demander si on toi rajouter un utilisateur 
     Console.WriteLine("Voulez vous rajouter un autre utilisateur ? Non(n) ou Oui (o)");
