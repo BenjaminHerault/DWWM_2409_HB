@@ -87,14 +87,6 @@ namespace BheraultTools
                 // 06 02030005
                 for (int i = 2; i < numeroDeTelephoneValide.Length; i++)
                 {
-                   /* if (numeroDeTelephoneValide[i] == '0')
-                    {
-                        mesZeros = mesZeros + 1;
-                    } else
-                    {
-                        mesZeros = 0;
-                    }*/
-
                    // 01 00456000
                     mesZeros = (numeroDeTelephoneValide[i] == '0') ? mesZeros + 1 : 0;
                     //mesZeros = (numeroDeTelephoneValide[i] == '0') ? mesZeros + 1 : 0;
@@ -107,7 +99,6 @@ namespace BheraultTools
                         saisieOk = false;
                     }
                 }
-
                 // on demande une valeur valide pour quitter la boucle 
                 if (!saisieOk ) {
                     Console.WriteLine("Ceci n'est pas un numéro de téléphone valide ");
@@ -118,6 +109,26 @@ namespace BheraultTools
             return numeroDeTelephoneValide;
 
         }
+
+        /* public static string DemanderNbrOccurences(string _question)
+         {
+             string texteALire;
+             Regex test;
+
+             test = new Regex("[a-z]");
+         }*/
+
+        public static int DemanderOuiOuNon(string _question)
+        {
+            char saisieOuiNon;
+            do
+            {
+                Console.WriteLine("Voulez vous rajouter un autre utilisateur ? Non(n) ou Oui (o)");
+                saisieOuiNon = Console.ReadKey(true).KeyChar;    // pour appyer sur un touche et valide le choix la toucher appuier va pas apparaietre 
+
+            } while (saisieOuiNon == 'o' || saisieOuiNon == 'O');
+            return saisieOuiNon;
+        }  
     }
 }
 
