@@ -8,7 +8,7 @@ string ageString = "";              // Je converti age qui et en int en string
 string maDateString = "";           // Je converti dateNaissance qui et en int en string 
 string dateNaissance = "";     
 int age = 0;
-char saisieOuiNon;
+ConsoleKey saisieOuiNon;
 bool nomValide = true;
 bool validMetierOuCouleur = true;
 
@@ -91,9 +91,10 @@ do
     //On demander si on toi rajouter un utilisateur 
     Console.WriteLine("Voulez vous rajouter un autre utilisateur ? Non(n) ou Oui (o)");
     // pour appyer sur un touche et valide le choix la toucher appuier va pas apparaietre 
-    saisieOuiNon = Console.ReadKey(true).KeyChar;    
+    //pour demander si il veux contuiner le programe
+    saisieOuiNon = Console.ReadKey(true).Key;    
 
-} while (saisieOuiNon == 'o' || saisieOuiNon == 'O');
+} while (saisieOuiNon == ConsoleKey.O);
 
 //foreach on afficher info in = pour chaque index du tableaux (list) utilisateurs
 foreach (List<string> info in utilisateurs)
