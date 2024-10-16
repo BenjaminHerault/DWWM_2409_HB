@@ -4,8 +4,6 @@ using System.Text.RegularExpressions;
 
 string nomPrenom = "";
 string? metierOuCouleur = null;     // ? = pour mettre accepter les valeur nul 
-string ageString = "";              // Je converti age qui et en int en string  
-string maDateString = "";           // Je converti dateNaissance qui et en int en string 
 string dateNaissance = "";     
 int age = 0;
 ConsoleKey saisieOuiNon;
@@ -77,16 +75,12 @@ do
     else
     {
         Console.WriteLine("Pas valide");
-    }
-    //  On converti un int en string avec ToString
-    ageString = age.ToString();       
+    }    
     // ToLongDateString = Convertit la valeur de
     // l'objet DateTime actuel en sa représentation sous forme de chaîne de date longue équivalente.
     // execmple : Mecredi 1 mai 1996
-    maDateString = maDate.ToLongDateString();
-
-    // utilisateurs et une liste et on lui donne comme valeur  nomPrenom, maDateString, ageString, metierOuCouleur
-    utilisateurs.Add([nomPrenom, maDateString, "("+ageString+" ans)", metierOuCouleur]);
+    // utilisateurs et une liste et on lui donne comme valeur  nomPrenom, maDate, age, metierOuCouleur
+    utilisateurs.Add([nomPrenom, maDate.ToString(), "("+age.ToString()+" ans)", metierOuCouleur]);
 
     //On demander si on toi rajouter un utilisateur 
     Console.WriteLine("Voulez vous rajouter un autre utilisateur ? Non(n) ou Oui (o)");
