@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<volsAIrFrance>
+    <vol id= "1">
+        <nbrAvion>AF0068, Boeing 777-200</nbrAvion>
+        <departLieux>Paris l’aéroport d’Orly</departLieux>
+        <arriverLieux>Phoenix-Sky Harbor</arriverLieux>
+        <nbrCorrespondance>0</nbrCorrespondance>
+        <dureeCorrespondance>0</dureeCorrespondance>
+        <prix devis="euros">4 696</prix>
+        <dureeVol>11h35</dureeVol>
+        <cabine>Business</cabine>
+        <compagnie>AirFrance</compagnie>
+        <dateDeDepar format="yyyy-mm-dd hh:ii">jeudi 31 octobre 2024 10:10 - 13:45</dateDeDepar>
+    </vol>
+
+    <vol id= "2">
+        <nbrAvion><![CDATA[KL2006, A320 & KL3108, Boeing 737]]></nbrAvion>
+        <departLieux>Paris l’aéroport d’Orly</departLieux>
+        <arriverLieux>Tbilisi International Airport</arriverLieux>
+        <nbrCorrespondance>une correspondance à Amsterdam Schiphol Airport</nbrCorrespondance>
+        <dureeCorrespondance>0h50</dureeCorrespondance>
+        <prix devis="euros">372</prix>
+        <dureeVol>5h55</dureeVol>
+        <cabine>Economy</cabine>
+        <compagnie><![CDATA[AirFrance & Georgian Airways]]></compagnie>
+        <dateDeDepar format="yyyy-mm-dd hh:ii"></dateDeDepar>
+    </vol>
+
+    <vol id= "3">
+        <nbrAvion></nbrAvion>
+        <departLieux>Paris l’aéroport d’Orly</departLieux>
+        <arriverLieux>J Chavez International</arriverLieux>
+        <nbrCorrespondance></nbrCorrespondance>
+        <dureeCorrespondance></dureeCorrespondance>
+        <prix devis="euros"></prix>
+        <dureeVol></dureeVol>
+        <cabine></cabine>
+        <compagnie></compagnie>
+        <dateDeDepar format="yyyy-mm-dd hh:ii"></dateDeDepar>
+    </vol>
+
+    <vol id= "4">
+        <nbrAvion></nbrAvion>
+        <departLieux>Paris l’aéroport d’Orly</departLieux>
+        <arriverLieux></arriverLieux>
+        <nbrCorrespondance></nbrCorrespondance>
+        <dureeCorrespondance></dureeCorrespondance>
+        <prix devis="euros"></prix>
+        <dureeVol></dureeVol>
+        <cabine></cabine>
+        <compagnie></compagnie>
+        <dateDeDepar format="yyyy-mm-dd hh:ii"></dateDeDepar>
+    </vol>
+
+</volsAIrFrance>

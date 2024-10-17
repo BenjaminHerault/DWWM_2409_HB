@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<passagers>
+
+    <id>02597</id>
+    <nom>Bucheron</nom>
+    <prenom>Erique</prenom>
+    <depart>Mulhouse</depart>
+    <arriver>Paris</arriver>
+    <prix>50 euros</prix>
+
+    <id>98752</id>
+    <nom>Fondeur</nom>
+    <prenom>Paul</prenom>
+    <depart>Oderen</depart>
+    <arriver>Paris</arriver>
+    <prix>40 euros</prix>
+
+    <id>00148</id>
+    <nom>Posteure</nom>
+    <prenom>Toto</prenom>
+    <depart>Karlsruhe</depart>
+    <arriver>Paris </arriver>
+    <prix>80 euros</prix>
+
+</passagers>
