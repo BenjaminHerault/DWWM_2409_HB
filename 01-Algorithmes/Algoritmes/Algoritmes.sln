@@ -59,7 +59,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tableauDynamiqueMajeurMineu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "videoSurYtbCours", "videoSurYtbCours\videoSurYtbCours.csproj", "{D04B89B5-A130-4BBF-BE62-3F0DE37819B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "monPremierObject", "monPremierObject\monPremierObject.csproj", "{1F261E2B-324B-40F9-A4D9-2B335DD3956E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "monPremierObject", "monPremierObject\monPremierObject.csproj", "{1F261E2B-324B-40F9-A4D9-2B335DD3956E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bank-accounts>
+
+    <utilisateur id="1">
+        <account>FR76 10001 10001 10000000001 11</account>
+        <bank>Banque Populaire</bank>
+        <city>Paris</city>
+        <owner>John Doe</owner>
+        <balance>36813.47</balance>
+    </utilisateur>
+
+    <utilisateur id="2">
+        <account>FR76 30003 30001 10000000012 11</account>
+        <bank>Crédit Mutuel</bank>
+        <city>Paris</city>
+        <owner>Mark Zouk</owner>
+        <balance>5295.59</balance>
+    </utilisateur>
+
+    <utilisateur id="3">
+        <account>FR76 30003 30005 10000000001 13</account>
+        <bank>Crédit Mutuel</bank>
+        <city>Mulhouse</city>
+        <owner>Joseph Picard</owner>
+        <balance>1663.14</balance>
+    </utilisateur>
+
+    <utilisateur id="4">
+        <account>FR76 30003 30005 10000000002 23</account>
+        <bank>Crédit Mutuel</bank>
+        <city>Mulhouse</city>
+        <owner>Bruce Milice</owner>
+        <balance>1559.3</balance>
+    </utilisateur>
+
+    <utilisateur id="5">
+        <account>FR76 30003 30005 10000000003 33</account>
+        <bank>Crédit Mutuel</bank>
+        <city>Mulhouse</city>
+        <owner>Steeve Bobs</owner>
+        <balance>0.66</balance>
+    </utilisateur>
+
+    <utilisateur id="6">
+        <account>FR76 30003 30005 10000000004 43</account>
+        <bank>Crédit Mutuel</bank>
+        <city>Mulhouse</city>
+        <owner>Bill Bête</owner>
+        <balance>1500.44</balance>
+    </utilisateur>
+
+    <!-- <![CDATA[ texte ]] pour mettre de caractère special  -->
+    <bank><![CDATA[Toto & Titi]]></bank>
+</bank-accounts>

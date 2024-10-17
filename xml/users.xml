@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Users>
+    <users id="1">
+        <username>Harkels</username>
+        <lastname>Herault</lastname>
+        <firstname>Benjamin</firstname>
+        <birtday format="yyyy-mm-dd">1996/05/1996</birtday>
+    </users>
+
+    <users id="2">
+        <username>Wolverine</username>
+        <lastname>Howlett</lastname>
+        <firstname>James </firstname>
+        <birtday format="yyyy-mm-dd">1881/10/20</birtday>
+    </users>
+
+    <users id="3">
+        <username>Spider-Man</username>
+        <lastname>Parker</lastname>
+        <firstname>Peter Benjamin</firstname>
+        <birtday format="yyyy-mm-dd">1962/05/16</birtday>
+    </users>
+
+    <users id="4">
+        <username>Le sorcier</username>
+        <lastname>Poter</lastname>
+        <firstname>Harry</firstname>
+        <birtday format="yyyy-mm-dd">2000/01/14</birtday>
+    </users>
+
+    <users id="5">
+        <username>le pilote</username>
+        <lastname>Cart</lastname>
+        <firstname>Fulise</firstname>
+        <birtday format="yyyy-mm-dd">1980/01/10</birtday>
+    </users>
+    <!-- <![CDATA[ texte ]] pour mettre de caractère special  -->
+    <bank><![CDATA[Toto & Titi]]></bank>
+</Users>
