@@ -18,7 +18,9 @@
       <ul>
         <li>Accueil</li>
         <li>Boutique</li>
-        <li>Formulaire</li>
+        <li>
+          <a href="#form">Formulaire</a>
+        </li>
       </ul>
     </nav>
     <header>
@@ -87,10 +89,73 @@
       </div>
       <div>
         <h6><i>&#128526;</i>Vidéos</h6>
-        <video src="./video.mp4" autoplay muted loop></video>
+        <video src="./video.mp4"  height="300" autoplay muted loop></video>
       </div>
     </section>
+    <section id="form">
+      <h2>Les formulaires</h2>
+      <form action="">
+        <!-- "for" et "id" permettent de lier le label à l'input -->
+        <label for="name">Nom</label>
+        <input type="text" id="name" placeholder="Entrez votre nom">
+
+        <br/>
+
+        <label for="age">Entrez votre age</label>
+        <input type="number" id="age" value="18">
+
+        <br/>
+
+        <input type="date">
+
+        <br/> 
+
+        <!-- Input de type select -->
+        <label for="gender">Genre</label>
+        <select id="gender">
+          <option value="Homme">Homme</option>
+          <option selected="selected" value="Femme">Femme</option>
+          <option value="Value">Autre</option>
+        </select>
+
+        <br/>
+
+        <!-- Input de type radio -->
+         <div>
+          <input type="radio" name="type" id="human" checked/> 
+          <label for="human">Humain</label>
+
+          <input type="radio" name="type" id="human"/>
+          <label for="dog">Chien</label>
+
+          <input type="radio" name="type" id="human"/>
+          <label for="cat">Chat</label>
+         </div>
+         <textarea placeholder="votre message..."
+         cols="20"
+         rows="5"
+         ></textarea>
+
+         <br/>
+
+         <!-- Input de type checkbox -->
+          <input type="checkbox" name="" id="cgv"/>
+          <label for="cgv">Acceper les conditions générales</label>
+
+          <br/>
+
+          <!-- Input de type submit permet de valider  -->
+          <input type="submit" value="Ceci est le bouton pour valider le formulaires">
+        </form>
+        <button>Ceci est un bouton</button>
+    </section>
   </main>
-    <footer></footer>
+    <!-- Mail et envoi de fichiers -->
+    <footer>
+      <a href="mailto:fs@gmail.com">Contatez moi !</a>
+      <br/>
+      <a href="./notice.txt" download="notice">Télécharger la notice</a>
+
+    </footer>
   </body>
 </html>
