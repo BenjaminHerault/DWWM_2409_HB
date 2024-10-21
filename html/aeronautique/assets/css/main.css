@@ -1,0 +1,54 @@
+@font-face {
+    font-family: Verdana ;
+    src: url("../police/Verdana/Verdana-Bold.ttf") format("Verdana-Bold");
+}
+
+body{
+    background-color: #222222 ;
+    color: #FFFFFF ;
+    margin: 0%;
+    font-family: Verdana ;
+}
+h1,h2{
+    color:#CCFFCC ;
+}
+h1 {
+    font-size: 2em;
+}
+a{
+    color:#CCCCFF ;
+    text-decoration: none;
+}
+footer{
+   text-align: center;
+}
+#logo{
+
+    height: 100px;
+}
+header{
+    display: flex;
+    background-color:#224422;
+    justify-content: space-between;
+    height: 131px;
+}
+
+#menuHeader{
+    margin-top:0px;
+}
+#menuHeader a{
+    display: block;
+    width: 130px;
+    padding-left:15px;
+    padding-top: 3%;
+    background-color: #396139;
+}
+#menuHeader li{
+    list-style-type: none;
+    height: 23px;
+    margin-bottom: 4px;
+}
+#menuHeader a:hover{
+    background-color: #638b63;;
+}
+
