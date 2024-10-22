@@ -2,39 +2,45 @@
     font-family: Verdana ;
     src: url("../police/Verdana/Verdana-Bold.ttf") format("Verdana-Bold");
 }
-
+/*Mise en forme*/
 body{
-    background-color: #222222 ;
-    color: #FFFFFF ;
+    padding: 0%;
     margin: 0%;
     font-family: Verdana ;
+    background-color: #222222;
+    color: #FFFFFF; 
 }
 h1,h2{
-    color:#CCFFCC ;
-}
-h1 {
-    font-size: 2em;
+    color:  #CCFFCC;  
+    text-align: center;
 }
 a{
-    color:#CCCCFF ;
-    text-decoration: none;
+    color: #CCCCFF;
 }
 footer{
-   text-align: center;
+    text-align: center;
 }
-#logo{
 
+/*Menu et logo*/
+
+#logo{
     height: 100px;
 }
+#menuHeader a:hover{
+    background-color: #638b63;;
+}
+
 header{
     display: flex;
     background-color:#224422;
     justify-content: space-between;
     height: 131px;
 }
-
 #menuHeader{
-    margin-top:0px;
+    display: flex;
+    flex-direction:column ;
+    list-style-type: none;
+    margin-top: 0;
 }
 #menuHeader a{
     display: block;
@@ -44,11 +50,57 @@ header{
     background-color: #396139;
 }
 #menuHeader li{
-    list-style-type: none;
+    
     height: 23px;
     margin-bottom: 4px;
 }
-#menuHeader a:hover{
-    background-color: #638b63;;
+#menuHeader{ 
+    margin-top:0px;
+}
+
+
+.tableauStyle{
+    border-collapse: collapse;
+    min-width: 100%;
+    width: auto;
+    color: #222222;
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
+    text-align: left;
+}
+tbody tr:nth-child(even){
+    background-color: rgb(222, 222, 222);
+}
+th, td{
+    padding: 10px 15px;
+}
+th{
+    border-right: 1px solid rgb(102, 102, 173);
+    background-color: rgb(222, 222, 222);
+}
+tr{
+    border: 1px solid rgb(176, 176, 176)  ;
+}
+.bordurBlanch{
+    width: 50%;
+    margin: 2px;
+    border: 5px solid #FFFFFF;
+}
+.flexTableau{
+    display: flex;
+    justify-content: center;
+
+/*Photo avion*/
+}
+img{
+    height: 150px;
+    width: 230px;
+    border:  solid #FFFFFF;
+}
+.gridPhoto{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    text-align: center;
 }
 
