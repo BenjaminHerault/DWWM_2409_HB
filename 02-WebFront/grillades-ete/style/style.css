@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.principal{
+    display: grid;
+    height: 100vh;
+    grid-template-areas:
+    "s1 s1 s1 s1"
+    "s2 s3 s4 s4"
+    "s2 s5 s5 s6"
+    "s2 s7 s8 s9"
+    "s2 s10 s10 s10";
+    gap: 5px;
+}
+#s1{
+    grid-area: s1;
+}
+#s2{
+    grid-area: s2;
+}
+#s3{
+    grid-area: s3;
+}
+#s4{
+    grid-area: s4;
+}
+#s5{
+    grid-area: s5;
+}
+#s6{
+    grid-area: s6;
+}
+#s7{
+    grid-area: s7;
+}
+#s8{
+    grid-area: s8;
+}
+#s9{
+    grid-area: s9;
+}
+#s10{
+
+    grid-area: s10;
+}
+section{
+    background-color: #CCCC33 ;
+    color: #ffffff;
+    font-size: 40px;
+    padding-left: 15px;
+    padding-top: 15px;
+}

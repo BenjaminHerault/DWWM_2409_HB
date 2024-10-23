@@ -1,0 +1,36 @@
+body{
+    font-family: ariali;
+    margin: 0;
+    padding: 0;
+}
+nav{
+    display: flex;
+    justify-content: center;    
+    padding: 2%;
+    background-color: #e64b3c;
+    color: #FFFFFF; 
+}
+.container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.item1{
+    background-color: aqua;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+.item2{
+    background-color: beige;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+.item3{
+    background-color: gold;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
