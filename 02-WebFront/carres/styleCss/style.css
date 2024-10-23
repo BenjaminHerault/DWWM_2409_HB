@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: darkkhaki;
+}
+main{
+    display: grid;
+    height: 100vh;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "blanc blanc blanc blanc blanc blanc blanc blanc blanc blanc blanc"
+    ;
+}
+#rouge{
+    grid-area: rouge;
+}
+#noir{
+    grid-area: noir;
+}
+#blan {
+    grid-area: blanc;
+}
