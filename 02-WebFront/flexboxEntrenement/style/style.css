@@ -1,7 +1,3 @@
-@font-face{
-    font-family: ariali;
-    src: url("../police/arial/ARIAL.TTF");
-}
 body{
     font-family: ariali;
     margin: 0;
@@ -38,30 +34,3 @@ nav{
     height: 100px;
     margin: 10px;
 }
-
-
-
-.flexdiv{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-.chat1{
-    min-height: 0;
-    min-width: 0;
-}
-.chat2{
-    min-height: 0;
-    min-width: 0;
-}
-.chat3{
-    min-height: 0;
-    min-width: 0;
-}
-.image{
-    overflow: hidden;
-    min-height: 0;
-    min-width: 0;
-}
-

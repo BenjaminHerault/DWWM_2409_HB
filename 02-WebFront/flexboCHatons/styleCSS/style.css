@@ -1,0 +1,41 @@
+@font-face{
+    font-family: ariali;
+    src: url("../police/arial/ARIAL.TTF");
+}
+body{
+    font-family: ariali;
+    margin: 0;
+    padding: 0;
+    background-color: #ecf0f1;
+}
+nav{
+    display: flex;
+    justify-content: center;    
+    padding: 2%;
+    background-color: #e64b3c;
+    color: #FFFFFF; 
+}
+header{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+img{
+    width: 100%;
+}
+article{
+    width: 15%;
+    background-color: #FFFFFF;
+    margin: 10px;
+}
+h2{
+    color: #dd4e43;
+    margin-left: 2%;
+}
+p{
+    margin-left: 2%;
+    width: 95%;
+}
+
+
