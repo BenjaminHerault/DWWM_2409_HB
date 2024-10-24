@@ -1,0 +1,25 @@
+*{
+    margin: 0%;
+    padding: 0%;
+
+}
+body{
+    height: 100vh;
+    background-image:url("../photo/css-16-bg.gif") ;
+}
+main{
+    margin-top: 10%;
+    text-align: center;
+}
+.planet-1{
+    width: 10%;
+    height: 100%;
+}
+.planet-2{
+    width: 12%;
+    height: 100%;
+}
+.planet-3{
+    width: 15%;
+    height: 100%;
+}
