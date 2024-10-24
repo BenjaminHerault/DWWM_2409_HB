@@ -4,7 +4,7 @@
 }
 .principal{
     display: grid;
-    height: 100vh;
+    height: ;
     grid-template-areas:
     "s1 s1 s1 s1"
     "s2 s3 s4 s4"
