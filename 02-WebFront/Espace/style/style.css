@@ -1,0 +1,49 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+body{
+    background-image:url("../image/snow-black.gif"); 
+}
+
+main{
+    display: grid;
+    margin-top: 10%;
+    justify-content: center;
+    grid-template-columns:repeat(5, 100px);
+    grid-template-rows:repeat(5, 100px) ;
+    grid-template-areas: 
+    " . . . . . "
+    " . . . petit ."
+    ". . grand . ."
+    " . moyen . . ."
+    ;
+}
+#moncerclePetit{
+    grid-area: petit;
+    background:#ffffff;
+    border-radius:50%;
+    align-self: last baseline;
+    justify-self: right;
+    width:30px;
+    height:30px;
+    border:1px solid #ffffffeb;
+}
+  #moncercleMoyen{
+    grid-area: moyen;
+    background:#ffffff;
+    border-radius:50%;
+    width:43px;
+    height:43px;
+    border:1px solid #ffffffeb; 
+  }
+  #moncercleGrand{
+    grid-area: grand;
+    background:#ffffff;
+    border-radius:50%;
+    width:80px;
+    height:80px;
+    border:1px solid #ffffffeb; 
+    justify-self: center;
+    align-self: center;
+  }
