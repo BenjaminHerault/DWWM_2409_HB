@@ -1,0 +1,27 @@
+/* @font-face {
+    font-family: ;
+    src: url();
+} */
+*{
+    margin: 0%;
+    padding: 0%;
+    
+}
+
+ header{
+    background-image: url("../image/pagePrincipale/deuxPersonne.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+    width: 100%;
+    height: 806px;
+} 
+a{
+    display: flex;
+    color: aliceblue;
+    text-decoration: none;
+}
+/* h1{
+    font-size: 50vh;
+    color: rgb(6, 16, 221);
+    text-shadow: #ffffffff 5px 5px, #ffffffff -5px 5px, #ffffffff -5px -5px, #ffffffff 5px -5px;
+} */
