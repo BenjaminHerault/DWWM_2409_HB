@@ -1,27 +1,89 @@
-/* @font-face {
-    font-family: ;
-    src: url();
-} */
+@font-face {
+    font-family:karantinaBold;
+    src: url("../police/Karantina/Karantina-Bold.ttf");
+}
+@font-face {
+    font-family:karantinaLight ;
+    src: url("../police/Karantina/Karantina-Light.ttf");
+}
+@font-face {
+    font-family:karantinaRegular ;
+    src: url("../police/Karantina/Karantina-Regular.ttf");
+} 
+
+
 *{
     margin: 0%;
     padding: 0%;
-    
+}
+body{
+    font-family:karantinaRegular;
 }
 
+/*Premier pages*/
  header{
     background-image: url("../image/pagePrincipale/deuxPersonne.png");
     background-repeat:no-repeat;
     background-size:cover;
+    background-position-x: center;
     width: 100%;
-    height: 806px;
+    height: 100vh;
 } 
+ul{
+    text-align: center;
+}
 a{
-    display: flex;
+    display: inline-block;
     color: aliceblue;
     text-decoration: none;
+    height: 54px;
+    font-size: 30px;
+    color: #FFFFFF;
+    margin-top: 2%;
+    margin-right: 1%;
 }
-/* h1{
-    font-size: 50vh;
-    color: rgb(6, 16, 221);
-    text-shadow: #ffffffff 5px 5px, #ffffffff -5px 5px, #ffffffff -5px -5px, #ffffffff 5px -5px;
-} */
+ul :hover{
+    color: #26C1DC;
+}
+
+.conteneureHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 13%;
+    margin-right: 10%;
+}
+
+.TextPushYourLimit{
+    color: #FFFFFF;
+    font-size: 13vh;
+}
+.titreAGOGE{
+    display: flex;
+    justify-content: center;
+}
+h1{
+    font-family: karantinaRegular;
+    font-weight: normal;
+    color: #26C1DC;
+    font-size: 42vh;
+    letter-spacing: 5px;
+    text-shadow:
+    11px 11px 0 #ffffff,
+    -13px 11px 0 #ffffff,
+    -11px -13px 0 #ffffff,
+    13px -13px 0 #ffffff;
+}   
+.rondFleche{
+    display: flex;
+    justify-content: center;
+}
+.rondFleche img{
+    border-radius: 50%;
+    color: #26C1DC;
+    background-color:#26C1DC;
+}
+
+
+
