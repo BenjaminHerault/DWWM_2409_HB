@@ -151,14 +151,14 @@ h2{
     display: flex;
     flex-direction: column;
 }
-.titreSection{
+.titreSectionPrincipale{
     text-align: center;
     color: #26C1DC;
     margin-top:2% ;
     font-size: 70px;
     letter-spacing: 4px;
 }
-.texteSection{
+.texteSectionPrincipale{
     text-align: center;
     margin-top: 2%;
     margin-bottom: 4%;
@@ -185,7 +185,7 @@ h2{
 .section1 .titreEtMotScection{
     background-image: url("../image/programme/image1.png");
     background-size:cover;
-
+    
 }
 .section1{
     grid-area: section1;
@@ -246,14 +246,38 @@ h2{
 .section8{
     grid-area: section8;
 }
+/****************************/
+/* le texte qui s'afficher  */
+/****************************/
 .sec{
-    color:#FFFFFF ;
+    width: 100%;
+    position: relative;
+}
+.sec:hover .sectionTitreEtTexteAfficher{
+    opacity: 1;
+}
+.sectionTitreEtTexteAfficher{
+    position: absolute;
+    color: white;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #26C1DCCF ;
+}
+.titreSection{
+    font-family:karantinaBold ;
+    position: absolute;
+    left: 15%;
+    margin-top: 80%;
+    font-size: 6vh;
+}
+.texteSection{
+    font-family:karantinaLight ;
+    position: absolute;
+    font-size: 4vh;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    letter-spacing: 1px;
 }
 
-
-/* .blockSection:hover .texteSection{
-    opacity: 1; 
-}
-.titreEtMotScection{
-    
-} */
