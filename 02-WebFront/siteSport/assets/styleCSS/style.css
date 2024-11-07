@@ -22,8 +22,9 @@
 body{
     font-family:karantinaRegular;
 }
-
+/*********************/
 /*Premier pages*/
+/*********************/
  header{
     width: 100%;
     height: 100%;
@@ -91,7 +92,9 @@ h1{
     color: #26C1DC;
     background-color:#26C1DC;
 }
+/*********************/
 /*deuxiemnt pages*/
+/*********************/
 main{
     width: 100%;
     height: 100%;
@@ -137,11 +140,120 @@ h2{
     justify-content: center;
     margin-top: 2%;
 }
+/*********************/
 /* 3 eme pages */
-
-section{
+/*********************/
+.dimenstionSection{
     width: 100%;
     height: 100%;
 }
+.titreTexteSection{
+    display: flex;
+    flex-direction: column;
+}
+.titreSection{
+    text-align: center;
+    color: #26C1DC;
+    margin-top:2% ;
+    font-size: 70px;
+    letter-spacing: 4px;
+}
+.texteSection{
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 4%;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+/*************************************/
+/*LA parti avec les 8 images et texte*/
+/*************************************/
+.blockSection{
+    display: grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-template-rows:repeat(2 ,1fr) ;
+    grid-template-areas:
+    "section1 section2 section3 section4"
+    "section5 section6 section7 section8"
+    ;
+}
+.titreEtMotScection{
+    height: 100vh;
+    width: 100%;
+}
+.section1 .titreEtMotScection{
+    background-image: url("../image/programme/image1.png");
+    background-size:cover;
+
+}
+.section1{
+    grid-area: section1;
+}
+
+.section2 .titreEtMotScection{
+    background-image: url("../image/programme/image2.png");
+    background-size:cover;
+}
+.section2{
+    grid-area: section2;
+}
+
+.section3 .titreEtMotScection{
+    background-image: url("../image/programme/image3.png");
+    background-size:cover;
+}
+.section3{
+    grid-area: section3;
+}
+
+.section4 .titreEtMotScection{
+    background-image: url("../image/programme/image4.png");
+    background-size:cover;
+}
+.section4{
+    grid-area: section4;
+}
+
+.section5 .titreEtMotScection{
+    background-image: url("../image/programme/image5.png");
+    background-size:cover;
+}
+.section5{
+    grid-area: section5;
+}
+
+.section6 .titreEtMotScection{
+    background-image: url("../image/programme/image6.png");
+    background-size:cover;
+}
+.section6{
+    grid-area: section6;
+}
+
+.section7 .titreEtMotScection{
+    background-image: url("../image/programme/image7.png");
+    background-size:cover;
+}
+.section7{
+    grid-area: section7;
+}
+
+.section8 .titreEtMotScection{
+    background-image: url("../image/programme/image8.png");
+    background-size:cover;
+}
+.section8{
+    grid-area: section8;
+}
+.sec{
+    color:#FFFFFF ;
+}
 
 
+/* .blockSection:hover .texteSection{
+    opacity: 1; 
+}
+.titreEtMotScection{
+    
+} */
