@@ -37,10 +37,10 @@ body{
     width: 100%;
     height: 100vh;
 }
-ul{
+.ulHeader{
     text-align: center;
 }
-a{
+.aHeader{
     display: inline-block;
     color: aliceblue;
     text-decoration: none;
@@ -50,7 +50,7 @@ a{
     margin-top: 2%;
     margin-right: 1%;
 }
-ul :hover{
+.ulHeader :hover{
     color: #26C1DC;
 }
 
@@ -95,10 +95,7 @@ h1{
 /*********************/
 /*deuxiemnt pages*/
 /*********************/
-main{
-    width: 100%;
-    height: 100%;
-}
+
 .conteneurMain{
     display: flex;
     background-color:#26C1DC ;
@@ -125,7 +122,7 @@ h2{
 }
 .imageMain img{
     width: 607px;
-    height: 100%;
+    height: 903px;
 }
 .titreImageMain {
     font-family:karantinaBold ;
@@ -267,7 +264,7 @@ h2{
 .titreSection{
     font-family:karantinaBold ;
     position: absolute;
-    left: 15%;
+    left: 10%;
     margin-top: 80%;
     font-size: 6vh;
 }
@@ -280,4 +277,37 @@ h2{
     bottom: 10%;
     letter-spacing: 1px;
 }
+/*****************/
+/*Pages de france */
+/******************/
 
+.conteneurSectionP4{
+   display: flex;
+   justify-content: space-between;
+   background-color:#D9D9D9 ;
+}
+.titreP4{
+    color: #2E3436;
+    font-size: 3vh;
+}
+.sectionTitreUlP4{
+    width: 384px;
+    height: 672px;
+    margin-left: 5%;
+}
+.ulCarteP4 ul{
+    display: flex;
+    flex-direction: column;
+}
+.carteImageFrance{
+    background-image: url("../image/carteDeFRance/Carte_France.png");
+    background-size:contain;
+    background-size: cover;
+    width: 762px;
+    height: 801px;
+    margin-right: 20%;
+}
+.placementPoint{
+    width: 762px;
+    height: 801px;
+}
