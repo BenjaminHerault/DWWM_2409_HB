@@ -1,0 +1,15 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: red;
+}
+ul{
+    padding: 1.4em;
+}
+img{
+    height: 6em;
+}

@@ -289,25 +289,72 @@ h2{
 .titreP4{
     color: #2E3436;
     font-size: 3vh;
+    letter-spacing: 3px;
 }
 .sectionTitreUlP4{
     width: 384px;
     height: 672px;
-    margin-left: 5%;
+    margin-left: 7%;
+    margin-top: 5%;
 }
-.ulCarteP4 ul{
+.ulCarteP4 .ulPage4section{
     display: flex;
     flex-direction: column;
+    margin-top: 20%;
 }
-.carteImageFrance{
-    background-image: url("../image/carteDeFRance/Carte_France.png");
-    background-size:contain;
-    background-size: cover;
-    width: 762px;
-    height: 801px;
-    margin-right: 20%;
+.ilPage4Section{
+    font-size: 4vh;
 }
+
+
+/*************************/
+        /*CARTE */
+/*************************/
 .placementPoint{
     width: 762px;
-    height: 801px;
+    height: 41.719vw;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+.carteImageFrance{
+    position: relative;
+    background-image: url("../image/carteDeFRance/Carte_France.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+.icon{
+    position: absolute;
+}
+.lillesIcon{
+    left: 460px;
+}
+.parisIcon{
+    left: 400px;
+    top: 200px;
+}
+.rennesIcon{
+    left: 140px;
+    top: 170px;
+}
+.strasbourgIcon{
+    left: 700px;
+    top: 180px;
+}
+.nantesIcon{
+    left: 145px;
+    top: 270px;
+}
+.lyonIcon{
+    left: 550px;
+    bottom: 300px;
+}
+.marseilleIcon{
+    left: 525px;
+    bottom: 110px;
+}
+.bordeauxIcon{
+    left: 180px;
+    bottom: 300px;
 }
