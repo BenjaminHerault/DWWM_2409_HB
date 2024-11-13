@@ -1,19 +1,18 @@
-
 *{
     margin: 0;
     padding: 0;
 }
-
 header{
-    background-color: red;
-    
+ 
+
     img{
-        height: 6em;
+        padding: 1em;
+        height: 3em;
     }
-    #menu{
-        display: flex;
-        padding: 2em;
-        justify-content: center;
+    #headDiv{
+       display: flex; 
+       padding: 2em;
+       justify-content: center;
     }
     ul{
         display: flex;
@@ -21,21 +20,20 @@ header{
         list-style: none;
         gap: 1em;
     }
-    a {
+    a{
         display: block;
         align-content:  center;
         height: 100%;
+        font-size: 22px;
+        text-decoration: none;
+        color: black;
+    } 
+    #couleurBleu{
+        color: rgb(0, 114, 244);
     }
 }
-    /* ou 
-header img{
-    height: 6em;
-} */
-
-
-#banner{
+#sectionChausseure{
     min-height:50em ;
-    background-image: url("https://cdn.pixabay.com/photo/2023/09/25/20/38/lisbon-8275994_1280.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position:center;
@@ -43,15 +41,16 @@ header img{
     align-items: center;
     justify-content: center;
 
-    #bannerTile{
+    #photoChaussure{
         text-align: center;
 
         img{
-            height: 10em;
+            height: 20em;
+            padding-bottom: 4em;
         }
 
         h1{
-            font-size: 2em;
+            font-size: 3em;
         }
     }
 }
