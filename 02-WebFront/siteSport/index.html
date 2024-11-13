@@ -44,8 +44,7 @@
                 <img  src="./assets/image/icone/Arrow down-circle.png" alt="une fleche qui montre le bas dans un rond">
             </div>
         </div>
-    </header>
-        
+    </header> 
     <!-- ***************************** -->
     <!-- La 2 eme PAGES  -->
     <!-- ***************************** -->
@@ -261,38 +260,45 @@
     <!-- **************************** -->
     <!-- 5 eme pages questionnaire  -->
     <!-- ---------------------- -->
-        <section class="conteneurSectionP5">
-            <h4 class="titreQuestionnaire">VOTRE AVENTURE COMMENCE BIENTÔT. REJOIGNEZ-NOUS</h4>
-            <form action="">
-                <label for="name">Nom
-                    <input type="text" id="name" placeholder="Entrez votre nom">
-                </label>
+        <section id="conteneurSectionP5">
+            <div class="imageQuestionner">
                 
-                <br>
+                <h4 class="titreQuestionnaire">VOTRE AVENTURE COMMENCE BIENTÔT. REJOIGNEZ-NOUS</h4>
+                <article>
+                    <form action="" method="">
 
-                <label for="prenom">Prénom
-                    <input type="text" id="prenom" placeholder="Entrez votre Prénom">
-                </label>
+                        <div class="tableau">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" name="Nom" placeholder="Entrez votre nom">
+                        </div>
+    
+                        <div class="tableau">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" id="prenom" name="Prenom" placeholder="Entrez votre Prénom">
+                        </div>
+    
+                        <div class="tableau">
+                            <label for="telephone">Téléphone</label>
+                            <input type="text" id="telephone" name="telephone" placeholder="Entrez votre Téléphone">
+                        </div>
+    
+                        <div class="tableau">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="Email" placeholder="Entrez votre Email">
+                        </div>
+    
+                        <div class="tableau">
+                            <label for="mess">Parlez-nous de votre objectif</label>
+                            <textarea placeholder="Votre message" id="mess"></textarea>
+                        </div>
+    
+                        <div class="tableau">
+                            <input type="submit" value="Nous contater">
+                        </div>
+                    </form>
+                </article>
 
-                <br>
-
-                <label for="name">Téléphone
-                    <input type="text" id="telephone" placeholder="Entrez votre Téléphone">
-                </label>
-
-                <br>
-
-                <label for="name">Email
-                    <input type="text" id="email" placeholder="Entrez votre Email">
-                </label>
-
-                <br>
-                
-                <label for="name"></label>
-                <textarea placeholder="Votre message" id=""></textarea>
-            </form>
-
-
+            </div>
         </section>
     </main>
     <footer>

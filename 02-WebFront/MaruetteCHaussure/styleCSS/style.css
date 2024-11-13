@@ -6,12 +6,14 @@ header{
  
 
     img{
-        padding: 1em;
         height: 3em;
+        align-self: center;
     }
     #headDiv{
        display: flex; 
+       flex-wrap: wrap;
        padding: 2em;
+       text-align: center;
        justify-content: center;
     }
     ul{

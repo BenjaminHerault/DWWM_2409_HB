@@ -25,7 +25,7 @@ body{
 /*********************/
 /*Premier pages*/
 /*********************/
- header{
+header{
     width: 100%;
     height: 100%;
 } 
@@ -42,7 +42,6 @@ body{
 }
 .liHeader{
     display: inline-block;
-
     height: 54px;
     font-size: 30px;
     color: #FFFFFF;
@@ -94,7 +93,7 @@ h1{
     border-radius: 50%;
     color: #26C1DC;
     background-color:#26C1DC;
-}
+} 
 /*********************/
 /*deuxiemnt pages*/
 /*********************/
@@ -261,7 +260,7 @@ h2{
     color: white;
     opacity: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: #26C1DCCF ;
 }
 .titreSection{
@@ -361,4 +360,53 @@ h2{
     left: 180px;
     bottom: 300px;
 }
+
+/***************/
+    /*Page 5 */
+/***************/
+
+.imageQuestionner{
+    /* position: relative; */
+    background-image: url("../image/finDePages/uneFemme.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position-x: right;
+    width: 100%;
+    height: 100vh;
+}
+.titreQuestionnaire{
+    color: #ffffff;
+    font-size: 4vh;
+    /* position: absolute; */
+}
+form{
+
+    /* position: absolute; */
+    background-color: rgba(255, 255, 255, 0.9);
+    height:678px;
+    width:565px; 
+    left: 300px;
+    top: 200px; 
+    background-color: #ffffff;
+}
+.tableau{
+    display: flex;
+    flex-direction: column;
+    padding-left:5% ;
+    padding-right: 5%;
+    padding-top: 5%;
+    
+}
+label{
+    font-family:Roboto-Black ;
+    font-size: 1em;
+
+}
+article{
+    display: flex;
+    justify-content: center;
+
+}
+
+
 
