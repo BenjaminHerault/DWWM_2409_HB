@@ -40,15 +40,18 @@ body{
 .ulHeader{
     text-align: center;
 }
-.aHeader{
+.liHeader{
     display: inline-block;
-    color: aliceblue;
-    text-decoration: none;
+
     height: 54px;
     font-size: 30px;
     color: #FFFFFF;
     margin-top: 2%;
     margin-right: 1%;
+}
+.aHeader{
+    color: aliceblue;
+    text-decoration: none;
 }
 .ulHeader :hover{
     color: #26C1DC;
@@ -294,7 +297,7 @@ h2{
 .sectionTitreUlP4{
     width: 384px;
     height: 672px;
-    margin-left: 7%;
+    padding-left: 7%;
     margin-top: 5%;
 }
 .ulCarteP4 .ulPage4section{
@@ -358,3 +361,4 @@ h2{
     left: 180px;
     bottom: 300px;
 }
+
