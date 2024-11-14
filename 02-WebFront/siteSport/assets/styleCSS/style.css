@@ -367,14 +367,16 @@ h2{
 #conteneurSectionP5{
     background-image: url("../image/finDePages/uneFemme.png");
     background-repeat:no-repeat;
-    background-size:cover;
+    background-size: 100% 100%;
     background-position-x: right;
     width: 100%;
     min-height: 100vh;
-    z-index: 0;
+}
+
+#fondDeCouleur{
+    background-color: #123940ab;
 }
 .imageQuestionner{
-    z-index: 1;
     width: 80%;
     height: 100vh;
     margin: auto;
@@ -383,22 +385,21 @@ h2{
     color: #ffffff;
     font-size: 4vh;
     display: flex;
-    width: 440px;
+    width: 500px;
     padding-top: 15%;
     padding-bottom: 10%;
+    letter-spacing: 3px;
 }
 article{
-    display: flex;
-    justify-content: center;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 form{
-    background-color: rgba(255, 255, 255, 0.9);
-    height:600px;
+    height:650px;
     width:565px; 
     background-color: #ffffff;
+    border-radius: 10px;
 }
 .tableau{
     display: flex;
@@ -412,14 +413,66 @@ label{
     font-size: 1em;
 }
 .inputForm{
-    height: 26px;
-    border: solid 1px #f1000091;
+    height: 40px;
+    padding-left: 10px;
+    border: solid 1px #d9d9d9;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 .texteForm{
     height: 80px;
+    padding-left: 10px;
+    border: solid 1px #d9d9d9;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 14px;
 }
 .conteurPag5{
    width: fit-content;
 } 
+.inputFormBouton{
+    background-color: black;
+    color: #FFFFFF;
+    height: 4vh;
+    border-radius: 10px;
+}
 
-
+/*************************/
+/* Le footer dernier pages*/
+/*************************/
+.footerDernnierPages{
+    background-color: #133135 ;
+    width: 100%;
+    height: 528px;
+    display: flex;
+    gap: 3%;
+}
+#infoFooter{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+}
+.logo{
+    margin-top: 4%;
+    margin-left: 25px ;
+}
+#pourSuivreFooter{
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    align-content: center;
+}
+.titreFooter{
+    color: #FFFFFF ;
+    font-size: 5vh;
+    letter-spacing: 2px;
+}
+.textFooter{
+    font-family: karantinaLight;
+    color: #FFFFFF ;
+    font-size: 3vh;
+    letter-spacing: 1px;
+}
