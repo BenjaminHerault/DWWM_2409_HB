@@ -366,7 +366,6 @@ h2{
 /***************/
 
 .imageQuestionner{
-    /* position: relative; */
     background-image: url("../image/finDePages/uneFemme.png");
     background-repeat:no-repeat;
     background-size:cover;
@@ -377,11 +376,18 @@ h2{
 .titreQuestionnaire{
     color: #ffffff;
     font-size: 4vh;
-    /* position: absolute; */
+    display: flex;
+    justify-content: center;
+}
+article{
+    display: flex;
+    justify-content: center;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 form{
-
-    /* position: absolute; */
     background-color: rgba(255, 255, 255, 0.9);
     height:678px;
     width:565px; 
@@ -395,18 +401,12 @@ form{
     padding-left:5% ;
     padding-right: 5%;
     padding-top: 5%;
-    
 }
 label{
     font-family:Roboto-Black ;
     font-size: 1em;
-
 }
-article{
-    display: flex;
-    justify-content: center;
 
-}
 
 
 
