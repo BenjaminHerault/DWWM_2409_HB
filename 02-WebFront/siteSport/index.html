@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styleCSS/style.css">
     <link rel="stylesheet" href="./assets/styleCSS/responsive.css">
+    <script src="./assets/JS/style.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -12,25 +13,37 @@
     <!-- ***************************** -->
     <!-- La 1 eme PAGES  -->
     <!-- ***************************** -->
+  
+    
     <header>
         <div class="imgPrincipale">
             <nav>
-                <ul class="ulHeader">
-                    <li class="liHeader">
-                        <a class="aHeader" href="#concept">CONCEPT</a>
-                    </li>
-                    <li class="liHeader">
-                        <a class="aHeader" href="#programmes">NOS PROGRAMMES</a>
-                    </li>
-                    <li class="liHeader">
-                        <a class="aHeader" href="#clubs">NOS CLUBS</a>
-                    </li>
-                    <li class="liHeader">
-                        <a class="aHeader" href="#inscrire">S'INSCRIRE</a>
-                    </li>
-                </ul>
+                <div id="mySidenav" class="sidenav">
+                    <a id="closeBtn" href="" class="close">x</a>
+                    <ul class="ulHeader">
+                        <li class="liHeader">
+                            <a class="aHeader" href="#concept">CONCEPT</a>
+                        </li>
+                        <li class="liHeader">
+                            <a class="aHeader" href="#programmes">NOS PROGRAMMES</a>
+                        </li>
+                        <li class="liHeader">
+                            <a class="aHeader" href="#clubs">NOS CLUBS</a>
+                        </li>
+                        <li class="liHeader">
+                            <a class="aHeader" href="#inscrire">S'INSCRIRE</a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
+
+            <a href="#" id="openBtn">
+                <span class="burger-icon">
+                    <span>&#x2630</span>
+                </span>
+            </a>
             
+
             <div class="conteneureHeader">
                 <div class="TextPushYourLimit">
                     <p>PUSH</p>
@@ -208,7 +221,7 @@
                 </h4>
                 <nav class="ulCarteP4">
                     <ul class="ulPage4section">
-                        <li class="ilPage4Section">LILLES</li>
+                        <li class="ilPage4Section">LILLE</li>
                         <li class="ilPage4Section">PARIS</li>
                         <li class="ilPage4Section">RENNES</li>
                         <li class="ilPage4Section">STRASBOURG</li>
@@ -222,8 +235,6 @@
             
             <div class="carte">
                 <canvas id="canvas" width="762px" height="801px" ></canvas>
-
-                <script src="./assets/JS/style.js"></script>
             </div>
         </section>
 

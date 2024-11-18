@@ -55,7 +55,12 @@ header{
 .ulHeader :hover{
     color: #26C1DC;
 }
-
+.close{
+    display: none;
+}
+#openBtn{
+    display: none;
+}
 .conteneureHeader{
     display: flex;
     justify-content: center;

@@ -14,7 +14,7 @@ img.src = 'assets/image/carteDeFrance/Carte_France.png';
 
      
 // Fonction pour ajouter des icônes
-function addIcon(x, y, iconSrc) {
+function addIcon(x, y) {
     const icon = new Image();
     icon.onload = function() {
         ctx.drawImage(icon, x - icon.width / 2, y - icon.height / 2);
@@ -40,3 +40,20 @@ const positions = [
 positions.forEach(function(pos) {
     addIcon(pos.x, pos.y, pos.src);
 });
+
+const sidenav = document.getElementById("mySidenav")
+const openBtn = document.getElementById("openBtn")
+const closeBtn = document.getElementById("closeBtn")
+
+openBtn.addEventListener("click", openNav);
+closeBtn.addEventListener("click", closeNav);
+
+function openNav(e){
+    e.preventDefault()
+    sidenav.classList.add("active");
+}
+
+function closeNav(e){
+    e.preventDefault()
+    sidenav.classList.remove("active");
+}
