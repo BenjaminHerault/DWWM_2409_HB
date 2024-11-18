@@ -26,16 +26,16 @@ body{
 /*Premier pages*/
 /*********************/
 header{
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
 } 
 .imgPrincipale{
     background-image: url("../image/pagePrincipale/deuxPersonne.png");
     background-repeat:no-repeat;
     background-size:cover;
     background-position-x: center;
-    width: 100%;
-    height: 100vh;
+    min-width: 100%;
+    min-height: 100vh;
 }
 .ulHeader{
     text-align: center;
@@ -101,8 +101,8 @@ h1{
 .conteneurMain{
     display: flex;
     background-color:#26C1DC ;
-    width: 100%;
-    height: 100vh;
+    min-width: 100%;
+    min-height: 100vh;
 }
 .titreMainEttexte{
     display: block;
@@ -145,8 +145,8 @@ h2{
 /* 3 eme pages */
 /*********************/
 .dimenstionSection{
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
 }
 .titreTexteSection{
     display: flex;
@@ -180,8 +180,8 @@ h2{
     ;
 }
 .titreEtMotScection{
-    height: 100vh;
-    width: 100%;
+    min-height: 100vh;
+    min-width: 100%;
 }
 .section1 .titreEtMotScection{
     background-image: url("../image/programme/image1.png");
@@ -261,8 +261,8 @@ h2{
     position: absolute;
     color: white;
     opacity: 0;
-    width: 100%;
-    height: 100vh;
+    min-width: 100%;
+    min-height: 100vh;
     background-color: #26C1DCCF ;
 }
 .titreSection{
@@ -288,93 +288,49 @@ h2{
 .conteneurSectionP4{
    display: flex;
    justify-content: space-between;
+   flex-wrap: wrap;
    background-color:#D9D9D9 ;
-   width: 100%;
-   height: 100vh;
+   min-width:100%;
+   min-height: 100vh; 
 }
 .titreP4{
     color: #2E3436;
-    font-size: 3vh;
+    font-size: 4vh;
     letter-spacing: 3px;
 }
 .sectionTitreUlP4{
-    width: 384px;
-    height: 672px;
+    width: 27%;
     padding-left: 7%;
     margin-top: 5%;
 }
 .ulCarteP4 .ulPage4section{
     display: flex;
     flex-direction: column;
-    margin-top: 20%;
+    padding-top: 10%;
 }
 .ilPage4Section{
     font-size: 4vh;
-    
+    padding-top: 4%;
 }
-
 
 /*************************/
         /*CARTE */
 /*************************/
-/* .placementPoint{
-    width: 762px;
-    height: 41.719vw;
-    margin-right: 5%;
-    margin-top: 5%;
+
+.carte{
+  padding-right: 2%; 
 }
-.carteImageFrance{
-    position: relative;
-    background-image: url("../image/carteDeFRance/Carte_France.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-}
-.icon{
-    position: absolute;
-}
-.lillesIcon{
-    left: 460px;
-}
-.parisIcon{
-    left: 400px;
-    top: 200px;
-}
-.rennesIcon{
-    left: 140px;
-    top: 170px;
-}
-.strasbourgIcon{
-    left: 700px;
-    top: 180px;
-}
-.nantesIcon{
-    left: 145px;
-    top: 270px;
-}
-.lyonIcon{
-    left: 550px;
-    bottom: 300px;
-}
-.marseilleIcon{
-    left: 525px;
-    bottom: 110px;
-}
-.bordeauxIcon{
-    left: 180px;
-    bottom: 300px;
-} */
+
 
 /***************/
     /*Page 5 */
 /***************/
-#conteneurSectionP5{
+.conteneurSectionP5{
     background-image: url("../image/finDePages/uneFemme.png");
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-position-x: right;
-    width: 100%;
+    min-width: 100%;
     min-height: 100vh;
 }
 
@@ -447,7 +403,7 @@ label{
 /*************************/
 .footerDernnierPages{
     background-color: #133135 ;
-    width: 100%;
+    min-width: 100%;
     height: 528px;
     display: flex;
     gap: 3%;
