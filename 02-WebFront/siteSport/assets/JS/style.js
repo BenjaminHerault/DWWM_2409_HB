@@ -1,3 +1,5 @@
+
+// Carte de france
 const Canvas = document.getElementById('mapCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -40,6 +42,8 @@ const positions = [
 positions.forEach(function(pos) {
     addIcon(pos.x, pos.y, pos.src);
 });
+
+//Menu Burger 
 
 const sidenav = document.getElementById("mySidenav")
 const openBtn = document.getElementById("openBtn")

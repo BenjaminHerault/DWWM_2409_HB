@@ -3,6 +3,9 @@
         margin: 0;
         padding: 0;
     }
+
+
+    /*Menu Burger*/
     .close{
         display: block;
     }
@@ -16,14 +19,14 @@
     .sidenav{
         display: flex;
         flex-direction: column;
-        height: 32%;
+        height: 35%;
         width: 100%;
         position: fixed;
         z-index: 1;
         top: 0;
         right: -100%; 
         background-color: #e8e8e8;
-        padding-top: 60px;
+        padding-top: 20px;
         transition: right 0.5s ease;
     } 
     .sidenav a {
@@ -35,7 +38,7 @@
         transition: 0.3s;
     }
     .sidenav a:hover{
-        color: #111;
+        color: #26C1DC;
         transform: rotatex(360deg);
     }
     .sidenav ul{
@@ -58,16 +61,104 @@
         display: flex;
         justify-content: right;
     }
-    .burger-icon span{
-        display: block;
-        width: 35px;
-        height: 5px;
-        background-color: black;
-        margin: 6px 0;
+ /*texte premier pages*/
+    .conteneureHeader{
+        display: flex;
+        flex-direction: column;
+        margin-right: 0;
+        padding-bottom: 0;
+        padding-top: 0;
     }
-     .burger-icon span {
-        margin-top: 0px;
-        padding-top: 0px;
-    }  
+    .TextPushYourLimit{
+        width: 100%;
+        margin-bottom: -50px;
+        text-align: center;
+    }
+    /*Pages 2*/
+    .imageMain{
+        display: none;
+    }
+    .titreMainEttexte{
+        text-align: center;
+    }
+    .textePage2{
+        font-size: 3vh;
+    }
+    .imageFlecheMain{
+        padding-bottom: 10%;
+    }
+    /*page 3 avec les 8 images*/
+    
+
+
+    /*page 4 avec la carte */
+    .sectionTitreUlP4{
+        width: 100%;
+    }
+    canvas{
+        width: 45%;
+    }
+    .conteneurSectionP4{
+        justify-content: space-between;
+    }
+    .carte{
+        display: flex;
+        width: 1500px;
+        
+        margin-bottom: 2%;
+        justify-content: center;
+    }
+
+    /*pages 5 questionner*/
+    .imageQuestionner{
+        display: flex;
+        justify-content: center;
+    }
+    .titreQuestionnaire{
+        text-align: center;
+    }
+    /*dernier pages*/
+    .footerDernnierPages{
+        width: 100%;
+        display: block;
+    }
+    #infoFooter{
+        display: flex;
+        width: 95%;
+        height: 25vh;
+    }
+    #pourSuivreFooter{
+        height: 25vh;
+        text-align: center;
+    }
+    .titreFooter{
+        text-align: center;
+    }
+    .logo{
+        margin-top: 20px;
+        padding-left: 20px;
+    }
+    .textFooter{
+        padding-top: 30px;
+    }
+    /*Carousel*/
+
+    .blockSection{
+        display: none;
+    }
+    
+
+    .cantainerCarousel{
+        overflow: hidden;
+    }
+    .carousel{
+        position: relative;
+    }
+    .carousel-inner{
+        display: flex;
+        overflow: hidden;
+        height: 100vh;
+        flex-wrap: nowrap;
+    }
 
 }
