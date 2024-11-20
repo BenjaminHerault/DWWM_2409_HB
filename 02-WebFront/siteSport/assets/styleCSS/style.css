@@ -253,9 +253,9 @@ h2{
 .section8{
     grid-area: section8;
 }
-/* .carousel-mini{
+.carousel-mini{
     display: none;
-}  */
+}  
 /****************************/
 /* le texte qui s'afficher  */
 /****************************/
@@ -266,8 +266,9 @@ h2{
 .sec:hover .sectionTitreEtTexteAfficher{
     opacity: 1;
 }
+
 .sectionTitreEtTexteAfficher{
-    position: absolute;
+
     color: white;
     opacity: 0;
     min-width: 100%;

@@ -77,9 +77,6 @@ function closeNav(e){
     "use stict"
     // Déclare la constante pour la durée de chaque slide
     const slideTimeout = 5000;
-    // Récupère les boutons de navigation
-    const prev = document.querySelector('#prev');
-    const next = document.querySelector('#next');
     // Récupère tous les éléments de type "slide"
     const $slides = document.querySelectorAll('.slide');
     // Initialisation de la variable pour les "dots"
