@@ -1,23 +1,213 @@
 *{
     margin: 0;
     padding: 0;
-    background-color: darkkhaki;
+   background-color: #ffffff;
 }
 main{
     display: grid;
-    height: 100vh;
-    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas:
-    "blanc blanc blanc blanc blanc blanc blanc blanc blanc blanc blanc"
+    margin-top: 5%;
+    justify-content: center;
+    grid-template-columns:repeat(9,50px);
+    grid-template-rows:repeat(9 ,50px) ;
+    grid-template-areas: 
+    ". . noirL1P1 noirL1P1 . noirL1P2 noirL1P2 . . "
+    ". noirL2P1 rougeL2P1 rougeL2P1 noirL2P2 rougeL2P2 rougeL2P2 noirL2P3 ." 
+    "noirL3P1 rougeL3P1 blancL3P1 rougeL3P2 rougeL3P2 rougeL3P2 rougeL3P2 rougeL3P2 noirL3P2"
+    "noirL4P1 rougeL4P1 rougeL4P1 rougeL4P1 rougeL4P1 rougeL4P1 rougeL4P1 rougeL4P1 noirL4P2"
+    "noirL5P1 rougeL5P1 rougeL5P1 rougeL5P1 rougeL5P1 rougeL5P1 rougeL5P1 rougeL5P1 noirL5P2" 
+    ". noirL6P1 rougeL6P1 rougeL6P1 rougeL6P1 rougeL6P1 rougeL6P1 noirL6P2 ." 
+    ". . noirL7P1 rougeL7P1 rougeL7P1 rougeL7P1 noirL7P2 . ." 
+    ". . . noirL8P1 rougeL8P1 noirL8P2 . . ." 
+    ". . . . noirL9P1. . . ." 
     ;
 }
-#rouge{
-    grid-area: rouge;
+
+/*ligne 1*/
+.noirL1P1{
+    grid-area: noirL1P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-#noir{
-    grid-area: noir;
+.noirL1P2{
+    grid-area: noirL1P2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-#blan {
-    grid-area: blanc;
+
+/*ligne 2*/
+.noirL2P1{
+    grid-area: noirL2P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.noirL2P2{
+    grid-area: noirL2P2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.noirL2P3{
+    grid-area: noirL2P3;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.rougeL2P1{
+    grid-area: rougeL2P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.rougeL2P2{
+    grid-area: rougeL2P2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*ligne*/ 
+.noirL3P1{
+    grid-area: noirL3P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.noirL3P2{
+    grid-area: noirL3P2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.noirL3P3{
+    grid-area: noirL3P3;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.rougeL3P1{
+    grid-area: rougeL3P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.rougeL3P2{
+    grid-area: rougeL3P2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.blancL3P1{
+    grid-area: blancL3P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/*ligne 4*/
+.noirL4P1{
+    grid-area: noirL4P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.noirL4P2{
+    grid-area: noirL4P2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.rougeL4P1{
+    grid-area: rougeL4P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*ligne 5*/
+.noirL5P1{
+    grid-area: noirL5P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.noirL5P2{
+    grid-area: noirL5P2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.rougeL5P1{
+    grid-area: rougeL5P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*ligne 6*/
+.noirL6P1{
+    grid-area: noirL6P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.noirL6P2{
+    grid-area: noirL6P2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.rougeL6P1{
+    grid-area: rougeL6P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*ligne 7*/
+.noirL7P1{
+    grid-area: noirL7P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.noirL7P2{
+    grid-area: noirL7P2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.rougeL7P1{
+    grid-area: rougeL7P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*ligne */
+.noirL8P1{
+    grid-area: noirL8P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.noirL8P2{
+    grid-area: noirL8P2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.rougeL8P1{
+    grid-area: rougeL8P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*ligne */
+.noirL9P1{
+    grid-area: noirL9P1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

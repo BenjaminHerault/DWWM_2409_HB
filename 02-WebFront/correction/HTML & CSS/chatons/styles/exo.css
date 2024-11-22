@@ -1,0 +1,51 @@
+body{
+
+    margin:0;
+    padding:0;
+    font-family: arial;
+    background-color: #d1cfcf;
+}
+
+header{
+
+    width:100%;
+    padding-top:1em;
+    padding-bottom:1em;
+    background-color: #E64B3C;
+    color:white;
+    text-align: center;
+}
+
+
+.card{
+
+    h3{
+
+        color:#E64B3C;
+        font-size: 25px;
+    }
+}
+
+
+#cat1{
+
+    background-image: url(../images/cat1.jpg);
+
+
+}
+
+
+#cat2{
+
+
+    background-image: url(../images/cat2.jpg);
+
+}
+
+
+#cat3{
+
+    background-image: url(../images/cat3.jpg);
+
+
+}

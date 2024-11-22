@@ -1,0 +1,77 @@
+@font-face {
+    font-family: Verdana ;
+    src: url("../police/Verdana/Verdana-Bold.ttf") format("Verdana-Bold");
+}
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    background-color: #E0E2E8;
+    font-family: Verdana ;
+}
+h1{
+    margin-top: 2%;
+    text-align: center;
+    font-size: 6vh;
+}
+#vert{
+     color: #36A23E;
+     padding: 5px;
+     border-top: 1px solid #36A23E;
+     border-left: 1px solid #36A23E;
+     border-bottom: 1px solid #36A23E;
+}
+#orange{
+    color: #FF6633;
+    padding: 5px;
+    border-top: 1px solid #FF6633;
+    border-bottom: 1px solid #FF6633;
+}
+#rose{
+    color:  #CC0066;
+    padding: 5px;
+    border-top: 1px solid #CC0066;
+    border-bottom: 1px solid #CC0066;
+}
+#vert2{
+    color: #36A23E;
+    padding: 5px;
+    border-top: 1px solid #36A23E;
+    border-bottom: 1px solid #36A23E;
+}
+#orange2{
+    color: #FF6633;
+    padding: 5px;
+    border-top: 1px solid #FF6633;
+    border-bottom: 1px solid #FF6633;
+    border-right: 1px solid #FF6633 ;
+}
+img{
+    text-align: center;
+}
+#ceres{
+    text-align: center;
+    margin-top: 4vh;
+}
+img{
+    height: 50vh;
+}
+hr{
+    margin: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    border-bottom: 1px solid #a3a3a3;
+}
+p{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    font-size: 4vh;
+    text-align: center;
+}
+.systemeSolaire{
+    color: #5ea862;
+}
+    

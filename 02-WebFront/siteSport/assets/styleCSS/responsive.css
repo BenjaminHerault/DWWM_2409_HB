@@ -1,0 +1,326 @@
+
+@import "carousel.css";
+
+
+@media(max-width:1200px){
+    main{
+        margin: 0;
+        padding: 0;
+    }
+    /*Menu Burger*/
+    .close{
+        display: block;
+    }
+    #openBtn{
+        display: block;
+        color: #ffffff;
+        font-size: 40px;
+        padding-right:5%;
+        text-decoration: none;
+    }
+    .sidenav{
+        display: flex;
+        flex-direction: column;
+        height: 35%;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: -100%; 
+        background-color: #e8e8e8;
+        padding-top: 20px;
+        transition: right 0.5s ease;
+    } 
+    .sidenav a {
+        padding: 8px 8px 8px 8px;
+        text-decoration: none;
+        font-size: 40px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+    .sidenav a:hover{
+        color: #26C1DC;
+        transform: rotatex(360deg);
+    }
+    .sidenav ul{
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .sidenav.active{
+        right: 0;
+    }
+    .sidenav .close{
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+    }
+    .burger-icon {
+        display: flex;
+        justify-content: right;
+    }
+ /*texte premier pages*/
+    .conteneureHeader{
+        display: flex;
+        flex-direction: column;
+        margin-right: 0;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+    .TextPushYourLimit{
+        width: 100%;
+        margin-bottom: -50px;
+        text-align: center;
+        font-size: 75px;
+        padding-bottom: 20px;
+    }
+
+    h1{
+        font-size: 250px;
+    }
+    /********************************/
+    /*Pages 2*/
+    /********************************/
+    .imageMain{
+        display: none;
+    }
+    .titreMainEttexte{
+        text-align: center;
+    }
+    .textePage2{
+        font-size: 3vh;
+    }
+    .imageFlecheMain{
+        padding-bottom: 10%;
+    }
+    /********************************/
+    /*page 3 avec les 8 images*/
+    /*Carousel*/
+    /********************************/
+   
+    .blockSection{
+        display: none;
+    }
+    /* Définition d'un container pour gérer l'affichage */
+    .container {
+        overflow: hidden;
+        /* Cache les éléments qui dépassent du container */
+    }
+    /* Définition de l'élément contenant les diapositives */
+    .carousel-inner {
+        display: flex;
+        /* Affiche les éléments en ligne */
+        overflow: hidden;
+        /* Cache les éléments qui dépassent */
+        height: 100vh;
+        /* Hauteur égale à 100% de la hauteur de la vue */
+        flex-wrap: nowrap;
+        /* Empêche les éléments de se placer sur plusieurs lignes */
+    }
+    /* Définition des diapositives */
+    .slide {
+        flex: 0 0 100%;
+        /* Largeur de chaque diapositive est de 100% */
+        height: 100%;
+        /* Hauteur de chaque diapositive est de 100% */
+        transition: .5s ease-in-out;
+        /* Ajout d'une animation douce pour la transition entre les diapositives */
+    }
+    /* Définition de l'affichage de l'image de chaque diapositive */
+
+    /* Définition des points de contrôle */
+    .carousel-dots {
+        height: 0px;
+        transform: translateY(-20em);
+        display: flex;
+        /* Affiche les points en ligne */
+        justify-content: center;
+        /* Centrage des points */
+    }
+    /* Style des points de contrôle */
+    .carousel-dots .dot {
+        border-radius: 50%;
+        /* Les points sont en forme de cercle */
+        margin: 10px;
+        /* Ajout d'un margin pour un meilleur contrôle */
+        cursor: pointer;
+        /* Curseur en forme de main pour un meilleur contrôle */
+    }
+    /* Styles pour les points de navigation du carrousel */
+    .carousel-dots .active {
+        /* Border de 10px pour le point actif */
+        border: 10px solid #2596be !important;
+        /* !important permet de surcharger les autres styles éventuels */
+    }
+    .carousel-dots .inactive {
+        /* Border de 10px pour les points inactifs */
+        border: 10px solid #ffffff;
+    }
+
+    #carousel-mobile {
+    display:block;
+    position: relative;
+    /* Le carousel est positionné relativement à son parent */
+        .slideFigure{
+            background-size: cover;
+            height:100%;
+
+            figure{
+                height:100vh;
+                display: flex;
+                    
+                figcaption {
+                    position: relative;
+                    z-index: 11;
+                    background-color: #26C1DCCF;
+                    padding: 3em;
+                    margin-top:auto;
+                    width:100%;
+                    
+
+                    h4{
+                        color: #ffffff;
+                        font-size: 5vh;
+                        letter-spacing: 1px;
+                    }
+                    p{
+                        color: #ffffff;
+                        letter-spacing: 1px;
+                        font-size: 3vh;
+                    }
+                }
+            }
+        }
+    }
+
+    /*page 4 avec la carte */
+    .sectionTitreUlP4{
+        width: 100%;
+    }
+    canvas{
+        width: 45%;
+    }
+    .conteneurSectionP4{
+        justify-content: space-between;
+    }
+    .carte{
+        display: flex;
+        width: 1500px;
+        margin-bottom: 2%;
+        justify-content: center;
+    }
+
+    /*pages 5 questionner*/
+    .imageQuestionner{
+        display: flex;
+        justify-content: center;
+    }
+    .titreQuestionnaire{
+        text-align: center;
+    }
+    /*dernier pages*/
+    .footerDernnierPages{
+        width: 100%;
+        display: block;
+    }
+    #infoFooter{
+        display: flex;
+        width: 95%;
+        height: 25vh;
+    }
+    #pourSuivreFooter{
+        height: 25vh;
+        text-align: center;
+    }
+    .titreFooter{
+        text-align: center;
+    }
+    .logo{
+        margin-top: 20px;
+        padding-left: 20px;
+    }
+    .textFooter{
+        padding-top: 30px;
+    }
+
+}
+
+@media(max-width:750px){
+    .carousel-dots {
+        transform: translateY(-22em);
+    }
+}
+@media(max-width:590px){
+    form{
+        width: 80%;
+    }
+    .titreQuestionnaire{
+        width: 90%;
+    }
+    .carousel-dots {
+        transform: translateY(-25em);
+    }
+}
+@media(max-width:520px){
+    h1{
+        font-size: 200px;
+        text-shadow:
+        11px 11px 0 #ffffff,
+        -13px 11px 0 #ffffff,
+        -11px -13px 0 #ffffff,
+        13px -13px 0 #ffffff;
+    }
+    canvas{
+        width: 90%;
+    }
+    .carousel-dots {
+        transform: translateY(-30em);
+    }
+
+}
+@media(max-width:350px){
+    h1{
+        font-size: 150px;
+        text-shadow:
+        11px 11px 0 #ffffff00,
+        -13px 11px 0 #ffffff00,
+        -11px -13px 0 #ffffff00,
+        13px -13px 0 #ffffff00;
+    }
+    .TextPushYourLimit{
+        font-size: 65px;
+    }
+    .carousel-dots {
+        transform: translateY(-35em);
+    }
+    .carousel-dots .dot{
+        margin: 5px;
+    }
+}
+
+@media(max-width:330px){
+    .carousel-dots {
+        transform: translateY(-45em);
+    }
+}
+@media(max-width:300px){
+    .carousel-mini{
+        display: none;
+    }
+    h1{
+        font-size: 100px;
+    }
+    .titreSectionPrincipale{
+        font-size: 60px;
+    }
+    .carousel-dots {
+        transform: translateY(-45em);
+    }
+}
+
+
+

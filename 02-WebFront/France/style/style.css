@@ -1,0 +1,66 @@
+
+/* le drapeaux  */
+
+header{
+    height: 100%;
+    background-color: grey;
+    padding: 2%;
+    border: solid 1px blue;
+}
+.drape{
+    display: flex;
+    justify-content: center;
+
+}
+.blue{
+    background-color: #375897;
+    padding-left: 30px;
+    padding-top: 50px;
+}
+
+.blanc{
+    background-color: #ffffff;
+    padding-left: 30px;
+}
+
+.rouge{
+    background-color: red;
+    padding-left: 30px;
+}
+
+
+/* titre  */
+
+h1{
+    color: blue;
+    font-size: 4vh;
+}
+h2{
+    color: blue;
+    font-size: 3vh;
+}
+
+/* les articles  */
+
+.articleTexte{
+    background-color: gray;
+    padding: 1%;
+    border: solid 1px blue;
+    font-size: 2vh;
+}
+a{
+    color: blue;
+}
+
+/* le tableaux  */
+table{
+    border: solid 1px blue;
+    font-size: 2vh;
+}
+tr td {
+    border: solid 1px blue;
+}
+th{
+    border: solid 1px blue;
+    background-color: gray;
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<crunchyroll>
+    <name id="One Piece">
+        <type>Shōnen</type>
+        <genres>Nekketsu, aventure, comédie, drame, fantasy, humour, satire</genres>
+        <themes>Piraterie, amitié, liberté</themes>
+        <auteur>Eiichirō Oda</auteur>
+        <editeur><![CDATA[(ja)Shūeisha & (fr)Glénat]]></editeur>
+        <prepublication>Weekly Shōnen Jump</prepublication>
+        <sortieInitiale>22 juillet 1997 – en cours</sortieInitiale>
+        <volumes>109</volumes>
+    </name>
+
+    <name id="Spy × Family">
+        <type>Shōnen</type>
+        <genres>Action, comédie, techno-thriller, tranche de vie</genres>
+        <themes>École, espion, famille</themes>
+        <auteur>Tatsuya Endō</auteur>
+        <editeur><![CDATA[(ja)Shūeisha & (fr)Kurokawa]]></editeur>
+        <prepublication>Shōnen Jump+</prepublication>
+        <sortieInitiale>25 mars 2019 – en cours</sortieInitiale>
+        <volumes>14</volumes>
+    </name>
+
+    <name id="Hunter × Hunter">
+        <type>Shōnen</type>
+        <genres>Action, aventure, drame, fantasy, nekketsu</genres>
+        <themes>Arts martiaux, combat, chasseur de primes, examen, apprentissage, mafia, jeux</themes>
+        <auteur>Yoshihiro Togashi</auteur>
+        <editeur><![CDATA[(ja)Shūeisha & (fr)Kana]]></editeur>
+        <prepublication>Weekly Shōnen Jump</prepublication>
+        <sortieInitiale>3 mars 1998 – en cours</sortieInitiale>
+        <volumes>38</volumes>
+    </name>
+    
+    <name id="The Rising of the Shield Hero">
+        <type>Seinen</type>
+        <genres>Action, aventure, drame, fantasy</genres>
+        <themes>Isekai, magie, monstres, vengeance</themes>
+        <auteur>Aneko Yusagi</auteur>
+        <editeur>Shōsetsuka ni narō</editeur>
+        <prepublication></prepublication>
+        <sortieInitiale>23 août 2013 – en cours</sortieInitiale>
+        <volumes>22</volumes>
+    </name>
+
+    <name id="5L'Attaque des Titans">
+        <type>Shōnen</type>
+        <genres>Action, dark fantasy, horreur, mystère, tragédie, thriller</genres>
+        <themes>Apocalyptique, militaire</themes>
+        <auteur>Hajime Isayama</auteur>
+        <editeur><![CDATA[(ja)Kōdansha & (fr)Pika Édition]]></editeur>
+        <prepublication>Bessatsu Shōnen Magazine</prepublication>
+        <sortieInitiale>9 septembre 2009 – 9 avril 2021</sortieInitiale>
+        <volumes>34</volumes>
+    </name>
+</crunchyroll>

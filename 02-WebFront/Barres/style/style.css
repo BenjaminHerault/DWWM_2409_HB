@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color:#5C94FC ;
+
+}
+main{
+    display: flex;
+    justify-content: center;
+    
+}
+.soul{
+    display: grid;
+    margin-top: 5%;
+    height: 100%;
+    justify-content: center;
+    grid-template-columns:repeat(4,25vh);
+    grid-template-rows:repeat(4 ,150px) ;
+    grid-template-areas: 
+    "color1 . . ."
+    "color2 color2 . ."
+    "color3 color3 color3 ."
+    "color4 color4 color4 color4";
+    border: solid 4px black;
+   
+}
+.couleur1{
+    grid-area: color1;
+    height: 100%;
+    background-color: #4976C9 ;
+    border-right: 4px solid black ;
+    
+}
+.couleur2{
+    grid-area: color2;
+    height: 100%;
+    background-color: #375897;
+    border-right: 4px solid black ;
+    border-top: 4px solid black ;
+}
+.couleur3{
+    grid-area: color3;
+    height: 100%;
+    background-color:  #243B64 ;
+    border-right: 4px solid black ;
+    border-top: 4px solid black ;
+}
+.couleur4{
+    grid-area: color4;
+    height: 100%;
+    background-color:  #121D32 ;
+    border-top: 4px solid black ;
+}

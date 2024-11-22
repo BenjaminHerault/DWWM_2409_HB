@@ -1,0 +1,30 @@
+Q1 : Le Html sert à créer un site Web à l'aide de balise sans aucun style.
+Le CSS sert à mettre du style en forme le site WEB.
+
+Q2 : Les balises HEAD,BODY et FOOTER sont des balises pour structurer le site HTML.
+Le FOOTER, a la fin d'une page qu'on va l'utiliser.
+Le BODY contient tout le code.
+Le HEAD et la première partie.
+
+Q3 : Une classe, on peut la répéter plusieurs fois et on va la retrouver en SCC part un point (.).
+Et un id sera répéter qu'une seule fois et on va le retrouver en SCC part un #.
+
+Q4 : Un parent en HTML contient d'autres balise qu'on dira des enfants.
+
+Exemple :
+
+<div>   Parent 
+
+    <div> Enfants 
+
+         <div> petit-enfants
+         </div> 
+    </div>
+</div>
+
+Q5 : Le margin va agrandir vert l'extérieur alors que le padding va agrandir vert l'intérieur.
+On peut place des éléments avec le margin et le padding.
+
+Q6 : B E F
+
+Q7 : BCE

@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+ 
+
+    img{
+        height: 3em;
+        align-self: center;
+    }
+    #headDiv{
+       display: flex; 
+       flex-wrap: wrap;
+       padding: 2em;
+       text-align: center;
+       justify-content: center;
+    }
+    ul{
+        display: flex;
+        padding: 1.4em;
+        list-style: none;
+        gap: 1em;
+    }
+    a{
+        display: block;
+        align-content:  center;
+        height: 100%;
+        font-size: 22px;
+        text-decoration: none;
+        color: black;
+    } 
+    #couleurBleu{
+        color: rgb(0, 114, 244);
+    }
+}
+#sectionChausseure{
+    min-height:50em ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #photoChaussure{
+        text-align: center;
+
+        img{
+            height: 20em;
+            padding-bottom: 4em;
+        }
+
+        h1{
+            font-size: 3em;
+        }
+    }
+}

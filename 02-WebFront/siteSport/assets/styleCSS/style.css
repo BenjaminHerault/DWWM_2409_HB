@@ -1,0 +1,448 @@
+@font-face {
+    font-family:karantinaBold;
+    src: url("../police/Karantina/Karantina-Bold.ttf");
+}
+@font-face {
+    font-family:karantinaLight ;
+    src: url("../police/Karantina/Karantina-Light.ttf");
+}
+@font-face {
+    font-family:karantinaRegular ;
+    src: url("../police/Karantina/Karantina-Regular.ttf");
+} 
+@font-face {
+    font-family:Roboto-Black ;
+    src: url("../police/Roboto/Roboto-Light.ttf");
+}
+
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    font-family:karantinaRegular;
+}
+/*********************/
+/*Premier pages*/
+/*********************/
+header{
+    min-width: 100%;
+    min-height: 100%;
+} 
+.imgPrincipale{
+    background-image: url("../image/pagePrincipale/deuxPersonne.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position-x: center;
+    min-width: 100%;
+    min-height: 100vh;
+}
+.ulHeader{
+    text-align: center;
+}
+.liHeader{
+    display: inline-block;
+    height: 54px;
+    font-size: 30px;
+    color: #FFFFFF;
+    margin-top: 2%;
+    margin-right: 1%;
+}
+.aHeader{
+    color: aliceblue;
+    text-decoration: none;
+}
+.ulHeader :hover{
+    color: #26C1DC;
+}
+.close{
+    display: none;
+}
+#openBtn{
+    display: none;
+}
+.conteneureHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 13%;
+    margin-right: 10%;
+}
+
+.TextPushYourLimit{
+    color: #FFFFFF;
+    font-size: 13vh;
+    width: 200px;
+}
+.titreAGOGE{
+    display: flex;
+    justify-content: center;
+}
+h1{
+    font-family: karantinaRegular;
+    font-weight: normal;
+    color: #26C1DC;
+    font-size: 42vh;
+    letter-spacing: 5px;
+    text-shadow:
+    11px 11px 0 #ffffff,
+    -13px 11px 0 #ffffff,
+    -11px -13px 0 #ffffff,
+    13px -13px 0 #ffffff;
+}   
+.rondFleche{
+    display: flex;
+    justify-content: center;
+}
+.rondFleche img{
+    border-radius: 50%;
+    color: #26C1DC;
+    background-color:#26C1DC;
+} 
+/*********************/
+/*deuxiemnt pages*/
+/*********************/
+
+.conteneurMain{
+    display: flex;
+    background-color:#26C1DC ;
+    min-width: 100%;
+    min-height: 100vh;
+}
+.titreMainEttexte{
+    display: block;
+    flex-direction: column;
+    text-align: right;
+    padding-top: 7%;
+    margin-left: 4%;
+    margin-right: 4%;  
+}
+h2{
+    font-family:karantinaBold ;
+    font-size: 5vh;
+    color: #FFFFFF;
+    letter-spacing: 3px;
+}
+.textePage2{
+    font-size: 2vh;
+    margin-top: 3%;
+    font-family:Roboto-Black ;
+    color: #FFFFFF;
+}
+.imageMain img{
+    width: 607px;
+    height: 100vh;
+}
+.titreImageMain {
+    font-family:karantinaBold ;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 3vh;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+}
+.imageFlecheMain{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+/*********************/
+/* 3 eme pages */
+/*********************/
+.dimenstionSection{
+    min-width: 100%;
+    min-height: 100%;
+}
+.titreTexteSection{
+    display: flex;
+    flex-direction: column;
+}
+.titreSectionPrincipale{
+    text-align: center;
+    color: #26C1DC;
+    margin-top:2% ;
+    font-size: 70px;
+    letter-spacing: 4px;
+}
+.texteSectionPrincipale{
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 4%;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+/*************************************/
+/*LA parti avec les 8 images et texte*/
+/*************************************/
+.blockSection{
+    display: grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-template-rows:repeat(2 ,1fr) ;
+    grid-template-areas:
+    "section1 section2 section3 section4"
+    "section5 section6 section7 section8"
+    ;
+}
+.titreEtMotScection{
+    min-height: 100vh;
+    min-width: 100%;
+}
+.section1 .titreEtMotScection{
+    background-image: url("../image/programme/image1.png");
+    background-size:cover;
+    
+}
+.section1{
+    grid-area: section1;
+}
+
+.section2 .titreEtMotScection{
+    background-image: url("../image/programme/image2.png");
+    background-size:cover;
+}
+.section2{
+    grid-area: section2;
+}
+
+.section3 .titreEtMotScection{
+    background-image: url("../image/programme/image3.png");
+    background-size:cover;
+}
+.section3{
+    grid-area: section3;
+}
+
+.section4 .titreEtMotScection{
+    background-image: url("../image/programme/image4.png");
+    background-size:cover;
+}
+.section4{
+    grid-area: section4;
+}
+
+.section5 .titreEtMotScection{
+    background-image: url("../image/programme/image5.png");
+    background-size:cover;
+}
+.section5{
+    grid-area: section5;
+}
+
+.section6 .titreEtMotScection{
+    background-image: url("../image/programme/image6.png");
+    background-size:cover;
+}
+.section6{
+    grid-area: section6;
+}
+
+.section7 .titreEtMotScection{
+    background-image: url("../image/programme/image7.png");
+    background-size:cover;
+}
+.section7{
+    grid-area: section7;
+}
+
+.section8 .titreEtMotScection{
+    background-image: url("../image/programme/image8.png");
+    background-size:cover;
+}
+.section8{
+    grid-area: section8;
+}
+.carousel-mini{
+    display: none;
+}  
+/****************************/
+/* le texte qui s'afficher  */
+/****************************/
+.sec{
+    width: 100%;
+    position: relative;
+}
+.sec:hover .sectionTitreEtTexteAfficher{
+    opacity: 1;
+}
+
+.sectionTitreEtTexteAfficher{
+
+    color: white;
+    opacity: 0;
+    min-width: 100%;
+    min-height: 100vh;
+    background-color: #26C1DCCF ;
+}
+.titreSection{
+    font-family:karantinaBold ;
+    position: absolute;
+    left: 10%;
+    bottom: 70%;
+    font-size: 6vh;
+}
+.texteSection{
+    font-family:karantinaLight ;
+    position: absolute;
+    font-size: 4vh;
+    left: 10%;
+    right: 10%;
+    bottom: 5%;
+    letter-spacing: 1px;
+}
+/*****************/
+/*Pages de france */
+/******************/
+
+.conteneurSectionP4{
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   background-color:#D9D9D9 ;
+   min-width:100%;
+   min-height: 100vh; 
+}
+.titreP4{
+    color: #2E3436;
+    font-size: 4vh;
+    letter-spacing: 3px;
+}
+.sectionTitreUlP4{
+    width: 22%;
+    padding-left: 7%;
+    margin-top: 5%;
+}
+.ulCarteP4 .ulPage4section{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10%;
+}
+.ilPage4Section{
+    font-size: 4vh;
+    padding-top: 4%;
+}
+
+/*************************/
+        /*CARTE */
+/*************************/
+
+.carte{
+  padding-right: 2%; 
+}
+
+
+/***************/
+    /*Page 5 */
+/***************/
+.conteneurSectionP5{
+    background-image: url("../image/finDePages/uneFemme.png");
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    background-position-x: right;
+    min-width: 100%;
+    min-height: 100vh;
+}
+
+#fondDeCouleur{
+    background-color: #123940ab;
+}
+.imageQuestionner{
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+}
+.titreQuestionnaire{
+    color: #ffffff;
+    font-size: 4vh;
+    display: flex;
+    width: 500px;
+    padding-top: 15%;
+    padding-bottom: 10%;
+    letter-spacing: 3px;
+}
+article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    height:650px;
+    width:565px; 
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+.tableau{
+    display: flex;
+    flex-direction: column;
+    padding-left:5% ;
+    padding-right: 5%;
+    padding-top: 5%;
+}
+label{
+    font-family:Roboto-Black ;
+    font-size: 1em;
+}
+.inputForm{
+    height: 40px;
+    padding-left: 10px;
+    border: solid 1px #d9d9d9;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.texteForm{
+    height: 80px;
+    padding-left: 10px;
+    border: solid 1px #d9d9d9;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.conteurPag5{
+   width: fit-content;
+} 
+.inputFormBouton{
+    background-color: black;
+    color: #FFFFFF;
+    height: 4vh;
+    border-radius: 10px;
+}
+
+/*************************/
+/* Le footer dernier pages*/
+/*************************/
+.footerDernnierPages{
+    background-color: #133135 ;
+    min-width: 100%;
+    height: 528px;
+    display: flex;
+    gap: 3%;
+}
+#infoFooter{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right; 
+}
+.logo{
+    margin-top: 4%;
+    margin-left: 25px ;
+}
+#pourSuivreFooter{
+    width: 100%;
+    text-align: left;
+    align-content: center;
+}
+.titreFooter{
+    color: #FFFFFF ;
+    font-size: 5vh;
+    letter-spacing: 2px;
+}
+.textFooter{
+    font-family: karantinaLight;
+    color: #FFFFFF ;
+    font-size: 3vh;
+    letter-spacing: 1px;
+}
