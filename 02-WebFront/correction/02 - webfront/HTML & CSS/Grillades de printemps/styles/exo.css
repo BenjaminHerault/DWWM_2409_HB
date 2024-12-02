@@ -1,0 +1,128 @@
+
+body {
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "nav article article"
+        "nav footer footer ";
+    grid-template-columns: 30em;
+    align-items: stretch;
+    gap: 10px;
+}
+
+/* Header */
+header {
+    grid-area: header;
+    display: grid;
+    grid-template-areas: "h1 aside";
+    grid-template-columns: 7fr 1fr;
+    grid-gap: 10px;
+
+    h1{
+        grid-area: h1;
+        background-color: #d1e0f3;
+        padding:1em;
+        font-size: 32px;
+        margin: 0;
+        
+    }
+
+
+    aside{
+        grid-area: aside;
+        background-color: #d1e0f3;
+        padding:1em;
+        margin: 0;
+
+            font-size: 32px;
+        
+    }
+
+
+
+}
+
+
+
+/* Navigation */
+nav {
+    grid-area: nav;
+    background-color: #b0c4de;
+    padding: 20px;
+}
+
+/* Article principal */
+main {
+    grid-area: article;
+    padding:10px;
+    background-color: #d1e0f3;
+}
+
+.principal {
+    height: 33em;
+    padding-bottom: 3em;
+}
+
+article {
+
+    display: flex;
+    justify-content: right;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 10px;
+    
+
+    section{
+
+        width: 38%;
+
+    }
+
+
+
+}
+
+article h2 {
+
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Sections */
+article section {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+article section h3 {
+    margin-bottom: 10px;
+}
+
+article section p {
+    font-size: 14px;
+}
+
+/* Footer */
+footer {
+    grid-area: footer;
+    background-color: #d1e0f3;
+    text-align: left;
+    padding: 20px;
+    
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        grid-template-areas: 
+            "header"
+            "nav"
+            "article"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+
+
+}
