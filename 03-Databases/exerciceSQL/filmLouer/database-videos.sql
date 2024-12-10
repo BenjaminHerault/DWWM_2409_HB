@@ -46,3 +46,5 @@ value
 /*Afficher les donnees de la table*/
 
 select * from film;
+
+select film_id, film_titre from film;
