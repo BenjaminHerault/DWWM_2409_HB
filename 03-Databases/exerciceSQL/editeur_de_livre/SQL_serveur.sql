@@ -15,5 +15,15 @@ create table if not exists livre
     livre_titre varchar(255) not null,
     livre_prix_de_vente decimal(5.2) not null
 );
-
+create table if not exists prime
+(
+	prime_id int auto_increment primary key,
+    
+);
+/*
 insert into livre
+(livre_prix_de_vente,livre_titre)
+value
+(20,"Harry Potter");
+select* from livre
+*/
