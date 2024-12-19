@@ -32,9 +32,10 @@ use videos;
 /* CREER une table nommee" realisateur" */
 CREATE TABLE realisateur
 (
-	realisateur_id INT PRIMARY KEY AUTO_INCREMENT, 
+	realisateur_id INT AUTO_INCREMENT, 
     realisateur_nom VARCHAR(100) NOT NULL,
-    realisateur_prenom VARCHAR(100) NOT NULL
+    realisateur_prenom VARCHAR(100) NOT NULL,
+    PRIMARY KEY (realisateur_id)
 );
 
 CREATE TABLE acteur

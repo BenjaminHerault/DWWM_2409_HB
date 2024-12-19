@@ -70,6 +70,4 @@ CREATE TABLE film_acteur
 );
 
 
-
-
 /* CONTRAINTES */
