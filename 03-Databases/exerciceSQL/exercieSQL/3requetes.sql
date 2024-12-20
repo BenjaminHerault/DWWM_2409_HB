@@ -16,3 +16,7 @@ WHERE pub_titre LIKE "%a%" ORDER BY pub_titre DESC;
 SELECT id, nom_utilisateur, email
 FROM utilisateur
 WHERE email LIKE "%com";
+
+SELECT pub_id, pub_date, pub_titre, pub_contenu
+FROM publication
+INNER JOIN utilisateur ON publication.id = utilisateur.id ORDER BY pub_titre ;
