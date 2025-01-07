@@ -5,11 +5,10 @@ Data Query Language
 Langage de requête sur les données
 principales instructions : 
 SELECT : Sélectionner des données existantes dans 1 ou plusieurs tables
-
-
 */
 
 /* 1. Sélectionner toutes les lignes et colonnes de la table acteur */
+
 SELECT * FROM acteur;
 
 SELECT acteur_id, acteur_prenom, acteur_nom FROM acteur;
@@ -60,7 +59,7 @@ WHERE acteur_prenom IN ("Jean", "Eva");
 
 SELECT acteur_nom, acteur_prenom
 FROM acteur 
-WHERE acteur_prenom = "Jean" AND acteur_prenom = "Eva";
+WHERE acteur_prenom = "Jean" OR acteur_prenom = "Eva";
 
 
 /* 3. Sélectionner tous les acteurs (identifiant, nom, prénom) triés par nom (ordre alphabétique) */

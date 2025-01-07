@@ -13,13 +13,6 @@ ALTER = Modifier une structure existante
 DROP = Supprimer une structure existante
 */
 
-/*
-realisateur = (realisateur_id INT AUTO_INCREMENT, realisateur_nom VARCHAR(100), realisateur_prenom VARCHAR(100));
-acteur = (acteur_id INT AUTO_INCREMENT, acteur_nom VARCHAR(100), acteur_prenom VARCHAR(100));
-film = (film_id INT AUTO_INCREMENT, film_titre VARCHAR(255), film_duree SMALLINT, #realisateur_id);
-film_acteur = (#film_id, #acteur_id);
-*/
-
 /* SUPPRIMER LA BASE DE DONNEES SI ELLE EXISTE */
 DROP DATABASE IF EXISTS videos;
 
