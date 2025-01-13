@@ -1,5 +1,13 @@
-var v1=0
+var plus1=0;
 function plus(){
-    v1+=1
-    document.getElementById('span1').textContent = v1
+    plus1++;
+    document.getElementById('span1').textContent = plus1;
 }
+function rest(){
+    plus1=0;
+    document.getElementById('span1').textContent = plus1;
+}
+
+
+
+

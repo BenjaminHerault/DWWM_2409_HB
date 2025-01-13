@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- un commentaire -->
+<ListeUtilisateurs>
+    <Utilisateur id="1">
+        <id>1</id>
+        <pseudo />
+        <pseudo></pseudo>
+        <nom>DEV</nom>
+        <prenom>Mike</prenom>
+        <dateDeNaissance format="yyyy-mm-dd hh:ii:ss">1981-01-12 21:50:00</dateDeNaissance>
+    </Utilisateur>
+</ListeUtilisateurs>

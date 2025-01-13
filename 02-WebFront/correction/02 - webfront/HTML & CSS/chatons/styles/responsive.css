@@ -1,0 +1,19 @@
+
+@media (min-height: 800px) { 
+
+
+    .card{
+
+        width:100%;
+
+    }
+
+
+    .image {
+
+        display:none;
+    }
+
+
+
+}
