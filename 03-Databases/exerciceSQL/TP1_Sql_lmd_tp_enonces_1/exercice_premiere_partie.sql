@@ -1,3 +1,6 @@
+
+USE tp1_sql;
+
 -- Première partie
 
 -- 1. Donner nom, job, numéro et salaire de tous les employés,
@@ -95,6 +98,10 @@ WHERE deptno_dept ="20";
 
 -- 13. Donner le salaire le plus élevé par département
 
+SELECT deptno_dept, max(sal_emp)
+FROM emp 
+GROUP BY deptno_dept;
+
 -- 14. Donner département par département masse salariale, nombre d'employés, salaire moyen par type
 -- d'emploi.
 
@@ -103,25 +110,84 @@ FROM emp
 INNER JOIN dept ON dept.deptno_dept = emp.deptno_dept
 GROUP BY emp.deptno_dept, job_emp;
 
-
 -- 15. Même question mais on se limite aux sous-ensembles d'au moins 2 employés
+
+SELECT emp.deptno_dept, SUM(sal_emp + ifnull(comm_emp,0)), count(empno_emp), round(AVG(sal_emp),2),job_emp, dept.dname_dept    
+FROM emp
+INNER JOIN dept ON dept.deptno_dept = emp.deptno_dept
+GROUP BY emp.deptno_dept, job_emp
+HAVING COUNT(empno_emp)>=2;
 
 -- 16. Liste des employés (Nom, département, salaire) de même emploi que JONES
 
+SELECT ename_emp, deptno_dept, sal_emp, job_emp
+FROM emp
+WHERE job_emp = (SELECT job_emp
+					FROM emp
+					WHERE ename_emp ="JONES");
+                    
+SELECT job_emp
+FROM emp
+WHERE ename_emp ="JONES";
+
+
 -- 17. Liste des employés (nom, salaire) dont le salaire est supérieur à la moyenne globale des salaires
 
--- 18. Création d'une table PROJET avec comme colonnes numéro de projet (3 chiffres), nom de projet(5
--- caractères), budget. Entrez les valeurs suivantes:
+SELECT ename_emp, sal_emp
+FROM emp
+WHERE sal_emp < (SELECT AVG(sal_emp)
+					FROM emp );
+
+-- 18. Création d'une table PROJET avec comme colonnes numéro de projet (3 chiffres), 
+-- nom de projet (5 caractères), budget. 
+-- Entrez les valeurs suivantes:
 -- 101, ALPHA, 96000
 -- 102, BETA, 82000
 -- 103, GAMMA, 15000
 
--- 19. Ajouter l'attribut numéro de projet à la table EMP et affecter tous les vendeurs du département 30
--- au projet 101, et les autres au projet 102
+CREATE TABLE projet 
+(
+num_proj SMALLINT AUTO_INCREMENT,
+nom_proj char(5) NOT NULL,
+budget_proj DECIMAL(8,2) NOT NULL,
+CONSTRAINT pk_num_proj PRIMARY KEY (num_proj)
+);
+
+ALTER TABLE projet AUTO_INCREMENT = 101;
+
+INSERT INTO projet 
+( nom_proj, budget_proj)
+VALUES
+("ALPHA", 96000),
+("BETA" , 82000),
+("GAMMA", 15000);
+
+-- 19. Ajouter l'attribut numéro de projet à la table EMP et 
+-- affecter tous les vendeurs du département 30 au projet 101, et les autres au projet 102
+
+ALTER TABLE EMP ADD num_proj SMALLINT;
+
+UPDATE emp SET num_proj = 101
+WHERE deptno_dept = 30 AND job = 'salesman';
+
+UPDATE emp SET num_proj = 102
+WHERE num_proj IS NULL;
+
+/*
+UPDATE emp SET num_proj = 102
+WHERE deptno_dept <> 30 XOR job <> 'salesman';
+*/
 
 -- 20. Créer une vue comportant tous les employés avec nom, job, nom de département et nom de projet
+
+CREATE VIEW jesuisunevue 
+AS
+	SELECT empno_emp, job_emp, deptno_dept
+    FROM emp;
 
 -- 21. A l'aide de la vue créée précédemment, lister tous les employés avec nom, job, nom de département
 -- et nom de projet triés sur nom de département et nom de projet
 
 -- 22. Donner le nom du projet associé à chaque manager
+
+
