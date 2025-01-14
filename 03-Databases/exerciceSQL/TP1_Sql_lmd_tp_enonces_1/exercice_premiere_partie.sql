@@ -74,17 +74,35 @@ WHERE ename_emp = "ALLEN";
 -- 10. Liste des employés avec nom du département, nom, job, salaire classés par noms de départements et
 -- par salaires décroissants.
 
-
+SELECT  dname_dept,  ename_emp, job_emp, sal_emp
+FROM emp
+INNER JOIN dept ON dept.deptno_dept = emp.deptno_dept
+ORDER BY dept.dname_dept, sal_emp DESC;
 
 -- 11. Liste des employés vendeurs (SALESMAN) avec affichage de nom, salaire, commissions, salaire +
 -- commissions
 
+SELECT ename_emp, sal_emp, comm_emp, sal_emp + comm_emp
+FROM emp
+WHERE job_emp = "SALESMAN" ;
+
 -- 12. Liste des employés du département 20: nom, job, date d'embauche sous forme VEN 28 FEV 1997'
+
+SET lc_time_names = 'fr_FR';
+SELECT ename_emp, job_emp, upper(date_format(hiredate_emp, "%a %e %b %Y"))As Date_FR
+FROM emp
+WHERE deptno_dept ="20";
 
 -- 13. Donner le salaire le plus élevé par département
 
 -- 14. Donner département par département masse salariale, nombre d'employés, salaire moyen par type
 -- d'emploi.
+
+SELECT emp.deptno_dept, SUM(sal_emp + ifnull(comm_emp,0)), count(empno_emp), round(AVG(sal_emp),2),job_emp, dept.dname_dept    
+FROM emp
+INNER JOIN dept ON dept.deptno_dept = emp.deptno_dept
+GROUP BY emp.deptno_dept, job_emp;
+
 
 -- 15. Même question mais on se limite aux sous-ensembles d'au moins 2 employés
 
