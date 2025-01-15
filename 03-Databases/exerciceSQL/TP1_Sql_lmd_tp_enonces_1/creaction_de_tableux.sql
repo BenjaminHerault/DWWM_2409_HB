@@ -1,3 +1,5 @@
+-- file:///C:/Users/bherault/Documents/GitHub/DWWM_2409_HB/03-Databases/exerciceSQL/TP1_Sql_lmd_tp_enonces_1/TP1_Sql_lmd_tp_enonces%201.pdf
+
 DROP DATABASE IF EXISTS tp1_sql;
 
 CREATE DATABASE IF NOT EXISTS tp1_sql;
@@ -24,7 +26,7 @@ CREATE TABLE emp
     deptno_dept TINYINT, 						-- FOREIGN KEY
     CONSTRAINT fk_empno_emp PRIMARY KEY (empno_emp)
 );
-
+/*
 ALTER TABLE emp 
 	ADD CONSTRAINT fk_emp_mgr_emp FOREIGN KEY(mgr_emp) REFERENCES emp(empno_emp),
     ADD CONSTRAINT fk_emp_deptno_emp FOREIGN KEY(deptno_dept) REFERENCES dept(deptno_dept);
