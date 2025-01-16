@@ -166,6 +166,7 @@ VALUES
 ("BETA" , 82000),
 ("GAMMA", 15000);
 
+
 -- 19. Ajouter l'attribut numéro de projet à la table EMP et 
 -- affecter tous les vendeurs du département 30 au projet 101, et les autres au projet 102
 
@@ -177,10 +178,12 @@ WHERE deptno_dept = 30 AND job_emp = 'salesman';
 UPDATE emp SET num_proj = 102
 WHERE num_proj IS NULL;
 
+/*
 UPDATE emp SET num_proj = 102
 WHERE empno_emp != ALL (SELECT empno_emp WHERE deptno_dept = 30 AND job_emp = 'salesman');
 
 UPDATE emp SET num_proj = NULL;
+*/
 /*
 UPDATE emp SET num_proj = 102
 WHERE deptno_dept <> 30 XOR job <> 'salesman';
@@ -223,18 +226,41 @@ ORDER BY deptno_dept, job_emp ;
 
 -- 2. Afficher la liste des employés qui ne sont pas manager et qui ont été embauchés en 81
 
-SELECT ename_emp, job_emp, hiredate_emp
+SELECT ename_emp, job_emp, date_format(hiredate_emp, "%Y") AS "annee embauchés"
 FROM emp
+WHERE job_emp <> "MANAGER" AND date_format(hiredate_emp, "%Y") = "1981";
 
 -- 3. Afficher la liste des employés ayant une commission
 
--- 4. Afficher la liste des noms, numéros de département, jobs et date d'embauche triés par Numero de
--- Département et JOB les derniers embauches d'abord.
+SELECT ename_emp, comm_emp
+FROM emp
+WHERE comm_emp >= 0;
+
+-- 4. Afficher la liste des noms, numéros de département, jobs et date d'embauche triés par 
+--  (Numero de Département) et (JOB les derniers embauches d'abord).
+
+SELECT ename_emp, deptno_dept, job_emp, hiredate_emp
+FROM emp
+ORDER BY deptno_dept, job_emp, hiredate_emp DESC;
+
+-- ORDER BY date_format(hiredate_emp, "%Y %c %D") DESC;
 
 -- 5. Afficher la liste des employés travaillant à DALLAS
 
--- 6. Afficher les noms et dates d'embauche des employés embauchés avant leur manager, avec le nom et
+SELECT ename_emp, loc_dept
+FROM emp 
+JOIN dept ON dept.deptno_dept = emp.deptno_dept
+WHERE loc_dept = "DALLAS";
+
+-- 6. Afficher les noms et dates d'embauche des employés embauchés avant (premier) leur manager, avec le nom et
 -- date d'embauche du manager.
+
+SELECT DISTINCT employer.ename_emp, employer.hiredate_emp, manager.ename_emp, manager.hiredate_emp
+FROM emp employer, emp manager
+WHERE manager.empno_emp = employer.mgr_emp AND employer.hiredate_emp < manager.hiredate_emp;
+
+
+
 
 -- 7. Lister les numéros des employés n'ayant pas de subordonné.
 

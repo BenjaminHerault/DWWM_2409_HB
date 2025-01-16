@@ -8,7 +8,7 @@ USE tp1_sql ;
 
 CREATE TABLE dept 
 (
-	deptno_dept  TINYINT NOT NULL,	-- primary key
+	deptno_dept  TINYINT UNSIGNED NOT NULL,	-- primary key		UNSIGNED = positif 
     dname_dept  VARCHAR(30) NOT NULL,
     loc_dept VARCHAR(30) NOT NULL,
     CONSTRAINT fk_num_deptno PRIMARY KEY (deptno_dept)
