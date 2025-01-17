@@ -259,16 +259,53 @@ SELECT DISTINCT employer.ename_emp, employer.hiredate_emp, manager.ename_emp, ma
 FROM emp employer, emp manager
 WHERE manager.empno_emp = employer.mgr_emp AND employer.hiredate_emp < manager.hiredate_emp;
 
-
-
-
 -- 7. Lister les numéros des employés n'ayant pas de subordonné.
+
+SELECT empno_emp, ename_emp, job_emp
+FROM emp
+WHERE empno_emp NOT IN (SELECT DISTINCT mgr_emp
+						FROM emp 
+							WHERE mgr_emp IS NOT NULL);
+
+SELECT empno_emp, ename_emp, job_emp
+FROM emp
+WHERE empno_emp != ALL(SELECT DISTINCT mgr_emp
+						FROM emp 
+							WHERE mgr_emp IS NOT NULL);
 
 -- 8. Afficher les noms et dates d'embauche des employés embauchés avant BLAKE.
 
+SELECT ename_emp, hiredate_emp
+FROM emp
+WHERE hiredate_emp <= ALL (SELECT hiredate_emp
+								FROM emp
+									WHERE hiredate_emp = "1981-05-01") 
+AND ename_emp <> "BLAKE";
+
 -- 9. Afficher les employés embauchés le même jour que FORD.
+                                    
+SELECT ename_emp, hiredate_emp
+FROM emp
+WHERE hiredate_emp = (SELECT hiredate_emp
+						FROM emp
+							WHERE ename_emp = "FORD");
 
 -- 10. Lister les employés ayant le même manager que CLARK.
+SELECT ename_emp, mgr_emp, (SELECT ename_emp from emp where empno_emp =(SELECT mgr_emp
+					FROM emp
+						WHERE ename_emp = "ALLEN") ) as "nom du manager"
+FROM emp
+WHERE mgr_emp =  (SELECT mgr_emp
+					FROM emp
+						WHERE ename_emp = "ALLEN") AND ename_emp <> "ALLEN" ;
+
+/*SELECT ename_emp, mgr_emp
+FROM emp
+WHERE mgr_emp = ;*/
+(SELECT ename_emp from emp where empno_emp =(SELECT mgr_emp
+					FROM emp
+						WHERE ename_emp = "CLARK") );
+
 
 -- 11. Lister les employés ayant même job et même manager que TURNER.
 
@@ -297,4 +334,33 @@ WHERE manager.empno_emp = employer.mgr_emp AND employer.hiredate_emp < manager.h
 -- 			20 				35.71
 -- 			30 				42.86 
 
+
+DELIMITER |
+CREATE PROCEDURE salaries_sup (IN niv_moyen_sal SMALLINT)
+BEGIN
+SELECT ename_emp, job_emp, sal_emp FROM emp WHERE sal_emp >= niv_moyen_sal ;
+END|
+DELIMITER ;
+
+SET @niv_sal_souhaite := 2000.50;
+
+CALL salaries_sup( @niv_sal_souhaite);
+
+
+
+DELIMITER |
+CREATE PROCEDURE  effectif_job(IN job_souhaite VARCHAR(50))
+BEGIN
+
+SELECT COUNT(empno_emp), job_emp, avg(sal_emp)
+FROM emp
+WHERE job_emp = job_souhaite
+GROUP BY job_emp;
+
+END |
+DELIMITER ;
+
+SET @job_souhaite:= "SALESMAN";
+
+CALL effectif_job(@job_souhaite);
 

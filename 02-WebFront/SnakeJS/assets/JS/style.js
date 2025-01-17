@@ -78,7 +78,7 @@ function draw() {
     // Vérification des collisions
     if(snakeX < 0 || snakeY < 0 || snakeX > 19 * box || snakeY > 19 * box || collision(newHead, snake)){
         clearInterval(game);
-        alert("Game Over! Score: " + score);
+      
         return;
     }
     
