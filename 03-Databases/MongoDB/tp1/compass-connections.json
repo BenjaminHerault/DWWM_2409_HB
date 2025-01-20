@@ -1,0 +1,27 @@
+{
+  "type": "Compass Connections",
+  "version": {
+    "$numberInt": "1"
+  },
+  "connections": [
+    {
+      "id": "f4e0fb25-6cd3-4033-a3ae-e6e3e455f35f",
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1737370574719"
+        }
+      },
+      "favorite": {
+        "name": "Tp_BDD_NoSQL",
+        "color": "color8"
+      },
+      "savedConnectionType": "recent",
+      "connectionOptions": {
+        "connectionString": "mongodb://localhost:27017/",
+        "oidc": {
+          "serializedState": "eyJvaWRjUGx1Z2luU3RhdGVWZXJzaW9uIjowLCJzdGF0ZSI6W119"
+        }
+      }
+    }
+  ]
+}

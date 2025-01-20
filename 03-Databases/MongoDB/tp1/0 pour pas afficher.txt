@@ -1,0 +1,31 @@
+0 pour pas afficher 
+1 pour afficher 
+
+
+1. Donner nom, job, numéro et salaire de tous les employés,
+puis seulement des employés du département 10 :
+
+ db.emp.find({},{ename:1, job:1, sal:1,_id:0})
+
+
+2. Donner nom, job et salaire des employés de type MANAGER dont le salaire est supérieur à 2800
+
+db.emp.find ({job:"MANAGER", sal:{$gt: 2800}},{ename:1, job:1, sal:1, _id:0})
+
+3.Donner la liste des MANAGER n'appartenant pas au département 30
+
+db.emp.find ({$and:[ {job:"MANAGER"},{deptno: {$ne: 30}} ] },{})
+
+4.Liste des employés de salaire compris entre 1200 et 1400
+
+db.emp.find ({sal: {$gte :1200, $lte : 1400}},{ename:1, sal:1, _id: 0})
+
+5. Liste des employés des départements 10 et 30 classés dans l'ordre alphabétique
+
+db.emp.find({deptno : {$in : [10,30] }}, {}).sort({ename : 1})
+
+6. Liste des employés du département 30 classés dans l'ordre des salaires croissants
+
+db.emp.find ({deptno:30},{}).sort({sal:1})
+
+7.Liste de tous les employés classés par emploi et salaires décroissants

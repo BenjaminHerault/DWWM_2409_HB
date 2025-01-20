@@ -293,11 +293,11 @@ WHERE hiredate_emp = (SELECT hiredate_emp
 -- 10. Lister les employés ayant le même manager que CLARK.
 SELECT ename_emp, mgr_emp, (SELECT ename_emp from emp where empno_emp =(SELECT mgr_emp
 					FROM emp
-						WHERE ename_emp = "ALLEN") ) as "nom du manager"
+						WHERE ename_emp = "CLARK") ) as "nom du manager"
 FROM emp
 WHERE mgr_emp =  (SELECT mgr_emp
 					FROM emp
-						WHERE ename_emp = "ALLEN") AND ename_emp <> "ALLEN" ;
+						WHERE ename_emp = "CLARK") AND ename_emp <> "CLARK" ;
 
 /*SELECT ename_emp, mgr_emp
 FROM emp
@@ -305,12 +305,49 @@ WHERE mgr_emp = ;*/
 (SELECT ename_emp from emp where empno_emp =(SELECT mgr_emp
 					FROM emp
 						WHERE ename_emp = "CLARK") );
-
+                        
+SELECT ename_emp, mgr_emp
+FROM emp
+WHERE mgr_emp =  (SELECT mgr_emp
+					FROM emp
+						WHERE ename_emp = "CLARK") AND ename_emp <> "CLARK" ;
 
 -- 11. Lister les employés ayant même job et même manager que TURNER.
 
+-- version 1
+
+SELECT job_emp, ename_emp
+FROM emp
+WHERE mgr_emp = (SELECT mgr_emp 
+					FROM emp 
+						WHERE ename_emp = "turner")
+				AND job_emp = (SELECT job_emp
+									FROM emp
+										WHERE ename_emp = "turner")
+						AND ename_emp <> "turner" ;
+                        
+-- verion 2                        
+
+SELECT job_emp, ename_emp
+FROM emp
+WHERE (job_emp, mgr_emp) = (SELECT job_emp, mgr_emp
+								FROM emp
+									WHERE ename_emp = "Turner")
+						AND ename_emp <> "Turner";
+
+
 -- 12. Lister les employés du département RESEARCH embauchés le même jour que quelqu'un du
 -- département SALES.
+
+-- v1
+SELECT ename_emp
+FROM emp
+WHERE ename_emp LIKE "%M%" AND ename_emp LIKE "%A%";
+
+-- v2 
+SELECT ename_emp
+FROM emp
+WHERE ename_emp LIKE "%A%A%";
 
 -- 13. Lister le nom des employés et également le nom du jour de la semaine correspondant à leur date
 -- d'embauche.
@@ -333,6 +370,8 @@ WHERE mgr_emp = ;*/
 -- 			10 				21.43
 -- 			20 				35.71
 -- 			30 				42.86 
+
+
 
 
 DELIMITER |
