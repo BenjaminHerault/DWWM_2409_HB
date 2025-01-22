@@ -6,8 +6,9 @@
 puis seulement des employés du département 10 :
 
 
- db.emp.find({},{ename:1, job:1, sal:1,_id:0})
+db.emp.find({},{ename:1, job:1, sal:1,_id:0})
 
+db.emp.find({deptno:10},{ename:1, job:1, sal:1,_id:0})
 
 -------------------------------------------------------------------------------------------------------------------------------
 2. Donner nom, job et salaire des employés de type MANAGER dont le salaire est supérieur à 2800
@@ -50,7 +51,7 @@ db.emp.find ({deptno:30},{}).sort({sal:1})
 
 
 
-db.emp.find({},	{ename:1,_id:0,sal:1,job:1}).sort({job:-1, sal:-1})
+db.emp.find({},	{ename:1,_id:0,sal:1,job:1}).sort({job:1, sal:-1})
 
 
 -------------------------------------------------------------------------------------------------------------------------------
@@ -61,6 +62,7 @@ db.emp.find({},	{ename:1,_id:0,sal:1,job:1}).sort({job:-1, sal:-1})
 db.emp.aggregate({$group:{_id:"$job"}})
 
 avec alias :
+
 db.emp.aggregate({$group:{_id:{jobtest:"$job"}}})
 
 
@@ -82,6 +84,8 @@ salaires décroissants.
 
 
 db.emp.find({},{}).sort({deptno:-1,sal:-1})
+
+db.emp.find({}, {dname:1, ename:1, job:1, sal:1, deptno:1}).sort({dname:-1, sal:-1})
 
 
 -------------------------------------------------------------------------------------------------------------------------------
