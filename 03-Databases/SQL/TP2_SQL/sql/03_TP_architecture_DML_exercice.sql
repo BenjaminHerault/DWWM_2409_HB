@@ -73,25 +73,41 @@ ORDER BY participer.projet_ref ASC;
 /* 7. Sélectionner les types de projets avec, pour chacun d'entre eux, 
 le nombre de projets associés et le prix moyen pratiqué */
 
+-- v1
 SELECT type_projet_libelle, COUNT(projet_ref), AVG(projet_prix)
 FROM type_projets
 JOIN projets ON type_projets.type_projet_id = projets.type_projet_id
 GROUP BY type_projet_libelle;
 
+-- v2
+SELECT type_projet_libelle,projets.type_projet_id, AVG(projet_prix)
+FROM projets
+INNER JOIN type_projets ON projets.type_projet_id = type_projets.type_projet_id 
+GROUP BY  projets.type_projet_id ;
+
 /* 8. Sélectionner les types de travaux avec, 
 pour chacun d'entre eux, la superficie du projet la plus grande */
 
+-- v1
 SELECT max(projet_superficie_totale), type_travaux_id, type_travaux_libelle
 FROM projets
 NATURAL JOIN type_travaux 
 GROUP BY type_travaux_id 
 ORDER BY type_travaux_id  ASC ;
 
+-- v2
+SELECT projets.type_travaux_id, type_travaux.type_travaux_libelle, MAX(projets.projet_superficie_totale)
+FROM type_travaux
+INNER JOIN projets
+ON type_travaux.type_travaux_id = projets.type_travaux_id
+GROUP BY projets.type_travaux_id;
+
 /* 9. Sélectionner l'ensembles des projets (dates, prix) 
 avec les informations du client (nom, telephone, adresse), le type de travaux et le type de projet. */
 
 SELECT projet_date_depot, projet_date_fin_prevue, projet_date_fin_effective, projet_prix, client_telephone, client_nom, 
-CONCAT(adresse_code_postal," ", adresse_ville," ", adresse_num_voie," ", adresse_voie) AS "Une adresse", type_travaux_libelle, type_projet_libelle
+CONCAT(adresse_code_postal," ", adresse_ville," ", adresse_num_voie," ", adresse_voie) 
+AS "Une adresse", type_travaux_libelle, type_projet_libelle
 FROM projets
 INNER JOIN clients ON projets.client_ref = clients.client_ref
 INNER JOIN adresses ON clients.adresse_id = adresses.adresse_id
@@ -99,38 +115,52 @@ INNER JOIN type_travaux ON projets.type_travaux_id = type_travaux.type_travaux_i
 INNER JOIN type_projets ON projets.type_projet_id = type_projets.type_projet_id;
 
 /* 10. Sélectionner les projets dont l'adresse est identique au client associé */
-SELECT projet_ref, type_projet_libelle, projets.adresse_id, client_nom, concat(adresse_code_postal," ", adresse_ville," ",adresse_num_voie," ", adresse_voie) AS "adresses"
+/* 1 etape afficher projet et adresse du projet
+	2 etape afficher client et son adresse
+ */
+ 
+ -- v1
+SELECT projet_ref, type_projet_libelle, projets.adresse_id, client_nom, 
+concat(adresse_code_postal," ", adresse_ville," ",adresse_num_voie," ", adresse_voie) AS "adresses"
 FROM projets
 INNER JOIN type_projets ON projets.type_projet_id = type_projets.type_projet_id
 INNER JOIN clients ON projets.client_ref = clients.client_ref
 INNER JOIN adresses ON clients.adresse_id = adresses.adresse_id
 WHERE projets.adresse_id = clients.adresse_id;
 
+-- v2
+SELECT projet_ref, client_nom
+FROM projets p
+JOIN clients c ON p.client_ref = c.client_ref
+JOIN adresses a ON c.adresse_id = a.adresse_id
+WHERE p.adresse_id = c.adresse_id;
 
-
-
-
+-- v3
+SELECT projets.projet_ref, clients.client_nom
+FROM projets
+INNER JOIN clients ON projets.client_ref=clients.client_ref
+INNER JOIN adresses ON adresses.adresse_id=clients.adresse_id
+WHERE clients.adresse_id=projets.adresse_id;
 
 
 -- afficher les projets d'un architecte --- Pour un nom d'atchitecte en variable,  donner la reference des projets dont il est responsable (verifier sa fonction)
 -- 
--- delimiter |
--- CREATE PROCEDURE RechercheProjets(IN nom_emp VARCHAR(50)) 
--- BEGIN
--- SELECT projet_ref,fonctions.fonction_nom
--- FROM projets
--- INNER JOIN employes ON projets.emp_matricule=employes.emp_matricule NATURAL JOIN fonctions
--- WHERE employes.emp_nom=nom_emp; 
--- END|
+delimiter |
+CREATE PROCEDURE RechercheProjets(IN nom_emp VARCHAR(50)) 
+BEGIN
+SELECT projet_ref,fonctions.fonction_nom
+FROM projets
+INNER JOIN employes ON projets.emp_matricule=employes.emp_matricule NATURAL JOIN fonctions
+WHERE employes.emp_nom=nom_emp; 
+END|
+DELIMITER ;
 -- 
--- DELIMITER ;
+SET @nom_employes:="roussotte";
 -- 
--- SET @nom_employes:="roussotte";
+CALL RechercheProjetsparArchitecte( @nom_employes);
+CALL RechercheProjetsparArchitecte("Golay");
 -- 
--- CALL RechercheProjetsparArchitecte( @nom_employes);
--- CALL RechercheProjetsparArchitecte("Golay");
--- 
--- CALL RechercheProjets("Roussotte");
+CALL RechercheProjets("Roussotte");
 
 -- afficher_liste_projet_fonction
 
@@ -168,8 +198,6 @@ CALL budgetTotal(@nom, @montant, @nb);
 SELECT @montant AS "Somme des projets";
 SELECT @nb AS "Nombre de projets";
 
-
-
 -- definir un variable qui sera le cumul des montants projets  @cumul_projet_test
 -- definir une "stored procedure" qui en fonction du numero de projet choisi, ajoutera son montant au @cumul_projet_test pour avoir le montant global
 
@@ -182,18 +210,21 @@ SELECT  (cumul_projet + projets.projet_prix) INTO cumul_projet FROM projets WHER
 END|
 DELIMITER ;
 
-
-
 SELECT @cumul_projet3 AS  "depart";
  
-
 CALL ajouterBudgetProj( 4, @cumul_projet3);
 
-SELECT @cumul_projet3 AS  "résultat intermédiaire";
+SELECT @cumul_projet3 AS  "resulat intérmediaire";
 
 CALL ajouterBudgetProj( 2, @cumul_projet3);
 
+SELECT @cumul_projet3 AS "resultat final";
 
-SELECT @cumul_projet3 AS "résultat final";
+
+
+
+
+
+
 
 
