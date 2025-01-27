@@ -1,0 +1,176 @@
+0 pour pas afficher 
+1 pour afficher 
+
+-------------------------------------------------------------------------------------------------------------------------------
+1. Donner nom, job, numéro et salaire de tous les employés,
+puis seulement des employés du département 10 :
+
+
+db.emp.find({},{ename:1, job:1, sal:1,_id:0})
+
+db.emp.find({deptno:10},{ename:1, job:1, sal:1,_id:0})
+
+-------------------------------------------------------------------------------------------------------------------------------
+2. Donner nom, job et salaire des employés de type MANAGER dont le salaire est supérieur à 2800
+
+
+db.emp.find ({job:"MANAGER", sal:{$gt: 2800}},{ename:1, job:1, sal:1, _id:0})
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+3.Donner la liste des MANAGER n'appartenant pas au département 30
+
+
+db.emp.find ({$and:[ {job:"MANAGER"},{deptno: {$ne: 30}} ] },{})
+
+-------------------------------------------------------------------------------------------------------------------------------
+4.Liste des employés de salaire compris entre 1200 et 1400
+
+
+db.emp.find ({sal: {$gte :1200, $lte : 1400}},{ename:1, sal:1, _id: 0})
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+5. Liste des employés des départements 10 et 30 classés dans l'ordre alphabétique
+
+
+db.emp.find({deptno : {$in : [10,30] }}, {}).sort({ename : 1})
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+6. Liste des employés du département 30 classés dans l'ordre des salaires croissants
+
+
+
+db.emp.find ({deptno:30},{}).sort({sal:1})
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+7.Liste de tous les employés classés par emploi et salaires décroissants
+
+
+
+db.emp.find({},	{ename:1,_id:0,sal:1,job:1}).sort({job:1, sal:-1})
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+8. Liste des différents emplois
+
+
+
+db.emp.aggregate({$group:{_id:"$job"}})
+
+avec alias :
+
+db.emp.aggregate({$group:{_id:{jobtest:"$job"}}})
+
+
+beaucoup plus simple !:
+
+db.emp.distinct("job")
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+9. Donner le nom du département où travaille ALLEN
+
+
+db.emp.find({ename:"ALLEN"},{})
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+10. Liste des employés avec nom du département, nom, job, salaire classés par noms de départements et par
+salaires décroissants.
+
+
+db.emp.find({},{}).sort({deptno:-1,sal:-1})
+
+db.emp.find({}, {dname:1, ename:1, job:1, sal:1, deptno:1}).sort({dname:-1, sal:-1})
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+11.Liste des employés vendeurs (SALESMAN) avec affichage de nom, salaire, commissions, salaire +
+commissions
+
+db.emp.find({job:"SALESMAN"},{_id:0,ename:1,sal:1,comm:1,sal_comm:{$sum:{$add:["$sal","$comm"]}}})
+
+
+salaire totale de tout les job
+
+db.emp.aggregate([{$group:{_id:"$job", sal_comm:{$sum:{$add:["$sal","$comm"]}}}}])
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+12. Donner le salaire le plus élevé par département
+
+
+db.emp.aggregate([{$group:{_id:"$deptno",maxSal:{$max:"$sal"}}}])
+
+-------------------------------------------------------------------------------------------------------------------------------
+13. Donner département par département masse salariale, nombre d'employés, salaire moyen par type
+d'emploi.
+
+
+db.emp.aggregate
+(
+    [
+        {$group:{_id:"$deptno", masseSal:
+            {$sum:
+                {$add:
+                ["$sal","$comm"]
+                }
+            },
+            nmrEmp:
+            {$sum:1
+                
+            }
+        }}
+    ]
+)
+
+db.emp.aggregate(
+    [
+        {
+            $group:
+            {
+                _id: "$job",
+                salMoy: {$avg: "$sal"}
+            }
+        }
+    ]
+)
+
+
+db.emp.aggregate([
+    {
+        $group: {
+            _id: { deptno: "$deptno", job: "$job" },  // Regroupement par département et type d'emploi
+            masseSal: { 
+                $sum: { 
+                    $add: ["$sal", "$comm"]  // Masse salariale, en additionnant salaire de base et commission
+                }
+            },
+            nmrEmp: { 
+                $sum: 1  // Nombre d'employés par type d'emploi et département
+            },
+            totalSal: { 
+                $sum: "$sal"  // Somme des salaires de base pour le calcul du salaire moyen
+            }
+        }
+    },
+    {
+        $project: {
+            _id: 0,  // Masquer le champ _id
+            deptno: "$_id.deptno",  // Récupérer le numéro de département
+            job: "$_id.job",  // Récupérer le type d'emploi
+            masseSal: 1,  // Afficher la masse salariale
+            nmrEmp: 1,  // Afficher le nombre d'employés
+            salaireMoyen: { 
+                $divide: ["$totalSal", "$nmrEmp"]  // Calcul du salaire moyen pour chaque type d'emploi dans chaque département
+            }
+        }
+    }
+])
+
+
+
