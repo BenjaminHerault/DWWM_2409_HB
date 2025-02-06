@@ -1,37 +1,72 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Reflection.Metadata;
+//using System.Text;
+//using System.Threading.Tasks;
 
-namespace Classes;
+//namespace Classes;
 
-public class BankAccount
-{
-    private static int s_accountNumberSeed = 1234567890;
-    // propriétés
-    public string Number { get; }       // Number = Nombre
-    public string Owner { get; set; }   // Owner = Propriétaire
-    public decimal Balance { get; }
+//public class BankAccount
+//{
+//    // propriétés
+//    public string Number { get; }       // Number = Nombre
+//    public string Owner { get; set; }   // Owner = Propriétaire
+//    // Utilisez la directive #Region pour spécifier un bloc de code à développer ou à réduire
+//    // à l’aide de la fonctionnalité du mode Plan de Visual Studio IDE. Vous pouvez placer,
+//    // ou imbriquer, des régions dans d’autres régions pour regrouper des régions semblables.
+//    #region BalanceComputation              
+//    public decimal Balance
+//    {
+//        get
+//        {
+//            decimal balance = 0;
+//            foreach (var item in _allTransactions)
+//            {
+//                balance += item.Amount;
+//            }
+
+//            return balance;
+//        }
+//    }
 
 
-    // constructeur 
-    public BankAccount(string name, decimal initialBalance)
-    {
-        this.Owner = name;
-        this.Balance = initialBalance;
-        Number = s_accountNumberSeed.ToString();
-        s_accountNumberSeed++;
-    }
-    private List<Transaction> allTransactions = new List<Transaction>();
+//    // constructeur 
+//    public BankAccount(string name, decimal initialBalance)
+//    {
+//        Number = s_accountNumberSeed.ToString();
+//        s_accountNumberSeed++; 
 
-    // méthodes
-    public void MakeDeposit(decimal amount, DateTime date, string note) // MakeDeposit = Faire un dépôt
-    {
-    }
+//        Owner = name;
+//        MakeDeposit(initialBalance, DateTime.Now, "Solde initial");
+//    }
+//    // DateTime.Now = est une propriété qui retourne la date et l'heure actuelles
+//    private List<Transaction> _allTransactions = new List<Transaction>();
 
-    public void MakeWithdrawal (decimal amount, DateTime date, string note) // MakeWithdrawal = Effectuer un retrait
-    {
-    }
-}
+
+//    // méthodes
+//    public void MakeDeposit(decimal amount, DateTime date, string note) // MakeDeposit = Faire un dépôt
+//    {
+//        if (amount <= 0) 
+//        {
+//            throw new ArgumentOutOfRangeException(nameof(amount), "Le montant du dépôt doit être positif");
+//        }
+//        var deposit = new Transaction(amount, date, note);
+//        _allTransactions.Add(deposit);
+//    } 
+
+//    public void MakeWithdrawal (decimal amount, DateTime date, string note) // MakeWithdrawal = Effectuer un retrait
+//    {
+//        if (amount <= 0) 
+//        {
+//            throw new ArgumentOutOfRangeException(nameof(amount), "Le montant du retrait doit être positif");
+//        }
+//        if (Balance - amount < 0 )
+//        {
+//            throw new InvalidOperationException("Pas de fonds suffisants pour ce retrait");
+//        }
+//        var withdrawal = new Transaction(-amount, date, note);
+//        _allTransactions.Add(withdrawal);
+//    }
+//}
 
