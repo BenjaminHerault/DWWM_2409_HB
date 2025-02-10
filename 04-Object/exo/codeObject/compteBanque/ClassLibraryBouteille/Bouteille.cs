@@ -44,33 +44,109 @@ namespace ClassLibraryBouteille
             this.contenuEnLitre = bouteilleACopier.contenuEnLitre;
             this.estOuverte = bouteilleACopier.estOuverte;
         }
-
+        /// <summary>
+        /// si estOuverte et vrai
+        /// alors la méthode Ouvrir() retourne faux 
+        /// car on peux pas la réouvrir
+        /// sinon la bouteille et fermer
+        /// on l'ouvre et la méthode Ouvrir() retourner vrai 
+        /// </summary>
+        /// <returns>si la bouteille et fermer on l'ouvre</returns>
         public bool Ouvrir()                
         {
-            if (estOuverte == true)     // si estOuverte et vrai
+            if (estOuverte)     
             {
-                return false;           // alors la méthode Ouvrir() retourne faux 
-            }                           // car on peux pas la réouvrir
+                return false;           
+            }                           
             else
             {
-                estOuverte = true;       // sinon la bouteille et fermer 
-                return true;            // on l'ouvre et la méthode Ouvrir() retourner vrai 
+                estOuverte = true;         
+                return true;             
             } 
         }
+        /// <summary>
+        /// si estOuverte est vrai
+        /// alors la méthode Fermer() retourne vrai
+        /// car on peux fermer la bouteille
+        /// sinon la bouteille et fermer
+        /// on peux pas la re fermer
+        /// </summary>
+        /// <returns>si la boutielle et ouverte on la ferme</returns>
         public bool Fermer()
         {
-            if (estOuverte == true)     //si estOuverte est vrai
-            {                           //alors la méthode Fermer() retourne vrai
-                return true;
-            }                           //car on peux fermer la bouteille
+            if (estOuverte )     
+            {        
+                estOuverte = false;
+                return false;
+            }                           
             else
-            {                           //sinon la bouteille et fermer
-                return false;           //on peux pas la re fermer
+            {                           
+                return false;           
             }    
         }
-        //public bool Vider()
+        /// <summary>
+        /// estOuverte == true && contenuEnLitre >=0
+        /// si (estOuverte et vrai et que contenuEnLitre >=0)
+        /// alors
+        ///contenuEnLitre = 0
+        ///on retourne vrai
+        ///sinon
+        ///on retourne false 
+        /// </summary>
+        /// <returns>pour vider la bouteille si elle et ouverte et quelle contiens un liquide </returns>
+        public bool Vider()
+        {
+            if (estOuverte  && contenuEnLitre >=0)
+            {
+                contenuEnLitre = 0;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// si estOuverte == true && quantiteEnLitre <= contenuEnLitre && quantiteEnLitre > 0
+        ///                                   2      <= 1       et          1 > 0
+        ///   sinon 
+        ///   rien se passe 
+        /// </summary>
+        /// <param name="quantiteEnLitre"></param>
+        /// <returns></returns>
+        public bool Vider(double quantiteEnLitre)
+        {
+            if (estOuverte && quantiteEnLitre <= contenuEnLitre && quantiteEnLitre > 0)                                        
+            {
+                contenuEnLitre = contenuEnLitre - quantiteEnLitre;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public bool Remplir()
+        {
+            if (estOuverte && contenuEnLitre >= 0)
+            {
+                contenuEnLitre = 0;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        //public bool Remplir(double quantiteEnLitre)
         //{
-        //    if(estOuverte == true && )
+        //    return true;
         //}
     }
 }
+
