@@ -119,3 +119,52 @@ namespace ClassLibraryBouteille
  
     }
 }
+
+Cheval belino1 = new Cheval();
+belino1.Brouter();
+ 
+ 
+Transport belino2 = new Cheval();
+belino2.BaisserLaVitesse();
+ 
+ 
+IMotorise c = new Cargo();
+c.ConsommerEnergie();
+Avion a = new Avion();
+a.ConsommerEnergie();
+ 
+List<IMotorise> motorises = new List<IMotorise>;
+motorises.Add(c);
+motorises.Add(new Rasoire());
+foreach(IMotorise m in motorises)
+{
+m.ConsommerEnergie();
+} 
+
+
+
+public abstract Transport
+{
+	private int vitesseEnKm;
+	
+	public Transport(int _vitesseEnKm)
+	{
+		this.vitesseEnKm=_vitesseEnKm;		
+	}
+
+	public abstract void Avancer();
+}
+
+
+public class Cargo:TransportMaritine,IMotorise
+{
+	private int nbConteneur;
+
+	public Cargo(int _vitesseEnKm, int nbConteneur)
+        :base(_vitesseEnKm);
+	{
+		this.nbConteneur=nbConteneur;		
+	}
+
+	public override void Avancer();
+}

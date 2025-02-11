@@ -13,14 +13,31 @@ namespace ClassLibraryBouteille
 
         //constructeur par défaut 
         public Bouteille()
-        {
+        {       
+
             this.contenanceEnLitre = 1.5;
             this.contenuEnLitre = 1.5;
             this.estOuverte = false;
         }
         // constructeur classique 
+        /// <summary>
+        /// les parametre d'une bouteille 
+        /// </summary>
+        /// <param name="contenanceEnLitre"></param>
+        /// <param name="contenuEnLitre"></param>
+        /// <param name="estOuverte"></param>
+        /// <exception cref="ArgumentException"></exception>
         public Bouteille(double contenanceEnLitre, double contenuEnLitre, bool estOuverte)
         {
+            if (contenanceEnLitre <= 0) 
+            {
+                throw new ArgumentException("La contenanceEnLitre d'une bouteille ne peut pas être negative",nameof(contenanceEnLitre));
+            }
+            
+            if (contenuEnLitre < 0)
+            {
+                throw new ArgumentException("La contenuEnLitre d'une bouteille ne peut pas être negative", nameof(contenuEnLitre));
+            }
             this.contenanceEnLitre = contenanceEnLitre;
             this.contenuEnLitre = contenuEnLitre;
             this.estOuverte = estOuverte;
@@ -116,6 +133,10 @@ namespace ClassLibraryBouteille
         /// <returns></returns>
         public bool Vider(double quantiteEnLitre)
         {
+            if(quantiteEnLitre < 0)
+            {
+                throw new ArgumentException("value pas prix en compte", nameof(quantiteEnLitre));
+            }
             if (estOuverte && quantiteEnLitre <= contenuEnLitre && quantiteEnLitre > 0)                                        
             {
                 contenuEnLitre = contenuEnLitre - quantiteEnLitre;
@@ -128,14 +149,14 @@ namespace ClassLibraryBouteille
         }
 
         /// <summary>
-        /// 
+        /// si la bouteille et ouverte on peux la remplire  
         /// </summary>
-        /// <returns></returns>
+        /// <returns>si la bouteille et ouverte contenuEnLitre = contenanceEnLitre</returns>
         public bool Remplir()
         {
             if (estOuverte && contenuEnLitre >= 0)
             {
-                contenuEnLitre = 0;
+                contenuEnLitre = contenanceEnLitre;
                 return true;
             }
             else
@@ -143,10 +164,28 @@ namespace ClassLibraryBouteille
                 return false;
             }
         }
-        //public bool Remplir(double quantiteEnLitre)
-        //{
-        //    return true;
-        //}
+        /// <summary>
+        /// si la bouteille et ouverte on peux la remplire  on depasse pas la contenance 
+        /// </summary>
+        /// <param name="quantiteEnLitre"></param>
+        /// <returns>si la bouteille et ouverte contenuEnLitre = contenuEnLitre + quantiteEnLitre;</returns>
+        public bool Remplir(double quantiteEnLitre)
+        {
+            if (quantiteEnLitre<0)
+            {
+                throw new ArgumentException("value negatif impossible",nameof(quantiteEnLitre));
+            }
+            if (estOuverte && quantiteEnLitre <= (contenanceEnLitre - contenuEnLitre))
+            {
+              
+                contenuEnLitre = contenuEnLitre + quantiteEnLitre;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
 
