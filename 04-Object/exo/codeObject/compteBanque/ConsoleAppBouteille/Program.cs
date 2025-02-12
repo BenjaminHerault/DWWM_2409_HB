@@ -1,6 +1,20 @@
 ﻿using ClassLibraryBouteille;
 
 
+
+//Bouteille bouteille = new Bouteille();
+//Console.WriteLine(bouteille.ToString());
+
+//Bouteille bouteilleClone = new Bouteille(bouteille);
+
+//if (bouteille.Equals(bouteilleClone))
+//{
+//    Console.WriteLine("c'est egal");
+//}
+
+//int a = 0;                            code fait en cours
+
+
 //contenanceEnLitre contenuEnLitre estOuverte 
 Bouteille b;
 

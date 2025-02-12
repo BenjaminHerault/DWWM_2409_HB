@@ -9,6 +9,8 @@ namespace ClassLibraryBouteille
         private double contenuEnLitre { get; set; }
         private bool estOuverte { get; set; }
 
+        //private string nom; fait en cours
+
         //constructeurs
 
         //constructeur par défaut 
@@ -18,7 +20,20 @@ namespace ClassLibraryBouteille
             this.contenanceEnLitre = 1.5;
             this.contenuEnLitre = 1.5;
             this.estOuverte = false;
+            //this.nom = "bouteilleDeEau"; fait en cours
         }
+
+        //public override string ToString()
+        //{
+        //    return base.ToString() + " contenanceEnLitre="+contenanceEnLitre;//etc..
+        //}
+
+        //public override bool Equals(object? obj)
+        //{
+        //    return this.nom.Equals(((Bouteille)obj).nom);
+        //}                                                     fait en cours
+
+
         // constructeur classique 
         /// <summary>
         /// les parametre d'une bouteille 
@@ -60,6 +75,7 @@ namespace ClassLibraryBouteille
             this.contenanceEnLitre = bouteilleACopier.contenanceEnLitre;
             this.contenuEnLitre = bouteilleACopier.contenuEnLitre;
             this.estOuverte = bouteilleACopier.estOuverte;
+            //this.nom=bouteilleACopier.nom;        fait en cours
         }
         /// <summary>
         /// si estOuverte et vrai
