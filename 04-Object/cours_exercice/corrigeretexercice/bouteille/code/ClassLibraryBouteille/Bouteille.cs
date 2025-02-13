@@ -7,7 +7,7 @@ namespace ClassLibraryBouteille
         //attributs
         private double contenanceEnLitre { get; init; }
         private double contenuEnLitre { get; set; }
-        private bool estOuverte { get; set; }
+        public bool estOuverte {  get; private set; }
 
         //private string nom; fait en cours
 
