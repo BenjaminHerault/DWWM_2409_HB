@@ -13,38 +13,41 @@ conteur.innerHTML = taille
 function ajuster(taille){
     conteur.innerHTML = taille
     textValue.style.fontSize = taille + 'px'
+    nombreValue.value = taille;
 }
 function plus(){
     if (taille <= 47){
         taille++;
-        ajuster(taille)
+        ajuster(taille);
     }
     else{
         taille = 16;
-        ajuster(taille) 
+        ajuster(taille); 
     }
 }
 function moin(){
     if(taille > 8){
         taille--;
-        ajuster(taille)
+        ajuster(taille);
     }
     else{
         taille = 16;
-        ajuster(taille)   
+        ajuster(taille);   
     }
 }
 function changer(e){
     const nouvelleTaille = parseInt(e.target.value);
-    if(nouvelleTaille >= 8 && nouvelleTaille <= 47){
+    if(nouvelleTaille >= 8 && nouvelleTaille <= 48){
         taille = nouvelleTaille;
-        ajuster(taille)
+        ajuster(taille);
+        nombreValue.value = taille;
     }
     else{
         taille = 16;
-        ajuster(taille)
+        ajuster(taille);
+        nombreValue.value = taille;
     }
 }
 btnTaille.addEventListener("click", plus);
 btnDimi.addEventListener("click", moin);
-nombreValue.addEventListener("input", changer);
+nombreValue.addEventListener("blur", changer);
