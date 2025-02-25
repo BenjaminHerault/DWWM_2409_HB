@@ -44,7 +44,6 @@ function changer(e){
         taille = 16;
         ajuster(taille)
     }
-
 }
 btnTaille.addEventListener("click", plus);
 btnDimi.addEventListener("click", moin);
