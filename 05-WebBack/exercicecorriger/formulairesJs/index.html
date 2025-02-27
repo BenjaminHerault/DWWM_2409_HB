@@ -5,31 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./asser/main.js" async></script>
+    <script src="./asser/style.js" async></script>
     <title>Formulaires</title>
 </head>
 
 <body>
     <main>
-        <h1>Saisissez un prénom et un âge</h1>
-        <form>
-            <label for="prenom">Prénom:</label>
-            <input type="text" id="prenom" name="prenom">
+        <div>
+            <form>
+                <h1>Saisissez un prénom et un âge</h1>
+                <label for="prenom">Prénom:</label>
+                <input type="text" id="prenom" name="prenom">
 
-            <label for="age">Âge:</label>
-            <input type="number" id="age" name="age">
+                <label for="age">Âge:</label>
+                <input type="number" id="age" name="age">
 
-            <input type="button" value="Valider" id="boutonValider">
+                <input type="button" value="Valider" id="boutonValider">
 
 
-            <input type="button" value="Vider" id="boutonVider">
-            <hr>
+                <input type="button" value="Vider" id="boutonVider">
+                <hr>
 
-            <p><span id="texteInfo"></span></p>
-        </form>
+                <p><span id="texteInfo"></span></p>
+            </form>
+        </div>
     </main>
 </body>
 
 </html>
-
-<!-- <button id="buttonVider"
-    onclick="document.getElementById('prenom').value=''; document.getElementById('age').value='';">Vider</button> -->
