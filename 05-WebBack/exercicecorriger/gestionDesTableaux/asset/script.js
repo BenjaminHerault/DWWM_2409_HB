@@ -1,5 +1,4 @@
 const people = ['Mike Dev', 'John Makenzie', 'Léa Grande'];
-
 const liste = document.querySelector("#inscrit");
 
 liste.setAttribute("style", "list-style:none; color:#ACCBE1");
@@ -8,7 +7,7 @@ document.body.style.backgroundColor="#536B78";
 document.body.style.color="#ACCBE1";
 document.querySelector("h1").setAttribute("style", "margin-left:50px; font-family:tahoma;text-transform:uppercase");
 
-document.querySelector("#filet").setAttribute("style", "border:2px dashed #ACCBE1");
+document.querySelector("#filet").setAttribute("style", "border:2px solid #ACCBE1");
 
 for (let i = 0; i < people.length; i++) {
    
@@ -42,6 +41,13 @@ tab.setAttribute("style", "border:2px solid #ACCBE1; background-color:#647182");
 let tabTitre = ["Nom", "Prénom", "Email"];
 for (let i = 0; i < tabTitre.length; i++) {
     ajouterUneCelluleTitre(ligne,tabTitre[i]);
+    
 }
+let nomEtPrenom = [];
+    for (let i = 0; i < people.length; i++) {
+        nomEtPrenom = people[i].split(" ");
+           
+    }     
+
 // let mail = tabtitre[0]+"."+tabTitre[1]+"@example.com";
 //         ajouterUneCelluleTitre(ligne, mail);
