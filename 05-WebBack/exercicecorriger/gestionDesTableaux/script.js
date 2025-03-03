@@ -18,3 +18,30 @@ for (let i = 0; i < people.length; i++) {
     liste.appendChild(monItem);
     
 }
+const tab = document.querySelector("#donnee");
+
+function ajouterUneCelluleTitre (ligne, texte){
+    let cellule = document.createElement("th");
+    cellule.style.border="1px solid #ACCBE1";
+    cellule.style.padding = "10px";
+    cellule.textContent = texte;
+    ligne.appendChild(cellule);
+};
+function ajouterUneCelluleDonnee (ligne, texte){
+    let cellule = ligne.insertCell();
+    cellule.textContent = texte;
+    // return cellule;
+};
+let header = tab.createTHead();
+let ligne = header.insertRow();
+
+tab.setAttribute("cellspacing", "0");
+tab.setAttribute("style", "border:2px solid #ACCBE1; background-color:#647182");
+
+
+let tabTitre = ["Nom", "Prénom", "Email"];
+for (let i = 0; i < tabTitre.length; i++) {
+    ajouterUneCelluleTitre(ligne,tabTitre[i]);
+}
+// let mail = tabtitre[0]+"."+tabTitre[1]+"@example.com";
+//         ajouterUneCelluleTitre(ligne, mail);
