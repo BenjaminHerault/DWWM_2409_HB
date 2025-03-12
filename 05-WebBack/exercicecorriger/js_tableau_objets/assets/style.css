@@ -1,0 +1,17 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-color: #d4bdb0;
+}
+#fielBody{
+    width: 50%;
+    margin: 1%;
+    border-color: #a38d8b;
+}
+#fielForm{
+    
+    margin: 1%;
+}

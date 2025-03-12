@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <script src="./assets/script.js" defer></script>
+    <title>Codes Postaux</title>
+</head>
+
+<body>
+    <h1>Recherche de Commune</h1>
+    <form action="">
+        <legend>Saisissez un code postal ou une commune</legend><br>
+        <label for="cp">CP / Commune :</label>
+        <input list="suggestions" type="search" name="cp" id="cp">
+        <datalist id="suggestions">
+
+        </datalist>
+
+        <input type="button" value="Valider" id="valider">
+        <p id="result"></p>
+
+    </form>
+
+    <div id="affichage"></div>
+</body>
+
+</html>

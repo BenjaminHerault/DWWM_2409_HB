@@ -1,0 +1,18 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 40px;
+
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 2.5rem;
+}
+
+legend {
+    font-size: 1.2rem;
+}
+
+#cp, #valider {
+    font-size: 1.2rem;
+}
