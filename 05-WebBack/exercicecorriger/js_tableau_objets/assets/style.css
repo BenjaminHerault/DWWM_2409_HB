@@ -2,16 +2,75 @@
     margin: 0%;
     padding: 0%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
 }
 body{
     background-color: #d4bdb0;
 }
 #fielBody{
     width: 50%;
-    margin: 1%;
+    margin: 2% auto;
     border-color: #a38d8b;
 }
 #fielForm{
-    
     margin: 1%;
+    border-style: dashed;
+    border-color: #a6a390  ;
+}
+h1{
+    color:#705b64;
+    font-size: 230%;
+    margin: 1%;
+}
+form{
+    margin-left: 4%;
+}
+p{
+    color: #8f687a;
+    margin-bottom: 5%;
+}
+#monIdentifiant, #monMDP{
+    margin-top: 3%;
+    color: #8f687a;
+}
+
+#MDP, #identifiant{
+    
+    border: 2px solid #a3a08c;
+    background-color: #c2ae9f;
+    width: 30%;
+    height: 25px;
+}
+#MDP{
+    margin-left: 10%;
+}
+ #identifiant{
+    margin-left: 12.5%;
+    font-size: 50px;
+}
+.taille{
+    font-size: 200px;
+}
+#btn{
+    margin-top: 2%;
+    margin-bottom: 1%;
+    
+}
+#btnConnexion{
+    color: #8f7979;
+    border: 2px solid #a3a08c;
+    width: 100px;
+    height: 25px;
+    background-color: #c2ae9f;
+    cursor: pointer;
+    font-size: 15px;
+}
+#btnConnexion:active{
+    background-color: #a3a08c;
+    transform: translate(0,1px);
+    -webkit-transform: translate(0,1px);
+}
+#monTexte{
+    
+    color: #705b64;
 }
