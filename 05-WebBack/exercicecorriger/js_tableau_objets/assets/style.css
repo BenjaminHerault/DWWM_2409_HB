@@ -17,10 +17,25 @@ body{
     border-style: dashed;
     border-color: #a6a390  ;
 }
-h1{
+#containerP{
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+h1{ 
+    display: inline;
     color:#705b64;
-    font-size: 230%;
-    margin: 1%;
+    font-size: 230%; 
+ 
+}
+#monTexte{
+    font-size: 20px; 
+    color: #8f7979;
+    border: 2px solid #a3a08c;
+    background-color: #c2ae9f;
+    padding: 15px 15px 15px 15px;
+    margin-left: 18%;
 }
 form{
     margin-left: 4%;
@@ -28,25 +43,26 @@ form{
 p{
     color: #8f687a;
     margin-bottom: 5%;
+    font-size: 20px;
+     display: inline;
 }
 #monIdentifiant, #monMDP{
     margin-top: 3%;
     color: #8f687a;
 }
-
 #MDP, #identifiant{
-    
     border: 2px solid #a3a08c;
     background-color: #c2ae9f;
     width: 30%;
-    height: 25px;
+    height: 40px;
 }
 #MDP{
     margin-left: 10%;
+    font-size: 22px;
 }
  #identifiant{
-    margin-left: 12.5%;
-    font-size: 50px;
+    margin-left: 13%;
+    font-size: 22px;
 }
 .taille{
     font-size: 200px;
@@ -54,23 +70,22 @@ p{
 #btn{
     margin-top: 2%;
     margin-bottom: 1%;
-    
 }
 #btnConnexion{
     color: #8f7979;
     border: 2px solid #a3a08c;
-    width: 100px;
-    height: 25px;
+    width: 130px;
+    height: 40px;
     background-color: #c2ae9f;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 20px;
 }
 #btnConnexion:active{
     background-color: #a3a08c;
     transform: translate(0,1px);
     -webkit-transform: translate(0,1px);
 }
-#monTexte{
-    
-    color: #705b64;
+.texteChange{
+    font-size: 20px;
 }
+

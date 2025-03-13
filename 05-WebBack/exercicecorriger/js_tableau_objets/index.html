@@ -11,17 +11,19 @@
 
 <body>
     <fieldset id="fielBody">
-        <h1 id="rajouter">Espace membres</h1>
+        <div id="containerP">
+            <h1>Espace membres</h1>
+        </div>
         <fieldset id="fielForm">
             <form action="" method="">
                 <p>Identification</p>
                 <div id="monIdentifiant">
-                    <label for="identifiant" classe="taille">Identifiant:</label>
-                    <input type="text" id="identifiant" name="saisi_identifiant">
+                    <label for="identifiant" class="texteChange">Identifiant:</label>
+                    <input type="text" id="utilisateurs" name="saisi_identifiant">
                 </div>
                 <div id="monMDP">
-                    <label for="MDP">Mot de passe:</label>
-                    <input type="text" id="MDP" name="saisi_MDP">
+                    <label for="MDP" class="texteChange">Mot de passe:</label>
+                    <input type="password" id="MDP" name="saisi_MDP">
                 </div>
                 <div id="btn">
                     <input type="button" value="Connexion" id="btnConnexion">
