@@ -50,7 +50,7 @@ p{
     margin-top: 3%;
     color: #8f687a;
 }
-#MDP, #identifiant{
+#MDP, #utilisateurs{
     border: 2px solid #a3a08c;
     background-color: #c2ae9f;
     width: 30%;
@@ -60,7 +60,7 @@ p{
     margin-left: 10%;
     font-size: 22px;
 }
- #identifiant{
+ #utilisateurs{
     margin-left: 13%;
     font-size: 22px;
 }
@@ -88,4 +88,23 @@ p{
 .texteChange{
     font-size: 20px;
 }
+#deconnexion{
+    color: #8f7979;
+    border: 2px solid #a3a08c;
+    width: 130px;
+    height: 40px;
+    background-color: #c2ae9f;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+#monTabl{
+    margin-top: 5%;
+    margin-left: 10%;
+    border-collapse: collapse;
+    width: 80%;
+    border: 2px solid #a3a08c;
+}
+
 
