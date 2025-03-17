@@ -22,7 +22,6 @@ function ajouterUneCelluleDonnee (ligne, texte){
     cellule1.textContent = texte;
     cellule1.style.border="1px solid #ACCBE1";
     cellule1.style.padding = "8px";
-    cellule1.textContent = texte;
     ligne.appendChild(cellule1);
     return cellule1;
 };

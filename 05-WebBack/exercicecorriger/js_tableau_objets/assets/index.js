@@ -15,8 +15,7 @@ fetch("./assets/info.json").then(reponse => reponse.json()).then(data => {
        //console.log(utilisateurs);
         motDePasses.push(data[i].password);
        // console.log(motDePasses);
-        
-
+       
     }
     ConnextionValider.addEventListener("click", function(){
         for(let i = 0; i < data.length; i++){
@@ -68,20 +67,16 @@ function connextionReussi(objet){
 
     });
 }
-
 function creerTableau(data){
      // creation du tableau
      let monTabl = document.createElement("table");
      monTabl.setAttribute("id", "monTabl");
      divRajouterStyle.appendChild(monTabl);
- 
+     
      // creation du thead
      let monThead = monTabl.createTHEad();
- 
      // creation du tr
      let monTr = monThead.insertRow(); 
-
- 
      // creation du th
      let thTableau = document.createElement("th");
      let textTableau = ["Nom", "Prénom", "Date de naissance", "Email", "Salaires"]; 
@@ -92,10 +87,7 @@ function creerTableau(data){
      }
      // creation du tbody
      let monTbody = monTabl.createTBody();
-     
      // creation du tr
-   
-
      // creation du td
      for (let i = 0; i < utilisateurs.length; i++) {
          let monTrBody = monTbody.insertRow();
@@ -116,7 +108,6 @@ function creerTableau(data){
         deconnexion.addEventListener("click", function(){
             Avalider = false;
             monTabl.remove();
-    
         });
 
 }
