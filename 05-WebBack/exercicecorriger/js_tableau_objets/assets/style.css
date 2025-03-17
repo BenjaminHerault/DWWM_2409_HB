@@ -96,15 +96,28 @@ p{
     background-color: #c2ae9f;
     cursor: pointer;
     font-size: 20px;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
-#monTabl{
-    margin-top: 5%;
-    margin-left: 10%;
-    border-collapse: collapse;
-    width: 80%;
+#monTableau{
+    margin-top: 3%;
+    margin-bottom: 5%;
+    margin-left: 2%;
+    width: 90%;
     border: 2px solid #a3a08c;
+    background-color: #c2ae9f;
+    border-collapse: collapse;
+    color: #735d66;
+}
+#celluleInfo{
+    border :4px solid #a3a08c;
+    padding: 10px;
+    font-size: 20px;
+}
+#monTh{
+    font-size: 20px;
+    border: 5px solid #a3a08c;
+    height: 35px;
 }
 
 

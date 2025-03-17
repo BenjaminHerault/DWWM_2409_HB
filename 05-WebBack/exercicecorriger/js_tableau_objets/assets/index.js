@@ -1,48 +1,42 @@
 let utilisateurs = [];
-let email = [];
 let motDePasses = [];
 let utilisateursValider = document.querySelector("#utilisateurs");
 let motDePasseValider = document.querySelector("#MDP");
 let ConnextionValider = document.querySelector("#btnConnexion");
 let divRajouterStyle = document.querySelector("#containerP");
-let Avalider = false
+let Avalider = false;
 
 fetch("./assets/info.json").then(reponse => reponse.json()).then(data => {
     for(let i = 0; i < data.length; i++){
         let prenom = data[i].firstname.toLowerCase();
         let nom = data[i].lastname.toLowerCase();
         utilisateurs.push(prenom + "." + nom);
-       //console.log(utilisateurs);
         motDePasses.push(data[i].password);
-       // console.log(motDePasses);
-       
     }
     ConnextionValider.addEventListener("click", function(){
         for(let i = 0; i < data.length; i++){
             if(utilisateurs[i] === utilisateursValider.value && motDePasses[i] === motDePasseValider.value){
-                console.log("C'est bon");
                 Avalider = true;
-                connextionReussi(data[i]);
+                connextionReussi(data[i], data);
             } 
         }
         if(Avalider === false){
-            console.log("C'est pas bon");
             pasValider();
         }
     });
 }).catch(error => console.error(error));
-// .then(data => {console.log(data[1].id);})
-// .catch(error => console.error(error));
+
 function pasValider(){
     let monTexte = document.createElement("p");
     monTexte.setAttribute("id", "monTexte");
-    monTexte.textContent = "utilisateurs ou mot de passe incorrect";
+    monTexte.textContent = "Identifiant ou mot de passe incorrect";
     divRajouterStyle.appendChild(monTexte);
     setTimeout(() => {
         monTexte.remove();
     }, 5000);
 }
-function connextionReussi(objet){
+
+function connextionReussi(objet, data){
     let fielASupprime = document.querySelector("#fielForm");
     fielASupprime.setAttribute("style", "display:none");
     let texteConnextion = document.createElement("p");
@@ -51,64 +45,78 @@ function connextionReussi(objet){
     deconnexion.textContent = "Déconnexion";
     deconnexion.setAttribute("id", "deconnexion");
 
-    texteConnextion.innerHTML = "<br>Bonjour"+ " " +objet.lastname +" "+ objet.firstname;
+    texteConnextion.innerHTML = "<br><br>Bonjour "+ objet.firstname +" "+ objet.lastname;
     divRajouterStyle.appendChild(texteConnextion);
     divRajouterStyle.appendChild(deconnexion);
+   
+
+    // Appeler la fonction pour créer le tableau
+    creactionDuTableau(data);
 
     deconnexion.addEventListener("click", function(){
         fielASupprime.setAttribute("style", "display:block");
         texteConnextion.remove();
         deconnexion.remove();
+        let monTableauSupprimer = document.querySelector("#monTableau");
+        if (monTableauSupprimer) {
+            monTableauSupprimer.remove();
+        };
         utilisateursValider.value = "";
         motDePasseValider.value = "";
         utilisateursValider.focus();
         Avalider = false;
-        monTabl.remove();
-
     });
 }
-function creerTableau(data){
-     // creation du tableau
-     let monTabl = document.createElement("table");
-     monTabl.setAttribute("id", "monTabl");
-     divRajouterStyle.appendChild(monTabl);
-     
-     // creation du thead
-     let monThead = monTabl.createTHEad();
-     // creation du tr
-     let monTr = monThead.insertRow(); 
-     // creation du th
-     let thTableau = document.createElement("th");
-     let textTableau = ["Nom", "Prénom", "Date de naissance", "Email", "Salaires"]; 
-     for(let i = 0; i < textTableau.length; i++){
-         thTableau = document.createElement("th");
-         thTableau.textContent = textTableau[i];
-         monTr.appendChild(thTableau);
-     }
-     // creation du tbody
-     let monTbody = monTabl.createTBody();
-     // creation du tr
-     // creation du td
-     for (let i = 0; i < utilisateurs.length; i++) {
-         let monTrBody = monTbody.insertRow();
-      //   let infoTableau = [objet.lastname, objet.firstname, objet.birthdate, objet.email, objet.salary];
-         for(let i = 0; i < infoTableau.length; i++){
-             tdTableau = document.createElement("td");
-             tdTableau.textContent = infoTableau[i];
-             monTrBody.appendChild(tdTableau);
-         }   
-     }
-        // for(let i = 0; i < objet.length; i++){
-        //     let prenom = objet.firstname.toLowerCase();
-        //     let nom = objet.lastname.toLowerCase();
-        //     email.push(prenom + "." + nom+"@example.com");
-        //     console.log(email);
-        // }
 
-        deconnexion.addEventListener("click", function(){
-            Avalider = false;
-            monTabl.remove();
-        });
+function creactionDuTableau(data){
+    // Création d'une fonction pour ajouter une cellule de données
+    function ajouterUneCelluleDonnee(ligne, texte){
+        let celluleInfo = ligne.insertCell();
+        celluleInfo.setAttribute("id", "celluleInfo");
+        celluleInfo.textContent = texte;
+        return celluleInfo;
+    };
 
+    // Création du tableau
+    let monTableau = document.createElement("table");
+    monTableau.setAttribute("id", "monTableau");
+    divRajouterStyle.appendChild(monTableau);
+
+    // Création du thead 
+    let monThead = monTableau.createTHead();
+
+    // Création de la ligne du thead
+    let ligne = monThead.insertRow();
+
+    // Création des th
+    let texteTh = ["Nom", "Prénom", "Date de naissance", "Email", "Salaires"];
+    
+    for (let i = 0; i < texteTh.length; i++) {
+        let monTh = document.createElement("th");
+        monTh.textContent = texteTh[i];
+        ligne.appendChild(monTh);
+        monTh.setAttribute("id", "monTh");
+    };
+   
+
+    // Création du tbody
+    let monTbody = monTableau.createTBody();
+
+    function uneAdresseMail(index){
+        let lePrenom = data[index].firstname;
+        let leNom = data[index].lastname;
+        let Email = lePrenom.toLowerCase() + "." + leNom.toLowerCase() + "@example.com";
+        console.log(Email);
+        return Email;
+    }
+
+    // Ajout des données dans le tbody
+    for(let i = 0; i < data.length; i++){
+        ligne = monTbody.insertRow();
+        ajouterUneCelluleDonnee(ligne, data[i].lastname); 
+        ajouterUneCelluleDonnee(ligne, data[i].firstname); 
+        ajouterUneCelluleDonnee(ligne, data[i].birthday);
+        ajouterUneCelluleDonnee(ligne, uneAdresseMail(i)); 
+        ajouterUneCelluleDonnee(ligne, data[i].salary + " €");
+    };
 }
-

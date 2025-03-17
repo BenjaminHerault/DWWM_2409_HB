@@ -44,7 +44,7 @@ fetch("./asser/info.json").then(reponse => reponse.json()).then(data => {
         ajouterUneCelluleDonnee(ligne, data[i].firstname); 
         ajouterUneCelluleDonnee(ligne, data[i].birthday);
         ajouterUneCelluleDonnee(ligne, uneAdresseMail(i)); 
-        ajouterUneCelluleDonnee(ligne, data[i].salary);
+        ajouterUneCelluleDonnee(ligne, data[i].salary+" €");
     };
 
 }).catch(error => console.error(error));
