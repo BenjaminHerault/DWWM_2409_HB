@@ -71,7 +71,7 @@ function creactionDuTableau(data, utilisateurConnecte){
     // Création d'une fonction pour ajouter une cellule de données
     function ajouterUneCelluleDonnee(ligne, texte, surbrillance = false){
         let celluleInfo = ligne.insertCell();
-        celluleInfo.setAttribute("id", "celluleInfo");
+        celluleInfo.id = "celluleInfo";
         celluleInfo.textContent = texte;
         if (surbrillance) {
             celluleInfo.classList.add("surbrillance");

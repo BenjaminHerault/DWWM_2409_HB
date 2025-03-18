@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un Pays</title>
-    <script src="./assets/mains.js" type="module"></script>
+    <script src="./assets/1-ajouter-objet.js" type="module"></script>
+    <link rel="stylesheet" href="./assets/pays.css">
 </head>
 <body>
     <header>
@@ -13,12 +14,12 @@
     <main>
         <form>
             <div>
-                <label>Code Pays</label>
+                <label for="codePays">Code Pays</label>
                 <input id="codePays" name="code_pays" type="text" required placeholder="Code Pays">
             </div>
             <div>
-                <label>Nom du pays</label>
-                <input id="nomPays" name="nom_pays" type="test" required placeholder="Nom du Pays">
+                <label for="nomPays">Nom du pays</label>
+                <input id="nomPays" name="nom_pays" type="text" required placeholder="Nom du Pays">
             </div>
             <div id="next">
                 <button id="validate">Ajouter</button>
@@ -28,5 +29,7 @@
             </div>
         </form>
     </main>
+    
+    
 </body>
 </html>
