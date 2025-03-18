@@ -48,10 +48,9 @@ function connextionReussi(objet, data){
     texteConnextion.innerHTML = "<br><br>Bonjour "+ objet.firstname +" "+ objet.lastname;
     divRajouterStyle.appendChild(texteConnextion);
     divRajouterStyle.appendChild(deconnexion);
-   
 
     // Appeler la fonction pour créer le tableau
-    creactionDuTableau(data);
+    creactionDuTableau(data, objet);
 
     deconnexion.addEventListener("click", function(){
         fielASupprime.setAttribute("style", "display:block");
@@ -68,12 +67,15 @@ function connextionReussi(objet, data){
     });
 }
 
-function creactionDuTableau(data){
+function creactionDuTableau(data, utilisateurConnecte){
     // Création d'une fonction pour ajouter une cellule de données
-    function ajouterUneCelluleDonnee(ligne, texte){
+    function ajouterUneCelluleDonnee(ligne, texte, surbrillance = false){
         let celluleInfo = ligne.insertCell();
         celluleInfo.setAttribute("id", "celluleInfo");
         celluleInfo.textContent = texte;
+        if (surbrillance) {
+            celluleInfo.classList.add("surbrillance");
+        }
         return celluleInfo;
     };
 
@@ -97,7 +99,6 @@ function creactionDuTableau(data){
         ligne.appendChild(monTh);
         monTh.setAttribute("id", "monTh");
     };
-   
 
     // Création du tbody
     let monTbody = monTableau.createTBody();
@@ -113,10 +114,11 @@ function creactionDuTableau(data){
     // Ajout des données dans le tbody
     for(let i = 0; i < data.length; i++){
         ligne = monTbody.insertRow();
-        ajouterUneCelluleDonnee(ligne, data[i].lastname); 
-        ajouterUneCelluleDonnee(ligne, data[i].firstname); 
-        ajouterUneCelluleDonnee(ligne, data[i].birthday);
-        ajouterUneCelluleDonnee(ligne, uneAdresseMail(i)); 
-        ajouterUneCelluleDonnee(ligne, data[i].salary + " €");
+        let surbrillance = (data[i].firstname === utilisateurConnecte.firstname && data[i].lastname === utilisateurConnecte.lastname);
+        ajouterUneCelluleDonnee(ligne, data[i].lastname, surbrillance); 
+        ajouterUneCelluleDonnee(ligne, data[i].firstname, surbrillance); 
+        ajouterUneCelluleDonnee(ligne, data[i].birthday, surbrillance);
+        ajouterUneCelluleDonnee(ligne, uneAdresseMail(i), surbrillance); 
+        ajouterUneCelluleDonnee(ligne, data[i].salary + " €", surbrillance);
     };
 }
