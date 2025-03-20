@@ -1,0 +1,27 @@
+{
+    "title": "Tutoriel JSON",
+    "content": "...",
+    "author": {
+        "firstame": "Jonathan",
+        "lastname": "Boyer",
+        "birthyear": 1987
+    },
+    "comments": [
+        {
+            "username": "John Doe",
+            "content": "Super tutoriel",
+            "replies": []
+        }, 
+        {
+            "username": "John Doe",
+            "content": "J'ai bien aimé ce tutoriel",
+            "replies": [
+                {
+                    "username": "John Doe",
+                    "content": "...",
+                    "replies": []
+                }
+            ]
+        }
+    ]
+}

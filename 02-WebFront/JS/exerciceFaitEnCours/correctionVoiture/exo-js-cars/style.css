@@ -1,0 +1,89 @@
+:root {
+    --color1: darkblue;
+    --color4: lightcyan;
+    --color5: darkgrey; 
+    --color6: #FFFFFF33; 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color4);
+    color: var(--color1);
+    text-align: center;
+}
+form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+    
+}
+form div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+label {
+    margin-bottom: .5rem;
+    font-size: 26px;
+}
+#carName{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 27px;
+    background-color: var(--color6);
+    color: var(--color5);
+    height: 4rem;
+    width: 331px;
+    border-color: #c7ced1;
+}
+#validate {
+    height: 4rem;
+    width: 328px;
+    border-color:#c7ced1;
+    background-color: var(--color6);
+    color: var(--color1);
+    font-size: 27px ;
+    cursor: pointer;
+    transition: all ease .8s;
+}
+#validate:hover {
+    background-color: var(--color1);
+    color: var(--color4);
+    border-radius: 50%;
+}
+#infoVoiture {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1rem;
+}
+.resultat {
+    padding: .5rem;
+    background-color: #00000022;
+    transition: all ease 1s;
+}
+.resultat:hover {
+    background-color: var(--color1);
+    color: var(--color4);
+    transform: scale(1.2);
+}
+#aucuneInfo{
+    padding: 1rem;
+    background-color: #ff000022;
+    color: #ff0000;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
