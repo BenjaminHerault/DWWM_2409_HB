@@ -12,7 +12,6 @@ const inputVoiture = document.getElementById('carName');
 const btnRecherche = document.getElementById('validate');
 
 
-
 function lancerRecherche(event) {
     event.preventDefault();
 
@@ -22,7 +21,6 @@ function lancerRecherche(event) {
     let resultat = collectionCars.filter(
         (uneVoiture) => uneVoiture.car_name.toLowerCase().includes(voitureRecherche)
     );
-    
 
     // for(let uneVoiture of collectionCars){
     //     if(uneVoiture.car_name.toLowerCase().includes(voitureRecherche)){
