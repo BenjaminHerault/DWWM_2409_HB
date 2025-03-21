@@ -1,4 +1,6 @@
 const monBody = document.querySelector("body");
+const caseDispo = true;
+
 
 // creaction d'une fonction rajouter
 function ajouterUneCelluleDonnee(ligne, cord_X, cord_Y){
@@ -32,6 +34,31 @@ for (let i = 0; i < 7; i++) {
 
     }  
 }
+monTableau.addEventListener( "click", function(event){
+    positionnement(event);
+});
+
+const positionnement = (event) => {
+    console.log(event.target.dataset.x+" je suis la ligne (x)");
+    console.log(event.target.dataset.y+ " je suis la colonne (y)");
+    console.log(event.target.id);
+    // target = fait référence à l'élément qui a déclenché l'événement.
+    event.target.id = "unJeton";
+
+    if(event.target.dataset.x && event.target.dataset.y ){
+        console.log(event.target.dataset.x +" et "+ event.target.dataset.y );
+    }
+
+    // if (event.target.id === "unJeton") {
+    //     console.log("je suis une case pleine");
+    // }
+    // else {
+    //     console.log("je suis une case vide");
+    // }
+};
+
+
+
 
 /*
 for (let i = 7; i > 0; i--) {

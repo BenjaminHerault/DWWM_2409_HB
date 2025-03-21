@@ -10,3 +10,6 @@ td {
     font-size: 30px;
     cursor: crosshair;
 }
+#unJeton {
+    background-color: red;
+}
