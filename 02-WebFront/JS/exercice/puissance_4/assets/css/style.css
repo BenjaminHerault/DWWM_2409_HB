@@ -8,8 +8,22 @@ td {
     border: 1px solid black;
     text-align: center;
     font-size: 30px;
-    cursor: crosshair;
+    
 }
-#unJeton {
+
+.unJetonRouge {
+    transition: all ease .8s;
     background-color: red;
+    border-radius: 50%;
+}
+
+.unJetonJaune {
+    transition: all ease .8s;
+    background-color: yellow;
+    border-radius: 50%;
+}
+
+/* Animation CSS */
+@keyframes animerJeton {
+    
 }

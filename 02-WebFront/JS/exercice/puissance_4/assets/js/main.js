@@ -1,8 +1,60 @@
 const monBody = document.querySelector("body");
-const caseDispo = true;
+const monTbody = document.querySelector("tbody");
+let monJoueur = "Rouge";
 
+/**
+ * @var monTableau le tableau contenant les jetons
+ * pour une case : 
+ *  - null = case vide
+ *  - false = case rouge
+ *  - true = case jaune
+ */
+const monTableau = [];
 
-// creaction d'une fonction rajouter
+/** 
+ * @var ligne 
+ * mon tableau de valeur PAS vissible pour l'utilisateur 
+*/
+for (let i = 0; i < 7; i++) {
+    let ligne = [];
+    for (let j = 0; j < 7; j++) {
+        ligne.push(null);
+    }
+    monTableau.push(ligne);
+}
+/**
+ * @var genererTableauHtml Le tableau html vissible par l'utilisateur 
+ */
+genererTableauHtml();
+
+function genererTableauHtml() {
+    // console.log(monTableau);
+    monTbody.innerHTML = '';
+    for(let i = 0; i < monTableau.length; i++) {
+
+        const ligneTbody = monTbody.insertRow();
+
+        for(let j = 0; j < monTableau[i].length; j++) {
+            ajouterUneCelluleDonnee(ligneTbody, i, j);
+        }
+    }
+}
+/**
+ * 
+ * @param {*} ligne 
+ * @param {*} cord_X une ligne (x)
+ * @param {*} cord_Y une colonne (y)
+ * @returns 
+ * 
+ * @var celluleInfo cree un td avec insertCell
+ * celluleInfo.addEventListener( "click",...)
+ * car on selection une case du tableau
+ * 
+ * le if prend les la position du x et y qui le passe en false pour le jeton rouge
+ * le else prend les la position du x et y qui le passe en true pour le jeton jaune
+ * 
+ */
+// creation d'une fonction rajouter
 function ajouterUneCelluleDonnee(ligne, cord_X, cord_Y){
     let celluleInfo = ligne.insertCell();
     let idLigne = cord_X +"-"+ cord_Y;
@@ -10,64 +62,79 @@ function ajouterUneCelluleDonnee(ligne, cord_X, cord_Y){
     celluleInfo.dataset.x = cord_X; 
     celluleInfo.dataset.y = cord_Y;
     celluleInfo.textContent = idLigne;
+
+    celluleInfo.addEventListener( "click", function(event){
+        positionnement(event);
+    });
+
+    if(monTableau[cord_X][cord_Y] === false) {
+        celluleInfo.classList.add("unJetonRouge");
+    } else if(monTableau[cord_X][cord_Y] === true) {
+        celluleInfo.classList.add("unJetonJaune");
+    }
+
     return celluleInfo;
 };
 
-// creaction du tableau
-const monTableau = document.createElement("table");
-monBody.appendChild(monTableau);
-
-// creation du thead
-const monThead = monTableau.createTHead();
-
-// creation de Tr
-const ligneThead = monThead.insertRow();
-
-// creation du tbody
-const monTbody = monTableau.createTBody();
-
-for (let i = 0; i < 7; i++) {
-    const ligneTbody = monTbody.insertRow();
-
-    for (let j = 0; j < 7; j++) {
-        ajouterUneCelluleDonnee(ligneTbody, i, j);
-
-    }  
-}
-monTableau.addEventListener( "click", function(event){
-    positionnement(event);
-});
-
+/**
+ * 
+ * @param {*} event on va prendre l'evenement du clique 
+ * @returns 
+ * 
+ * 
+ * on va modifier le talbeau de valeurs QUI n'ait pas Vissible pour l'utilisateur null *va prendre rouge ou jaune 
+ * 
+ * on va supprimer le tableau que l'utilisateur voir pour afficher le jeton de couleurs 
+ * 
+ */
 const positionnement = (event) => {
-    console.log(event.target.dataset.x+" je suis la ligne (x)");
-    console.log(event.target.dataset.y+ " je suis la colonne (y)");
-    console.log(event.target.id);
-    // target = fait référence à l'élément qui a déclenché l'événement.
-    event.target.id = "unJeton";
+    let x = event.target.dataset.x;
+    let y = event.target.dataset.y;
 
-    if(event.target.dataset.x && event.target.dataset.y ){
-        console.log(event.target.dataset.x +" et "+ event.target.dataset.y );
+    // console.log(x+" je suis la ligne (x)");
+    // console.log(y+ " je suis la colonne (y)");
+
+    for(let k = 6; k >= 0; k--) {
+        if(monTableau[k][y] === null) {
+            if(monJoueur === "Rouge") {
+                monTableau[k][y] = false;
+                verifierGagnant();
+                monJoueur = "Jaune";
+            } else {
+                monTableau[k][y] = true;
+                verifierGagnant();
+                monJoueur = "Rouge";
+            }
+            //monJoueur = monJoueur === "Rouge" ? "Jaune" : "Rouge";
+            genererTableauHtml();
+            return;
+        }
     }
-
-    // if (event.target.id === "unJeton") {
-    //     console.log("je suis une case pleine");
-    // }
-    // else {
-    //     console.log("je suis une case vide");
-    // }
-};
-
-
-
-
-/*
-for (let i = 7; i > 0; i--) {
-    const ligneTbody = monTbody.insertRow();
-
-    for (let j = 7; j > 0; j--) {
-        ajouterUneCelluleDonnee(ligneTbody, i, j);
-
-    }  
-}*/
-
-
+}
+/**
+ * for (let i = 0; i< monTableau.length; i++) 
+ * Cette boucle parcourt chaque ligne du tableau
+ * 
+ * for (let j = 0; j < monTableau[i].length; j++)
+ * Cette boucle parcourt chaque cellule de la ligne actuelle
+ */
+function verifierGagnant() {
+    for(let b = 6 ; b >=0; b--){
+        let compteur_gagant = 0;
+        for(let n = 0; n < monTableau[b].length; n++){
+            if(monTableau[b][n] === (monJoueur === "Rouge" ? false : true)){
+                compteur_gagant++;
+                if(compteur_gagant === 4){
+                    window.alert("Nous avont un gagant bravo a "+ monJoueur)
+                    
+                    
+                };
+            } 
+            else{
+                compteur_gagant = 0;
+            }; 
+        };
+    };
+}; 
+    
+   
