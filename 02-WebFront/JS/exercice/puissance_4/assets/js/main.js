@@ -28,7 +28,7 @@ for (let i = 0; i < 7; i++) {
 genererTableauHtml();
 
 function genererTableauHtml() {
-    // console.log(monTableau);
+    console.log(monTableau);
     monTbody.innerHTML = '';
     for(let i = 0; i < monTableau.length; i++) {
 
@@ -119,15 +119,54 @@ const positionnement = (event) => {
  * Cette boucle parcourt chaque cellule de la ligne actuelle
  */
 function verifierGagnant() {
+    /*
+    * horizontal
+    */ 
     for(let b = 6 ; b >=0; b--){
         let compteur_gagant = 0;
         for(let n = 0; n < monTableau[b].length; n++){
-            if(monTableau[b][n] === (monJoueur === "Rouge" ? false : true)){
+            if(monTableau[b][n]  === (monJoueur === "Rouge" ? false : true)){
                 compteur_gagant++;
                 if(compteur_gagant === 4){
                     window.alert("Nous avont un gagant bravo a "+ monJoueur)
-                    
-                    
+                    location.reload()
+                };
+            } 
+            else{
+                compteur_gagant = 0;
+            }; 
+        };
+    };
+    /*
+    * vertical
+    */
+    for (let c = 0; c < monTableau[0].length; c++){
+        let compteur_gagant = 0;
+        for(let p = 0 ; p < monTableau.length; p++){
+            if(monTableau[p][c]  === (monJoueur === "Rouge" ? false : true)){
+                compteur_gagant++;
+                if(compteur_gagant === 4){
+                    window.alert("Nous avont un gagant bravo a "+ monJoueur)
+                    location.reload()
+                };
+            } 
+            else{
+                compteur_gagant = 0;
+            }; 
+        };
+    }
+    /*
+     * diagonal  
+     */
+    for(let b = 6 ; b >=0; b--){
+        let compteur_gagant = 0;
+        for(let n = 0; n < monTableau[b].length; n++){
+            if(monTableau[b][n]  === (monJoueur === "Rouge" ? false : true)){
+                compteur_gagant++;
+                
+                if(compteur_gagant === 4){
+                    window.alert("Nous avont un gagant bravo a "+ monJoueur)
+                    location.reload()
                 };
             } 
             else{
@@ -136,5 +175,3 @@ function verifierGagnant() {
         };
     };
 }; 
-    
-   
