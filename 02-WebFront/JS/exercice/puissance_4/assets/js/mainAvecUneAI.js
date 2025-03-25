@@ -100,17 +100,55 @@ const positionnement = (event) => {
                 monTableau[k][y] = false;
                 verifierGagnant();
                 monJoueur = "Lune";
-            } else {
-                monTableau[k][y] = true;
-                verifierGagnant();
-                monJoueur = "Soleil";
+                genererTableauHtml();
+
+                // Ajouter la classe d'animation au jeton
+                let cellule = document.getElementById(`${k}-${y}`);
+                cellule.classList.add('descendre');
+
+                // Laisser l'IA jouer après un court délai
+                setTimeout(jouerIA, 500);
             }
-            //monJoueur = monJoueur === "Rouge" ? "Lune" : "Soleil";
-            genererTableauHtml();
             return;
         }
     }
 }
+
+/**
+ * Fonction pour l'IA qui joue contre le joueur humain
+ */
+function jouerIA() {
+    let colonne;
+    let colonneTrouvee = false;
+
+    // Essayer de trouver une colonne valide
+    while (!colonneTrouvee) {
+        colonne = Math.floor(Math.random() * 7); // Choisir une colonne aléatoire entre 0 et 6
+        for (let k = 6; k >= 0; k--) {
+            if (monTableau[k][colonne] === null) {
+                colonneTrouvee = true;
+                break;
+            }
+        }
+    }
+
+    // Placer le jeton de l'IA dans la colonne choisie
+    for (let k = 6; k >= 0; k--) {
+        if (monTableau[k][colonne] === null) {
+            monTableau[k][colonne] = true; // L'IA joue avec les jetons "Lune"
+            verifierGagnant();
+            monJoueur = "Soleil";
+            genererTableauHtml();
+
+            // Ajouter la classe d'animation au jeton
+            let cellule = document.getElementById(`${k}-${colonne}`);
+            cellule.classList.add('descendre');
+
+            return;
+        }
+    }
+}
+
 /**
  * for (let i = 0; i< monTableau.length; i++) 
  * Cette boucle parcourt chaque ligne du tableau
@@ -128,7 +166,7 @@ function verifierGagnant() {
             if(monTableau[b][n]  === (monJoueur === "Soleil" ? false : true)){
                 compteur_gagant_horizontal++;
                 if(compteur_gagant_horizontal === 4){
-                    un_gagant(monJoueur);
+                    un_gagant();
                 };
             } 
             else{
@@ -145,7 +183,7 @@ function verifierGagnant() {
             if(monTableau[p][c]  === (monJoueur === "Soleil" ? false : true)){
                 compteur_gagant_vertical++;
                 if(compteur_gagant_vertical === 4){
-                    un_gagant(monJoueur);
+                    un_gagant();
                 };
             } 
             else{
@@ -158,7 +196,7 @@ function verifierGagnant() {
     for(let i = 0; i < monTableau.length; i++){
         for(let j = 0; j < monTableau[i].length; j++){
             if(diagonal_montante(i,j)){
-                un_gagant(monJoueur);
+                un_gagant();
             }
         };
     };
@@ -166,7 +204,7 @@ function verifierGagnant() {
     for(let t = 0; t < monTableau.length; t++){
         for(let e = 0; e < monTableau[t].length; e++){
             if (diagonal_descendante(t,e)){
-                un_gagant(monJoueur);
+                un_gagant();
             };
         };
     };
@@ -204,10 +242,7 @@ function diagonal_descendante(x,y){
     };
     return compteur_diag_descendante === 4;
 };
-function un_gagant(monJoueur){
-    setTimeout(() => {
-        
+function un_gagant(){
     alert("Nous avont un gagant bravo a "+ monJoueur);
-    }, 100);
+    
 };
-
