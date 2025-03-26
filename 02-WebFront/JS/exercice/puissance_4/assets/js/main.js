@@ -28,12 +28,10 @@ for (let i = 0; i < 7; i++) {
 genererTableauHtml();
 
 function genererTableauHtml() {
-    console.log(monTableau);
+    console.table(monTableau);
     monTbody.innerHTML = '';
     for(let i = 0; i < monTableau.length; i++) {
-
         const ligneTbody = monTbody.insertRow();
-
         for(let j = 0; j < monTableau[i].length; j++) {
             ajouterUneCelluleDonnee(ligneTbody, i, j);
         }
@@ -96,21 +94,37 @@ const positionnement = (event) => {
 
     for(let k = 6; k >= 0; k--) {
         if(monTableau[k][y] === null) {
+
+            let monTd = rechercherCellule(k, y);
+
             if(monJoueur === "Soleil") {
                 monTableau[k][y] = false;
                 verifierGagnant();
+                monTd.classList.add("unJetonSoleil");
                 monJoueur = "Lune";
             } else {
                 monTableau[k][y] = true;
                 verifierGagnant();
+                monTd.classList.add("unJetonLune");
                 monJoueur = "Soleil";
             }
             //monJoueur = monJoueur === "Rouge" ? "Lune" : "Soleil";
-            genererTableauHtml();
+            //genererTableauHtml();
             return;
         }
     }
 }
+
+function rechercherCellule(x, y) {
+    let mesTd = document.getElementsByTagName("td");
+    mesTd = Array.from(mesTd);
+    // console.log(mesTd);
+
+    let monTd = mesTd.find(td => td.dataset.x == x && td.dataset.y == y);
+    // console.log(monTd);
+    
+    return monTd;
+ }
 /**
  * for (let i = 0; i< monTableau.length; i++) 
  * Cette boucle parcourt chaque ligne du tableau
@@ -123,16 +137,16 @@ function verifierGagnant() {
     * horizontal
     */ 
     for(let b = 6 ; b >=0; b--){
-        let compteur_gagant_horizontal = 0;
+        let compteur_gagnant_horizontal = 0;
         for(let n = 0; n < monTableau[b].length; n++){
             if(monTableau[b][n]  === (monJoueur === "Soleil" ? false : true)){
-                compteur_gagant_horizontal++;
-                if(compteur_gagant_horizontal === 4){
-                    un_gagant(monJoueur);
+                compteur_gagnant_horizontal++;
+                if(compteur_gagnant_horizontal === 4){
+                    un_gagnant(monJoueur);
                 };
             } 
             else{
-                compteur_gagant_horizontal = 0;
+                compteur_gagnant_horizontal = 0;
             }; 
         };
     };
@@ -140,16 +154,16 @@ function verifierGagnant() {
     * vertical
     */
     for (let c = 0; c < monTableau[0].length; c++){
-        let compteur_gagant_vertical = 0;
+        let compteur_gagnant_vertical = 0;
         for(let p = 0 ; p < monTableau.length; p++){
             if(monTableau[p][c]  === (monJoueur === "Soleil" ? false : true)){
-                compteur_gagant_vertical++;
-                if(compteur_gagant_vertical === 4){
-                    un_gagant(monJoueur);
+                compteur_gagnant_vertical++;
+                if(compteur_gagnant_vertical === 4){
+                    un_gagnant(monJoueur);
                 };
             } 
             else{
-                compteur_gagant_vertical = 0;
+                compteur_gagnant_vertical = 0;
             }; 
         };
     }
@@ -158,7 +172,7 @@ function verifierGagnant() {
     for(let i = 0; i < monTableau.length; i++){
         for(let j = 0; j < monTableau[i].length; j++){
             if(diagonal_montante(i,j)){
-                un_gagant(monJoueur);
+                un_gagnant(monJoueur);
             }
         };
     };
@@ -166,7 +180,7 @@ function verifierGagnant() {
     for(let t = 0; t < monTableau.length; t++){
         for(let e = 0; e < monTableau[t].length; e++){
             if (diagonal_descendante(t,e)){
-                un_gagant(monJoueur);
+                un_gagnant(monJoueur);
             };
         };
     };
@@ -204,10 +218,19 @@ function diagonal_descendante(x,y){
     };
     return compteur_diag_descendante === 4;
 };
-function un_gagant(monJoueur){
-    setTimeout(() => {
-        
-    alert("Nous avont un gagant bravo a "+ monJoueur);
-    }, 100);
-};
 
+let partieTerminee = false;
+
+function un_gagnant(monJoueur){
+    if(partieTerminee === false) {
+        setTimeout(() => {
+            alert("Nous avons un gagnant. Bravo à "+ monJoueur);
+            if(window.confirm("Souhaitez-vous jouer une nouvelle parti ?")){
+                window.location.reload(); 
+            } else {
+                partieTerminee = true;
+            }
+            //nouvellePartie();
+         }, 100);
+    }
+};

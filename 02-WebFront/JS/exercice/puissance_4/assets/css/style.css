@@ -35,22 +35,36 @@ td {
     background-size: cover;
     background-position: center ;
     border-radius: 50%;
-    animation: descendreJeton 0.5s ease-out;
+    animation: descendreJetonSoleil 0.8s ease-out;
 }
 
 .unJetonLune {
     background-image: url(../image/lune.webp); ;
     background-size: cover;
     background-position: center ;
+    animation: descendreJetonLune 0.8s ease-out;
    
 }
 /* Animation CSS */
-/* @keyframes descendreJeton {
+@keyframes descendreJetonSoleil {
     0% {
-        transform: translateY(-100%);
+        opacity: 0.1;
+        transform: translateY(-700px);
     }
     100% {
+        opacity: 1;
         transform: translateY(0);
     }
-} */
+}
+
+@keyframes descendreJetonLune {
+    0% {
+        opacity: 0.1;
+        transform: translateY(-700px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
