@@ -19,13 +19,13 @@ const appToto = {
         this.listEmployees = json;
         console.log(this.listEmployees);
 
-        for(let employee of this.listEmployees) {
-            console.log(employee.firstname);
-        }
+        // for(let employee of this.listEmployees) {
+        //     console.log(employee.firstname);
+        // }
 
-        for(let employee in this.listEmployees) {
-            console.log(employee);
-        }
+        // for(let employee in this.listEmployees) {
+        //     console.log(employee);
+        // }
     }
 }
 

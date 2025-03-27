@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script type="module" src="./assets/vuejs/main.js"></script>
+    <script src="./assets/vuejs/main.js" type="module"></script>
     <title>L'évaluation</title>
 </head>
 
@@ -13,7 +13,7 @@
     <main>
         <fieldset>
             <h1>Résultat de l'évaluation</h1>
-            <div id="monTableaux">
+            <div id="app">
                 <table>
                     <thead>
                         <tr>
@@ -23,10 +23,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr v-for="travalleur of listEmployer">
+                            <td>{{ travalleur.fullname }}</td>
                             <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{travalleur.grade }}</td>
                         </tr>
                     </tbody>
                 </table>
