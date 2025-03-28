@@ -5,14 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./assets/vuejs/main.js" type="module"></script>
+    <script src="./assets/js/main.js" type="module"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>L'évaluation</title>
 </head>
 
 <body>
     <main>
         <fieldset>
-            <h1>Résultat de l'évaluation</h1>
+            <legend>
+                <h1>Résultat de l'évaluation</h1>
+            </legend>
+
             <div id="app">
                 <table>
                     <thead>
@@ -23,13 +27,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="travalleur of listEmployer">
-                            <td>{{ travalleur.fullname }}</td>
-                            <td></td>
+                        <tr v-for="travalleur of listEmployer" :key="travalleur.fullname">
+                            <td>{{ travalleur.nom}}</td>
+                            <td>{{ travalleur.prenom}}</td>
                             <td>{{travalleur.grade }}</td>
                         </tr>
                     </tbody>
                 </table>
+                <br>
+                <li>Nombre d'étudiants : {{ nombreTravailleurs }}</li>
+                <li>Moyenne de la classe : {{14.13}}</li>
+                <li>Nombre d'étudiants au dessus de la moyenne : {{4}}</li>
             </div>
         </fieldset>
     </main>

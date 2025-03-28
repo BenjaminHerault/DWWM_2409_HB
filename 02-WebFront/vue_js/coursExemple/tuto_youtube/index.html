@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>une liste</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/main.js" type="module"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1> une liste </h1>
+
+        <ajout @nouvellenote="ajouterNoter"></ajout>
+        <note v-for="todo in todos" v-bind:content="todo" v-on:click="inverser"></note>
+
+    </div>
+</body>
+
+</html>
