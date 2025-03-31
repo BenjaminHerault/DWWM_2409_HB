@@ -13,7 +13,7 @@ body{
 }
 .container{
    width: 30%;
-   border-color:  var(--color2);
+   border-color:  var(--color3);
 }
 table{
     margin-top: 3%;
@@ -36,4 +36,35 @@ li{
     font-size: 20px;
     margin-left: 5%;
     color: var(--color2);
+}
+h2{
+    color: var(--color2);
+}
+.fromFie{
+    border-style: dotted;
+    color: var(--color5);
+    border-color: var(--color5);
+}
+input[type="text"], input[type="number"]{
+    width: 30%;
+    height: 30px;
+    border: 1px solid var(--color5);
+    background-color: var(--color4);
+    color: var(--color2);
+    margin-top: 5%;
+}
+#monBouton{
+   border: 1px solid var(--color5);
+   background-color: var(--color4);
+   color: var(--color3);
+   height: 30px;
+   width: 20%;
+   margin-top: 3%;
+}
+form{
+    margin-left: 2%;
+    label[for="fullname"], label[for="note"]{
+        color: var(--color2);
+        font-size: 20px;
+    }
 }

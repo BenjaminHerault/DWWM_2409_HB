@@ -18,6 +18,9 @@ const monApp = {
                 
                 // ordonner la liste par note décroissante
                 this.listEtudiants.sort((a,b) => b.grade - a.grade);
+
+                _etudiant.fullname = ""; // réinitialiser le champ fullname
+                _etudiant.grade = null; // réinitialiser le champ grade
             }
             catch (error) {
                 alert(error.message);
@@ -60,11 +63,21 @@ vm.component('ajout-etudiant', { // le nom du composant
     },
     methods: {
         ajouterEtudiant() {
-            let nouvelEtudiant = {
-                fullname: this.fullname,
-                grade: this.grade,
+            try{
+                let nouvelEtudiant = {
+                    fullname: this.fullname,
+                    grade: this.grade,
+                }
+                // Émettre l'événement pour le parent
+                this.$emit('nouvellenote', nouvelEtudiant);
+    
+                // Réinitialiser les champs après l'ajout
+                this.fullname = '';
+                this.grade = null;
             }
-            this.$emit('nouvellenote', nouvelEtudiant);
+            catch (error) {
+                alert(error.message);
+            }
         }
     },
     template: `
@@ -79,7 +92,7 @@ vm.component('ajout-etudiant', { // le nom du composant
 
         <br>
 
-        <button type="submit">Ajouter</button>
+        <button id="monBouton" type="submit">Ajouter</button>
     </form>
                     `
 });
