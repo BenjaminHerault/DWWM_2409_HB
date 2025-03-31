@@ -6,4 +6,34 @@
     --color5: #6E7799;
     --color6: #C490D1;
 }
-
+body{
+    background-color: var(--color1); 
+    color: var(--color3);
+    font: 1em sans-serif;
+}
+.container{
+   width: 30%;
+   border-color:  var(--color2);
+}
+table{
+    margin-top: 3%;
+    margin-bottom: 5%;
+    margin-left: 2%;
+    width: 55%;
+    background-color: var(--color4);
+    border-collapse: collapse;
+    color: var(--color3);
+}
+th, td{
+    font-size: 20px;
+    border: 2px solid var(--color5);
+    height: 35px;
+}
+#note{
+    text-align: right;
+}
+li{
+    font-size: 20px;
+    margin-left: 5%;
+    color: var(--color2);
+}

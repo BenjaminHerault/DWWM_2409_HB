@@ -14,6 +14,7 @@
         <h1> une liste </h1>
 
         <ajout @nouvellenote="ajouterNoter"></ajout>
+
         <note v-for="todo in todos" v-bind:content="todo" v-on:click="inverser"></note>
 
     </div>

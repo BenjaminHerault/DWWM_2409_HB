@@ -18,6 +18,8 @@ vm.component('note',{
     props:['content'],
     template: `<p>{{ content }} </p>`
 });
+
+
 vm.component('ajout', {
     props:[],
     emits: ['nouvellenote'],
@@ -25,7 +27,8 @@ vm.component('ajout', {
         return{
             interne: 'Nouveau message'
         }
-    },
+    }
+    ,
     methods:{
         enregistrementNote(){
             this.$emit('nouvellenote', this.interne)
