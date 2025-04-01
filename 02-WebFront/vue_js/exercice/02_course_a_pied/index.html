@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/main.js" type="module"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Course à pied</title>
+</head>
+
+<body>
+    <main>
+        <fieldset id="fielPrincipale">
+            <h1>Résultat de la course</h1>
+            <div id="app">
+                <div id="monDivCoureurs">
+                    <p id="nbrCoureurs">{{nombreCoureurs}} participants</p>
+                    <p id="pGagnant">Gagnant : {{nomGagnant}}</p>
+                </div>
+                <h2>Filtrer</h2>
+                <div id="leFiltrer">
+                    <div v-for="pays in paysDisponibles" :key="pays">
+                        <input type="checkbox" :classe="pays" :value="pays">
+                        <label :for="pays">{{pays}}</label>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pays</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Temps final</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="coureurs of listeCoureurs" :key="coureurs.nom">
+                            <td>{{coureurs.pays}}</td>
+                            <td>{{coureurs.leNom}}</td>
+                            <td>{{coureurs.prenom}}</td>
+                            <td>{{coureurs.tempsConverti}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </main>
+</body>
+
+</html>

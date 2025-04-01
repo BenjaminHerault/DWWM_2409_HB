@@ -7,6 +7,7 @@ const monApp = {
         }
     },
     methods: {
+        // creation d'un nouveau étudiant 
         ajouterEtudiant(_etudiant) {
             //_etudiant = { fullname: "Armanetti Michaël", grade: 12 }
             try {

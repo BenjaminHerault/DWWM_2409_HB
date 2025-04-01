@@ -10,6 +10,8 @@ export class Etudiant
 
         const [prenom, ...nom] = this.fullname.split(" ");
         // Vérification des longueurs minimales
+
+        
         if (!prenom || prenom.length < 2 || nom.join(" ").length <2  ) {
             throw new Error("Le prénom et le nom doivent contenir au moins 2 lettres chacun.");
         }
