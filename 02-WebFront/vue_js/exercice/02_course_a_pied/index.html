@@ -21,9 +21,9 @@
                 </div>
                 <h2>Filtrer</h2>
                 <div id="leFiltrer">
-                    <div v-for="pays in paysDisponibles" :key="pays">
-                        <input type="checkbox" :classe="pays" :value="pays">
-                        <label :for="pays">{{pays}}</label>
+                    <div v-for="coureurs of listeCoureurs" :key="coureurs.pays">
+                        <input @click="caseCochee" type="checkbox" :id="coureurs.pays" :value="coureurs.pays">
+                        <label :for="coureurs.pays">{{coureurs.pays}}</label>
                     </div>
                 </div>
                 <table>
@@ -36,11 +36,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="coureurs of listeCoureurs" :key="coureurs.nom">
-                            <td>{{coureurs.pays}}</td>
-                            <td>{{coureurs.leNom}}</td>
-                            <td>{{coureurs.prenom}}</td>
-                            <td>{{coureurs.tempsConverti}}</td>
+                        <tr v-for="coureurs of coureursFiltre" :key="coureurs.nom">
+                            <div>
+                                <td>{{coureurs.pays}}</td>
+                                <td>{{coureurs.leNom}}</td>
+                                <td>{{coureurs.prenom}}</td>
+                                <td>{{coureurs.tempsConverti}}</td>
+                            </div>
                         </tr>
                     </tbody>
                 </table>

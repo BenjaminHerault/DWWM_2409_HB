@@ -4,18 +4,7 @@ const monApp = {
     data() {
         return{
             listeCoureurs: [],
-            paysDisponibles:[
-                "Allemagne",
-                "Autriche",
-                "Belgique",
-                "Espagne",
-                "France",
-                "Grèce",
-                "Italie",
-                "Pays-bas",
-                "Pologne",
-                "Portugal"
-            ]
+            paysSelectionne: []
         }
     },
     async created(){
@@ -33,6 +22,17 @@ const monApp = {
             this.listeCoureurs.push(monCoureur);
 
             this.listeCoureurs.sort((a,b) => a.temps - b.temps);
+        },
+        caseCochee(e) {
+            let cocheOuPas = e.target.checked; // true or false
+            let monPays = e.target.value; // nom du pays associé à la case
+
+            if(cocheOuPas == true) {
+                this.paysSelectionne.push(monPays);
+            } else {
+                this.paysSelectionne = this.paysSelectionne.filter(unPays => unPays != monPays);
+            }
+
         }
     },
     computed: {
@@ -45,7 +45,15 @@ const monApp = {
             }
             const gagnant = this.listeCoureurs[0]; // Le premier coureur (le plus rapide)
             return `${gagnant.nom}` 
-        } 
+        } ,
+        coureursFiltre() {
+            // si aucun pays n'est sélectionné, retourner tous les coureurs
+            if(this.paysSelectionne.length === 0) {
+                return this.listeCoureurs;
+            }
+            // sinon, filtrer les coureurs par pays sélectionnés
+            return this.listeCoureurs.filter(coureur => this.paysSelectionne.includes(coureur.pays));
+        }
     }
 }
 

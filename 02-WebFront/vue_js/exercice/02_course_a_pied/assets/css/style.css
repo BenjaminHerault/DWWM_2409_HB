@@ -23,7 +23,7 @@ h1{
 table{
     background-color: var(--base-btn);
     color: var(--base-link);
-    width: 30%;
+    width: 50%;
     height: 240px;
     font-size: 25px;
     border-radius: 2%;
@@ -32,9 +32,13 @@ table{
 }
 th{
     text-align: center;
+    width: 50%;
+    height: 35px;
 }
 td{
     padding-top: 2%;
+    width: 50%;
+    height: 35px;
 }
 #monDivCoureurs {
     display: flex; /* Active le mode flexbox */
@@ -75,4 +79,10 @@ h2{
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
     box-shadow: 0px 4px 6px rgb(255, 0, 0); /* Ajoute une ombre pour un effet visuel */
+}
+#leFiltrer div:hover{
+    background-color: var(--base-link); /* Change la couleur de fond au survol */
+    color: var(--base-btn); /* Change la couleur du texte au survol */
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+    transition: background-color 0.9s, color 0.9s; /* Ajoute une transition douce pour le changement de couleur */
 }
