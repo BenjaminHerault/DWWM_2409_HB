@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/main.js" type="module"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Employees</title>
+</head>
+
+<body>
+    <main>
+        <h1>Employees</h1>
+        <legend>This is the current list of Employees</legend>
+    </main>
+    <div id="app">
+        {{console.log(data)}}
+        <table>
+            <thead>
+                <tr>
+                    <th>EID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Monthly Salary</th>
+                    <th>Year of birth</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="employes of listEmployes" :key="employes.id">
+                    <td>{{employes.id}}</td>
+                    <td>{{employes.employee_name}}</td>
+                    <td>{{employes.mail}}</td>
+                    <td>{{employes.employee_salary}}</td>
+                    <td>{{employes.employee_age}}</td>
+                    <td>{{employes.jeSaisPasEncore}} supprimer et rajouter</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

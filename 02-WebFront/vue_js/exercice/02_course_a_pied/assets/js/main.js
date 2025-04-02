@@ -1,69 +1,79 @@
-import { Coureur } from "./coureur.js";
+import { Coureur } from "./Coureur.js";
 
 const monApp = {
     data() {
-        return{
+        return {
             listeCoureurs: [],
-            paysSelectionne: []
-        }
+            paysSelectionne: [],
+        };
     },
-    async created(){
-        let response = await fetch('./data/resultat10000metres.json');
+    async created() {
+        let response = await fetch("./data/resultat10000metres.json");
         let json = await response.json();
 
-        json.forEach(coureurs =>{
+        json.forEach((coureurs) => {
             this.ajouterCoureus(coureurs);
         });
     },
     methods: {
         ajouterCoureus(_coureur) {
-            let monCoureur = new Coureur(_coureur.nom, _coureur.pays, _coureur.temps );
+            let monCoureur = new Coureur(
+                _coureur.nom,
+                _coureur.pays,
+                _coureur.temps
+            );
             // Ajouter le nouvel coureur à la liste avec push
             this.listeCoureurs.push(monCoureur);
 
-            // on trie avec sort dans l'autre croissant 
-            this.listeCoureurs.sort((a,b) => a.temps - b.temps);
+            // on trie avec sort dans l'autre croissant
+            this.listeCoureurs.sort((a, b) => a.temps - b.temps);
         },
         caseCochee(e) {
             let cocheOuPas = e.target.checked; // true or false
             let monPays = e.target.value; // nom du pays associé à la case
 
-            if(cocheOuPas == true) {
+            if (cocheOuPas == true) {
                 this.paysSelectionne.push(monPays);
             } else {
-                this.paysSelectionne = this.paysSelectionne.filter(unPays => unPays != monPays);
+                this.paysSelectionne = this.paysSelectionne.filter(
+                    (unPays) => unPays != monPays
+                );
             }
         },
     },
     computed: {
-        nombreCoureurs(){
-            return this.listeCoureurs.length 
+        nombreCoureurs() {
+            return this.listeCoureurs.length;
         },
-        nomGagnant(){
+        nomGagnant() {
             if (this.listeCoureurs.length === 0) {
                 return "Aucun coureur"; // Si la liste est vide
             }
             const gagnant = this.listeCoureurs[0]; // Le premier coureur (le plus rapide)
-            return `${gagnant.nom}` 
-        } ,
+            return `${gagnant.nom}`;
+        },
         //pour caculer une moyenne
-        moyenCourse(){
-            if(this.listeCoureurs.length ===0)
-                return "00min00s";
-            const total = this.listeCoureurs.reduce((sum, coureur) => sum + coureur.temps, 0);
-            const moyenne = Math.floor(total/ this.listeCoureurs.length);
+        moyenCourse() {
+            if (this.listeCoureurs.length === 0) return "00min00s";
+            const total = this.listeCoureurs.reduce(
+                (sum, coureur) => sum + coureur.temps,
+                0
+            );
+            const moyenne = Math.floor(total / this.listeCoureurs.length);
 
             // Utiliser l'objet Coureur pour convertir le temps
-            const coureurTemporaire = new Coureur("","", moyenne);
+            const coureurTemporaire = new Coureur("", "", moyenne);
             return coureurTemporaire.convertirTemps(moyenne);
         },
         coureursFiltre() {
             // si aucun pays n'est sélectionné, retourner tous les coureurs
-            if(this.paysSelectionne.length === 0) {
+            if (this.paysSelectionne.length === 0) {
                 return this.listeCoureurs;
             }
             // sinon, filtrer les coureurs par pays sélectionnés
-            return this.listeCoureurs.filter(coureur => this.paysSelectionne.includes(coureur.pays));
+            return this.listeCoureurs.filter((coureur) =>
+                this.paysSelectionne.includes(coureur.pays)
+            );
         },
         ecartTemps() {
             if (this.listeCoureurs.length < 2) {
@@ -72,13 +82,13 @@ const monApp = {
 
             const tempsPremier = this.listeCoureurs[0].temps; // Temps du premier coureur (le plus rapide)
             // Calculer les écarts pour chaque coureur
-            return this.listeCoureurs.map(coureur => {
+            return this.listeCoureurs.map((coureur) => {
                 const ecart = coureur.temps - tempsPremier;
-                return ecart 
+                return ecart;
             });
-        }
-    }
-}
+        },
+    },
+};
 
 const vm = Vue.createApp(monApp);
-vm.mount('#app');
+vm.mount("#app");

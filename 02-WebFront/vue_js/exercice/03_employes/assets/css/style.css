@@ -1,0 +1,43 @@
+/* Style pour le h1 */
+h1 {
+    font-size: 2.5rem; 
+    color: #2c3e50; 
+    text-align: center; 
+    margin-bottom: 10px; 
+    font-weight: bold; /* Met le texte en gras */
+}
+
+/* Style pour la légende */
+legend {
+    font-size: 1.2rem; 
+    color: #34495e; 
+    text-align: center; 
+    margin-top: 10px; 
+    font-style: italic; 
+}
+table{
+    width: 100%; /* Prend toute la largeur de la page */
+    border-collapse: collapse; /* Supprime les espaces entre les bordures des cellules */
+    margin-top: 20px; /* Espace au-dessus du tableau */
+    font-size: 1rem; /* Taille de police par défaut */
+    color: #2c3e50; /* Couleur du texte */
+}
+th{
+    padding: 10px; /* Espace intérieur des cellules */
+    border: 1px solid #bdc3c7; /* Bordure des cellules */
+    text-align: center; 
+    background-color: #2980b9; /* Couleur de fond des en-têtes */
+    color: white; /* Couleur du texte des en-têtes */
+    font-weight: bold; /* Met le texte en gras */
+    font-size: 1.2rem; /* Taille de police des en-têtes */
+}
+td{
+    padding: 10px; /* Espace intérieur des cellules */
+    border: 1px solid #bdc3c7; /* Bordure des cellules */
+    text-align: center; 
+    font-size: 1rem; /* Taille de police par défaut */
+    color: #2c3e50; /* Couleur du texte */
+    background-color: #ecf0f1; /* Couleur de fond des cellules */
+}
+
+
