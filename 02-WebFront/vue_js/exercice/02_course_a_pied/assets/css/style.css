@@ -9,6 +9,9 @@ body{
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
     background-color: #111111;
+    margin: 0;
+    padding: 0;
+
 }
 main{
     background-color: var(--base-bg);
@@ -23,7 +26,6 @@ h1{
 table{
     background-color: var(--base-btn);
     color: var(--base-link);
-    width: 50%;
     height: 240px;
     font-size: 25px;
     border-radius: 2%;
@@ -32,13 +34,14 @@ table{
 }
 th{
     text-align: center;
-    width: 50%;
-    height: 35px;
+    
+    padding-right: 20px;
 }
 td{
     padding-top: 2%;
-    width: 50%;
     height: 35px;
+    padding-right: 20px;
+    
 }
 #monDivCoureurs {
     display: flex; /* Active le mode flexbox */
@@ -46,9 +49,6 @@ td{
 
 #monDivCoureurs p {
     background-color: var(--base-link);
-    width: 250px; /* Ajuste automatiquement la largeur en fonction du contenu */
-    height: 35px;
-    margin-bottom: 2%;
     margin-left: 2%;
     display: flex;
     justify-content: center; /* Centre les éléments horizontalement */
@@ -85,4 +85,14 @@ h2{
     color: var(--base-btn); /* Change la couleur du texte au survol */
     cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
     transition: background-color 0.9s, color 0.9s; /* Ajoute une transition douce pour le changement de couleur */
+}
+#pMoyen{
+   width: 30%;
+   height: 50px;
+}
+#nbrCoureurs{
+    width:15%;
+}
+pGagnant{
+    width: 35%;
 }

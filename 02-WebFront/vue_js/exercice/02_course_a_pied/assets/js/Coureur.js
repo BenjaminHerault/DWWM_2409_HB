@@ -17,7 +17,7 @@ export class Coureur
             const minutes = Math.floor(secondes / 60); // Divise les secondes par 60 pour obtenir les minutes
             const resteSecondes = secondes % 60; // Utilise le reste de la division pour obtenir les secondes restantes
             const secondesFormatees = resteSecondes.toString().padStart(2, '0');
-            return `${minutes}min${secondesFormatees}s`; // Retourne une chaîne formatée
+            return `${minutes}min${secondesFormatees}`; // Retourne une chaîne formatée
         }
 }
 

@@ -18,6 +18,7 @@
                 <div id="monDivCoureurs">
                     <p id="nbrCoureurs">{{nombreCoureurs}} participants</p>
                     <p id="pGagnant">Gagnant : {{nomGagnant}}</p>
+                    <p id="pMoyen">Temps moyen : {{moyenCourse}} secondes</p>
                 </div>
                 <h2>Filtrer</h2>
                 <div id="leFiltrer">
@@ -33,15 +34,17 @@
                             <th>Nom</th>
                             <th>Prénom</th>
                             <th>Temps final</th>
+                            <th>Écart gagnant</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="coureurs of coureursFiltre" :key="coureurs.nom">
+                        <tr v-for="(coureurs, index) of coureursFiltre" :key="coureurs.nom">
                             <div>
                                 <td>{{coureurs.pays}}</td>
                                 <td>{{coureurs.leNom}}</td>
                                 <td>{{coureurs.prenom}}</td>
-                                <td>{{coureurs.tempsConverti}}</td>
+                                <td>{{coureurs.tempsConverti}}s</td>
+                                <td>+{{ecartTemps[index]}}s</td>
                             </div>
                         </tr>
                     </tbody>
