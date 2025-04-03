@@ -38,8 +38,25 @@ const monApp = {
             );
             this.listEmployes.push(monEmployes);
         },
-    },
+        trierEmployes(key) {
+            if (this.sortKey === key) {
+                // Inverse l'ordre si on trie déjà par cette clé
+                this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
+            } else {
+                // Définit une nouvelle clé de tri
+                this.sortKey = key;
+                thise.sortOrder = "asc";
+            }
+            this.listEmployes.sort((a, b) => {
+                let result = 0;
 
+                if (a[key] < b[key]) result = -1;
+                if (a[key] > b[key]) result = 1;
+
+                return this.sortOrder === "asc" ? result : -result;
+            });
+        },
+    },
     computed: {
         nombrEmploye() {
             return this.listEmployes.length;
@@ -56,6 +73,40 @@ const monApp = {
     },
 };
 const vm = Vue.createApp(monApp);
+
+vm.component("leTrie", {
+    emits: ["nouveauTrie"],
+
+    methods: {
+        trierEmployes(key) {
+            if (this.sortKey === key) {
+                // Inverse l'ordre si on trie déjà par cette clé
+                this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
+            } else {
+                // Définit une nouvelle clé de tri
+                this.sortKey = key;
+                thise.sortOrder = "asc";
+            }
+            this.listEmployes.sort((a, b) => {
+                let result = 0;
+
+                if (a[key] < b[key]) result = -1;
+                if (a[key] > b[key]) result = 1;
+
+                return this.sortOrder === "asc" ? result : -result;
+            });
+        },
+    },
+    template: `
+        @click="trierEmployes('employee_salary')" style="cursor: pointer;"
+        Monthly Salary
+        <span v-if="sortKey === 'employee_salary'">
+        <span v-if="sortOrder === 'asc'">⬆️</span>
+        <span v-else>⬇️</span>
+        </span>             
+    `,
+});
+
 vm.mount("#app");
 
 /*

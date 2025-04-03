@@ -23,7 +23,13 @@
                     <th>EID</th>
                     <th>Full Name</th>
                     <th>Email</th>
-                    <th>Monthly Salary</th>
+                    <th @click="trierEmployes('employee_salary')" style="cursor: pointer;">
+                        Monthly Salary
+                        <span v-if="sortKey === 'employee_salary'">
+                            <span v-if="sortOrder === 'asc'">⬆️</span>
+                            <span v-else>⬇️</span>
+                        </span>
+                    </th>
                     <th>Year of birth</th>
                     <th>Action</th>
                 </tr>
