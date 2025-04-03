@@ -1,3 +1,10 @@
+body{
+    font-family: Arial, sans-serif; /* Police de caractères par défaut */
+    background-color: #f4f4f4; /* Couleur de fond de la page */
+    margin: 0; /* Supprime les marges par défaut du navigateur */
+}
+
+
 /* Style pour le h1 */
 h1 {
     font-size: 2.5rem; 

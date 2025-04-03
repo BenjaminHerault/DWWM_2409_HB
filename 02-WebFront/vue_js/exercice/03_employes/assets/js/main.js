@@ -4,6 +4,8 @@ const monApp = {
     data() {
         return {
             listEmployes: [],
+            sortKey: "employee_salary", // Clé de tri par défaut
+            sortOrder: "asc", // Ordre de tri par défaut (ascendant)
         };
     },
     async created() {
@@ -37,6 +39,25 @@ const monApp = {
             this.listEmployes.push(monEmployes);
         },
     },
+
+    computed: {
+        nombrEmploye() {
+            return this.listEmployes.length;
+        },
+        TotalSalaire() {
+            return this.listEmployes
+                .reduce(
+                    (total, employe) =>
+                        total + parseFloat(employe.employee_salary),
+                    0
+                )
+                .toFixed(2); // Retourne la somme des salaires avec deux décimales
+        },
+    },
 };
 const vm = Vue.createApp(monApp);
 vm.mount("#app");
+
+/*
+Utilisez reduce pour calculer la somme des salaires.
+*/
