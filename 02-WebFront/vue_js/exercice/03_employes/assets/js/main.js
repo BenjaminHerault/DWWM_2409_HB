@@ -38,6 +38,19 @@ const monApp = {
             );
             this.listEmployes.push(monEmployes);
         },
+        supprimerEmploye(id) {
+            this.listEmployes = this.listEmployes.filter(
+                (employe) => employe.id !== id
+            );
+        },
+        genererIdUnique() {
+            return Math.floor(Math.random() * 10000); // Génère un nombre entre 0 et 9999
+        },
+        dupliquerEmploye(employe) {
+            // Crée une copie de l'employé avec un id aléatoire unique
+            const nouvelEmploye = { ...employe, id: this.genererIdUnique() };
+            this.listEmployes.push(nouvelEmploye);
+        },
         trierEmployes(key) {
             if (this.sortKey === key) {
                 // Inverse l'ordre si on trie déjà par cette clé
@@ -58,6 +71,7 @@ const monApp = {
         },
     },
     computed: {
+        //pour compteur le nombre d'employes
         nombrEmploye() {
             return this.listEmployes.length;
         },
@@ -65,7 +79,7 @@ const monApp = {
             return this.listEmployes
                 .reduce(
                     (total, employe) =>
-                        total + parseFloat(employe.employee_salary),
+                        total + parseFloat(employe.salaireMensuel),
                     0
                 )
                 .toFixed(2); // Retourne la somme des salaires avec deux décimales
@@ -73,40 +87,6 @@ const monApp = {
     },
 };
 const vm = Vue.createApp(monApp);
-
-vm.component("leTrie", {
-    emits: ["nouveauTrie"],
-
-    methods: {
-        trierEmployes(key) {
-            if (this.sortKey === key) {
-                // Inverse l'ordre si on trie déjà par cette clé
-                this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
-            } else {
-                // Définit une nouvelle clé de tri
-                this.sortKey = key;
-                thise.sortOrder = "asc";
-            }
-            this.listEmployes.sort((a, b) => {
-                let result = 0;
-
-                if (a[key] < b[key]) result = -1;
-                if (a[key] > b[key]) result = 1;
-
-                return this.sortOrder === "asc" ? result : -result;
-            });
-        },
-    },
-    template: `
-        @click="trierEmployes('employee_salary')" style="cursor: pointer;"
-        Monthly Salary
-        <span v-if="sortKey === 'employee_salary'">
-        <span v-if="sortOrder === 'asc'">⬆️</span>
-        <span v-else>⬇️</span>
-        </span>             
-    `,
-});
-
 vm.mount("#app");
 
 /*

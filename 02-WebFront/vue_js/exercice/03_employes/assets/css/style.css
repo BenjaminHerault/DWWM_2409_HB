@@ -1,50 +1,70 @@
-body{
+body {
     font-family: Arial, sans-serif; /* Police de caractères par défaut */
     background-color: #f4f4f4; /* Couleur de fond de la page */
     margin: 0; /* Supprime les marges par défaut du navigateur */
 }
 
-
 /* Style pour le h1 */
 h1 {
-    font-size: 2.5rem; 
-    color: #2c3e50; 
-    text-align: center; 
-    margin-bottom: 10px; 
+    font-size: 2.5rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 10px;
     font-weight: bold; /* Met le texte en gras */
 }
 
 /* Style pour la légende */
 legend {
-    font-size: 1.2rem; 
-    color: #34495e; 
-    text-align: center; 
-    margin-top: 10px; 
-    font-style: italic; 
+    font-size: 1.2rem;
+    color: #34495e;
+    text-align: center;
+    margin-top: 10px;
+    font-style: italic;
 }
-table{
-    width: 100%; /* Prend toute la largeur de la page */
+
+table {
+    width: 80%; /* Prend toute la largeur de la page */
     border-collapse: collapse; /* Supprime les espaces entre les bordures des cellules */
     margin-top: 20px; /* Espace au-dessus du tableau */
     font-size: 1rem; /* Taille de police par défaut */
     color: #2c3e50; /* Couleur du texte */
+    margin: auto;
+    margin-top: 2%;
 }
-th{
+
+th {
     padding: 10px; /* Espace intérieur des cellules */
     border: 1px solid #bdc3c7; /* Bordure des cellules */
-    text-align: center; 
+    text-align: center;
     background-color: #2980b9; /* Couleur de fond des en-têtes */
     color: white; /* Couleur du texte des en-têtes */
     font-weight: bold; /* Met le texte en gras */
     font-size: 1.2rem; /* Taille de police des en-têtes */
 }
-td{
+
+td {
     padding: 10px; /* Espace intérieur des cellules */
     border: 1px solid #bdc3c7; /* Bordure des cellules */
-    text-align: center; 
+    text-align: center;
     font-size: 1rem; /* Taille de police par défaut */
     color: #2c3e50; /* Couleur du texte */
     background-color: #ecf0f1; /* Couleur de fond des cellules */
 }
-
+#pAucunEmploye{
+    text-align: center; 
+    color: #e74c3c; 
+    font-weight: bold;
+}
+#ParentSupDupli{
+    display: flex; /* Active le mode flexbox pour aligner les éléments */
+    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+    justify-content: center; /* Centre les éléments horizontalement */
+}
+#boutonDupliquer, #boutonSupprimer{
+    display: flex;
+    justify-content: center; /* Centre les éléments horizontalement */
+    align-items: center; /* Centre les éléments verticalement */
+    margin-right: 10px; /* Espace à droite du bouton */
+    font-size: 12px;
+}
 

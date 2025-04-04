@@ -17,7 +17,7 @@
     </main>
     <div id="app">
         {{console.log(data)}}
-        <table>
+        <table v-if="listEmployes.length >0">
             <thead>
                 <tr>
                     <th>EID</th>
@@ -41,16 +41,25 @@
                     <td>{{employes.mail}}</td>
                     <td>{{employes.salaireMensuel}} €</td>
                     <td>{{employes.annerNaissance}}</td>
-                    <td>{{employes.jeSaisPasEncore}} supprimer et rajouter</td>
+                    <td id="ParentSupDupli">
+                        <!-- Bouton pour dupliquer -->
+                        <button id="boutonDupliquer" @click="dupliquerEmploye(employes)"><img
+                                src="./image/dupliquer.png" alt="">Dupliquer</button>
+                        <!-- Bouton pour supprimer -->
+                        <button id="boutonSupprimer" @click="supprimerEmploye(employes.id)"> <img
+                                src="./image/supprimer.png" alt="">Supprimer</button>
+                    </td>
                 </tr>
                 <tr>
                     <td>{{nombrEmploye}}</td>
-                    <td colspan="2"></td>
+                    <td colspan=" 2">
+                    </td>
                     <td>{{TotalSalaire}} €</td>
                     <td colspan="2"></td>
                 </tr>
             </tbody>
         </table>
+        <p v-else id="pAucunEmploye">Aucun employé disponible dans la liste.</p>
     </div>
 </body>
 
