@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box; /* Inclut la bordure et le padding dans la largeur et la hauteur */
+}
+
 body {
     font-family: Arial, sans-serif; /* Police de caractères par défaut */
     background-color: #f4f4f4; /* Couleur de fond de la page */
@@ -59,6 +63,10 @@ td {
     display: flex; /* Active le mode flexbox pour aligner les éléments */
     flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
     justify-content: center; /* Centre les éléments horizontalement */
+    border: none;
+}
+tr{
+    border: 1px solid #bdc3c7; /* Bordure des cellules */
 }
 #boutonDupliquer, #boutonSupprimer{
     display: flex;
@@ -66,5 +74,7 @@ td {
     align-items: center; /* Centre les éléments verticalement */
     margin-right: 10px; /* Espace à droite du bouton */
     font-size: 12px;
+    border: none;
+    cursor: pointer;
 }
 

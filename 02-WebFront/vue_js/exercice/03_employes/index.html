@@ -16,14 +16,13 @@
         <legend>This is the current list of Employees</legend>
     </main>
     <div id="app">
-        {{console.log(data)}}
         <table v-if="listEmployes.length >0">
             <thead>
                 <tr>
                     <th>EID</th>
                     <th>Full Name</th>
                     <th>Email</th>
-                    <th @click="trierEmployes('employee_salary')" style="cursor: pointer;">
+                    <th @click="trierEmployes('employee_salary')">
                         Monthly Salary
                         <span v-if="sortKey === 'employee_salary'">
                             <span v-if="sortOrder === 'asc'">⬆️</span>

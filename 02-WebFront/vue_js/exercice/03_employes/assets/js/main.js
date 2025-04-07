@@ -46,10 +46,20 @@ const monApp = {
         genererIdUnique() {
             return Math.floor(Math.random() * 10000); // Génère un nombre entre 0 et 9999
         },
+        dernierEmployerId() {
+            if (this.listEmployes.length === 0) {
+                return 0; // Retourne 0 si la liste est vide
+            }
+            return Math.max(...this.listEmployes.map((employe) => employe.id));
+        },
+
         dupliquerEmploye(employe) {
-            // Crée une copie de l'employé avec un id aléatoire unique
-            const nouvelEmploye = { ...employe, id: this.genererIdUnique() };
-            this.listEmployes.push(nouvelEmploye);
+            // Crée une copie de l'employé avec un nouvel ID unique
+            const nouvelEmploye = {
+                ...employe,
+                id: this.dernierEmployerId() + 1,
+            };
+            this.listEmployes.push(nouvelEmploye); // Ajoute le nouvel employé à la liste
         },
         trierEmployes(key) {
             if (this.sortKey === key) {
