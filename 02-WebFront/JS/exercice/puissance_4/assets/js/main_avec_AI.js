@@ -28,10 +28,12 @@ for (let i = 0; i < 7; i++) {
 genererTableauHtml();
 
 function genererTableauHtml() {
-    console.table(monTableau);
+    console.log(monTableau);
     monTbody.innerHTML = '';
     for(let i = 0; i < monTableau.length; i++) {
+
         const ligneTbody = monTbody.insertRow();
+
         for(let j = 0; j < monTableau[i].length; j++) {
             ajouterUneCelluleDonnee(ligneTbody, i, j);
         }
@@ -94,37 +96,59 @@ const positionnement = (event) => {
 
     for(let k = 6; k >= 0; k--) {
         if(monTableau[k][y] === null) {
-
-            let monTd = rechercherCellule(k, y);
-
             if(monJoueur === "Soleil") {
                 monTableau[k][y] = false;
                 verifierGagnant();
-                monTd.classList.add("unJetonSoleil");
                 monJoueur = "Lune";
-            } else {
-                monTableau[k][y] = true;
-                verifierGagnant();
-                monTd.classList.add("unJetonLune");
-                monJoueur = "Soleil";
+                genererTableauHtml();
+
+                // Ajouter la classe d'animation au jeton
+                let cellule = document.getElementById(`${k}-${y}`);
+                cellule.classList.add('descendre');
+
+                // Laisser l'IA jouer après un court délai
+                setTimeout(jouerIA, 500);
             }
-            //monJoueur = monJoueur === "Rouge" ? "Lune" : "Soleil";
-            //genererTableauHtml();
             return;
         }
     }
 }
 
-function rechercherCellule(x, y) {
-    let mesTd = document.getElementsByTagName("td");
-    mesTd = Array.from(mesTd);
-    // console.log(mesTd);
+/**
+ * Fonction pour l'IA qui joue contre le joueur humain
+ */
+function jouerIA() {
+    let colonne;
+    let colonneTrouvee = false;
 
-    let monTd = mesTd.find(td => td.dataset.x == x && td.dataset.y == y);
-    // console.log(monTd);
-    
-    return monTd;
- }
+    // Essayer de trouver une colonne valide
+    while (!colonneTrouvee) {
+        colonne = Math.floor(Math.random() * 7); // Choisir une colonne aléatoire entre 0 et 6
+        for (let k = 6; k >= 0; k--) {
+            if (monTableau[k][colonne] === null) {
+                colonneTrouvee = true;
+                break;
+            }
+        }
+    }
+
+    // Placer le jeton de l'IA dans la colonne choisie
+    for (let k = 6; k >= 0; k--) {
+        if (monTableau[k][colonne] === null) {
+            monTableau[k][colonne] = true; // L'IA joue avec les jetons "Lune"
+            verifierGagnant();
+            monJoueur = "Soleil";
+            genererTableauHtml();
+
+            // Ajouter la classe d'animation au jeton
+            let cellule = document.getElementById(`${k}-${colonne}`);
+            cellule.classList.add('descendre');
+
+            return;
+        }
+    }
+}
+
 /**
  * for (let i = 0; i< monTableau.length; i++) 
  * Cette boucle parcourt chaque ligne du tableau
@@ -137,16 +161,16 @@ function verifierGagnant() {
     * horizontal
     */ 
     for(let b = 6 ; b >=0; b--){
-        let compteur_gagnant_horizontal = 0;
+        let compteur_gagant_horizontal = 0;
         for(let n = 0; n < monTableau[b].length; n++){
             if(monTableau[b][n]  === (monJoueur === "Soleil" ? false : true)){
-                compteur_gagnant_horizontal++;
-                if(compteur_gagnant_horizontal === 4){
-                    un_gagnant(monJoueur);
+                compteur_gagant_horizontal++;
+                if(compteur_gagant_horizontal === 4){
+                    un_gagant();
                 };
             } 
             else{
-                compteur_gagnant_horizontal = 0;
+                compteur_gagant_horizontal = 0;
             }; 
         };
     };
@@ -154,16 +178,16 @@ function verifierGagnant() {
     * vertical
     */
     for (let c = 0; c < monTableau[0].length; c++){
-        let compteur_gagnant_vertical = 0;
+        let compteur_gagant_vertical = 0;
         for(let p = 0 ; p < monTableau.length; p++){
             if(monTableau[p][c]  === (monJoueur === "Soleil" ? false : true)){
-                compteur_gagnant_vertical++;
-                if(compteur_gagnant_vertical === 4){
-                    un_gagnant(monJoueur);
+                compteur_gagant_vertical++;
+                if(compteur_gagant_vertical === 4){
+                    un_gagant();
                 };
             } 
             else{
-                compteur_gagnant_vertical = 0;
+                compteur_gagant_vertical = 0;
             }; 
         };
     }
@@ -172,7 +196,7 @@ function verifierGagnant() {
     for(let i = 0; i < monTableau.length; i++){
         for(let j = 0; j < monTableau[i].length; j++){
             if(diagonal_montante(i,j)){
-                un_gagnant(monJoueur);
+                un_gagant();
             }
         };
     };
@@ -180,7 +204,7 @@ function verifierGagnant() {
     for(let t = 0; t < monTableau.length; t++){
         for(let e = 0; e < monTableau[t].length; e++){
             if (diagonal_descendante(t,e)){
-                un_gagnant(monJoueur);
+                un_gagant();
             };
         };
     };
@@ -218,19 +242,7 @@ function diagonal_descendante(x,y){
     };
     return compteur_diag_descendante === 4;
 };
-
-let partieTerminee = false;
-
-function un_gagnant(monJoueur){
-    if(partieTerminee === false) {
-        setTimeout(() => {
-            alert("Nous avons un gagnant. Bravo à "+ monJoueur);
-            if(window.confirm("Souhaitez-vous jouer une nouvelle parti ?")){
-                window.location.reload(); 
-            } else {
-                partieTerminee = true;
-            }
-            //nouvellePartie();
-         }, 100);
-    }
+function un_gagant(){
+    alert("Nous avont un gagant bravo a "+ monJoueur);
+    
 };

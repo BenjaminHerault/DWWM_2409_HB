@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/main.js" type="module"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Employees</title>
+</head>
+
+<body>
+    <main>
+        <h1>Employees</h1>
+        <legend>This is the current list of Employees</legend>
+    </main>
+    <div id="app">
+        <table v-if="listEmployes.length >0">
+            <thead>
+                <tr>
+                    <th>EID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th @click="trierEmployes('employee_salary')">
+                        Monthly Salary
+                        <span v-if="sortKey === 'employee_salary'">
+                            <span v-if="sortOrder === 'asc'">⬆️</span>
+                            <span v-else>⬇️</span>
+                        </span>
+                    </th>
+                    <th>Year of birth</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="employes of listEmployes" :key="employes.id">
+                    <td>{{employes.id}}</td>
+                    <td>{{employes.employee_name}}</td>
+                    <td>{{employes.mail}}</td>
+                    <td>{{employes.salaireMensuel}} €</td>
+                    <td>{{employes.annerNaissance}}</td>
+                    <td id="ParentSupDupli">
+                        <!-- Bouton pour dupliquer -->
+                        <button id="boutonDupliquer" @click="dupliquerEmploye(employes)"><img
+                                src="./image/dupliquer.png" alt="">Dupliquer</button>
+                        <!-- Bouton pour supprimer -->
+                        <button id="boutonSupprimer" @click="supprimerEmploye(employes.id)"> <img
+                                src="./image/supprimer.png" alt="">Supprimer</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{nombrEmploye}}</td>
+                    <td colspan=" 2">
+                    </td>
+                    <td>{{TotalSalaire}} €</td>
+                    <td colspan="2"></td>
+                </tr>
+            </tbody>
+        </table>
+        <p v-else id="pAucunEmploye">Aucun employé disponible dans la liste.</p>
+    </div>
+</body>
+
+</html>

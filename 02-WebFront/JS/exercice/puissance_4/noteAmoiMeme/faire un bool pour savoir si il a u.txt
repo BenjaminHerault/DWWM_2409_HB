@@ -1,0 +1,2 @@
+faire un bool pour savoir si il a un jeton la ou je clique 
+faire un css pour le dessingner 

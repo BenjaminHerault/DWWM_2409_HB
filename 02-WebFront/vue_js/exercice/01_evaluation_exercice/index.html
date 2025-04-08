@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/main.js" type="module"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>L'évaluation</title>
+</head>
+
+<body>
+    <main>
+        <fieldset class="container">
+            <legend>
+                <h1>Résultat de l'évaluation</h1>
+            </legend>
+            <div id="app">
+                <fieldset class="fromFie">
+                    <legend>
+                        <h2>Ajouter une note</h2>
+                    </legend>
+                    <ajout-etudiant @nouvellenote="ajouterEtudiant"></ajout-etudiant>
+                </fieldset>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Note</th>
+                            <th>Obtenu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="etudians of listEtudiants" :key="etudians.fullname">
+                            <td>{{ etudians.nom}}</td>
+                            <td>{{ etudians.prenom}}</td>
+                            <td id="note">{{ etudians.grade }}</td>
+                            <td> {{ etudians.obtenu }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <li>Nombre d'étudiants : {{ nombreEtudians }}</li>
+                <li>Moyenne de la classe : {{ moyenneEtudiants }}</li>
+                <li>Nombre d'étudiants au dessus de la moyenne : {{nombreEtudiansSuppMoyenne}}</li>
+                <li>Note éliminatoire : 12 </li>
+            </div>
+        </fieldset>
+    </main>
+</body>
+
+</html>

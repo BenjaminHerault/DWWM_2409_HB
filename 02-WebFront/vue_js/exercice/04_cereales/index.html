@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/main.js" type="module"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Céréales</title>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>Cereals</h1>
+            <fieldset id="fieldset_recherche">
+                <legend>Rechercher</legend>
+                <input id="barre_Recherche" type="text" placeholder="Nom du céréale" v-model="recherche_cerale">
+            </fieldset>
+
+            <fieldset id="fieldset_filtre">
+                <legend>Filtrer</legend>
+
+                <fieldset>
+                    <legend>Nutriscore</legend>
+                    <div id="nutriscore-filter">
+                        <label>
+                            A <input type="checkbox" value="A" v-model="selectedNutriscores">
+                        </label>
+                        <label>
+                            B <input type="checkbox" value="B" v-model="selectedNutriscores">
+                        </label>
+                        <label>
+                            C <input type="checkbox" value="C" v-model="selectedNutriscores">
+                        </label>
+                        <label>
+                            D <input type="checkbox" value="D" v-model="selectedNutriscores">
+                        </label>
+                        <label>
+                            E <input type="checkbox" value="E" v-model="selectedNutriscores">
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Filtre Catégorie -->
+                <fieldset>
+                    <legend>Catégorie</legend>
+                    <select id="category-filter" v-model="selectedCategory">
+                        <option value="tous">Tous</option>
+                        <option value="Sans-sucre">Sans sucre</option>
+                        <option value="pauvre-en-sel">Pauvre en Sel</option>
+                        <option value="boost">Boost</option>
+                    </select>
+                </fieldset>
+            </fieldset>
+        </header>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th @click="trierCereales('id')" class="class_tri">
+                            <span class="parrent_span">
+                                ID
+                                <span class="enfant_span taille_fleche">
+                                    {{ afficherFlecheTri('id') }}
+                                </span>
+                            </span>
+                        </th>
+
+                        <th @click="trierCereales('name')" class="class_tri">
+                            <span class="parrent_span">
+                                NOM
+                                <span class="enfant_span taille_fleche">
+                                    {{ afficherFlecheTri('name') }}
+                                </span>
+                            </span>
+                        </th>
+
+                        <th @click="trierCereales('calories')" class="class_tri">
+                            <span class="parrent_span">
+                                CALORIES
+                                <span class="enfant_span taille_fleche">
+                                    {{ afficherFlecheTri('calories') }}
+                                </span>
+                            </span>
+                        </th>
+
+                        <th @click="trierCereales('protein')" class="class_tri">
+                            <span class="parrent_span">
+                                PROTEÏNES
+                                <span class="enfant_span taille_fleche">
+                                    {{ afficherFlecheTri('protein') }}
+                                </span>
+                            </span>
+                        </th>
+
+                        <th @click="trierCereales('sodium')" class="class_tri">
+                            <span class="parrent_span">
+                                SEL
+                                <span class="enfant_span taille_fleche">
+                                    {{ afficherFlecheTri('sodium') }}
+                                </span>
+                            </span>
+                        </th>
+
+                        <th @click="trierCereales('fiber')" class="class_tri">
+                            <span class="parrent_span">
+                                FIBRES
+                                <span class="enfant_span taille_fleche">
+                                    {{ afficherFlecheTri('fiber') }}
+                                </span>
+                            </span>
+                        </th>
+
+                        <th @click="trierCereales('carbo')" class="class_tri">
+                            <span class="parrent_span">
+                                GLUCIDES
+                                <span class="enfant_span taille_fleche">
+                                    {{ afficherFlecheTri('carbo') }}
+                                </span>
+                            </span>
+                        </th>
+
+                        <th @click="trierCereales('sugars')" class="class_tri">
+                            <span class="parrent_span">
+                                SUCRE
+                                <span class="enfant_span taille_fleche">
+                                    {{ afficherFlecheTri('sugars') }}
+                                </span>
+                            </span>
+                        </th>
+
+                        <th @click="trierCereales('potass')" class="class_tri">
+                            <span class="parrent_span">
+                                POTASSIUM
+                                <span class="enfant_span taille_fleche">
+                                    {{ afficherFlecheTri('potass') }}
+                                </span>
+                            </span>
+                        </th>
+
+                        <th @click="trierCereales('vitamins')" class="class_tri">
+                            <span class="parrent_span">
+                                VITAMINES
+                                <span class="enfant_span taille_fleche">
+                                    {{ afficherFlecheTri('vitamins') }}
+                                </span>
+                            </span>
+                        </th>
+
+                        <th @click="trierCereales('rating')" class="class_tri">
+                            <span class="parrent_span">
+                                ÉVALUATION
+                                <span class="enfant_span taille_fleche">
+                                    {{ afficherFlecheTri('rating') }}
+                                </span>
+                            </span>
+                        </th>
+                        <th>NS</th>
+                        <th>DEL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="cereales in filtreRecherche" :key="cereales.id">
+                        <td id="id_style">{{cereales.id}}</td>
+                        <td id="nom_style">{{cereales.name}}</td>
+                        <td>{{cereales.calories}}</td>
+                        <td>{{cereales.protein}}</td>
+                        <td>{{cereales.sodium}}</td>
+                        <td>{{cereales.fiber}}</td>
+                        <td>{{cereales.carbo}}</td>
+                        <td>{{cereales.sugars}}</td>
+                        <td>{{cereales.potass}}</td>
+                        <td>{{cereales.vitamins}}</td>
+                        <td>{{cereales.rating}}</td>
+                        <td :class="'nutriscore-' + calculerNutriScore(cereales.rating)">{{
+                            calculerNutriScore(cereales.rating) }}</td>
+                        <td id="x-rouge">
+                            <button id="boutonSupprimer" @click="supprimerCereales(cereales.id)">X</button>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="id_style"></td>
+                        <td id="nom_style">{{totalCereales}} éléments</td>
+                        <td>Myoenne calories {{moyenneCalories}}</td>
+                        <td colspan=" 10"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        <footer>
+            <fieldset>
+                <legend id="fonctionnalites">Fonctionnalités</legend>
+                <div id="div_footer">
+                    <button @click="sauvegarderTableau">Sauvegarder dans le navigateur</button>
+                    <button @click="telechargerJSON">Télécharger en JSON</button>
+                    <button @click="reinitialiserDonnees">Réinitialiser les données</button>
+                </div>
+            </fieldset>
+        </footer>
+    </div>
+</body>
+
+</html>

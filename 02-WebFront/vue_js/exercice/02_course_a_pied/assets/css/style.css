@@ -1,0 +1,98 @@
+:root {
+    --base-bg: #111111;
+    --base-txt: #CCCCCC;
+    --base-link: #E4D9FF;
+    --base-btn: #085E8F;
+}
+body{
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    background-color: #111111;
+    margin: 0;
+    padding: 0;
+
+}
+main{
+    background-color: var(--base-bg);
+    width: 50%;
+}
+h1{
+    color: var(--base-link);
+}
+#fielPrincipale{
+    border-color: var(--base-link);
+}
+table{
+    background-color: var(--base-btn);
+    color: var(--base-link);
+    height: 240px;
+    font-size: 25px;
+    border-radius: 2%;
+    margin-left: 2%;
+    margin-top: 5%;
+}
+th{
+    text-align: center;
+    
+    padding-right: 20px;
+}
+td{
+    padding-top: 2%;
+    height: 35px;
+    padding-right: 20px;
+    
+}
+#monDivCoureurs {
+    display: flex; /* Active le mode flexbox */
+}
+
+#monDivCoureurs p {
+    background-color: var(--base-link);
+    margin-left: 2%;
+    display: flex;
+    justify-content: center; /* Centre les éléments horizontalement */
+    align-items: center; /* Centre les éléments verticalement */
+    font-weight: bold;
+    color: var(--base-btn);
+    font-size: 18px;
+}
+h2{
+    color: var(--base-link);
+}
+#leFiltrer {
+    display: flex; /* Active le mode flexbox pour aligner les éléments */
+    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+    gap: 10px; /* Ajoute un espace entre les carrés */
+    width: 70%;
+}
+
+#leFiltrer div {
+    background-color: var(--base-btn); 
+    color: var(--base-link); 
+    padding: 5px; /* Ajoute de l'espace à l'intérieur du carré */
+    border-radius: 15px; /* Coins arrondis */
+    text-align: center; /* Centre le texte dans le carré */
+    width: 95px; /* Largeur fixe pour chaque carré */
+    height: 35px; /* Hauteur fixe pour chaque carré */
+    display: flex; /* Active flexbox pour centrer le contenu */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    box-shadow: 0px 4px 6px rgb(255, 0, 0); /* Ajoute une ombre pour un effet visuel */
+}
+#leFiltrer div:hover{
+    background-color: var(--base-link); /* Change la couleur de fond au survol */
+    color: var(--base-btn); /* Change la couleur du texte au survol */
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+    transition: background-color 0.9s, color 0.9s; /* Ajoute une transition douce pour le changement de couleur */
+}
+#pMoyen{
+   width: 30%;
+   height: 50px;
+}
+#nbrCoureurs{
+    width:15%;
+}
+pGagnant{
+    width: 35%;
+}
