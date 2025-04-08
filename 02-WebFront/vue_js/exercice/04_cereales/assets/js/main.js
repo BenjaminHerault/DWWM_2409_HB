@@ -4,6 +4,9 @@ const monApp = {
     data() {
         return {
             listCereales: [],
+            recherche_cerale: "",
+            selectedNutriscores: [],
+            selectedCategory: "tout",
         };
     },
     async created() {
@@ -20,6 +23,7 @@ const monApp = {
             json.data.forEach((cereales) => {
                 this.ajouterCereales(cereales);
             });
+            this.chargerTableau();
         } catch (error) {
             console.error("Erreur lors du chargement des données :", error);
         }
@@ -57,18 +61,96 @@ const monApp = {
         },
         trierCereales(key) {
             if (this.sortKey === key) {
+                // Inverse l'ordre si on trie déjà par cette clé
                 this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
             } else {
+                // Définit une nouvelle clé de tri
                 this.sortKey = key;
-                this.sortOrder = "asc";
+                this.sortOrder = "asc"; // Par défaut, tri croissant
             }
+
+            // Trie la liste des céréales
             this.listCereales.sort((a, b) => {
                 let result = 0;
-                if (a[key] < b[key]) result = -1;
-                if (a[key] > b[key]) result = 1;
+
+                // Compare les valeurs en fonction de la clé
+                if (a[key] > b[key]) {
+                    result = 1;
+                } else if (a[key] < b[key]) {
+                    result = -1;
+                }
+
+                // Inverse le résultat si l'ordre est décroissant
+                return this.sortOrder === "asc" ? result : -result;
             });
         },
+        afficherFlecheTri(key) {
+            if (this.sortKey === key) {
+                return this.sortOrder === "asc" ? "↑" : "↓";
+            }
+            return ""; // Pas de flèche si ce n'est pas la clé de tri active
+        },
+        calculerNutriScore(evaluation) {
+            if (evaluation > 80) {
+                return "A";
+            } else if (evaluation > 70) {
+                return "B";
+            } else if (evaluation > 55) {
+                return "C";
+            } else if (evaluation > 35) {
+                return "D";
+            } else {
+                return "E";
+            }
+        },
+        sauvegarderTableau() {
+            // Vérifie si une sauvegarde existe déjà
+            if (localStorage.getItem("tableauCereales")) {
+                const confirmation = confirm(
+                    "Une sauvegarde existe déjà. Voulez-vous la remplacer ?"
+                );
+                if (!confirmation) {
+                    return; // Annule si l'utilisateur refuse
+                }
+            }
+            // Sauvegarde les données dans le LocalStorage
+            localStorage.setItem(
+                "tableauCereales",
+                JSON.stringify(this.listCereales)
+            );
+            alert("Tableau sauvegardé dans le navigateur !");
+        },
+        telechargerJSON() {
+            // Convertit les données en JSON
+            const dataStr = JSON.stringify(this.listCereales, null, 2);
+
+            // Crée un objet Blob pour le téléchargement
+            const blob = new Blob([dataStr], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+
+            // Crée un lien pour télécharger le fichier
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "tableau_cereales.json";
+            a.click();
+
+            // Libère l'URL
+            URL.revokeObjectURL(url);
+        },
+        chargerTableau() {
+            const sauvegarde = localStorage.getItem("tableauCereales");
+            if (sauvegarde) {
+                const confirmation = confirm(
+                    "Une sauvegarde a été trouvée. Voulez-vous la charger ?"
+                );
+                if (!confirmation) {
+                    this.listCereales = JSON.parse(sauvegarde);
+                    alert("Tableau chargé depuis le navigateur !");
+                }
+            }
+        },
     },
+
     computed: {
         totalCereales() {
             return this.listCereales.length;
@@ -80,6 +162,39 @@ const monApp = {
                 0
             );
             return (total / this.listCereales.length).toFixed(2);
+        },
+        filtreRecherche() {
+            return this.listCereales.filter((cereale) => {
+                // Filtrer par recherche (nom du céréale)
+                const correspondRecherche = cereale.name
+                    .toLowerCase()
+                    .includes(this.recherche_cerale.toLowerCase());
+
+                // Filtrer par Nutri-score
+                const correspondNutriscore =
+                    this.selectedNutriscores.length === 0 ||
+                    this.selectedNutriscores.includes(
+                        this.calculerNutriScore(cereale.rating)
+                    );
+
+                // Filtrer par catégorie
+                let correspondCategorie = true;
+                if (this.selectedCategory === "Sans-sucre") {
+                    correspondCategorie = cereale.sugars < 1;
+                } else if (this.selectedCategory === "pauvre-en-sel") {
+                    correspondCategorie = cereale.sodium < 50;
+                } else if (this.selectedCategory === "boost") {
+                    correspondCategorie =
+                        cereale.vitamins >= 25 && cereale.fiber >= 10;
+                }
+
+                // Retourner true si tous les critères sont remplis
+                return (
+                    correspondRecherche &&
+                    correspondNutriscore &&
+                    correspondCategorie
+                );
+            });
         },
     },
 };

@@ -89,3 +89,51 @@ tr:hover #boutonSupprimer{
     background-color: #333; /* Change la couleur de fond au clic */
     color: #fff; /* Change la couleur du texte au clic */
 }
+.class_tri{
+    cursor: pointer;
+}
+.parrent_span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.enfant_span{
+    margin-left: 5px;
+}
+
+
+/* Styles pour le Nutri-Score */
+.nutriscore-A {
+    background-color: darkgreen; /* Vert */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.nutriscore-B {
+    background-color: #009900CC; /* Vert clair */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.nutriscore-C {
+    background-color: #CCCC00CC; /* Jaune */
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+.nutriscore-D {
+    background-color: #CC6600CC; /* Orange */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.nutriscore-E {
+    background-color: #CC0000CC; /* Rouge */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
