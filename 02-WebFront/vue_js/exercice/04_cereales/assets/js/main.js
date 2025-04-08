@@ -10,6 +10,19 @@ const monApp = {
         };
     },
     async created() {
+        const sauvegarde = localStorage.getItem("tableauCereales");
+        if (sauvegarde) {
+            const confirmation = confirm(
+                "Une sauvegarde a été trouvée. Voulez-vous la charger ?"
+            );
+            if (confirmation) {
+                this.listCereales = JSON.parse(sauvegarde);
+                alert("Tableau chargé depuis le navigateur !");
+                return; // Arrête l'exécution si les données sont chargées depuis la sauvegarde
+            }
+        }
+
+        // Si aucune sauvegarde ou si l'utilisateur refuse, téléchargez les données depuis l'API
         try {
             const url =
                 "https://arfp.github.io/tp/web/javascript2/10-cereals/cereals.json";
@@ -17,15 +30,14 @@ const monApp = {
             if (!response.ok) {
                 throw new Error(`Erreur HTTP : ${response.status}`);
             }
-            // Convertir les données JSON en object JavaScript
             let json = await response.json();
-
             json.data.forEach((cereales) => {
                 this.ajouterCereales(cereales);
             });
-            this.chargerTableau();
+            // alert("Données téléchargées depuis l'API !");
         } catch (error) {
             console.error("Erreur lors du chargement des données :", error);
+            alert("Impossible de télécharger les données depuis l'API.");
         }
     },
 
@@ -104,20 +116,19 @@ const monApp = {
             }
         },
         sauvegarderTableau() {
-            // Vérifie si une sauvegarde existe déjà
             if (localStorage.getItem("tableauCereales")) {
                 const confirmation = confirm(
                     "Une sauvegarde existe déjà. Voulez-vous la remplacer ?"
                 );
                 if (!confirmation) {
-                    return; // Annule si l'utilisateur refuse
+                    return;
                 }
             }
-            // Sauvegarde les données dans le LocalStorage
             localStorage.setItem(
                 "tableauCereales",
                 JSON.stringify(this.listCereales)
             );
+            console.log("Données sauvegardées :", this.listCereales); // Vérifie les données sauvegardées
             alert("Tableau sauvegardé dans le navigateur !");
         },
         telechargerJSON() {
@@ -143,10 +154,22 @@ const monApp = {
                 const confirmation = confirm(
                     "Une sauvegarde a été trouvée. Voulez-vous la charger ?"
                 );
-                if (!confirmation) {
+                if (confirmation) {
                     this.listCereales = JSON.parse(sauvegarde);
+                    console.log("Données récupérées :", this.listCereales);
                     alert("Tableau chargé depuis le navigateur !");
                 }
+            }
+        },
+        reinitialiserDonnees() {
+            const confirmation = confirm(
+                "Voulez-vous réinitialiser les données ? Cela supprimera la sauvegarde existante."
+            );
+            if (confirmation) {
+                localStorage.removeItem("tableauCereales");
+                this.listCereales = [];
+                this.created(); // Recharge les données depuis l'API
+                alert("Données réinitialisées !");
             }
         },
     },

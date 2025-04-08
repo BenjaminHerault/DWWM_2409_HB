@@ -191,10 +191,14 @@
             </table>
         </main>
         <footer>
-            <div>
-                <button @click="sauvegarderTableau">Sauvegarder dans le navigateur</button>
-                <button @click="telechargerJSON">Télécharger en JSON</button>
-            </div>
+            <fieldset>
+                <legend id="fonctionnalites">Fonctionnalités</legend>
+                <div id="div_footer">
+                    <button @click="sauvegarderTableau">Sauvegarder dans le navigateur</button>
+                    <button @click="telechargerJSON">Télécharger en JSON</button>
+                    <button @click="reinitialiserDonnees">Réinitialiser les données</button>
+                </div>
+            </fieldset>
         </footer>
     </div>
 </body>

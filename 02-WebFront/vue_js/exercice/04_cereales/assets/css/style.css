@@ -137,3 +137,38 @@ tr:hover #boutonSupprimer{
     font-weight: bold;
     text-align: center;
 }
+#div_footer {
+    display: flex;
+    justify-content: space-around; /* Espace égal entre les boutons */
+    align-items: center;
+    margin-top: 50px;
+    width: 100%; /* S'assure que les boutons occupent tout l'espace disponible */
+}
+
+
+footer{
+    margin-top: 50px;
+}
+#div_footer button {
+    padding: 10px 20px; /* Ajoute un peu de padding pour les boutons */
+    font-size: 16px; /* Taille de police pour les boutons */
+    background-color: #333333; /* Couleur de fond des boutons */
+    color: #98cc31; /* Couleur du texte */
+    border: 1px solid #98cc31; /* Bordure des boutons */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+    transition: background-color 0.3s ease; /* Animation pour le survol */
+}
+#div_footer button:hover {
+    background-color: #98cc31; /* Change la couleur de fond au survol */
+    color: #333333; /* Change la couleur du texte au survol */
+}
+#fonctionnalites{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+    text-align: center;
+    color: #98cc31;
+    font-size: 20px;
+}
