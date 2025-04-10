@@ -4,6 +4,7 @@ const monApp = {
     data() {
         return {
             listCereales: [],
+            listCerealesSaved: [],
             recherche_cerale: "",
             selectedNutriscores: [],
             selectedCategory: "tout",
@@ -16,9 +17,9 @@ const monApp = {
                 "Une sauvegarde a été trouvée. Voulez-vous la charger ?"
             );
             if (confirmation) {
-                this.listCereales = JSON.parse(sauvegarde);
+                this.listCerealesSaved = JSON.parse(sauvegarde);
                 alert("Tableau chargé depuis le navigateur !");
-                return; // Arrête l'exécution si les données sont chargées depuis la sauvegarde
+                return; /* Arrête l'exécution si les données sont chargées depuis la sauvegarde */
             }
         }
 
@@ -64,6 +65,22 @@ const monApp = {
                 _cereales.vitamins,
                 _cereales.rating
             );
+
+            let monCerealesSaved = new Cereales(
+                _cereales.id,
+                _cereales.name,
+                _cereales.calories,
+                _cereales.protein,
+                _cereales.sodium,
+                _cereales.fiber,
+                _cereales.carbo,
+                _cereales.sugars,
+                _cereales.potass,
+                _cereales.vitamins,
+                _cereales.rating
+            );
+
+            this.listCerealesSaved.push(monCerealesSaved);
             this.listCereales.push(monCereales);
         },
         supprimerCereales(id) {
@@ -116,6 +133,8 @@ const monApp = {
             }
         },
         sauvegarderTableau() {
+            const donneesFiltrees = JSON.stringify(this.filtreRecherche); // Récupère les données filtrées
+            console.log(donneesFiltrees);
             if (localStorage.getItem("tableauCereales")) {
                 const confirmation = confirm(
                     "Une sauvegarde existe déjà. Voulez-vous la remplacer ?"
@@ -124,11 +143,9 @@ const monApp = {
                     return;
                 }
             }
-            localStorage.setItem(
-                "tableauCereales",
-                JSON.stringify(this.listCereales)
-            );
-            console.log("Données sauvegardées :", this.listCereales); // Vérifie les données sauvegardées
+
+            localStorage.setItem("tableauCereales", donneesFiltrees);
+            console.log("Données sauvegardées :", this.filtreRecherche); // Vérifie les données sauvegardées
             alert("Tableau sauvegardé dans le navigateur !");
         },
         telechargerJSON() {
@@ -150,6 +167,9 @@ const monApp = {
         },
         chargerTableau() {
             const sauvegarde = localStorage.getItem("tableauCereales");
+
+            console.table(sauvegarde);
+
             if (sauvegarde) {
                 const confirmation = confirm(
                     "Une sauvegarde a été trouvée. Voulez-vous la charger ?"
@@ -212,6 +232,7 @@ const monApp = {
                 }
 
                 // Retourner true si tous les critères sont remplis
+
                 return (
                     correspondRecherche &&
                     correspondNutriscore &&
