@@ -15,9 +15,27 @@
 </head>
 
 <body>
-    <div id="app">
-        <canvas id="myChart"></canvas>
-    </div>
+    <main>
+        <div id="app">
+            <table>
+                <thead>
+                    <tr>
+                        <th>annee</th>
+                        <th>population</th>
+                        <th>naissances</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="population of listPopulation" :key="population.annee">
+                        <td>{{population.annee}}</td>
+                        <td>{{population.population}}</td>
+                        <td>{{population.naissances}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <canvas id="myChart"></canvas>
+        </div>
+    </main>
 </body>
 
 </html>
