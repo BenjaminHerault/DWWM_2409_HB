@@ -1,0 +1,11 @@
+{
+ 
+    "articles" : [
+        {"article_id":"1","article_title":"Captain America: Brave New World – Une Renaissance Héroïque ou un Échec ?","author" :"Jean Dupont","publication_date" :"2025-02-25","rating" :"13.5", "avis" : "moyen"},
+        {"article_id":"2","article_title":"Dune: Partie 2 – Une Épopée Monumentale qui Redéfinit la Science-Fiction","author":"Sophie Martin","publication_date":"2025-02-25","rating":"15", "avis" :"excellent"},
+        {"article_id":"3","article_title":"Le Comte de Monte-Cristo (2024) – Une Vengeance Magistrale à l’Écran","author":"Marc Lefevre","publication_date":"2025-02-25","rating":"14.5", "avis" : "correct"},
+        {"article_id":"4","article_title":"Gladiator 2 – Peut-il Réinventer la Légende du Premier Chef-d’Œuvre ?","author":"Elise Bernard","publication_date":"2025-02-25","rating":"14", "avis" : "bon film"},
+        {"article_id":"5","article_title":"Mufasa: Le Roi Lion – Une Origine Majestueuse ou un Préquel Inutile ?","author":"Thomas Girard","publication_date":"2025-02-25","rating":"13", "avis" :"insatisfait "},
+        {"article_id":"6","article_title":"Nosferatu (2024) – L’Horreur Gothique Revient-elle en Force ?","author":"Camille Rousseau","publication_date":"2025-02-25","rating":"14.5", "avis" :"correct" }
+    ]
+}

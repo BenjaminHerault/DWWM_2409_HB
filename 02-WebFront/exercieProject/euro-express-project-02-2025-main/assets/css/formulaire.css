@@ -1,0 +1,152 @@
+body{
+    margin : 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+header{
+    background-color: #182a52;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+main{
+    margin: auto;
+    width: 60%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+label, select{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+input, select{
+    background-color: #F4F4F4;
+    margin: auto;
+    width: 26%;
+
+}
+
+
+footer{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #182a52;
+    color: white;
+}
+
+.bouton{
+    display: block;
+    background-color: white;
+    border-radius: 10px;
+    border: 4px double black;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    width: 295px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.bouton:hover{
+    background-color: #ffffff;
+    border: 2px solid black;
+    box-shadow: 10px 5px 5px #506180;
+    color: black;
+    text-align: center;
+    font-size: 22px;
+}
+
+a{
+    margin-top: 20px;
+    color: blue;
+}
+
+footer a{
+text-decoration: none;
+color: white;
+}
+
+@media screen and (min-width: 997px) and (max-width: 1563px){
+    
+    main{
+        margin: auto;
+        width: 90%;
+    }
+
+    input, select {
+        background-color: #F4F4F4;
+        margin: auto;
+        width: 26%;
+    }
+
+
+
+    footer{
+        font-size: clamp(4px, 1em, 1rem);
+    }
+    
+}
+
+
+
+/* Media query pour tablette */
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    
+    main{
+        margin: auto;
+        width: 80%;
+    }
+
+    .description{
+        width: 85%;
+    }
+
+    form{
+        justify-items: center;
+    }
+
+    footer{
+        font-size: clamp(4px, 1em, 1rem);
+    }
+}
+
+
+
+
+
+
+/* Media query pour téléphone */
+@media only screen and (max-width: 767px) {
+    main{
+        margin: auto;
+        width: 90%;
+    }
+
+    input, select {
+        background-color: #F4F4F4;
+        margin: auto;
+        width: 50%;
+    }
+
+
+
+    footer{
+        font-size: clamp(1px, 1em, 1rem);
+    }
+}
