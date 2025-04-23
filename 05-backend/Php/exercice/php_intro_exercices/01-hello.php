@@ -1,24 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
-</head>
-<body>
-    <h1>Bienvenue sur ma page</h1>
-    <?php
-    /**
-     * Affiche "Hello World !"
-     */
-    function helloWorld():void
-    {
-        echo "<p>Hello World !</p>";
+<?php
+/**
+* Affiche "Hello World !"
+*/
+function helloWorld() : void
+{
+ echo "Hello World !";
+}
+// test de la fonction (la fonction affiche directement le résultat)
+helloWorld();
+/**
+ * Retourne "Hello $name !" ou "Hello Nobody !" si $name est vide
+ * @param string $name le nom à afficher 
+ */
+function hello(string $name):string
+{
+    if(empty($name)){
+        $name = "Nobody";
     }
+    return "Hello $name";
+}
 
-    //test de la fonction (la fonction affiche directement le résultat)
-    helloWorld();
-    ?>
-    
-</body>
-</html>
+// test de la fonction (la fonction n'affiche rien. "echo" affichera la valeur retournée par la fonction)
+echo hello(""); // test avec une chaîne vide
+echo hello("Benji");    // test avec un nom
