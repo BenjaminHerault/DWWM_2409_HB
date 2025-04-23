@@ -17,27 +17,13 @@
     </header>
     <main>
         <div id="app">
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="destinations of listDestinations" :key="destinations.id">
-                        <td>{{destinations.image}}</td>
-                        <td>{{destinations.destination}}</td>
-                        <td>{{destinations.heureDepart}}</td>
-                        <td>{{destinations.prix}}</td>
-                        <td>{{destinations.description}}</td>
-                    </tr>
-                </tbody>
-            </table>
-
+            <div v-for="destinations of listDestinations" :key="destinations.id">
+                <div>{{destinations.image}}</div>
+                <div>{{destinations.destination}}</div>
+                <div>{{destinations.heureDepart}}</div>
+                <div>{{destinations.prix}}</div>
+                <div>{{destinations.description}}</div>
+            </div>
         </div>
     </main>
 </body>
