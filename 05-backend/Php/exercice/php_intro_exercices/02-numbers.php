@@ -8,7 +8,7 @@ function getSum($a, $b): int
 echo getSum(5, 3) . PHP_EOL; // Affiche le résultat de la somme avec un retour à la ligne
 
 // Fonction qui calcule la soustraction de deux nombres entiers
-function getSub($c, $d): int
+function getSub(int $c, int $d): int
 {
     return $c - $d; // Retourne la différence entre les deux paramètres
 }
@@ -16,7 +16,7 @@ echo getSub(c: 5, d: 3) . PHP_EOL; // Affiche le résultat de la soustraction (5
 echo getSub(c: 3, d: 5) . PHP_EOL; // Affiche le résultat de la soustraction (3 - 5)
 
 // Fonction qui calcule la multiplication de deux nombres (entiers ou flottants)
-function getMulti($e, $f): float
+function getMulti(float $e,float $f): float
 {
     return $e * $f; // Retourne le produit des deux paramètres
 }
