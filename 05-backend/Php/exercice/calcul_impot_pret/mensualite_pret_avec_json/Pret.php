@@ -33,11 +33,14 @@ class Pret {
      * Génère le tableau d'amortissement
      * @return string Tableau d'amortissement sous forme de HTML
      */
-    public function tableauAmortissement() {
+    public function tableauAmortissement($page = 1,$rowsPerPage = 10) {
         $mensualite = $this->calculMensualite();
         $resteCapital = $this->capital;
         $tauxMensuel = $this->tauxAnnuel / 12;
         $nbMois = $this->dureeAnnees * 12;
+
+        $start = ($page - 1) * $rowsPerPage;
+        $end = min($start + $rowsPerPage, $nbMois);
 
         $html = "<table class='table table-bordered'><thead><tr><th>Mois</th><th>Mensualité</th><th>Intérêts</th><th>Capital remboursé</th><th>Reste à payer</th></tr></thead><tbody>";
 
@@ -45,17 +48,27 @@ class Pret {
             $interet = $resteCapital * $tauxMensuel;
             $capitalRembourse = $mensualite - $interet;
             $resteCapital -= $capitalRembourse;
-
-            $html .= "<tr>
-                        <td>$mois</td>
-                        <td>" . number_format($mensualite, 2, ',', ' ') . " €</td>
-                        <td>" . number_format($interet, 2, ',', ' ') . " €</td>
-                        <td>" . number_format($capitalRembourse, 2, ',', ' ') . " €</td>
-                        <td>" . number_format(max($resteCapital, 0), 2, ',', ' ') . " €</td>
-                      </tr>";
+    
+            if ($mois > $start && $mois <= $end) {
+                $html .= "<tr>
+                            <td>$mois</td>
+                            <td>" . number_format($mensualite, 2, ',', ' ') . " €</td>
+                            <td>" . number_format($interet, 2, ',', ' ') . " €</td>
+                            <td>" . number_format($capitalRembourse, 2, ',', ' ') . " €</td>
+                            <td>" . number_format(max($resteCapital, 0), 2, ',', ' ') . " €</td>
+                          </tr>";
+            }
         }
-
         $html .= "</tbody></table>";
+
+        // Ajouter les boutons de pagination
+        $totalPages = ceil($nbMois / $rowsPerPage);
+        $html .= "<nav><ul class='pagination justify-content-center'>";
+        for ($i = 1; $i <= $totalPages; $i++) {
+            $active = ($i == $page) ? 'active' : '';
+            $html .= "<li class='page-item $active'><a class='page-link' href='?page=$i'>$i</a></li>";
+        }
+        $html .= "</ul></nav>";
         return $html;
     }
 

@@ -55,6 +55,8 @@
             // Action pour calculer la mensualité
             if ($action === 'calcul') 
             {
+                $page = isset($_GET['page']) ? intval($_GET['page']) : 1; // Page actuelle
+                $rowsPerPage = 10; // Nombre de lignes par page
                 // Calcul de la mensualité
                 $mensualite = $pret->calculMensualite();
                 // Affichage des résultats
@@ -65,7 +67,10 @@
                 echo "</div>";
                 echo "<p>Mensualité constante : <strong>" . number_format($mensualite, 2, ',', ' ') . " €</strong></p>";
                 echo "<h3>Tableau d'amortissement</h3>";
-                echo $pret->tableauAmortissement(); // Affichage du tableau d'amortissement
+
+                echo "numero".$page;
+                echo " nbdeligne :".$rowsPerPage;
+                echo $pret->tableauAmortissement($page, $rowsPerPage); // Passer les paramètres de pagination
                 echo "</div>";
             } 
             // Action pour générer le JSON
