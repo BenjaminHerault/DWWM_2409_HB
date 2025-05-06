@@ -23,7 +23,6 @@ class Pret
 
     public function tableauAmortissement(): string
     {
-        // Génère le tableau d'amortissement sous forme HTML
         $mensualite = $this->calculMensualite();
         $tauxMensuel = $this->tauxAnnuel / 12 / 100;
         $nbMois = $this->dureeAnnees * 12;

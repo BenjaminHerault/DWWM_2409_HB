@@ -22,8 +22,7 @@
                 <label for="annees" class="form-label">Durée de remboursement (années) :</label>
                 <input type="number" id="annees" name="annees" class="form-control" value="<?=(isset($_POST['annees']))? $_POST['annees'] : 0 ?>" required>
             </div>
-            <button type="submit" name="action" value="calcul" class="btn btn-primary w-100">Calculer</button>
-            <button type="submit" name="action" value="json" class="btn btn-secondary w-100 mt-2">Obtenir JSON</button>
+            <button type="submit" class="btn btn-primary w-100">Calculer</button>
         </form>
 
         <?php
@@ -33,26 +32,16 @@
             $capital = floatval($_POST['capital']);
             $taux = floatval($_POST['taux']);
             $annees = intval($_POST['annees']);
-            $action = $_POST['action'];
 
             $pret = new Pret($capital, $taux, $annees);
-            if ($action === 'calcul')
-            {
-                $mensualite = $pret->calculMensualite();
-                echo "<div class='mt-4 p-4 bg-white shadow rounded'>";
-                echo "<h2>Résultat</h2>";
-                echo "<p>Mensualité constante : <strong>" . number_format($mensualite, 2, ',', ' ') . " €</strong></p>";
-                echo "<h3>Tableau d'amortissement</h3>";
-                echo $pret->tableauAmortissement();
-                echo "</div>";
-            }
-            elseif ($action === 'json')
-            {
-                $tableauAmortissement = $pret->getTableauAmortissement(); // Nouvelle méthode à implémenter
-                header('Content-Type: application/json');
-                echo json_encode($tableauAmortissement, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-                exit;
-            }
+            $mensualite = $pret->calculMensualite();
+
+            echo "<div class='mt-4 p-4 bg-white shadow rounded'>";
+            echo "<h2>Résultat</h2>";
+            echo "<p>Mensualité constante : <strong>" . number_format($mensualite, 2, ',', ' ') . " €</strong></p>";
+            echo "<h3>Tableau d'amortissement</h3>";
+            echo $pret->tableauAmortissement();
+            echo "</div>";
         }
         ?>
     </div>
