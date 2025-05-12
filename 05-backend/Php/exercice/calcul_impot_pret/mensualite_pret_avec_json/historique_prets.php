@@ -17,7 +17,7 @@ class HistoriquePrets
      * Charger l'historique des prêts depuis le fichier JSON
      * @return array Retourne un tableau contenant l'historique des prêts
      */
-    public function chargerHistorique()
+    public function chargerHistorique():array
     {
         // Vérifie si le fichier existe
         if (file_exists($this->filePath)) {
