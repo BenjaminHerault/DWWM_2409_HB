@@ -15,17 +15,17 @@
             <!-- Champ pour le capital emprunté -->
             <div class="mb-3">
                 <label for="capital" class="form-label">Capital emprunté (€) :</label>
-                <input type="number" id="capital" name="capital" class="form-control" value="<?=(isset($_POST['capital'])) ? $_POST['capital'] : 0 ?>" required>
+                <input type="number" id="capital" name="capital" class="form-control" placeholder="0" value="<?=(isset($_POST['capital'])) ? $_POST['capital'] : "" ?>" required>
             </div>
             <!-- Champ pour le taux d'intérêt annuel -->
             <div class="mb-3">
                 <label for="taux" class="form-label">Taux d'intérêt annuel (%) :</label>
-                <input type="number" step="0.01" id="taux" name="taux" class="form-control" value="<?=(isset($_POST['taux'])) ? $_POST['taux'] : 0 ?>" required>
+                <input type="number" step="0.01" id="taux" name="taux" class="form-control" placeholder="0" value="<?=(isset($_POST['taux'])) ? $_POST['taux'] : "" ?>" required>
             </div>
             <!-- Champ pour la durée de remboursement -->
             <div class="mb-3">
                 <label for="annees" class="form-label">Durée de remboursement (années) :</label>
-                <input type="number" id="annees" name="annees" class="form-control" value="<?=(isset($_POST['annees'])) ? $_POST['annees'] : 0 ?>" required>
+                <input type="number" id="annees" name="annees" class="form-control" placeholder="0" value="<?=(isset($_POST['annees'])) ? $_POST['annees'] : "" ?>" required>
             </div>
             <!-- Boutons pour soumettre le formulaire -->
             <button type="submit" name="action" value="calcul" class="btn btn-primary w-100">Calculer</button>
@@ -55,8 +55,6 @@
             // Action pour calculer la mensualité
             if ($action === 'calcul') 
             {
-                $page = isset($_GET['page']) ? intval($_GET['page']) : 1; // Page actuelle
-                $rowsPerPage = 10; // Nombre de lignes par page
                 // Calcul de la mensualité
                 $mensualite = $pret->calculMensualite();
                 // Affichage des résultats
@@ -67,10 +65,7 @@
                 echo "</div>";
                 echo "<p>Mensualité constante : <strong>" . number_format($mensualite, 2, ',', ' ') . " €</strong></p>";
                 echo "<h3>Tableau d'amortissement</h3>";
-
-                echo "numero".$page;
-                echo " nbdeligne :".$rowsPerPage;
-                echo $pret->tableauAmortissement($page, $rowsPerPage); // Passer les paramètres de pagination
+                echo $pret->tableauAmortissement(); // Affichage du tableau d'amortissement
                 echo "</div>";
             } 
             // Action pour générer le JSON
@@ -87,12 +82,13 @@
                 ]);
 
                 // Créer un fichier JSON pour le prêt actuel
-                $filePath = 'tableau_amortissement.json';
+                $filePath = './report/tableau_amortissement.json';
                 $jsonData = json_encode($tableauAmortissement, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
                 file_put_contents($filePath, $jsonData);
 
                 // Créer un fichier JSON pour l'historique des prêts
-                $historiqueFilePath = 'historique_prets.json';
+                $historiqueFilePath = './report/historique_prets.json';
+                
                 $historiqueData = json_encode($historiquePrets->getHistorique(), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
                 file_put_contents($historiqueFilePath, $historiqueData);
 
