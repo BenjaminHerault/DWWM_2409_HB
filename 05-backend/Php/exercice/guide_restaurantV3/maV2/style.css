@@ -1,0 +1,6 @@
+/* Effet de survol pour les cartes */
+.card:hover {
+    transform: scale(1.05); /* Agrandissement léger */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation fluide */
+}

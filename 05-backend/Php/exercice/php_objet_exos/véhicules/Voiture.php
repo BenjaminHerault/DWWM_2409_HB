@@ -65,22 +65,22 @@ class Voiture
     }
 }
 // Exemple d'utilisation 
-    // $moteur = new Moteur("Ferrari", 300);
-    // $voiture = new Voiture("Renault", "Clio", 1200, $moteur);
-    // echo $voiture->VoirInfo(); // Affiche : Renault Clio, 1200 Kg, Moteur: Ferrari (300 km/h)
-    // echo "\nVitesse max: " . $voiture->getVitesseMax() . " Km/h"; // Affiche la vitesse max calculée
+    $moteur = new Moteur("Ferrari", 300);
+    $voiture = new Voiture("Renault", "Clio", 1200, $moteur);
+    echo $voiture->VoirInfo(); // Affiche : Renault Clio, 1200 Kg, Moteur: Ferrari (300 km/h)
+    echo "\nVitesse max: " . $voiture->getVitesseMax() . " Km/h"; // Affiche la vitesse max calculée
 
-    // $moteur2 = new Moteur("Peugeot", 200);
-    // $voiture2 = new Voiture("Peugeot", "208", 1100, $moteur2);
-    // echo "\n" . $voiture2->VoirInfo(); // Affiche : Peugeot 208, 1100 Kg, Moteur: Peugeot (200 km/h)
-    // echo "\nVitesse max: " . $voiture2->getVitesseMax() . " Km/h"; // Affiche la vitesse max calculée
+    $moteur2 = new Moteur("Peugeot", 200);
+    $voiture2 = new Voiture("Peugeot", "208", 1100, $moteur2);
+    echo "\n" . $voiture2->VoirInfo(); // Affiche : Peugeot 208, 1100 Kg, Moteur: Peugeot (200 km/h)
+    echo "\nVitesse max: " . $voiture2->getVitesseMax() . " Km/h"; // Affiche la vitesse max calculée
 
-    // $moteur3 = new Moteur("Renault", 600);
-    // $voiture3 = new Voiture("Renault", "Talisman", 1100, $moteur3);
-    // echo "\n" . $voiture3->VoirInfo(); // Affiche : Renault Talisman, 1100 Kg, Moteur: Renault (600 km/h)
-    // echo "\nVitesse max: " . $voiture3->getVitesseMax() . " Km/h"; // Affiche la vitesse max calculée
+    $moteur3 = new Moteur("Renault", 600);
+    $voiture3 = new Voiture("Renault", "Talisman", 1100, $moteur3);
+    echo "\n" . $voiture3->VoirInfo(); // Affiche : Renault Talisman, 1100 Kg, Moteur: Renault (600 km/h)
+    echo "\nVitesse max: " . $voiture3->getVitesseMax() . " Km/h"; // Affiche la vitesse max calculée
 
-    // $moteur4 = new Moteur("Peugeot", 500);
-    // $voiture4 = new Voiture("Peugeot", "508",1000,  $moteur4);
-    // echo "\n" . $voiture4->VoirInfo(); // Affiche : Peugeot 508, 1000 Kg, Moteur: Peugeot (700 km/h)
-    // echo "\nVitesse max: " . $voiture4->getVitesseMax() . " Km/h"; // Affiche la vitesse max calculée
+    $moteur4 = new Moteur("Peugeot", 500);
+    $voiture4 = new Voiture("Peugeot", "508",1000,  $moteur4);
+    echo "\n" . $voiture4->VoirInfo(); // Affiche : Peugeot 508, 1000 Kg, Moteur: Peugeot (700 km/h)
+    echo "\nVitesse max: " . $voiture4->getVitesseMax() . " Km/h"; // Affiche la vitesse max calculée
