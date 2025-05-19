@@ -18,6 +18,7 @@ class RestoRepository
         $restaurants = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $restaurants; 
     }
+
     // Affiche le restaurant correspondant à l'id sous forme tabulaire
     public function searchById($id): array
     {
@@ -35,6 +36,7 @@ class RestoRepository
             return [];
         }
     }
+
     // Méthode privée pour extraire les noms des colonnes d'une table 
     private function info_table($table): array
     {
@@ -60,6 +62,7 @@ class RestoRepository
             'primary' => $primaryKey
         ];
     }
+
     public function rendre_hyml(): string
     {
         // Récupérer toutes les données et les noms de colonnes 
@@ -70,13 +73,16 @@ class RestoRepository
 
         // Créer le tableau HTML
         $html = "<table class='restos' border='1'>";
-        // Ligne d'en-tête avec les noms de colonnes
+        // Ligne d'en-tête avec les noms de colonnes + Détail 
         $html .= "<tr>";
         foreach ($colonnes as $col) 
         {
             $html .= "<th>" . htmlspecialchars($col) . "</th>";
         }
+        $html .= "<th>Detail</th>";
+        $html .= "<th>Modifier</th>";
         $html .= "</tr>";
+
         // Lignes de données
         foreach ($donnees as $ligne)
         {
@@ -85,10 +91,41 @@ class RestoRepository
             {
                 $html .= "<td>" . htmlspecialchars($ligne[$col]) . "</td>";
             }
+            // Lien vers la page de détail
+            $id = htmlspecialchars($ligne[$primary]);
+            $html .= "<td><a href='./detail.php?id=$id'>Voir Détails</a></td>";
+            $html .= "<td><a href='../fichedetail.php?id=$id'>Modifier</a></td>";
             $html .= "</tr>";
         }
         $html .= "</table>";
         return $html;
     }
-    
+
+    public function modifierRow($id, $data): bool
+    {
+        $info = $this->info_table('restaurants');
+        $colonnes = $info['columns'];
+        $primary = $info['primary'];
+
+        // On enlève la clé primaire du tableau de données (on ne la modifie pas)
+        unset($data[$primary]);
+
+        // On construit la requête SQL
+        $set = [];
+        foreach ($data as $col => $val) 
+        {
+            $set[] = "$col = :$col";
+        }
+        $sql = "UPDATE restaurants SET " . implode(", ", $set) . " WHERE $primary = :id";
+        $stmt = $this->pdo->prepare($sql);
+
+        // Bind des valeurs
+        foreach ($data as $col => $val) 
+        {
+            $stmt->bindValue(":$col", $val);
+        }
+        $stmt->bindValue(":id", $id);
+
+        return $stmt->execute();
+    }
 }
