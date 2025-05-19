@@ -1,11 +1,12 @@
 <?php
 
-function getRestaurants(): array
+function getRestaurants(): PDO
 {
 try 
 {
     $connect = new PDO('mysql:host=localhost;port=3306;dbname=guide;charset=utf8', 'root', '');
     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    return $connect;
     /*
     est utilisée pour configurer le comportement de gestion des erreurs pour l'objet PDO ($connect).
 
@@ -27,25 +28,26 @@ catch (Exception $e)
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
+}
 // Requête préparée
-$rq = "SELECT id, nom, adresse, prix, commentaire, note, visite FROM restaurants";
+// $rq = "SELECT id, nom, adresse, prix, commentaire, note, visite FROM restaurants";
 
-try 
-{
-    $stmt = $connect->prepare($rq);
-    $test = $stmt->execute();
+// try 
+// {
+//     $stmt = $connect->prepare($rq);
+//     $test = $stmt->execute();
 
-    // Retourne les données sous forme de tableau associatif    
-    if ($test == true) return $stmt->fetchAll(PDO::FETCH_ASSOC);
+//     // Retourne les données sous forme de tableau associatif    
+//     if ($test == true) return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Retourne un tableau vide si la requête échoue
-    else return[];
-} 
-catch (PDOException $e) 
-{
-    die("Erreur lors de l'exécution de la requête : " . $e->getMessage());
-}
-}
+//     // Retourne un tableau vide si la requête échoue
+//     else return[];
+// } 
+// catch (PDOException $e) 
+// {
+//     die("Erreur lors de l'exécution de la requête : " . $e->getMessage());
+// }
+
 
 function addRestaurant(string $_nom, string $_adresse, float $_prix, string $_commentaire, float $_note): void
 {
