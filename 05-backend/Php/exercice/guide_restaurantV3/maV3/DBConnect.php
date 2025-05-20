@@ -29,26 +29,6 @@ catch (Exception $e)
 }
 
 }
-// Requête préparée
-// $rq = "SELECT id, nom, adresse, prix, commentaire, note, visite FROM restaurants";
-
-// try 
-// {
-//     $stmt = $connect->prepare($rq);
-//     $test = $stmt->execute();
-
-//     // Retourne les données sous forme de tableau associatif    
-//     if ($test == true) return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-//     // Retourne un tableau vide si la requête échoue
-//     else return[];
-// } 
-// catch (PDOException $e) 
-// {
-//     die("Erreur lors de l'exécution de la requête : " . $e->getMessage());
-// }
-
-
 function addRestaurant(string $_nom, string $_adresse, float $_prix, string $_commentaire, float $_note): void
 {
     try

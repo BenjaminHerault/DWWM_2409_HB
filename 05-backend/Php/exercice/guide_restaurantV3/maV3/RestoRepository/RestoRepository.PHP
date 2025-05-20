@@ -16,7 +16,7 @@ class RestoRepository
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         $restaurants = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $restaurants; 
+        return $restaurants;
     }
 
     // Affiche le restaurant correspondant à l'id sous forme tabulaire
@@ -27,8 +27,7 @@ class RestoRepository
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         if ($stmt->execute()) {
             $restaurant = $stmt->fetch(PDO::FETCH_ASSOC);
-            if($stmt->rowCount() == 0)
-            {
+            if ($stmt->rowCount() == 0) {
                 return [];
             }
             return $restaurant;
@@ -44,12 +43,11 @@ class RestoRepository
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         $desc = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        
+
         $columns = [];
         $primaryKey = null;
 
-        foreach ($desc as $col)
-        {
+        foreach ($desc as $col) {
             $columns[] = $col['Field'];
             if ($col['Key'] === 'PRI')              // PRI = Primary Key dans Mysql
             {
@@ -66,41 +64,53 @@ class RestoRepository
     public function rendre_hyml(): string
     {
         // Récupérer toutes les données et les noms de colonnes 
-        $donnees =$this->searchAll();
+        $donnees = $this->searchAll();
         $info = $this->info_table('restaurants');
         $colonnes = $info['columns'];
         $primary = $info['primary'];
 
         // Créer le tableau HTML
-        $html = "<table class='restos' border='1'>";
+        $html = "<table class='restos table table-bordered'>";
         // Ligne d'en-tête avec les noms de colonnes + Détail 
         $html .= "<tr>";
-        foreach ($colonnes as $col) 
-        {
+        foreach ($colonnes as $col) {
             $html .= "<th>" . htmlspecialchars($col) . "</th>";
         }
         $html .= "<th>Detail</th>";
         $html .= "<th>Modifier</th>";
+        $html .= "<th>Supprimer</th>";
         $html .= "</tr>";
 
         // Lignes de données
-        foreach ($donnees as $ligne)
-        {
+        foreach ($donnees as $ligne) {
             $html .= "<tr>";
-            foreach($colonnes as $col)
-            {
+            foreach ($colonnes as $col) {
                 $html .= "<td>" . htmlspecialchars($ligne[$col]) . "</td>";
             }
             // Lien vers la page de détail
             $id = htmlspecialchars($ligne[$primary]);
-            $html .= "<td><a href='./detail.php?id=$id'>Voir Détails</a></td>";
-            $html .= "<td><a href='../fichedetail.php?id=$id'>Modifier</a></td>";
+            $html .= "<td><a href='./detail.php?id=$id' class='btn btn-info btn-sm'>Voir Détails</a></td>";
+            $html .= "<td><a href='../fichedetail.php?id=$id' class='btn btn-warning btn-sm'>Modifier</a></td>";
+
+            //Formulaire de suppression
+            $html .= "<td>
+                <form method='post' action='' style='display:inline;' onsubmit=\"return confirm('Voulez-vous vraiment supprimer ce restaurant ?');\">
+                    <input type='hidden' name='delete_id' value='$id'>
+                    <button type='submit' name='delete' class='btn btn-danger btn-sm'>Supprimer</button>
+                </form>
+            </td>";
             $html .= "</tr>";
         }
         $html .= "</table>";
         return $html;
     }
-
+    public function deleteRow($id): bool
+    {
+        $sql = "DELETE FROM restaurants WHERE id= :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
     public function modifierRow($id, $data): bool
     {
         $info = $this->info_table('restaurants');
@@ -112,20 +122,30 @@ class RestoRepository
 
         // On construit la requête SQL
         $set = [];
-        foreach ($data as $col => $val) 
-        {
+        foreach ($data as $col => $val) {
             $set[] = "$col = :$col";
         }
         $sql = "UPDATE restaurants SET " . implode(", ", $set) . " WHERE $primary = :id";
         $stmt = $this->pdo->prepare($sql);
 
         // Bind des valeurs
-        foreach ($data as $col => $val) 
-        {
+        foreach ($data as $col => $val) {
             $stmt->bindValue(":$col", $val);
         }
         $stmt->bindValue(":id", $id);
 
         return $stmt->execute();
     }
+    public function addRow($nom, $adresse, $prix, $commentaire, $note): bool
+{
+    $sql = "INSERT INTO restaurants (nom, adresse, prix, commentaire, note) 
+            VALUES (:nom, :adresse, :prix, :commentaire, :note)";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':nom', $nom);
+    $stmt->bindValue(':adresse', $adresse);
+    $stmt->bindValue(':prix', $prix);
+    $stmt->bindValue(':commentaire', $commentaire);
+    $stmt->bindValue(':note', $note);
+    return $stmt->execute();
+}
 }
