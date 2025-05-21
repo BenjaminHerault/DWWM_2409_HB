@@ -10,6 +10,8 @@ class RestoRepository
         $this->pdo = $_pdo;
     }
 
+
+
     //Méthode pour récupérer tous les restaurants
     public function searchAll(): array
     {
@@ -61,7 +63,11 @@ class RestoRepository
             'primary' => $primaryKey
         ];
     }
-
+    public function chercherCollection(): string
+    {
+        $restaurants = $this->searchAll();
+        return json_encode($restaurants, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    }
     public function rendre_hyml(): string
     {
         // Récupérer toutes les données et les noms de colonnes 
