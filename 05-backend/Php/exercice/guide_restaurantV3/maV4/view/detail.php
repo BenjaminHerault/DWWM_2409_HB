@@ -1,6 +1,6 @@
 <?php
 require_once '../DBConnect.php';
-require_once '../RestoRepository/RestoRepository.PHP';
+require_once '../RestoRepository/RestoRepository.php';
 
 $listeresto = new RestoRepository(getRestaurants());
 

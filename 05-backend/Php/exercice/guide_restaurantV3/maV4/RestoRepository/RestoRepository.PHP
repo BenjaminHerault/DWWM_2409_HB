@@ -63,11 +63,22 @@ class RestoRepository
             'primary' => $primaryKey
         ];
     }
-    public function chercherCollection(): string
+    public function chercherCollection(): void
     {
         $restaurants = $this->searchAll();
-        return json_encode($restaurants, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        $json = json_encode($restaurants, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+
+        $dir = __DIR__ . '/../dataobjet';
+        if (!is_dir($dir)) {
+            mkdir($dir, 0755, true);
+        }
+        $file = $dir . '/restaurants.json';
+        file_put_contents($file, $json);
     }
+
+
+
+
     public function rendre_hyml(): string
     {
         // Récupérer toutes les données et les noms de colonnes 

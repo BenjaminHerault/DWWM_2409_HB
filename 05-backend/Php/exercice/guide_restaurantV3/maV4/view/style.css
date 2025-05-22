@@ -122,3 +122,8 @@ table.restos, table.restos th, table.restos td {
         padding: 10px;
     }
 }
+
+.form-inline {
+    display: inline;
+}
+

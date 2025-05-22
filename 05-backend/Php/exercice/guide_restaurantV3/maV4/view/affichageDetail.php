@@ -15,6 +15,13 @@
         $message = $_GET['message'];
     }
 
+    // TRAITEMENT CRÉATION JSON
+    if (isset($_POST['creer_json'])) {
+        $listeresto->chercherCollection();
+        header("Location: " . $_SERVER['PHP_SELF'] . "?section=liste&message=" . urlencode("Fichier JSON généré dans le dossier dataobjet."));
+        exit;
+    }
+
     /*
 // elle marche
 var_dump($listeresto->searchAll());
@@ -85,6 +92,16 @@ var_dump($listeresto->searchAll());
                        </li>
                        <li class="nav-item">
                            <a class="nav-link" href="?section=liste">Liste des restaurants</a>
+                       </li>
+                       <!-- Bouton pour créer le fichier JSON -->
+                       <li class="nav-item">
+                           <form action="" method="post" class="form-inline">
+                               <button type="submit" name="creer_json" class="btn btn-success btn-sm ms-2">Créér le fichier JSON</button>
+                           </form>
+                       </li>
+                       <!-- Bouton pour afficher le fichier JSON -->
+                       <li class="nav-item">
+                           <a href="../afficher_json.php" class="btn btn-success btn-sm ms-2" target="_blank">Afficher le JSON</a>
                        </li>
                    </ul>
                </div>
