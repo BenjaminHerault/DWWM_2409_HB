@@ -13,7 +13,6 @@
     {
         if (self::$connection == null) {
             try {
-
                 self::$connection = new PDO("mysql:host=" . self::$host . ";port=3306; dbname=" . self::$base . ";charset=utf8", self::$user, self::$pass, array(
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_CASE => PDO::CASE_LOWER,
