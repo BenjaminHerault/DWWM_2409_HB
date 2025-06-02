@@ -9,10 +9,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     $repo = new CandidateRepository();
-    if ($repo->signIn($mail, $password)) {
+
+    $utilisateur = $repo->signIn($mail, $password);
+    if ($utilisateur) {
         session_start();
-        $_SESSION['user'] = $mail;
-        // Redirection après connexion réussie
+        $_SESSION['nom'] = $utilisateur['nom'];
+        $_SESSION['prenom'] = $utilisateur['prenom'];
+        $_SESSION['email'] = $utilisateur['email'];
+        $_SESSION['departement'] = $utilisateur['departement'];
+        $_SESSION['age'] = $utilisateur['age'];
         header('Location: ../../accueil.php');
         exit;
     } else {

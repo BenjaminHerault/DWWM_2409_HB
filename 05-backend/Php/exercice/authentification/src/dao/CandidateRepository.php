@@ -38,15 +38,21 @@ class CandidateRepository
         $stmt->execute([$_age]);
         return $stmt->fetchAll();
     }
-    public function signIn(string $mail_user, string $pass_user): bool
+    public function signIn(string $mail_user, string $pass_user)
     {
-        $sql = "SELECT pass_user FROM candidats WHERE mail_user = ?";
+        $sql = "SELECT lastname_user, firstname_user, mail_user, pass_user, departement_user, age_user FROM candidats WHERE mail_user = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$mail_user]);
         $result = $stmt->fetch();
-
         if ($result && password_verify($pass_user, $result['pass_user'])) {
-            return true;
+            // On retourne toutes les infos utiles
+            return [
+                'nom' => $result['lastname_user'],
+                'prenom' => $result['firstname_user'],
+                'email' => $result['mail_user'],
+                'departement' => $result['departement_user'],
+                'age' => $result['age_user']
+            ];
         }
         return false;
     }

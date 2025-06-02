@@ -35,4 +35,3 @@ Par défaut, les résultats des requêtes seront retournés sous forme de tablea
         return self::$connection;
     }
 }
-//argon 2
