@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $utilisateur = $repo->signIn($mail, $password);
     if ($utilisateur) {
         session_start();
+        $_SESSION['id_user'] = $utilisateur['id_user'];
         $_SESSION['nom'] = $utilisateur['nom'];
         $_SESSION['prenom'] = $utilisateur['prenom'];
         $_SESSION['email'] = $utilisateur['email'];

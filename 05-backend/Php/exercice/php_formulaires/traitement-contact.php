@@ -19,7 +19,7 @@ $message = $_POST['message'] ?? '';
 $erreurs = [];
 
 // Vérification du nom : au moins 2 caractères et que des lettres
-if (strlen($nom) < 2 || !preg_match('/^[a-zA-ZÀ-ÿ\-\' ]+$/u', $nom)) {
+if (strlen($nom) >= 2 || !preg_match('/^[a-zA-ZÀ-ÿ\-\' ]$/u', $nom)) {
     $erreurs[] = "Le nom doit contenir au moins 2 lettres et uniquement des lettres.";
 }
 

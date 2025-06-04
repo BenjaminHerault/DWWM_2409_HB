@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . "/Dbconnect.php";
-//require_once __DIR__ = Ça permet d’inclure facilement d’autres fichiers du même dossier, sans se tromper de chemin, même si tu lances ton script depuis un autre endroit.
 
 class CandidateRepository
 {
@@ -31,6 +30,7 @@ class CandidateRepository
         $stmt = $this->db->prepare($sql);
         return $stmt->execute([$lastname, $firstname, $mail, $hash, $departement, $age]);
     }
+
     public function searchByAge(int $_age): array
     {
         $sql = "SELECT id_user, lastname_user, firstname_user, mail_user, pass_user, departement_user, age_user FROM candidats Where age_user = ?";
@@ -38,15 +38,17 @@ class CandidateRepository
         $stmt->execute([$_age]);
         return $stmt->fetchAll();
     }
+
     public function signIn(string $mail_user, string $pass_user)
     {
-        $sql = "SELECT lastname_user, firstname_user, mail_user, pass_user, departement_user, age_user FROM candidats WHERE mail_user = ?";
+        $sql = "SELECT id_user, lastname_user, firstname_user, mail_user, pass_user, departement_user, age_user FROM candidats WHERE mail_user = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$mail_user]);
         $result = $stmt->fetch();
         if ($result && password_verify($pass_user, $result['pass_user'])) {
-            // On retourne toutes les infos utiles
+            // On retourne toutes les infos utiles, y compris l'id_user
             return [
+                'id_user' => $result['id_user'],
                 'nom' => $result['lastname_user'],
                 'prenom' => $result['firstname_user'],
                 'email' => $result['mail_user'],
@@ -55,5 +57,26 @@ class CandidateRepository
             ];
         }
         return false;
+    }
+
+    public function updateCandidate(
+        int $id_user,
+        string $lastname,
+        string $firstname,
+        string $mail,
+        ?string $password,
+        int $departement,
+        int $age
+    ): bool {
+        if ($password) {
+            $hash = password_hash($password, PASSWORD_ARGON2ID);
+            $sql = "UPDATE candidats SET lastname_user=?, firstname_user=?, mail_user=?, pass_user=?, departement_user=?, age_user=? WHERE id_user=?";
+            $params = [$lastname, $firstname, $mail, $hash, $departement, $age, $id_user];
+        } else {
+            $sql = "UPDATE candidats SET lastname_user=?, firstname_user=?, mail_user=?, departement_user=?, age_user=? WHERE id_user=?";
+            $params = [$lastname, $firstname, $mail, $departement, $age, $id_user];
+        }
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute($params);
     }
 }
