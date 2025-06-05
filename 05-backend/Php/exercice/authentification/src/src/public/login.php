@@ -19,7 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['email'] = $utilisateur['email'];
         $_SESSION['departement'] = $utilisateur['departement'];
         $_SESSION['age'] = $utilisateur['age'];
-        header('Location: ../../accueil.php');
+        $_SESSION['is_admin'] = $utilisateur['is_admin'];
+        if ($utilisateur['is_admin'] == 1) {
+            header('Location: ../../admin.php');
+        } else {
+            header('Location: ../../accueil.php');
+        }
         exit;
     } else {
         $message = "Identifiants incorrects.";

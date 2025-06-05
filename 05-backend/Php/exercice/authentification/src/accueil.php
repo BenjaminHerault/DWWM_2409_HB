@@ -16,9 +16,19 @@ if (
     echo "Accès refusé. Veuillez vous connecter.";
     exit;
 }
+// Suppression du compte utilisateur
+if (isset($_POST['delete_account'])) {
+    require_once __DIR__ . '/src/dao/CandidateRepository.php';
+    $repo = new CandidateRepository();
+    $repo->deleteCandidate($_SESSION['id_user']);
+    session_unset();
+    session_destroy();
+    header("Location: inscription.php");
+    exit;
+}
 
 // Traitement du formulaire de modification
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['delete_account'])) {
     require_once __DIR__ . '/src/dao/CandidateRepository.php';
     $repo = new CandidateRepository();
     $id_user = $_SESSION['id_user'];
@@ -32,16 +42,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         (int)$_POST['age']
     );
     if ($ok) {
-        $_SESSION['id_user'] = $user['id_user'];
-        $_SESSION['nom'] = $user['nom'];
-        $_SESSION['prenom'] = $user['prenom'];
-        $_SESSION['email'] = $user['email'];
-        $_SESSION['departement'] = $user['departement'];
-        $_SESSION['age'] = $user['age'];
+        $_SESSION['nom'] = $_POST['lastname'];
+        $_SESSION['prenom'] = $_POST['firstname'];
+        $_SESSION['email'] = $_POST['mail'];
+        $_SESSION['departement'] = $_POST['departement'];
+        $_SESSION['age'] = $_POST['age'];
         header("Location: accueil.php");
         exit;
     } else {
-        echo "Identifiants incorrects";
+        echo "<div class='alert alert-danger'>Erreur lors de la mise à jour.</div>";
     }
 }
 
@@ -138,11 +147,13 @@ $age = $_SESSION['age'];
                         <button type="submit" class="btn btn-success">Enregistrer</button>
                     </div>
                 </form>
+                <form method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer votre compte ? Cette action est irréversible.');">
+                    <button type="submit" name="delete_account" class="btn btn-danger mt-2">Supprimer mon compte</button>
+                </form>
             </div>
         </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
