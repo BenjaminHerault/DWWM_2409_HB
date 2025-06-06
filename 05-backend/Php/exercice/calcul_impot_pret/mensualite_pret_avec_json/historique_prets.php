@@ -8,7 +8,7 @@ class HistoriquePrets
      * Constructeur de la classe HistoriquePrets
      * @param string $filePath Chemin du fichier JSON (par défaut : 'historique_prets.json')
      */
-    public function __construct($filePath = 'historique_prets.json')
+    public function __construct($filePath = './report/historique_prets.json')
     {
         $this->filePath = $filePath;
     }
@@ -17,7 +17,7 @@ class HistoriquePrets
      * Charger l'historique des prêts depuis le fichier JSON
      * @return array Retourne un tableau contenant l'historique des prêts
      */
-    public function chargerHistorique()
+    public function chargerHistorique(): array
     {
         // Vérifie si le fichier existe
         if (file_exists($this->filePath)) {
@@ -34,7 +34,8 @@ class HistoriquePrets
     public function ajouterPret($pret)
     {
         $historique = $this->chargerHistorique(); // Charge l'historique existant
-        $historique[] = $pret; // Ajoute le nouveau prêt à l'historique
+        //$historique[] = $pret; // Ajoute le nouveau prêt à l'historique
+        array_push($historique, $pret); // Ajoute le nouveau prêt à l'historique
         $this->sauvegarderHistorique($historique); // Sauvegarde l'historique mis à jour
     }
 

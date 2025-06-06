@@ -1,0 +1,124 @@
+/* style.css */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    margin-top: auto;
+    width: 100%;
+}
+
+table.restos {
+    width: 80%;
+    margin: 30px auto;
+    border-collapse: collapse;
+}
+table.restos th {
+    background: #1976d2;
+    color: white;
+    padding: 8px;
+}
+table.restos td {
+    padding: 8px;
+    text-align: center;
+}
+table.restos tr:nth-child(even) {
+    background: #f2f2f2;
+}
+table.restos, table.restos th, table.restos td {
+    border: 1px solid #888;
+}
+
+.note-btn {
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    margin: 0 6px;
+    border: 2px solid #1976d2;
+    border-radius: 8px;
+    background: #fff;
+    color: #1976d2;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 34px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.note-btn:hover,
+.note-btn:focus {
+    background: #1976d2;
+    color: #fff;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(25,118,210,0.15);
+}
+
+/* Affichage des boutons de note dans le formulaire */
+.note-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.note-radio:checked + .note-btn {
+    background: #1976d2;
+    color: #fff;
+    border-color: #1976d2;
+    box-shadow: 0 2px 8px rgba(25,118,210,0.15);
+}
+.note-btn-group .note-btn {
+    user-select: none;
+}
+
+/* Style du range dans le formulaire */
+.form-range {
+    width: 200px;
+    accent-color: #1976d2;
+    margin: 0 10px;
+}
+
+/* Style du formulaire fiche-form */
+.fiche-form {
+    max-width: 500px;
+    margin: 40px auto 0 auto; /* Espace en haut */
+    background: #fff;
+    border-radius: 10px;
+}
+
+/* Pour l'affichage de la note à droite du range */
+.fiche-form #noteValue {
+    margin-left: 10px;
+}
+
+/* Pour l'alignement du range et des labels */
+.fiche-form .d-flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Pour éviter que le formulaire soit collé au bord sur mobile */
+@media (max-width: 600px) {
+    .fiche-form {
+        max-width: 98vw;
+        padding: 10px;
+    }
+}
