@@ -1,44 +1,33 @@
 
 
 <?php
+session_start();
 /* HEADER entete avec dépendances CSS 
   ================================================== */
-include("header.php");
-
+include_once __DIR__ . '/Vue/header.php';
 
 /*NAVBAR
     ================================================== */
-include("menu.php");
+include_once __DIR__ . '/Vue/menu.php';
 
 /* Carousel
     ================================================== */
-
-include("slider.php");
+include_once __DIR__ . '/Vue/slider.php';
 
 //require("./dao/connection.php");
+
 /*  Marketing mainpage 
     ================================================== 
    Wrap the rest of the page in another container to center all the content. */
 
-
-
 echo '<h1>Liste des biens immobiliers</h1>';
 
-
-
 echo '<form  action="index.php" method="GET"  enctype="multipart/form-data" >
-				 <fieldset><legend>Rechercher un Bien immobilier</legend>
-				 
-				  <div class="form-group">
- <input type="hidden" name="lib_cat" value="" id="lib_cat" />
- 
- <label for="dept">Choisir le département</label>';
-
+		<fieldset><legend>Rechercher un Bien immobilier</legend>
+			<div class="form-group">
+                <input type="hidden" name="lib_cat" value="" id="lib_cat" />
+                <label for="dept">Choisir le département</label>';
 echo '<select name="dep"  id="dep" class="form-control"  style=" max-width:300px"><option value="">Choisissez votre département</option> ';
-
-
-
-
 echo '</select>';
 echo ' </div>
  <div class="form-group">
@@ -64,41 +53,26 @@ echo  '
 	</fieldset>
 	 </form>';
 
-//$categorie à definir en fonction de la catégorie de bien choisie dans le formulaire.       
 
+// Contrôleur MVS
+require_once __DIR__ . '/Controleur/BiensImmoController.php';
+$ctrl = new BiensImmoController();
 
-//$rq= "select * from biens_immobiliers inner join categories on categories.id_categorie=biens_immobiliers.id_categorie  where lib_categorie=".$categorie; 
+$action = $_GET['action'] ?? ($_POST['action'] ?? 'liste');
 
+switch ($action) {
+    case 'liste':
+        $ctrl->afficherTous();
+        break;
+    default:
+        $ctrl->afficherTous();
+}
 
-
-
-
-
-
-
-
-//<tr><th>titre</th><td>nbr_pieces</td><td>Part amortissement</td><td>Capital restant dû</td><td>Mensualité</td></tr>/
-echo "<table  class='table table-striped' >";
-
-
-
-
-
-
-
-
-
-echo "</table>";
-
-
-include("acces_membre.php");
-
-
-
+include_once __DIR__ . '/Vue/acces_membre.php';
 /* Pied de page avec dépendances Javascript...
     ================================================== */
-include("footer.php");
 
+include_once __DIR__ . '/Vue/footer.php';
 ?>
           
    
