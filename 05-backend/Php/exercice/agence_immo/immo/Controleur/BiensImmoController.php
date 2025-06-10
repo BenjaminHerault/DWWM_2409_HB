@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/../models/ImmoRepository.php';
 
 class BiensImmoController
@@ -15,5 +14,9 @@ class BiensImmoController
     {
         $biens = $this->repo->searchAll();
         require __DIR__ . '/../Vue/vueListe_bien_immo.php';
+    }
+    public function ajouterImage($titre, $chemin, $alt, $ext): int
+    {
+        return $this->repo->insertImage($titre, $chemin, $alt, $ext);
     }
 }

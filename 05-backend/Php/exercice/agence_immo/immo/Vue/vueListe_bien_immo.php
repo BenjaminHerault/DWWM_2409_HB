@@ -13,8 +13,16 @@
             <?php foreach ($biens as $bien): ?>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <!-- Image principale si tu l'as, sinon une image par défaut -->
-                        <img src="<?= htmlspecialchars($bien['chemin_image'] ?? 'chemin/vers/image_defaut.jpg') ?>"
+                        <img
+                            src="<?php
+                                    if (empty($bien['chemin_image']) && $bien['id_categorie'] == 1) {
+                                        echo 'Vue/img/appartement_defaut.jpg';
+                                    } elseif (empty($bien['chemin_image'])) {
+                                        echo 'Vue/img/image_defaut.jpg';
+                                    } else {
+                                        echo htmlspecialchars($bien['chemin_image']);
+                                    }
+                                    ?>"
                             class="card-img-top"
                             alt="<?= htmlspecialchars($bien['texte_alternatif'] ?? 'Image du bien') ?>">
                         <div class="card-body">
