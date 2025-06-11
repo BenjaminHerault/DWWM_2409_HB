@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/Dbconnect.php";
 
-class CandidateRepository
+class FormRepository
 {
     private PDO $db;
 
@@ -24,12 +24,12 @@ class CandidateRepository
         string $password,
         int $departement,
         int $age,
-        int $admin = 0
+
     ): bool {
         $hash = password_hash($password, PASSWORD_ARGON2ID);
-        $sql = "INSERT INTO candidats (lastname_user, firstname_user, mail_user, pass_user, departement_user, age_user, is_admin) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO candidats (lastname_user, firstname_user, mail_user, pass_user, departement_user, age_user) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($sql);
-        return $stmt->execute([$lastname, $firstname, $mail, $hash, $departement, $age, $admin]);
+        return $stmt->execute([$lastname, $firstname, $mail, $hash, $departement, $age]);
     }
 
     public function searchByAge(int $_age): array
@@ -42,7 +42,7 @@ class CandidateRepository
 
     public function signIn(string $mail_user, string $pass_user)
     {
-        $sql = "SELECT id_user, lastname_user, firstname_user, mail_user, pass_user, departement_user, age_user, is_admin FROM candidats WHERE mail_user = ?";
+        $sql = "SELECT id_user, lastname_user, firstname_user, mail_user, pass_user, departement_user, age_user FROM candidats WHERE mail_user = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$mail_user]);
         $result = $stmt->fetch();
@@ -54,8 +54,7 @@ class CandidateRepository
                 'prenom' => $result['firstname_user'],
                 'email' => $result['mail_user'],
                 'departement' => $result['departement_user'],
-                'age' => $result['age_user'],
-                'is_admin' => $result['is_admin']
+                'age' => $result['age_user']
             ];
         }
         return false;
@@ -68,16 +67,19 @@ class CandidateRepository
         ?string $password,
         int $departement,
         int $age,
-        int $id_user
     ): bool {
-        if ($password) {
-            $hash = password_hash($password, PASSWORD_ARGON2ID);
-            $sql = "UPDATE candidats SET lastname_user=?, firstname_user=?, mail_user=?, pass_user=?, departement_user=?, age_user=? WHERE id_user=?";
-            $params = [$lastname, $firstname, $mail, $hash, $departement, $age, $id_user];
-        } else {
-            $sql = "UPDATE candidats SET lastname_user=?, firstname_user=?, mail_user=?, departement_user=?, age_user=? WHERE id_user=?";
-            $params = [$lastname, $firstname, $mail, $departement, $age, $id_user];
+        $sql = "UPDATE candidats SET lastname_user=?, firstname_user=?, mail_user=?, ";
+        $params = [$lastname, $firstname, $mail];
+
+        if (!empty($password)) {
+            $sql .= "pass_user=?, ";
+            $params[] = password_hash($password, PASSWORD_ARGON2ID);
         }
+
+        $sql .= "departement_user=?, age_user=? WHERE id_user=?";
+        $params[] = $departement;
+        $params[] = $age;
+
         $stmt = $this->db->prepare($sql);
         return $stmt->execute($params);
     }
