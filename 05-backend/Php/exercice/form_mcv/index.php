@@ -1,18 +1,10 @@
 <?php
 
-require_once __DIR__ . '/Modele/Dbconnect.php';
-require_once __DIR__ . '/Modele/DepartRepository.php';
-require_once __DIR__ . '/Modele/FormRepository.php';
-
-// Récupération des départements pour la liste déroulante
-$departRepo = new DepartRepository();
-$departements = $departRepo->searchAll();
-
 session_start();
 require_once __DIR__ . '/Controleur/FormControleur.php';
 $ctrl = new FormControleur();
 
-$action = $_GET['action'] ?? 'accueil';
+$action = $_GET['action'] ?? 'Accueil';
 
 switch ($action) {
     case 'accueil':
@@ -24,6 +16,9 @@ switch ($action) {
     case 'connexion':
         $ctrl->connexion();
         break;
+    case 'deconnexion':
+        $ctrl->deconnexion();
+        break;
     case 'espace':
         $ctrl->espacePerso();
         break;
@@ -33,6 +28,10 @@ switch ($action) {
     case 'supprimer':
         $ctrl->supprimerCompte();
         break;
+    case 'admin_supprimer':
+        $ctrl->espaceAdmin();
+        break;
+
     default:
         $ctrl->afficherAccueil();
 }

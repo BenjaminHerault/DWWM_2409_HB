@@ -1,13 +1,13 @@
--- Pour supprimer la base de donner si elle existe 
+-- Supprimer la base si elle existe
 DROP DATABASE IF EXISTS form;
 
--- Pour crée la base de donner si elle existe pas 
+-- Créer la base si elle n'existe pas
 CREATE DATABASE IF NOT EXISTS form;
 
--- Pour utiliser la base de donner
+-- Utiliser la base
 USE form;
 
--- Création de la table departements
+-- Table departements
 CREATE TABLE IF NOT EXISTS departements (
     id_dep INT UNSIGNED NOT NULL,
     Name VARCHAR(50) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS departements (
     CONSTRAINT pk_id_dep_departements PRIMARY KEY (id_dep)
 ) ENGINE=InnoDB;
 
--- Création de la table candidats avec la clé étrangère
+-- Table candidats
 CREATE TABLE IF NOT EXISTS candidats (
     id_user INT UNSIGNED NOT NULL AUTO_INCREMENT,
     lastname_user VARCHAR(50) NOT NULL,
@@ -29,4 +29,5 @@ CREATE TABLE IF NOT EXISTS candidats (
     CONSTRAINT fk_candidats_departements FOREIGN KEY (departement_user) REFERENCES departements(id_dep)
 ) ENGINE=InnoDB;
 
-
+-- Ajout de la colonne is_admin si elle n'existe pas déjà
+ALTER TABLE candidats ADD COLUMN is_admin TINYINT(1) DEFAULT 0;

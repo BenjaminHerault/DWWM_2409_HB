@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/Dbconnect.php";
+require_once __DIR__ . '/Dbconnect.php';
 
 class DepartRepository
 {
@@ -13,7 +13,7 @@ class DepartRepository
 
     public function searchAll()
     {
-        $sql = "SELECT id_dep, Name FROM departements WHERE dep_actif = 1";
+        $sql = "SELECT id_dep, Name AS name FROM departements WHERE dep_actif = 1";
         $stmt = $this->db->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

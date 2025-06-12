@@ -16,7 +16,7 @@ class FormControleur
     public function afficherAccueil()
     {
         $departements = $this->depRepo->searchAll();
-        require __DIR__ . '/../Vue/accueil.php';
+        require __DIR__ . '/../Vue/VueAccueil.php';
     }
 
     public function inscription()
@@ -46,7 +46,7 @@ class FormControleur
                 }
             }
             $departements = $this->depRepo->searchAll();
-            require __DIR__ . '/../Vue/accueil.php';
+            require __DIR__ . '/../Vue/VueAccueil.php';
         }
     }
 
@@ -60,12 +60,20 @@ class FormControleur
                 exit;
             } else {
                 $error = "Identifiants incorrects.";
-                require __DIR__ . '/../Vue/connexion.php';
+                require __DIR__ . '/../Vue/VueConnexion.php';
             }
         } else {
-            require __DIR__ . '/../Vue/connexion.php';
+            require __DIR__ . '/../Vue/VueConnexion.php';
         }
     }
+    public function deconnexion()
+    {
+        session_unset();
+        session_destroy();
+        header('Location: index.php?action=connexion');
+        exit;
+    }
+
 
     public function espacePerso()
     {
@@ -74,7 +82,7 @@ class FormControleur
             exit;
         }
         $user = $_SESSION['user'];
-        require __DIR__ . '/../Vue/espace.php';
+        require __DIR__ . '/../Vue/VueEspacePerso.php';
     }
 
     public function modifierCompte()
@@ -94,20 +102,13 @@ class FormControleur
                 (int)$_SESSION['user']['id_user']
             );
             if ($ok) {
-                // Met à jour la session
-                $_SESSION['user']['nom'] = $_POST['lastname'];
-                $_SESSION['user']['prenom'] = $_POST['firstname'];
-                $_SESSION['user']['email'] = $_POST['mail'];
-                $_SESSION['user']['departement'] = $_POST['departement'];
-                $_SESSION['user']['age'] = $_POST['age'];
-                $message = "Compte modifié avec succès.";
-            } else {
-                $message = "Erreur lors de la modification.";
+                // Mets à jour la session avec les nouvelles infos
+                $_SESSION['user'] = $this->repo->getById((int)$_SESSION['user']['id_user']);
             }
+            // Redirige vers l'espace perso après modification
+            header('Location: index.php?action=espace');
+            exit;
         }
-        $user = $_SESSION['user'];
-        $departements = $this->depRepo->searchAll();
-        require __DIR__ . '/../Vue/modifier.php';
     }
 
     public function supprimerCompte()
@@ -116,9 +117,35 @@ class FormControleur
             header('Location: index.php?action=connexion');
             exit;
         }
-        $this->repo->deleteCandidate((int)$_SESSION['user']['id_user']);
+        $this->repo->deleteCandidate((int)$_SESSION['user']['id_user']); // Utilise bien id_user
+        session_unset();
         session_destroy();
         header('Location: index.php?action=accueil');
+        exit;
+    }
+    public function espaceAdmin()
+    {
+        if (!isset($_SESSION['user']) || !$_SESSION['user']['is_admin']) {
+            header('Location: index.php?action=connexion');
+            exit;
+        }
+        $users = $this->repo->searchAll();
+        require __DIR__ . '/../Vue/VueAdmin.php';
+    }
+    public function adminSupprimer()
+    {
+        if (!isset($_SESSION['user']) || !$_SESSION['user']['is_admin']) {
+            header('Location: index.php?action=connexion');
+            exit;
+        }
+        $id = (int)($_GET['id'] ?? 0);
+        if ($id && $id != $_SESSION['user']['id_user']) {
+            $user = $this->repo->getById($id);
+            if ($user && !$user['is_admin']) {
+                $this->repo->deleteCandidate($id);
+            }
+        }
+        header('Location: index.php?action=admin');
         exit;
     }
 }
