@@ -28,6 +28,12 @@ switch ($action) {
     case 'supprimer':
         $ctrl->supprimerCompte();
         break;
+    case 'admin':
+        $ctrl->espaceAdmin();
+        break;
+    case 'admin_modifier':
+        $ctrl->adminModifier();
+        break;
     case 'admin_supprimer':
         $ctrl->espaceAdmin();
         break;

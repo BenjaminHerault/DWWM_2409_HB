@@ -1,3 +1,9 @@
+<?php
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
+    echo "Accès refusé";
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

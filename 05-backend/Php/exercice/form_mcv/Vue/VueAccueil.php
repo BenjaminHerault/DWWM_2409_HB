@@ -49,12 +49,6 @@
                                     <label for="departement" class="form-label">Département de votre domicile principal</label>
                                     <select class="form-select" id="departement" name="departement" required>
                                         <option value="">Choisir un Département</option>
-                                        <?php
-                                        // Ajoute le var_dump ici
-                                        echo '<pre>';
-                                        var_dump($departements);
-                                        echo '</pre>';
-                                        ?>
                                         <?php foreach ($departements as $dep): ?>
                                             <option value="<?= $dep['id_dep'] ?>"><?= htmlspecialchars($dep['name']) ?></option>
                                         <?php endforeach; ?>

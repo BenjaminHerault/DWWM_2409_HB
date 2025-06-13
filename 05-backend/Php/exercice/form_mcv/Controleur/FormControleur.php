@@ -56,11 +56,13 @@ class FormControleur
             $user = $this->repo->signIn($_POST['mail'], $_POST['password']);
             if ($user) {
                 $_SESSION['user'] = $user;
-                header('Location: index.php?action=espace');
+                $_SESSION['is_admin'] = $user['is_admin'];
+                if ($user['is_admin']) {
+                    header('Location: index.php?action=admin');
+                } else {
+                    header('Location: index.php?action=espace');
+                }
                 exit;
-            } else {
-                $error = "Identifiants incorrects.";
-                require __DIR__ . '/../Vue/VueConnexion.php';
             }
         } else {
             require __DIR__ . '/../Vue/VueConnexion.php';
@@ -147,5 +149,34 @@ class FormControleur
         }
         header('Location: index.php?action=admin');
         exit;
+    }
+    public function adminModifier()
+    {
+        if (!isset($_SESSION['user']) || !$_SESSION['user']['is_admin']) {
+            header('Location: index.php?action=connexion');
+            exit;
+        }
+        $id = (int)($_GET['id'] ?? 0);
+        if (!$id) {
+            header('Location: index.php?action=admin');
+            exit;
+        }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $ok = $this->repo->updateCandidate(
+                $_POST['lastname'],
+                $_POST['firstname'],
+                $_POST['mail'],
+                $_POST['password'] ?? null,
+                (int)$_POST['departement'],
+                (int)$_POST['age'],
+                $id
+            );
+            header('Location: index.php?action=admin');
+            exit;
+        } else {
+            $user = $this->repo->getById($id);
+            $departements = $this->depRepo->searchAll();
+            require __DIR__ . '/../Vue/VueAdminModifier.php';
+        }
     }
 }
