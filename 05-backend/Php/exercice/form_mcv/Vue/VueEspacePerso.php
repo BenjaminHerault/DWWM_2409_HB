@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Mon Profil</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Lien vers Bootstrap CSS -->
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+
+    <!-- Lien vers Bootstrap JS -->
+    <script src="public/js/bootstrap.bundle.min.js"></script>
     <style>
         iframe {
             width: 100%;

@@ -16,9 +16,9 @@
                         <img
                             src="<?php
                                     if (empty($bien['chemin_image']) && $bien['id_categorie'] == 1) {
-                                        echo 'Vue/img/appartement_defaut.jpg';
+                                        echo 'public/img_immo/appartement_defaut.jpg';
                                     } elseif (empty($bien['chemin_image'])) {
-                                        echo 'Vue/img/image_defaut.jpg';
+                                        echo 'public/img_immo/image_defaut.jpg';
                                     } else {
                                         echo htmlspecialchars($bien['chemin_image']);
                                     }

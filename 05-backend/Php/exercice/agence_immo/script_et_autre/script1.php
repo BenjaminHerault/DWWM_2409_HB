@@ -5,7 +5,7 @@ $ctrl = new BiensImmoController();
 
 for ($i = 1; $i <= 11; $i++) {
     $titre = "Bien $i";
-    $chemin = "Vue/img/bien_$i.jpg";
+    $chemin = "public/img_immo/bien_$i.jpg";
     $alt = "Photo bien $i";
     $ext = "jpg";
     $idImage = $ctrl->ajouterImage($titre, $chemin, $alt, $ext);

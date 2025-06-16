@@ -9,7 +9,14 @@
 
 
 
+-- Pour supprimer la base de donner si elle existe 
+DROP DATABASE IF EXISTS immo;
 
+-- Pour crée la base de donner si elle existe pas 
+CREATE DATABASE IF NOT EXISTS immo;
+
+-- Pour utiliser la base de donner
+USE immo;
 -- --------------------------------------------------------
 
 --
@@ -438,7 +445,3 @@ ALTER TABLE `documents`
 ALTER TABLE `utilisateurs`
   ADD CONSTRAINT `utilisateurs_ibfk_1` FOREIGN KEY (`id_niveau`) REFERENCES `habilitations` (`id_niveau`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

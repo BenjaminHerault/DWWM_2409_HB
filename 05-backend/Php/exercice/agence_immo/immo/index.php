@@ -4,15 +4,15 @@
 session_start();
 /* HEADER entete avec dépendances CSS 
   ================================================== */
-include_once __DIR__ . '/Vue/header.php';
+include_once __DIR__ . '/Vue/vueHeader.php';
 
 /*NAVBAR
     ================================================== */
-include_once __DIR__ . '/Vue/menu.php';
+include_once __DIR__ . '/Vue/vueMenu.php';
 
 /* Carousel
     ================================================== */
-include_once __DIR__ . '/Vue/slider.php';
+include_once __DIR__ . '/Vue/vueSlider.php';
 
 //require("./dao/connection.php");
 
@@ -68,11 +68,11 @@ switch ($action) {
         $ctrl->afficherTous();
 }
 
-include_once __DIR__ . '/Vue/acces_membre.php';
+include_once __DIR__ . '/Vue/vueAcces_membre.php';
 /* Pied de page avec dépendances Javascript...
     ================================================== */
 
-include_once __DIR__ . '/Vue/footer.php';
+include_once __DIR__ . '/Vue/vueFooter.php';
 ?>
           
    

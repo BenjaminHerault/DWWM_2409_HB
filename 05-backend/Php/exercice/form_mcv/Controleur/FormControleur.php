@@ -27,8 +27,6 @@ class FormControleur
             if ($_POST['password'] !== $_POST['password2']) {
                 $errors[] = "Les mots de passe ne correspondent pas.";
             }
-            // Tu peux ajouter d'autres vérifications ici
-
             if (empty($errors)) {
                 $ok = $this->repo->createCandidate(
                     $_POST['lastname'],
@@ -54,7 +52,7 @@ class FormControleur
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = $this->repo->signIn($_POST['mail'], $_POST['password']);
-            if ($user) {
+            if ($user != false) {
                 $_SESSION['user'] = $user;
                 $_SESSION['is_admin'] = $user['is_admin'];
                 if ($user['is_admin']) {

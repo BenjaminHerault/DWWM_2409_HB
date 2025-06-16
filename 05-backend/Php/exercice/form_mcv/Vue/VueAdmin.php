@@ -10,7 +10,12 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
 <head>
     <meta charset="UTF-8">
     <title>Espace Admin</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Lien vers Bootstrap CSS -->
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+
+    <!-- Lien vers Bootstrap JS -->
+    <script src="public/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="public/js/script.js"></script>
 </head>
 
 <body class="bg-light">
@@ -43,7 +48,10 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
                                 $u['id_user'] != $_SESSION['user']['id_user']
                             ): ?>
                                 <a href="index.php?action=admin_modifier&id=<?= $u['id_user'] ?>" class="btn btn-warning btn-sm">Modifier</a>
-                                <a href="index.php?action=admin_supprimer&id=<?= $u['id_user'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Supprimer cet utilisateur ?')">Supprimer</a>
+                                <a href="index.php?action=admin_supprimer&id=<?= $u['id_user'] ?>"
+                                    class="btn btn-danger btn-sm supprimer-utilisateur">
+                                    Supprimer
+                                </a>
                             <?php else: ?>
                                 <span class="text-muted">Aucune action</span>
                             <?php endif; ?>

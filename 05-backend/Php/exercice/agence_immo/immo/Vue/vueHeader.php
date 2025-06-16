@@ -11,8 +11,8 @@
   <meta name="author" content="">
 
   <!-- Le styles -->
-  <link href="css/bootstrap.css" rel="stylesheet">
-  <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="public/css/bootstrap.css" rel="stylesheet">
+  <link href="public/css/bootstrap-theme.min.css" rel="stylesheet">
   <style>
     /* GLOBAL STYLES
     -------------------------------------------------- */
@@ -33,7 +33,7 @@
 
     /* Special class on .container surrounding .navbar, used for positioning it into place. */
     #logo {
-      background-image: url("img/logochateau1.png");
+      background-image: url("public/img/logochateau1.png");
       /*background-size:100% 50px;*/
       /*background-color:#CCC;*/
       height: 70px;
