@@ -4,14 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <title>Leste des biens immobiliers</title>
 </head>
 
 <body>
+    <h1>Liste des biens immobiliers</h1>
+    <form action="index.php?action=liste" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Rechercher un Bien immobilier</legend>
+            <div class="form-group">
+                <input type="hidden" name="lib_cat" value="" id="lib_cat" />
+                <label for="dept">Choisir le département</label>
+                <select name="dep" id="dep" class="form-control" style=" max-width:300px">
+                    <?php foreach ($departements as $dep): ?>
+                        <option value="<?= $dep['id_dep'] ?>"><?= htmlspecialchars($dep['nom_dep']) ?>Choisir le département</option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="budget">Montant budget maximum</label>
+                <span class="currencyinput">
+                    <input type="number" step="10000" id="bugdet" name="budget" placeholder="Budget Max" min="50000" max="900000000" /> €
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="nbpiece">Nombre de pièces souhaitées:</label>
+                <select name="nbpieces" id="nbre" class="form-control" style=" max-width:300px">
+                    <?php foreach ($biens_immobiliers as $dep): ?>
+                        <option value="<?= $dep['id_dep'] ?>"><?= htmlspecialchars($dep['nom_dep']) ?>Choisissez le nombre de pièce</option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group form-button" id="btnsub">
+                <button type="submit" class="btn btn-primary" name="envoi">Submit</button>
+            </div>
+        </fieldset>
+    </form>
     <div class="container mt-4">
-        <div class="row">
+        <div class="row g-0"><!-- Ajout de g-0 -->
             <?php foreach ($biens as $bien): ?>
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4"><!-- Suppression de mb-4 -->
                     <div class="card h-100">
                         <img
                             src="<?php
