@@ -17,8 +17,8 @@
                 <input type="hidden" name="lib_cat" value="" id="lib_cat" />
                 <label for="dept">Choisir le département</label>
                 <select name="dep" id="dep" class="form-control" style=" max-width:300px">
-                    <?php foreach ($departements as $dep): ?>
-                        <option value="<?= $dep['id_dep'] ?>"><?= htmlspecialchars($dep['nom_dep']) ?>Choisir le département</option>
+                    <?php foreach ($lesDepartements as $dep): ?>
+                        <option value="<?= $dep['id_dep'] ?>"><?= htmlspecialchars($dep['nom_dep']) ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -31,8 +31,8 @@
             <div class="form-group">
                 <label for="nbpiece">Nombre de pièces souhaitées:</label>
                 <select name="nbpieces" id="nbre" class="form-control" style=" max-width:300px">
-                    <?php foreach ($biens_immobiliers as $dep): ?>
-                        <option value="<?= $dep['id_dep'] ?>"><?= htmlspecialchars($dep['nom_dep']) ?>Choisissez le nombre de pièce</option>
+                    <?php foreach ($nombreDePieces as $piece): ?>
+                        <option value="<?= $piece['id'] ?>"><?= htmlspecialchars($piece['nbr_pieces']) ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -43,7 +43,7 @@
     </form>
     <div class="container mt-4">
         <div class="row g-0"><!-- Ajout de g-0 -->
-            <?php foreach ($biens as $bien): ?>
+            <?php foreach ($listDesBiens as $bien): ?>
                 <div class="col-md-4"><!-- Suppression de mb-4 -->
                     <div class="card h-100">
                         <img

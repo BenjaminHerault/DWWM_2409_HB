@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . 'Dbconnect.php';
+require_once __DIR__ . '/Dbconnect.php';
 
 class NdpRepository
 {
