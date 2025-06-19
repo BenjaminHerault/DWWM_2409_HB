@@ -29,7 +29,12 @@ $action = $_GET['action'] ?? ($_POST['action'] ?? 'liste');
 
 switch ($action) {
     case 'liste':
-        $ctrl->afficherTous();
+        // Si un filtre est appliqué, on utilise afficherParPieces
+        if (isset($_GET['nbPieces']) && $_GET['nbPieces'] !== '') {
+            $ctrl->afficherParPieces();
+        } else {
+            $ctrl->afficherTous();
+        }
         break;
     default:
         $ctrl->afficherTous();

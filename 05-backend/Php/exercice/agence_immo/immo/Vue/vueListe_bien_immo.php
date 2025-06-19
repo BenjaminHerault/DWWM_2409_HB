@@ -10,7 +10,7 @@
 
 <body>
     <h1>Liste des biens immobiliers</h1>
-    <form action="index.php?action=liste" method="post" enctype="multipart/form-data">
+    <form action="index.php?action=liste" method="get" enctype="multipart/form-data">
         <fieldset>
             <legend>Rechercher un Bien immobilier</legend>
             <div class="form-group">
@@ -30,9 +30,12 @@
             </div>
             <div class="form-group">
                 <label for="nbpiece">Nombre de pièces souhaitées:</label>
-                <select name="nbpieces" id="nbre" class="form-control" style=" max-width:300px">
-                    <?php foreach ($nombreDePieces as $piece): ?>
-                        <option value="<?= $piece['id'] ?>"><?= htmlspecialchars($piece['nbr_pieces']) ?></option>
+                <select name="nbPieces" id="nbPieces">
+                    <option value="">--Choisir--</option>
+                    <?php foreach ($piecesDisponibles as $nb): ?>
+                        <option value="<?= $nb ?>" <?php if (isset($_GET['nbPieces']) && $_GET['nbPieces'] == $nb) echo 'selected'; ?>>
+                            <?= $nb ?> pièce<?= $nb > 1 ? 's' : '' ?>
+                        </option>
                     <?php endforeach; ?>
                 </select>
             </div>
