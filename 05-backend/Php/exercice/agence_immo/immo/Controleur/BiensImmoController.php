@@ -15,8 +15,8 @@ class BiensImmoController
     public function afficherTous(): void
     {
         $listDesBiens = $this->repo->searchAll();
-        $lesDepartements = $this->depRepo->searchAll();
         $piecesDisponibles = $this->repo->getDistinctPieces();
+        $departementsDispo = $this->repo->getDepartementsDisponibles();
         require __DIR__ . '/../Vue/vueListe_bien_immo.php';
     }
 

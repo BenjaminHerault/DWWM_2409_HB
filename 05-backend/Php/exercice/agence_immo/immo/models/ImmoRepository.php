@@ -26,8 +26,8 @@ class ImmoRepository
                    b.id_categorie, b.id_proprietaire,
                    i.chemin_image, i.texte_alternatif
             FROM biens_immobiliers b
-            LEFT JOIN association_img ai ON ai.id = b.id AND ai.img_ppal = 1
-            LEFT JOIN images i ON i.id_image = ai.id_image";
+            INNER JOIN association_img ai ON ai.id = b.id AND ai.img_ppal = 1
+            INNER JOIN images i ON i.id_image = ai.id_image";
         if ($where) {
             $sql .= " WHERE $where";
         }
@@ -63,5 +63,16 @@ class ImmoRepository
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+    public function getDepartementsDisponibles(): array
+    {
+        $sql = "SELECT DISTINCT d.id_dep, d.nom_dep
+            FROM biens_immobiliers b
+            INNER JOIN departements d ON b.num_departement = d.id_dep
+            WHERE d.dep_actif = 1
+            ORDER BY d.nom_dep ASC";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
