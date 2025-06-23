@@ -4,10 +4,14 @@
         <legend>Rechercher un Bien immobilier</legend>
         <div class="form-group">
             <input type="hidden" name="lib_cat" value="" id="lib_cat" />
-            <label for="dept">Choisir le département</label>
-            <select name="dep" id="dep" class="form-control" style=" max-width:300px">
-                <?php foreach ($lesDepartements as $dep): ?>
-                    <option value="<?= $dep['id_dep'] ?>"><?= htmlspecialchars($dep['nom_dep']) ?></option>
+            <label for="depList">Choisir le département</label>
+            <select name="depList" id="depList" class="form-control" style="max-width:300px">
+                <option value="">--Choisir--</option>
+                <?php foreach ($depDisponibles as $dep): ?>
+                    <option value="<?= htmlspecialchars($dep['id_dep']) ?>"
+                        <?php if (isset($_GET['depList']) && $_GET['depList'] == $dep['id_dep']) echo 'selected'; ?>>
+                        <?= htmlspecialchars($dep['nom_dep']) ?>
+                    </option>
                 <?php endforeach; ?>
             </select>
         </div>

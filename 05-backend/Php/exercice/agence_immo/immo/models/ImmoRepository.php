@@ -56,7 +56,28 @@ class ImmoRepository
     {
         return $this->search('b.nbr_pieces = :pieces', [':pieces' => $nbPieces]);
     }
-
+    public function searchByDep(int $idDep): array
+    {
+        return $this->search('b.num_departement = :departement ', [':departement' => $idDep]);
+    }
+    public function leFlitre(?int $idDep, ?int $nbPieces): array
+    {
+        $criteres = [
+            'b.num_departement' => $idDep,
+            'b.nbr_pieces' => $nbPieces
+        ];
+        $where = [];
+        $params = [];
+        foreach ($criteres as $champ => $valeur) {
+            if ($valeur) {
+                $param = ':' . str_replace('.', '_', explode('.', $champ)[1]);
+                $where[] = "$champ = $param";
+                $params[$param] = $valeur;
+            }
+        }
+        $whereSql = $where ? implode(' AND ', $where) : '';
+        return $this->search($whereSql, $params);
+    }
     public function getDistinctPieces(): array
     {
         $sql = "SELECT DISTINCT nbr_pieces FROM biens_immobiliers ORDER BY nbr_pieces ASC";
@@ -67,10 +88,10 @@ class ImmoRepository
     public function getDepartementsDisponibles(): array
     {
         $sql = "SELECT DISTINCT d.id_dep, d.nom_dep
-            FROM biens_immobiliers b
-            INNER JOIN departements d ON b.num_departement = d.id_dep
-            WHERE d.dep_actif = 1
-            ORDER BY d.nom_dep ASC";
+                FROM biens_immobiliers b
+                INNER JOIN departements d ON b.num_departement = d.id_dep
+                WHERE d.dep_actif = 1
+                ORDER BY d.nom_dep ASC";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

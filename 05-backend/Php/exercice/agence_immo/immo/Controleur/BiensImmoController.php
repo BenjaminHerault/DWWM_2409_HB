@@ -16,21 +16,26 @@ class BiensImmoController
     {
         $listDesBiens = $this->repo->searchAll();
         $piecesDisponibles = $this->repo->getDistinctPieces();
-        $departementsDispo = $this->repo->getDepartementsDisponibles();
         require __DIR__ . '/../Vue/vueListe_bien_immo.php';
     }
 
-    public function afficherParPieces()
+    public function lesFlitre()
     {
         $nbPieces = isset($_GET['nbPieces']) ? (int)$_GET['nbPieces'] : null;
+        $idDep = isset($_GET['depList']) ? (int)$_GET['depList'] : null;
         $listDesBiens = [];
-        if ($nbPieces !== null && $nbPieces !== '') {
+        $listDesDepart = [];
+        if ($nbPieces !== null && $nbPieces !== '' || $idDep !== null && $idDep !== '') {
             $listDesBiens = $this->repo->searchByPieces($nbPieces);
+            $listDesDepart = $this->repo->searchByDep($idDep);
         }
-        $lesDepartements = $this->depRepo->searchAll();
         $piecesDisponibles = $this->repo->getDistinctPieces();
+        $depDisponibles = $this->repo->getDepartementsDisponibles();
         require __DIR__ . '/../Vue/vueListe_bien_immo.php';
     }
+
+
+
     public function ajouterImage($titre, $chemin, $alt, $ext): int
     {
         return $this->repo->insertImage($titre, $chemin, $alt, $ext);

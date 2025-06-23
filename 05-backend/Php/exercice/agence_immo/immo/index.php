@@ -31,7 +31,7 @@ switch ($action) {
     case 'liste':
         // Si un filtre est appliqué, on utilise afficherParPieces
         if (isset($_GET['nbPieces']) && $_GET['nbPieces'] !== '') {
-            $ctrl->afficherParPieces();
+            $ctrl->lesFlitre();
         } else {
             $ctrl->afficherTous();
         }
