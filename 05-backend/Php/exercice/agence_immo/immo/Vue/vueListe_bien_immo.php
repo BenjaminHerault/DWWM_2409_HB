@@ -27,7 +27,7 @@
                 <option value="">--Choisir--</option>
                 <?php foreach ($piecesDisponibles as $nb): ?>
                     <option value="<?= $nb ?>" <?php if (isset($_GET['nbPieces']) && $_GET['nbPieces'] == $nb) echo 'selected'; ?>>
-                        <?= $nb ?> pièce<?= $nb > 1 ? 's' : '' ?>
+                        <?= $nb ?>pièce<?= $nb > 1 ? 's' : '' ?>
                     </option>
                 <?php endforeach; ?>
             </select>

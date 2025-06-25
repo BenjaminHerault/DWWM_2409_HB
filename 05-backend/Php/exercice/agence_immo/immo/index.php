@@ -29,15 +29,24 @@ $action = $_GET['action'] ?? ($_POST['action'] ?? 'liste');
 
 switch ($action) {
     case 'liste':
-        // Si un filtre est appliqué, on utilise afficherParPieces
-        if (isset($_GET['nbPieces']) && $_GET['nbPieces'] !== '') {
+        // Si un filtre est appliqué (département ou pièces), on utilise lesFlitre
+        if (
+            (isset($_GET['nbPieces']) && !empty($_GET['nbPieces'])) ||
+            (isset($_GET['depList']) && !empty($_GET['depList']))
+        ) {
             $ctrl->lesFlitre();
         } else {
             $ctrl->afficherTous();
         }
         break;
+    case 'modifier':
+        if (isset($_GET['id_bien']) && !empty($_GET['id_bien'])) {
+            $ctrl->miseAJour();
+        }
+        break;
     default:
         $ctrl->afficherTous();
+        break;
 }
 
 include_once __DIR__ . '/Vue/vueAcces_membre.php';

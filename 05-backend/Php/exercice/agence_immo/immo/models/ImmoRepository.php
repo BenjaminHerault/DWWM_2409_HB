@@ -60,22 +60,28 @@ class ImmoRepository
     {
         return $this->search('b.num_departement = :departement ', [':departement' => $idDep]);
     }
+
     public function leFlitre(?int $idDep, ?int $nbPieces): array
     {
-        $criteres = [
-            'b.num_departement' => $idDep,
-            'b.nbr_pieces' => $nbPieces
-        ];
+        // $Where contiendra les conditions SQL (ex : b.num_departement = :departement)
         $where = [];
+        // $params contiendra les valeurs à passer à la requête préparée (ew : [':departement' => 68])
         $params = [];
-        foreach ($criteres as $champ => $valeur) {
-            if ($valeur) {
-                $param = ':' . str_replace('.', '_', explode('.', $champ)[1]);
-                $where[] = "$champ = $param";
-                $params[$param] = $valeur;
-            }
+        // Si un département est fourni, on ajoute la condition et le paramètre
+        if ($idDep !== null) {
+            $where[] = 'b.num_departement = :departement';
+            $params[':departement'] = $idDep;
         }
+
+        // Si un nombre de pièces est fourni, on ajoute la condition et le paramètre
+        if ($nbPieces !== null) {
+            $where[] = 'b.nbr_pieces = :pieces';
+            $params[':pieces'] = $nbPieces;
+        }
+        // On assemble toutes les conditions avec "AND" pour la clause WHERE
         $whereSql = $where ? implode(' AND ', $where) : '';
+
+        // Exécution de la recherche avec les conditions et paramètres
         return $this->search($whereSql, $params);
     }
     public function getDistinctPieces(): array
