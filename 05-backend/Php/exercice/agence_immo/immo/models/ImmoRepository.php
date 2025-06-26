@@ -60,8 +60,12 @@ class ImmoRepository
     {
         return $this->search('b.num_departement = :departement ', [':departement' => $idDep]);
     }
+    public function searchByPrix(int $lePrix): array
+    {
+        return $this->search('prix_vente = :prix ', [':prix' => $lePrix]);
+    }
 
-    public function leFlitre(?int $idDep, ?int $nbPieces): array
+    public function leFlitre(?int $idDep, ?int $nbPieces, ?int $prixMax): array
     {
         // $Where contiendra les conditions SQL (ex : b.num_departement = :departement)
         $where = [];
@@ -78,6 +82,11 @@ class ImmoRepository
             $where[] = 'b.nbr_pieces = :pieces';
             $params[':pieces'] = $nbPieces;
         }
+
+        if ($prixMax !== null) {
+            $where[] = 'prix_vente <= :prix';
+            $params[':prix'] = $prixMax;
+        }
         // On assemble toutes les conditions avec "AND" pour la clause WHERE
         $whereSql = $where ? implode(' AND ', $where) : '';
 
@@ -86,7 +95,9 @@ class ImmoRepository
     }
     public function getDistinctPieces(): array
     {
-        $sql = "SELECT DISTINCT nbr_pieces FROM biens_immobiliers ORDER BY nbr_pieces ASC";
+        $sql = "SELECT DISTINCT nbr_pieces 
+        FROM biens_immobiliers 
+        ORDER BY nbr_pieces ASC";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
@@ -101,5 +112,13 @@ class ImmoRepository
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function getPrixMax(): array
+    {
+        $sql = "SELECT DISTINCT prix_vente
+        FROM biens_immobiliers";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 }

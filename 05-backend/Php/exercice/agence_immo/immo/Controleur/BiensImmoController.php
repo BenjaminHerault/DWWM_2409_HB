@@ -23,16 +23,18 @@ class BiensImmoController
 
     public function lesFlitre()
     {
-        var_dump($_GET['depList']);
         // On récupère le nombre de pièces depuis le formulaire (GET), ou null si non renseigné
         $nbPieces = isset($_GET['nbPieces']) && $_GET['nbPieces'] !== '' ? (int)$_GET['nbPieces'] : null;
 
         // On récupère le département depuis le formulaire (GET), ou null si non renseigné
         $idDep = isset($_GET['depList']) && $_GET['depList'] !== '' ? (int)$_GET['depList'] : null;
 
+        // On récupère le prix maximum depuis le formulaire (GET), ou null si non renseigné
+        $prixMax = isset($_GET['prixMax']) && $_GET['prixMax'] !== '' ? (int)$_GET['prixMax'] : null;
+
         // On effectue la recherche des biens immobiliers en fonction des filtres sélectionnés
         // (département et/ou nombre de pièces)
-        $listDesBiens = $this->repo->leFlitre($idDep, $nbPieces);
+        $listDesBiens = $this->repo->leFlitre($idDep, $nbPieces, $prixMax);
 
         // On récupère la liste des nombres de pièces distincts pour alimenter la liste déroulante du formulaire
         $piecesDisponibles = $this->repo->getDistinctPieces();
@@ -50,18 +52,24 @@ class BiensImmoController
     {
         return $this->repo->insertImage($titre, $chemin, $alt, $ext);
     }
+
+
     public function miseAJour(): void
     {
-
         $id = $_GET['id_bien'];
         if (isset($_FILES['img'])) {
-
             $type = $_FILES['img']['type'];
             echo $type;
-        } else {
-            echo 'form non activé';
+            $tab_ref = ['gif', 'png', 'jpg', 'JPG', 'jpeg', 'JPEG'];
+            $tab_split = explode('/', $type);
+            $extension = $tab_split[1];
+            if (in_array($extension, $tab_ref)) {
+                $name = $_FILES['img']['name'];
+                $origine = $_FILES['img']['tmp_name'];
+                $img_path = './public/img_immo/';
+                $newName = 'bien';
+            }
         }
-
         require_once __DIR__ . '/../Vue/vueMaj_bien.php';
     }
 }
