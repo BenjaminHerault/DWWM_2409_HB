@@ -18,7 +18,7 @@
         <div class="form-group">
             <label for="budget">Montant budget maximum</label>
             <span class="currencyinput">
-                <input type="number" step="10000" id="bugdet" name="budget" placeholder="Budget Max" min="50000" max="900000000" /> €
+                <input type="number" step="10000" id="prixMax" name="prixMax" placeholder="Budget Max" min="50000" max="900000000" /> €
             </span>
         </div>
         <div class="form-group">

@@ -31,6 +31,7 @@ class BiensImmoController
 
         // On récupère le prix maximum depuis le formulaire (GET), ou null si non renseigné
         $prixMax = isset($_GET['prixMax']) && $_GET['prixMax'] !== '' ? (int)$_GET['prixMax'] : null;
+        var_dump($prixMax);
 
         // On effectue la recherche des biens immobiliers en fonction des filtres sélectionnés
         // (département et/ou nombre de pièces)
@@ -68,6 +69,12 @@ class BiensImmoController
                 $origine = $_FILES['img']['tmp_name'];
                 $img_path = './public/img_immo/';
                 $newName = 'bien';
+                $destination = $img_path . $newName . '.' . $extension;
+                if (move_uploaded_file($origine, $destination) == true) {
+                    echo 'image transféré ! ! !';
+                } else {
+                    echo 'Erreur';
+                }
             }
         }
         require_once __DIR__ . '/../Vue/vueMaj_bien.php';
