@@ -41,7 +41,7 @@ switch ($action) {
         }
         break;
     case 'details':
-        if (isset($_GET['id_bien']) && !empty($_GET['ide_bien'])) {
+        if (isset($_GET['id_bien']) && !empty($_GET['id_bien'])) {
             $ctrl->detailBien((int)$_GET['id_bien']);
         }
         break;

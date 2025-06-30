@@ -90,7 +90,6 @@ class ImmoRepository
         // On assemble toutes les conditions avec "AND" pour la clause WHERE
         $whereSql = $where ? implode(' AND ', $where) : '';
         // Exécution de la recherche avec les conditions et paramètres
-        var_dump($whereSql, $params);
         return $this->search($whereSql, $params);
     }
     public function getDistinctPieces(): array

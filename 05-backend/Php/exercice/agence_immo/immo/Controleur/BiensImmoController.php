@@ -48,7 +48,7 @@ class BiensImmoController
     public function detailBien($idBien): void
     {
         $detail = $this->repo->getBienById($idBien);
-        require __DIR__ . '/../Vue'
+        require __DIR__ . '/../Vue/vueDetailBien.php';
     }
 
 
