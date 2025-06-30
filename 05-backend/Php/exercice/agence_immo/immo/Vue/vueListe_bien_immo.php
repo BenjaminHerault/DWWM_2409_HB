@@ -18,7 +18,7 @@
         <div class="form-group">
             <label for="budget">Montant budget maximum</label>
             <span class="currencyinput">
-                <input type="number" step="10000" id="prixMax" name="prixMax" placeholder="Budget Max" min="50000" max="900000000" /> €
+                <input type="number" step="10000" id="prixMax" name="prixMax" placeholder="Budget Max" min="50000" max="900000000" value="<?= isset($_GET['prixMax']) ? htmlspecialchars($_GET['prixMax']) : '' ?>" /> €
             </span>
         </div>
         <div class="form-group">
@@ -27,7 +27,7 @@
                 <option value="">--Choisir--</option>
                 <?php foreach ($piecesDisponibles as $nb): ?>
                     <option value="<?= $nb ?>" <?php if (isset($_GET['nbPieces']) && $_GET['nbPieces'] == $nb) echo 'selected'; ?>>
-                        <?= $nb ?>pièce<?= $nb > 1 ? 's' : '' ?>
+                        <?= $nb ?> pièce<?= $nb > 1 ? 's' : '' ?>
                     </option>
                 <?php endforeach; ?>
             </select>
@@ -37,11 +37,12 @@
         </div>
     </fieldset>
 </form>
+
 <div class="container mt-4">
-    <div class="row g-0"><!-- Ajout de g-0 -->
+    <div class="row">
         <?php foreach ($listDesBiens as $bien): ?>
-            <div class="col-md-4"><!-- Suppression de mb-4 -->
-                <div class="card h-100">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow">
                     <img
                         src="<?php
                                 if (empty($bien['chemin_image']) && $bien['id_categorie'] == 1) {
@@ -53,22 +54,20 @@
                                 }
                                 ?>"
                         class="card-img-top"
-                        alt="<?= htmlspecialchars($bien['texte_alternatif'] ?? 'Image du bien') ?>">
-                    <div class="card-body">
+                        alt="<?= htmlspecialchars($bien['texte_alternatif'] ?? 'Image du bien') ?>"
+                        style="height:200px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title"><?= htmlspecialchars($bien['titre']) ?></h5>
-                        <p class="card-text">
-                            <strong>Ville :</strong> <?= htmlspecialchars($bien['ville']) ?><br>
-                            <strong>Surface :</strong> <?= htmlspecialchars($bien['surface']) ?> m²<br>
-                            <strong>Prix :</strong> <?= htmlspecialchars($bien['prix_vente']) ?> €<br>
-                            <strong>Nombre de pièces :</strong> <?= htmlspecialchars($bien['nbr_pieces']) ?><br>
-                            <strong>Description :</strong> <?= htmlspecialchars($bien['description']) ?>
-                        </p>
+                        <p class="card-text mb-1"><strong><?= number_format($bien['prix_vente'], 0, ',', ' ') ?> €</strong></p>
+                        <p class="card-text mb-1"><?= htmlspecialchars($bien['surface']) ?> m²</p>
+                        <p class="card-text mb-1"><?= htmlspecialchars($bien['nbr_pieces']) ?> pièce<?= $bien['nbr_pieces'] > 1 ? 's' : '' ?></p>
+                        <p class="card-text text-muted" style="font-size:0.95em;"><?= htmlspecialchars(mb_strimwidth($bien['description'], 0, 80, '...')) ?></p>
+                        <div class="mt-auto">
+                            <a href="index.php?action=detail&id=<?= $bien['id'] ?>" class="btn btn-primary btn-sm mt-2">Voir le détail</a>
+                        </div>
                     </div>
                 </div>
             </div>
         <?php endforeach; ?>
     </div>
 </div>
-
-
-</html>

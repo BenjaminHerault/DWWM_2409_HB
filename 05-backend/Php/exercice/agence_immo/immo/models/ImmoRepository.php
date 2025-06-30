@@ -84,13 +84,13 @@ class ImmoRepository
         }
 
         if ($prixMax !== null) {
-            $where[] = 'prix_vente <= :prix';
+            $where[] = 'b.prix_vente <= :prix';
             $params[':prix'] = $prixMax;
         }
         // On assemble toutes les conditions avec "AND" pour la clause WHERE
         $whereSql = $where ? implode(' AND ', $where) : '';
-
         // Exécution de la recherche avec les conditions et paramètres
+        var_dump($whereSql, $params);
         return $this->search($whereSql, $params);
     }
     public function getDistinctPieces(): array
@@ -113,12 +113,19 @@ class ImmoRepository
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function getPrixMax(): array
+    public function getBienById(int $idBien): ?array
     {
-        $sql = "SELECT DISTINCT prix_vente
-        FROM biens_immobiliers";
+        $sql = "SELECT b.id, b.titre, b.nbr_pieces, b.surface, b.prix_vente, b.description, 
+                   b.ges, b.classe_eco, b.meuble, b.localisation, b.num_departement, 
+                   b.ville, b.charges_annuelles, b.id_utilisateur_commercial, 
+                   b.id_categorie, b.id_proprietaire,
+                   i.chemin_image, i.texte_alternatif
+            FROM biens_immobiliers b
+            INNER JOIN association_img ai ON ai.id = b.id AND ai.img_ppal = 1
+            INNER JOIN images i ON i.id_image = ai.id_image
+            WHERE b.id = :idBien";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll();
+        $stmt->execute([':idBien' => $idBien]);
+        return $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
     }
 }

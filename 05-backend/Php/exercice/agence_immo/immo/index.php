@@ -32,11 +32,17 @@ switch ($action) {
         // Si un filtre est appliqué (département ou pièces), on utilise lesFlitre
         if (
             (isset($_GET['nbPieces']) && !empty($_GET['nbPieces'])) ||
-            (isset($_GET['depList']) && !empty($_GET['depList']))
+            (isset($_GET['depList']) && !empty($_GET['depList'])) ||
+            (isset($_GET['prixMax']) && !empty($_GET['prixMax']))
         ) {
             $ctrl->lesFlitre();
         } else {
             $ctrl->afficherTous();
+        }
+        break;
+    case 'details':
+        if (isset($_GET['id_bien']) && !empty($_GET['ide_bien'])) {
+            $ctrl->detailBien((int)$_GET['id_bien']);
         }
         break;
     case 'modifier':

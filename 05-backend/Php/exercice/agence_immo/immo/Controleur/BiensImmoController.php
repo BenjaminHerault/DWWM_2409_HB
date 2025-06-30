@@ -31,7 +31,6 @@ class BiensImmoController
 
         // On récupère le prix maximum depuis le formulaire (GET), ou null si non renseigné
         $prixMax = isset($_GET['prixMax']) && $_GET['prixMax'] !== '' ? (int)$_GET['prixMax'] : null;
-        var_dump($prixMax);
 
         // On effectue la recherche des biens immobiliers en fonction des filtres sélectionnés
         // (département et/ou nombre de pièces)
@@ -46,7 +45,11 @@ class BiensImmoController
         // On inclut la vue qui affichera le formulaire et la liste des biens filtrés
         require __DIR__ . '/../Vue/vueListe_bien_immo.php';
     }
-
+    public function detailBien($idBien): void
+    {
+        $detail = $this->repo->getBienById($idBien);
+        require __DIR__ . '/../Vue'
+    }
 
 
     public function ajouterImage($titre, $chemin, $alt, $ext): int
