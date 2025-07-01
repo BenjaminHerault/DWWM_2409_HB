@@ -17,4 +17,15 @@ class DepartRepository
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    public function getDepartementsDisponibles(): array
+    {
+        $sql = "SELECT DISTINCT d.id_dep, d.nom_dep
+                FROM biens_immobiliers b
+                INNER JOIN departements d ON b.num_departement = d.id_dep
+                WHERE d.dep_actif = 1
+                ORDER BY d.nom_dep ASC";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

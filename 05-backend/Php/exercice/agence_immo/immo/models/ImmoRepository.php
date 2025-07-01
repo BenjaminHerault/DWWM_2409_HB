@@ -35,19 +35,6 @@ class ImmoRepository
         $stmt->execute($params);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function insertImage($titre, $chemin, $alt, $ext): int
-    {
-        $sql = 'INSERT INTO images (titre_image, chemin_image, texte_alternatif, extension) 
-                VALUES (:titre, :chemin, :alt, :ext)';
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute([
-            ':titre' => $titre,
-            ':chemin' => $chemin,
-            ':alt' => $alt,
-            ':ext' => $ext
-        ]);
-        return $this->db->lastInsertId();
-    }
     public function searchAll(): array
     {
         return $this->search();
@@ -100,17 +87,6 @@ class ImmoRepository
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
-    }
-    public function getDepartementsDisponibles(): array
-    {
-        $sql = "SELECT DISTINCT d.id_dep, d.nom_dep
-                FROM biens_immobiliers b
-                INNER JOIN departements d ON b.num_departement = d.id_dep
-                WHERE d.dep_actif = 1
-                ORDER BY d.nom_dep ASC";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     public function getBienById(int $idBien): ?array
     {

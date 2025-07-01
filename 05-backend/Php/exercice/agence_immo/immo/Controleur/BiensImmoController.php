@@ -1,23 +1,26 @@
 <?php
 require_once __DIR__ . '/../models/ImmoRepository.php';
 require_once __DIR__ . '/../models/DepartRepository.php';
-require_once __DIR__ . '/../models/ImagesRepository.php';
+require_once __DIR__ .  '/../models/ImageRepository.php';
+
 class BiensImmoController
 {
     private $repo;
     private $depRepo;
+    private $imgRepo;
 
     public function __construct()
     {
         $this->repo = new ImmoRepository();
         $this->depRepo = new DepartRepository();
+        $this->imgRepo = new ImageRepository();
     }
 
     public function afficherTous(): void
     {
         $listDesBiens = $this->repo->searchAll();
         $piecesDisponibles = $this->repo->getDistinctPieces();
-        $depDisponibles = $this->repo->getDepartementsDisponibles();
+        $depDisponibles = $this->depRepo->getDepartementsDisponibles();
         require __DIR__ . '/../Vue/vueListe_bien_immo.php';
     }
 
@@ -40,7 +43,7 @@ class BiensImmoController
         $piecesDisponibles = $this->repo->getDistinctPieces();
 
         // On récupère la liste des départements disponibles pour alimenter la liste déroulante du formulaire
-        $depDisponibles = $this->repo->getDepartementsDisponibles();
+        $depDisponibles = $this->depRepo->getDepartementsDisponibles();
 
         // On inclut la vue qui affichera le formulaire et la liste des biens filtrés
         require __DIR__ . '/../Vue/vueListe_bien_immo.php';
@@ -54,7 +57,7 @@ class BiensImmoController
 
     public function ajouterImage($titre, $chemin, $alt, $ext): int
     {
-        return $this->repo->insertImage($titre, $chemin, $alt, $ext);
+        return $this->imgRepo->insertImage($titre, $chemin, $alt, $ext);
     }
 
 
@@ -81,5 +84,17 @@ class BiensImmoController
             }
         }
         require_once __DIR__ . '/../Vue/vueMaj_bien.php';
+    }
+
+
+    public function aFaire()
+    {
+        // Dans ton contrôleur d'inscription
+        // if ($this->userRepo->emailExists($email)) {
+        //     $error = "Cet email est déjà utilisé !";
+        // } else {
+        //     // OK, on peut créer le compte
+        //     $this->userRepo->createUtilisateurs($nom, $prenom, $email, $password);
+        // }
     }
 }
