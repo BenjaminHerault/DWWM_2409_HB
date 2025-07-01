@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/Dbconnect.php";
 
-class CandidateRepository
+class FormRepository
 {
     private PDO $db;
 
@@ -50,9 +50,9 @@ class CandidateRepository
             // On retourne toutes les infos utiles, y compris l'id_user
             return [
                 'id_user' => $result['id_user'],
-                'nom' => $result['lastname_user'],
-                'prenom' => $result['firstname_user'],
-                'email' => $result['mail_user'],
+                'lastname' => $result['lastname_user'],
+                'firstname' => $result['firstname_user'],
+                'mail' => $result['mail_user'],
                 'departement' => $result['departement_user'],
                 'age' => $result['age_user'],
                 'is_admin' => $result['is_admin']
@@ -86,5 +86,14 @@ class CandidateRepository
         $sql = "DELETE FROM candidats WHERE id_user = ?";
         $stmt = $this->db->prepare($sql);
         return $stmt->execute([$id_user]);
+    }
+    public function getById(int $id_user): ?array
+    {
+        $sql = "SELECT id_user, lastname_user, firstname_user, mail_user, departement_user, age_user, is_admin 
+            FROM candidats WHERE id_user = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$id_user]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ?: null;
     }
 }
