@@ -45,6 +45,9 @@ switch ($action) {
             $ctrl->detailBien((int)$_GET['id_bien']);
         }
         break;
+    case 'admin':
+        $ctrl->espaceAdmin();
+        break;
     case 'modifier':
         if (isset($_GET['id_bien']) && !empty($_GET['id_bien'])) {
             $ctrl->miseAJour();

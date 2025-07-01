@@ -21,11 +21,6 @@
 </style>
 
 <?php
-
-
-
-
-
 echo '
    
    <div class="container">
@@ -48,5 +43,3 @@ echo '
 				   </div>
   </div>
   <div>';
-
-?>

@@ -85,6 +85,18 @@ class BiensImmoController
         }
         require_once __DIR__ . '/../Vue/vueMaj_bien.php';
     }
+    public function espaceAdmin()
+    {
+        if (isset($_SESSION['user']) && $_SESSION['user']['id_niveau'] == 1) {
+            // L'utilisateur est connecté et est un SuperAdmin
+            // On peut afficher l'espace admin
+            require_once __DIR__ . '/../Vue/vueEspaceAdmin.php';
+        } else {
+            // Redirection ou message d'erreur si l'utilisateur n'est pas autorisé
+            header('Location: index.php?action=liste');
+            exit;
+        }
+    }
 
 
     public function aFaire()
