@@ -24,22 +24,19 @@ class BiensImmoController
         require __DIR__ . '/../Vue/vueListe_bien_immo.php';
     }
 
-    /**
-     * Applique les filtres de recherche avec paramètres validés
-     * @param int|null $idDep ID du département (optionnel)
-     * @param int|null $nbPieces Nombre de pièces (optionnel)
-     * @param int|null $prixMax Prix maximum (optionnel)
-     */
-    public function lesFlitre(?int $idDep = null, ?int $nbPieces = null, ?int $prixMax = null)
+    public function lesFlitre()
     {
-        // Si aucun paramètre n'est fourni, on récupère depuis $_GET (pour compatibilité)
-        if ($idDep === null && $nbPieces === null && $prixMax === null) {
-            $nbPieces = isset($_GET['nbPieces']) && $_GET['nbPieces'] !== '' ? (int)$_GET['nbPieces'] : null;
-            $idDep = isset($_GET['depList']) && $_GET['depList'] !== '' ? (int)$_GET['depList'] : null;
-            $prixMax = isset($_GET['prixMax']) && $_GET['prixMax'] !== '' ? (int)$_GET['prixMax'] : null;
-        }
+        // On récupère le nombre de pièces depuis le formulaire (GET), ou null si non renseigné
+        $nbPieces = isset($_GET['nbPieces']) && $_GET['nbPieces'] !== '' ? (int)$_GET['nbPieces'] : null;
+
+        // On récupère le département depuis le formulaire (GET), ou null si non renseigné
+        $idDep = isset($_GET['depList']) && $_GET['depList'] !== '' ? (int)$_GET['depList'] : null;
+
+        // On récupère le prix maximum depuis le formulaire (GET), ou null si non renseigné
+        $prixMax = isset($_GET['prixMax']) && $_GET['prixMax'] !== '' ? (int)$_GET['prixMax'] : null;
 
         // On effectue la recherche des biens immobiliers en fonction des filtres sélectionnés
+        // (département et/ou nombre de pièces)
         $listDesBiens = $this->repo->leFlitre($idDep, $nbPieces, $prixMax);
 
         // On récupère la liste des nombres de pièces distincts pour alimenter la liste déroulante du formulaire
