@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="public/css/style.css">
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-12">
@@ -9,7 +10,7 @@
                         <div class="col-md-6">
                             <img src="<?= htmlspecialchars($detail['chemin_image']) ?>"
                                 alt="<?= htmlspecialchars($detail['texte_alternatif']) ?>"
-                                class="card-img img-fluid" style="width: 100%; height: 450px; object-fit: cover; border-radius: 0.375rem 0 0 0.375rem;" />
+                                class="card-img img-fluid" />
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
