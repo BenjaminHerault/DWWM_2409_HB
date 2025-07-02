@@ -42,7 +42,9 @@ class FormRepository
 
     public function signIn(string $mail_user, string $pass_user)
     {
-        $sql = "SELECT id_user, lastname_user, firstname_user, mail_user, pass_user, departement_user, age_user, is_admin FROM candidats WHERE mail_user = ?";
+        $sql = "SELECT id_user, lastname_user, firstname_user, mail_user, pass_user, departement_user, age_user, is_admin 
+        FROM candidats 
+        WHERE mail_user = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$mail_user]);
         $result = $stmt->fetch();

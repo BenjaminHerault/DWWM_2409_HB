@@ -28,15 +28,4 @@ class DepartRepository
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
-    /**
-     * Compte le nombre total de départements actifs
-     */
-    public function countTotalDepartements(): int
-    {
-        $sql = "SELECT COUNT(*) FROM departements WHERE dep_actif = 1";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute();
-        return (int)$stmt->fetchColumn();
-    }
 }

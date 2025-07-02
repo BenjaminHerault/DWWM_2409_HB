@@ -6,7 +6,7 @@
         <strong class="text-uppercase">Accès gestion</strong>
       </h3>
 
-      <form id="verif" name="verif" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+      <form id="verif" name="verif" action="index.php?action=admin" method="post">
 
         <p class="form-center">
           <label class="form-label" for="identifiant">Email</label>

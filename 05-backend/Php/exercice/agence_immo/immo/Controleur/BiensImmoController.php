@@ -2,18 +2,21 @@
 require_once __DIR__ . '/../models/ImmoRepository.php';
 require_once __DIR__ . '/../models/DepartRepository.php';
 require_once __DIR__ .  '/../models/ImageRepository.php';
+require_once __DIR__ . '/../models/UserRepository.php';
 
 class BiensImmoController
 {
     private $repo;
     private $depRepo;
     private $imgRepo;
+    private $userRepo;
 
     public function __construct()
     {
         $this->repo = new ImmoRepository();
         $this->depRepo = new DepartRepository();
         $this->imgRepo = new ImageRepository();
+        $this->userRepo = new UserRepository();
     }
 
     public function afficherTous(): void
@@ -90,14 +93,14 @@ class BiensImmoController
     }
     public function espaceAdmin()
     {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $rien;
+        }
+
         if (isset($_SESSION['user']) && $_SESSION['user']['id_niveau'] == 1) {
-            // L'utilisateur est connecté et est un SuperAdmin
-            // On peut afficher l'espace admin
-            require_once __DIR__ . '/../Vue/vueEspaceAdmin.php';
+            $rien;
         } else {
-            // Redirection ou message d'erreur si l'utilisateur n'est pas autorisé
-            header('Location: index.php?action=liste');
-            exit;
+            $rien;
         }
     }
 
