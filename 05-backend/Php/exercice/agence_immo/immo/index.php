@@ -1,24 +1,5 @@
-
 <?php
 session_start();
-/* HEADER entete avec dépendances CSS 
-  ================================================== */
-include_once __DIR__ . '/Vue/vueHeader.php';
-
-/*NAVBAR
-    ================================================== */
-include_once __DIR__ . '/Vue/vueMenu.php';
-
-/* Carousel
-    ================================================== */
-include_once __DIR__ . '/Vue/vueSlider.php';
-
-//require("./dao/connection.php");
-
-/*  Marketing mainpage 
-    ================================================== 
-   Wrap the rest of the page in another container to center all the content. */
-
 
 
 // Contrôleur MVC avec validation sécurisée
@@ -39,7 +20,7 @@ function validateAndSanitize($input, $type = 'string', $maxLength = 255)
         $intValue = (int)$input;
         return $intValue > 0 ? $intValue : null; // On refuse les valeurs négatives ou zéro
     }
-    
+
     if (empty($input)) return null;
 
     switch ($type) {
@@ -57,54 +38,61 @@ $allowedActions = ['liste', 'details', 'admin', 'modifier'];
 $action = $_GET['action'] ?? ($_POST['action'] ?? 'liste');
 $action = in_array($action, $allowedActions) ? $action : 'liste';
 
+// Préparation des données et de la vue à afficher
+$vue = '';
+$data = [];
 switch ($action) {
     case 'liste':
-        // Validation des filtres
         $nbPieces = validateAndSanitize($_GET['nbPieces'] ?? '', 'int');
         $depList = validateAndSanitize($_GET['depList'] ?? '', 'int');
         $prixMax = validateAndSanitize($_GET['prixMax'] ?? '', 'int');
-
-        // Si un filtre est présent dans l'URL (même s'il est vide), on utilise lesFlitre
         if (isset($_GET['nbPieces']) || isset($_GET['depList']) || isset($_GET['prixMax']) || isset($_GET['envoi'])) {
-            $ctrl->lesFlitre($depList, $nbPieces, $prixMax);
+            $data = $ctrl->lesFlitre($depList, $nbPieces, $prixMax);
         } else {
-            $ctrl->afficherTous();
+            $data = $ctrl->afficherTous();
         }
+        $vue = 'vueListe_bien_immo.php';
         break;
-
     case 'details':
         $idBien = validateAndSanitize($_GET['id_bien'] ?? '', 'int');
         if ($idBien !== null && $idBien > 0) {
-            $ctrl->detailBien($idBien);
+            $data = $ctrl->detailBien($idBien);
+            $vue = 'vueDetailBien.php';
         } else {
-            // Redirection si ID invalide
             header('Location: index.php?action=liste');
             exit;
         }
         break;
-
     case 'admin':
-        $ctrl->espaceAdmin();
+        $data = $ctrl->espaceAdmin();
+        $vue = 'VueAdmin.php';
         break;
-
     case 'modifier':
         $idBien = validateAndSanitize($_GET['id_bien'] ?? '', 'int');
         if ($idBien !== null && $idBien > 0) {
-            $ctrl->miseAJour();
+            $data = $ctrl->miseAJour();
+            $vue = 'vueMaj_bien.php';
         } else {
             header('Location: index.php?action=liste');
             exit;
         }
         break;
-
     default:
-        $ctrl->afficherTous();
+        $data = $ctrl->afficherTous();
+        $vue = 'vueListe_bien_immo.php';
         break;
 }
 
-include_once __DIR__ . '/Vue/vueAcces_membre.php';
-/* Pied de page avec dépendances Javascript...
-    ================================================== */
+// HEADER, NAVBAR, SLIDER
+include_once __DIR__ . '/Vue/vueHeader.php';
+include_once __DIR__ . '/Vue/vueMenu.php';
+include_once __DIR__ . '/Vue/vueSlider.php';
 
+// Affichage de la vue principale
+if ($vue) {
+    if (is_array($data)) extract($data);
+    include __DIR__ . '/Vue/' . $vue;
+}
+
+include_once __DIR__ . '/Vue/vueAcces_membre.php';
 include_once __DIR__ . '/Vue/vueFooter.php';
-?>
