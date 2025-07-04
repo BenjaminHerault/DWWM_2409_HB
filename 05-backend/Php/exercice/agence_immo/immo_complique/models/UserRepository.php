@@ -64,17 +64,24 @@ class UserRepository
     /**
      * Authentifie un utilisateur avec email et mot de passe
      */
-    public function authenticateUtilisateur(string $email, string $password): ?array
+    public function authenticateUtilisateur(string $mail, string $pass): array|bool
     {
-        $user = $this->getUserByEmail($email);
-
-        if ($user && password_verify($password, $user['pass_utilisateur'])) {
-            // Retourne les données utilisateur sans le mot de passe
-            unset($user['pass_utilisateur']);
-            return $user;
+        $sql = "SELECT id_utilisateur, nom_utilisateur, prenom_utilisateur, mail_utilisateur, pass_utilisateur, id_niveau 
+                FROM utilisateurs 
+                WHERE mail_utilisateur = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$mail]);
+        $result = $stmt->fetch();
+        if ($result && password_verify($pass, $result['pass_utilisateur'])) {
+            return [
+                'id_user' => $result['id_utilisateur'],
+                'nom' => $result['nom_utilisateur'],
+                'prenom' => $result['prenom_utilisateur'],
+                'mail' => $result['mail_utilisateur'],
+                'id_niveau' => $result['id_niveau']
+            ];
         }
-
-        return null;
+        return false; // Authentification échouée
     }
 
     /**
@@ -82,26 +89,8 @@ class UserRepository
      */
     public function countTotalUtilisateurs(): int
     {
-        $sql = "SELECT COUNT(*) FROM utilisateurs";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute();
-        return (int)$stmt->fetchColumn();
+        return 0;
     }
-
-    /**
-     * Récupère les derniers utilisateurs créés
-     */
-    public function getRecentUtilisateurs(int $limit = 5): array
-    {
-        $sql = "SELECT id_utilisateur, nom_utilisateur, prenom_utilisateur, mail_utilisateur, id_niveau 
-                FROM utilisateurs 
-                ORDER BY id_utilisateur DESC 
-                LIMIT ?";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute([$limit]);
-        return $stmt->fetchAll();
-    }
-
     // Pour vérifier les doublons
     public function emailExists(string $email): bool
     {
@@ -115,28 +104,20 @@ class UserRepository
     }
 
     // Pour la modification (Update)
-    public function updateUtilisateur(int $id, array $data): bool
+    public function updateUtilisateur(): bool
     {
         return true;
     }
 
     // Pour la suppression (Delete)  
-    public function deleteUtilisateur(int $id): bool
+    public function deleteUtilisateur(): bool
     {
-        $sql = "DELETE FROM utilisateurs WHERE id_utilisateur = ?";
-        $stmt = $this->db->prepare($sql);
-        return $stmt->execute([$id]);
+        return true;
     }
 
     // Pour récupérer un utilisateur spécifique
-    public function getUserById(int $id): ?array
+    public function getUserById(): ?array
     {
-        $sql = "SELECT id_utilisateur, nom_utilisateur, prenom_utilisateur, mail_utilisateur, id_niveau 
-                FROM utilisateurs 
-                WHERE id_utilisateur = ?";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute([$id]);
-        $user = $stmt->fetch();
-        return $user ? $user : null;
+        return [];
     }
 }

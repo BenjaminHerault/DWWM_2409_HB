@@ -19,44 +19,42 @@ class BiensImmoController
         $this->userRepo = new UserRepository();
     }
 
-    public function afficherTous(): array
+    public function afficherTous(): void
     {
         $listDesBiens = $this->repo->searchAll();
         $piecesDisponibles = $this->repo->getDistinctPieces();
         $depDisponibles = $this->depRepo->getDepartementsDisponibles();
-        return [
-            'listDesBiens' => $listDesBiens,
-            'piecesDisponibles' => $piecesDisponibles,
-            'depDisponibles' => $depDisponibles
-        ];
+        require __DIR__ . '/../Vue/vueListe_bien_immo.php';
     }
 
-    /**
-     * Applique les filtres de recherche avec paramètres validés
-     * @param int|null $idDep ID du département (optionnel)
-     * @param int|null $nbPieces Nombre de pièces (optionnel)
-     * @param int|null $prixMax Prix maximum (optionnel)
-     */
-    public function lesFlitre(?int $idDep = null, ?int $nbPieces = null, ?int $prixMax = null): array
+    public function lesFlitre()
     {
-        if ($idDep === null && $nbPieces === null && $prixMax === null) {
-            $nbPieces = isset($_GET['nbPieces']) && $_GET['nbPieces'] !== '' ? (int)$_GET['nbPieces'] : null;
-            $idDep = isset($_GET['depList']) && $_GET['depList'] !== '' ? (int)$_GET['depList'] : null;
-            $prixMax = isset($_GET['prixMax']) && $_GET['prixMax'] !== '' ? (int)$_GET['prixMax'] : null;
-        }
+        // On récupère le nombre de pièces depuis le formulaire (GET), ou null si non renseigné
+        $nbPieces = isset($_GET['nbPieces']) && $_GET['nbPieces'] !== '' ? (int)$_GET['nbPieces'] : null;
+
+        // On récupère le département depuis le formulaire (GET), ou null si non renseigné
+        $idDep = isset($_GET['depList']) && $_GET['depList'] !== '' ? (int)$_GET['depList'] : null;
+
+        // On récupère le prix maximum depuis le formulaire (GET), ou null si non renseigné
+        $prixMax = isset($_GET['prixMax']) && $_GET['prixMax'] !== '' ? (int)$_GET['prixMax'] : null;
+
+        // On effectue la recherche des biens immobiliers en fonction des filtres sélectionnés
+        // (département et/ou nombre de pièces)
         $listDesBiens = $this->repo->leFlitre($idDep, $nbPieces, $prixMax);
+
+        // On récupère la liste des nombres de pièces distincts pour alimenter la liste déroulante du formulaire
         $piecesDisponibles = $this->repo->getDistinctPieces();
+
+        // On récupère la liste des départements disponibles pour alimenter la liste déroulante du formulaire
         $depDisponibles = $this->depRepo->getDepartementsDisponibles();
-        return [
-            'listDesBiens' => $listDesBiens,
-            'piecesDisponibles' => $piecesDisponibles,
-            'depDisponibles' => $depDisponibles
-        ];
+
+        // On inclut la vue qui affichera le formulaire et la liste des biens filtrés
+        require __DIR__ . '/../Vue/vueListe_bien_immo.php';
     }
-    public function detailBien($idBien): array
+    public function detailBien($idBien): void
     {
         $detail = $this->repo->getBienById($idBien);
-        return ['detail' => $detail];
+        require __DIR__ . '/../Vue/vueDetailBien.php';
     }
 
 
@@ -66,16 +64,15 @@ class BiensImmoController
     }
 
 
-    public function miseAJour(): array
+    public function miseAJour(): void
     {
         $id = $_GET['id_bien'];
-        $erreur = '';
-        $message = '';
         if (isset($_FILES['img'])) {
             $type = $_FILES['img']['type'];
+            echo $type;
             $tab_ref = ['gif', 'png', 'jpg', 'JPG', 'jpeg', 'JPEG'];
             $tab_split = explode('/', $type);
-            $extension = $tab_split[1] ?? '';
+            $extension = $tab_split[1];
             if (in_array($extension, $tab_ref)) {
                 $name = $_FILES['img']['name'];
                 $origine = $_FILES['img']['tmp_name'];
@@ -83,24 +80,23 @@ class BiensImmoController
                 $newName = 'bien';
                 $destination = $img_path . $newName . '.' . $extension;
                 if (move_uploaded_file($origine, $destination) == true) {
-                    $message = 'Image transférée !';
+                    echo 'image transféré ! ! !';
                 } else {
-                    $erreur = 'Erreur lors du transfert de l\'image.';
+                    echo 'Erreur';
                 }
-            } else {
-                $erreur = 'Format de fichier non autorisé.';
             }
         }
-        return ['erreur' => $erreur, 'message' => $message];
+        require_once __DIR__ . '/../Vue/vueMaj_bien.php';
     }
-    public function espaceAdmin(): array
-    {
-        if (!isset($_SESSION['user']) || $_SESSION['user']['id_niveau'] != 1) {
-            header('Location: index.php?action=connexion');
-            exit;
+    public function espaceAdmin()
+    { {
+            if (!isset($_SESSION['user']) || $_SESSION['user']['id_niveau'] != 1) {
+                header('Location: index.php?action=connexion');
+                exit;
+            }
+            $users = $this->repo->searchAll();
+            return ['users' => $users];
         }
-        $users = $this->repo->searchAll();
-        return ['users' => $users];
     }
 
 

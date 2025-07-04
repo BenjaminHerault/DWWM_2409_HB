@@ -136,4 +136,46 @@ class ImmoRepository
         $stmt->execute([':idBien' => $idBien]);
         return $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
     }
+
+
+    /**
+     * Récupère les derniers biens créés
+     */
+    public function getRecentBiens(int $limit = 5): array
+    {
+        $sql = "SELECT b.id, b.titre, b.nbr_pieces, b.surface, b.prix_vente, b.ville, 
+                       b.num_departement, i.chemin_image, i.texte_alternatif
+                FROM biens_immobiliers b
+                LEFT JOIN association_img ai ON ai.id = b.id AND ai.img_ppal = 1
+                LEFT JOIN images i ON i.id_image = ai.id_image
+                ORDER BY b.id DESC 
+                LIMIT ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$limit]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Crée un nouveau bien immobilier
+     */
+    public function createBien(array $data): ?int
+    {
+        return null;
+    }
+
+    /**
+     * Met à jour un bien immobilier
+     */
+    public function updateBien(int $id, array $data): bool
+    {
+        return false;
+    }
+
+    /**
+     * Supprime un bien immobilier
+     */
+    public function deleteBien(int $id): bool
+    {
+        return false;
+    }
 }

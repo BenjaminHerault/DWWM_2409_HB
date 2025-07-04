@@ -89,8 +89,24 @@ class UserRepository
      */
     public function countTotalUtilisateurs(): int
     {
+
         return 0;
     }
+
+    /**
+     * Récupère les derniers utilisateurs créés
+     */
+    public function getRecentUtilisateurs(int $limit = 5): array
+    {
+        $sql = "SELECT id_utilisateur, nom_utilisateur, prenom_utilisateur, mail_utilisateur, id_niveau 
+                FROM utilisateurs 
+                ORDER BY id_utilisateur DESC 
+                LIMIT ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$limit]);
+        return $stmt->fetchAll();
+    }
+
     // Pour vérifier les doublons
     public function emailExists(string $email): bool
     {

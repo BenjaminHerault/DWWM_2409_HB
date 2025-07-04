@@ -1,3 +1,16 @@
+<?php
+/* HEADER entete avec dépendances CSS 
+  ================================================== */
+include_once __DIR__ . '/vueHeader.php';
+
+/*NAVBAR
+    ================================================== */
+include_once __DIR__ . '/vueMenu.php';
+
+/* Carousel
+    ================================================== */
+include_once __DIR__ . '/vueSlider.php';
+?>
 <div class="container biens-container">
     <div class="row">
         <div class="col-12">
