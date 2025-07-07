@@ -1,1 +1,1 @@
-<h2>Coucou admin</h2>
+<h2>Espace Admin - Gestion des biens immobiliers</h2>

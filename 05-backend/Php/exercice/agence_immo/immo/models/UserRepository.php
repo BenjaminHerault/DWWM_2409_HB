@@ -84,6 +84,18 @@ class UserRepository
         return false; // Authentification échouée
     }
 
+    // Pour récupérer un utilisateur spécifique
+    public function getUserById(int $id_user): ?array
+    {
+        $sql = " SELECT id_utilisateur, nom_utilisateur, prenom_utilisateur, mail_utilisateur, pass_utilisateur, id_niveau 
+                FROM utilisateurs 
+                WHERE id_utilisateur = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$id_user]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ?: null; // Retourne null si l'utilisateur n'existe pas
+    }
+
     /**
      * Compte le nombre total d'utilisateurs
      */
@@ -129,11 +141,5 @@ class UserRepository
     public function deleteUtilisateur(): bool
     {
         return true;
-    }
-
-    // Pour récupérer un utilisateur spécifique
-    public function getUserById(): ?array
-    {
-        return [];
     }
 }

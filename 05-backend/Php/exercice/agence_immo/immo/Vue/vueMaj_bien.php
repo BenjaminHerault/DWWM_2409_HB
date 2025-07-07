@@ -4,6 +4,4 @@
     </label>
     <input type="file" name="img" id="img">
     <input type="submit" value="modifier" name="maj" id="maj">
-
-
 </form>

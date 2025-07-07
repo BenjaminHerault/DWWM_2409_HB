@@ -69,18 +69,51 @@ class BiensImmoController
         $id = $_GET['id_bien'];
         if (isset($_FILES['img'])) {
             $type = $_FILES['img']['type'];
-            echo $type;
-            $tab_ref = ['gif', 'png', 'jpg', 'JPG', 'jpeg', 'JPEG'];
+            // echo $type;
+            $tab_ref = ['gif', 'png', 'jpg', 'JPG', 'jpeg', 'JPEG', 'GIF', 'PNG'];
             $tab_split = explode('/', $type);
             $extension = $tab_split[1];
             if (in_array($extension, $tab_ref)) {
                 $name = $_FILES['img']['name'];
                 $origine = $_FILES['img']['tmp_name'];
-                $img_path = './public/img_immo/';
-                $newName = 'bien';
-                $destination = $img_path . $newName . '.' . $extension;
+                $img_path = './public/img_biens/';
+                $newName = 'photo' . uniqid() . '.' . $extension;     //uniqid() pour générer un nom unique
+                $destination = $img_path . $newName;
                 if (move_uploaded_file($origine, $destination) == true) {
-                    echo 'image transféré ! ! !';
+                    $tab_dim = getimagesize($destination);
+                    $largeur = $tab_dim[0];
+                    $hauteur = $tab_dim[1];
+                    $vignette_largeur = 300; //pixels
+                    $vignette_hauteur = round($vignette_largeur * $hauteur / $largeur, 0); // Calcul de la hauteur de la vignette en gardant les proportions
+                    $vignette_emplacement = "./public/img_immo/vignette_" . $newName;
+                    $image = imagecreatetruecolor($vignette_largeur, $vignette_hauteur);
+                    switch ($extension) {
+                        case 'jpg':
+                        case 'jpeg':
+                            $source = imagecreatefromjpeg($destination);
+                            break;
+                        case 'png':
+                            $source = imagecreatefrompng($destination);
+                            break;
+                        case 'gif':
+                            $source = imagecreatefromgif($destination);
+                            break;
+                        default:
+                            $source = null;
+                    }
+                    imagecopyresampled($image, $source, 0, 0, 0, 0, $vignette_largeur, $vignette_hauteur, $largeur, $hauteur);
+                    switch ($extension) {
+                        case 'jpg':
+                        case 'jpeg':
+                            imagejpeg($image, $vignette_emplacement);
+                            break;
+                        case 'png':
+                            imagepng($image, $vignette_emplacement);
+                            break;
+                        case 'gif':
+                            imagegif($image, $vignette_emplacement);
+                            break;
+                    }
                 } else {
                     echo 'Erreur';
                 }
@@ -89,13 +122,34 @@ class BiensImmoController
         require_once __DIR__ . '/../Vue/vueMaj_bien.php';
     }
     public function espaceAdmin()
-    { {
-            if (!isset($_SESSION['user']) || $_SESSION['user']['id_niveau'] != 1) {
-                header('Location: index.php?action=connexion');
-                exit;
+    {
+        if (!isset($_SESSION['user']) || $_SESSION['user']['id_niveau'] != 1) {
+            require __DIR__ . '/../Vue/vueAccesRefuse.php';
+            return;
+        }
+        $users = $this->repo->searchAll();
+        require __DIR__ . '/../Vue/vueEspaceAdmin.php';
+    }
+    public function connexion(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $user = $this->userRepo->authenticateUtilisateur($_POST['mail'], $_POST['pwd']);
+            if ($user != false) {
+                $_SESSION['user'] = $user;
+                // Affichage direct de la vue correspondante selon le niveau
+                if ($user['id_niveau'] == 1) {
+                    // SuperAdmin : espace admin
+                    $users = $this->repo->searchAll();
+                    require __DIR__ . '/../Vue/vueEspaceAdmin.php';
+                } else {
+                    // Autres niveaux : liste des biens
+                    $this->afficherTous();
+                }
+            } else {
+                // Authentification échouée, on peut afficher un message d'erreur
+                $error = "Identifiant ou mot de passe incorrect.";
+                echo '<div class="alert alert-danger">' . htmlspecialchars($error) . '</div>';
             }
-            $users = $this->repo->searchAll();
-            return ['users' => $users];
         }
     }
 
