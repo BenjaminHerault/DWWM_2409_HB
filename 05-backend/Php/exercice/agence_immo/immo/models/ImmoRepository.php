@@ -166,9 +166,61 @@ class ImmoRepository
     /**
      * Met à jour un bien immobilier
      */
-    public function updateBien(int $id, array $data): bool
-    {
-        return false;
+    public function updateBien(
+        int $id,
+        string $titre,
+        int $nbr_pieces,
+        float $surface,
+        float $prix_vente,
+        string $description,
+        string $ges,
+        string $classe_eco,
+        int $meuble,
+        string $localisation,
+        int $num_departement,
+        string $ville,
+        float $charges_annuelles,
+        int $id_utilisateur_commercial,
+        int $id_categorie,
+        ?int $id_proprietaire
+    ): bool {
+        $sql = "UPDATE biens_immobiliers SET 
+            titre = ?,
+            nbr_pieces = ?,
+            surface = ?,
+            prix_vente = ?,
+            description = ?,
+            ges = ?,
+            classe_eco = ?,
+            meuble = ?,
+            localisation = ?,
+            num_departement = ?,
+            ville = ?,
+            charges_annuelles = ?,
+            id_utilisateur_commercial = ?,
+            id_categorie = ?,
+            id_proprietaire = ?
+            WHERE id = ?";
+        $params = [
+            $titre,
+            $nbr_pieces,
+            $surface,
+            $prix_vente,
+            $description,
+            $ges,
+            $classe_eco,
+            $meuble,
+            $localisation,
+            $num_departement,
+            $ville,
+            $charges_annuelles,
+            $id_utilisateur_commercial,
+            $id_categorie,
+            $id_proprietaire,
+            $id
+        ];
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute($params);
     }
 
     /**
@@ -176,6 +228,12 @@ class ImmoRepository
      */
     public function deleteBien(int $id): bool
     {
-        return false;
+        $sql = "DELETE 
+                FROM biens_immobiliers
+                WHERE id = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ?: null;
     }
 }

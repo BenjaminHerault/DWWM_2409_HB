@@ -33,4 +33,39 @@ class ImageRepository
         ]);
         return $this->db->lastInsertId();
     }
+    public function getImagesByBienId(int $idBien): array
+    {
+        $sql = "SELECT images.id_image, images.titre_image, images.chemin_image, images.texte_alternatif, images.extension, association_img.img_ppal
+                FROM images
+                INNER JOIN association_img ON images.id_image = association_img.id_image
+                WHERE association_img.id = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$idBien]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function deleteImage(int $idImage): bool
+    {
+        $sql = "DELETE 
+                FROM images 
+                WHERE id_image = ?";
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute([$idImage]);
+    }
+    public function setAllSecondaires($idBien)
+    {
+        $sql = "UPDATE association_img 
+                SET img_ppal = 0 
+                WHERE id_bien = :idBien";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['idBien' => $idBien]);
+    }
+    public function setPrincipale($idBien, $idImage)
+    {
+        $sql = "UPDATE association_img 
+                SET img_ppal = 1
+                WHERE id_bien = :id_bien = :idBien 
+                AND id_image = :idImage";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['id_bien' => $idBien, 'idImage' => $idImage]);
+    }
 }

@@ -57,39 +57,30 @@
 </div>
 
 <!-- Liste des biens -->
+<link rel="stylesheet" href="public/css/biens.css">
 <div class="container">
-    <div class="row">
+    <h1 class="biens-title text-center">Liste des biens immobiliers</h1>
+    <div class="biens-grid">
         <?php foreach ($listDesBiens as $bien): ?>
-            <div class="col-md-4 mb-5">
-                <div class="card bien-card">
-                    <img src="<?php
-                                if (empty($bien['chemin_image']) && $bien['id_categorie'] == 1) {
-                                    echo 'public/img_immo/appartement_defaut.jpg';
-                                } elseif (empty($bien['chemin_image'])) {
-                                    echo 'public/img_immo/image_defaut.jpg';
-                                } else {
-                                    echo htmlspecialchars($bien['chemin_image']);
-                                }
-                                ?>"
-                        class="card-img-top bien-card-img"
-                        alt="<?= htmlspecialchars($bien['texte_alternatif'] ?? 'Image du bien') ?>">
-
-                    <div class="card-body bien-card-body">
-                        <h5 class="card-title bien-title"><?= htmlspecialchars($bien['titre']) ?></h5>
-
-                        <p class="card-text">
-                            <span class="bien-price"><?= number_format($bien['prix_vente'], 0, ',', ' ') ?> €</span><br>
-                            <span class="bien-details"><?= htmlspecialchars($bien['surface']) ?> m² - <?= htmlspecialchars($bien['nbr_pieces']) ?> pièce<?= $bien['nbr_pieces'] > 1 ? 's' : '' ?></span>
-                        </p>
-
-                        <p class="card-text bien-description">
-                            <?= htmlspecialchars(mb_strimwidth($bien['description'], 0, 100, '...')) ?>
-                        </p>
-
-                        <a href="index.php?action=details&id_bien=<?= $bien['id'] ?>" class="btn btn-primary bien-btn">
-                            Voir les détails
-                        </a>
+            <div class="bien-card-modern">
+                <img src="<?php
+                            if (empty($bien['chemin_image']) && $bien['id_categorie'] == 1) {
+                                echo 'public/img_immo/appartement_defaut.jpg';
+                            } elseif (empty($bien['chemin_image'])) {
+                                echo 'public/img_immo/image_defaut.jpg';
+                            } else {
+                                echo htmlspecialchars($bien['chemin_image']);
+                            }
+                            ?>" alt="<?= htmlspecialchars($bien['texte_alternatif'] ?? 'Image du bien') ?>">
+                <div class="bien-card-info">
+                    <span class="bien-price">€ <?= number_format($bien['prix_vente'], 0, ',', ' ') ?></span>
+                    <div class="bien-description">
+                        <?= htmlspecialchars(mb_strimwidth($bien['description'], 0, 40, '...')) ?>
                     </div>
+                    <div style="margin-top: 10px; font-size: 1rem; color: #888;">
+                        <?= htmlspecialchars($bien['surface']) ?> m² - <?= htmlspecialchars($bien['nbr_pieces']) ?> pièce<?= $bien['nbr_pieces'] > 1 ? 's' : '' ?>
+                    </div>
+                    <a href="index.php?action=details&id_bien=<?= $bien['id'] ?>" class="btn btn-dark mt-2">Voir</a>
                 </div>
             </div>
         <?php endforeach; ?>

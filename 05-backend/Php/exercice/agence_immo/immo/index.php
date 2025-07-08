@@ -52,6 +52,11 @@ switch ($action) {
             $ctrl->miseAJour();
         }
         break;
+    case 'images':
+        if (isset($_GET['id_bien']) && !empty($_GET['id_bien'])) {
+            $ctrl->gestionImages((int)$_GET['id_bien']);
+        }
+        break;
     default:
         $ctrl->afficherTous();
         break;

@@ -119,7 +119,7 @@ class BiensImmoController
                 }
             }
         }
-        require_once __DIR__ . '/../Vue/vueMaj_bien.php';
+        require_once __DIR__ . '/../Vue/vueGestionImages.php';
     }
     public function espaceAdmin()
     {
@@ -152,16 +152,22 @@ class BiensImmoController
             }
         }
     }
-
-
-    public function aFaire()
+    public function gestionImages($idBien)
     {
-        // Dans ton contrôleur d'inscription
-        // if ($this->userRepo->emailExists($email)) {
-        //     $error = "Cet email est déjà utilisé !";
-        // } else {
-        //     // OK, on peut créer le compte
-        //     $this->userRepo->createUtilisateurs($nom, $prenom, $email, $password);
-        // }
+        // 1. Récupérer le bien
+        $bien = $this->repo->getBienById($idBien);
+        // 2. Récupérer toutes les images du bien (table association_img + images)
+        $images = $this->imgRepo->getImagesByBienId($idBien);
+        // 3. Séparer image principale et secondaires
+        $imagePrincipale = null;
+        $imagesSecondaires = [];
+        foreach ($images as $img) {
+            if (!empty($img['img_ppal']) && $img['img_ppal'] == 1) {
+                $imagePrincipale = $img;
+            } else {
+                $imagesSecondaires[] = $img;
+            }
+        }
+        require __DIR__ . '/../Vue/vueGestionImages.php';
     }
 }
