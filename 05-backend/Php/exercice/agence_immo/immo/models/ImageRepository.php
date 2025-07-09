@@ -45,17 +45,34 @@ class ImageRepository
     }
     public function deleteImage(int $idImage): bool
     {
-        $sql = "DELETE 
-                FROM images 
-                WHERE id_image = ?";
-        $stmt = $this->db->prepare($sql);
-        return $stmt->execute([$idImage]);
+        try {
+            // Démarrer une transaction pour s'assurer de la cohérence
+            $this->db->beginTransaction();
+
+            // Supprimer d'abord l'association
+            $sqlAssoc = "DELETE FROM association_img WHERE id_image = ?";
+            $stmtAssoc = $this->db->prepare($sqlAssoc);
+            $stmtAssoc->execute([$idImage]);
+
+            // Ensuite supprimer l'image
+            $sqlImg = "DELETE FROM images WHERE id_image = ?";
+            $stmtImg = $this->db->prepare($sqlImg);
+            $result = $stmtImg->execute([$idImage]);
+
+            // Valider la transaction
+            $this->db->commit();
+            return $result;
+        } catch (Exception $e) {
+            // En cas d'erreur, annuler la transaction
+            $this->db->rollBack();
+            return false;
+        }
     }
     public function setAllSecondaires($idBien)
     {
         $sql = "UPDATE association_img 
                 SET img_ppal = 0 
-                WHERE id_bien = :idBien";
+                WHERE id = :idBien";
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['idBien' => $idBien]);
     }
@@ -63,9 +80,32 @@ class ImageRepository
     {
         $sql = "UPDATE association_img 
                 SET img_ppal = 1
-                WHERE id_bien = :id_bien = :idBien 
+                WHERE id = :idBien 
                 AND id_image = :idImage";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(['id_bien' => $idBien, 'idImage' => $idImage]);
+        $stmt->execute(['idBien' => $idBien, 'idImage' => $idImage]);
+    }
+
+    public function createAssociation($idBien, $idImage, $isPrincipal = 0)
+    {
+        $sql = "INSERT INTO association_img (id, id_image, img_ppal) 
+                VALUES (:idBien, :idImage, :isPrincipal)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            'idBien' => $idBien,
+            'idImage' => $idImage,
+            'isPrincipal' => $isPrincipal
+        ]);
+    }
+
+    public function getImageById(int $idImage): ?array
+    {
+        $sql = "SELECT id_image, titre_image, chemin_image, texte_alternatif, extension 
+                FROM images 
+                WHERE id_image = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$idImage]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ?: null;
     }
 }

@@ -3,6 +3,21 @@
 <div class="container mt-4">
     <h2 class="mb-4 text-center">Gestion des images du bien "<?= htmlspecialchars($bien['titre']) ?>"</h2>
 
+    <!-- Messages de succès/erreur -->
+    <?php if (isset($_SESSION['success'])): ?>
+        <div class="alert alert-success">
+            <?= htmlspecialchars($_SESSION['success']) ?>
+        </div>
+        <?php unset($_SESSION['success']); ?>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['error'])): ?>
+        <div class="alert alert-danger">
+            <?= htmlspecialchars($_SESSION['error']) ?>
+        </div>
+        <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
+
     <!-- Image principale -->
     <div class="text-center mb-4">
         <div style="display:inline-block; position:relative;">
@@ -24,7 +39,7 @@
                     <form action="index.php?action=promouvoir_image&id_bien=<?= $bien['id'] ?>&id_image=<?= $img['id_image'] ?>" method="post" style="position:absolute; top:4px; left:4px;">
                         <button type="submit" class="btn btn-success btn-sm" title="Définir comme principale">★</button>
                     </form>
-                    <form action="index.php?action=supprimer_image&id_bien=<?= $bien['id'] ?>&id_image=<?= $img['id_image'] ?>" method="post" style="position:absolute; top:4px; right:4px;">
+                    <form action="index.php?action=supprimer_image&id_bien=<?= $bien['id'] ?>&id_image=<?= $img['id_image'] ?>" method="post" style="position:absolute; top:4px; right:4px;" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette image ?');">
                         <button type="submit" class="btn btn-danger btn-sm" title="Supprimer">✖</button>
                     </form>
                 </div>

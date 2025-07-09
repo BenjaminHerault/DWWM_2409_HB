@@ -170,4 +170,116 @@ class BiensImmoController
         }
         require __DIR__ . '/../Vue/vueGestionImages.php';
     }
+
+    public function changerImagePrincipale($idBien)
+    {
+        if (isset($_FILES['nouvelle_image_principale']) && $_FILES['nouvelle_image_principale']['error'] === 0) {
+            $file = $_FILES['nouvelle_image_principale'];
+
+            // Validation du type de fichier
+            $allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+            if (!in_array($file['type'], $allowedTypes)) {
+                $_SESSION['error'] = "Type de fichier non autorisé. Utilisez JPG, PNG ou GIF.";
+                header("Location: index.php?action=images&id_bien=$idBien");
+                exit;
+            }
+
+            // Création du nom unique
+            $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+            $newName = 'photo' . uniqid() . '.' . $extension;
+            $destination = './public/img_immo/' . $newName;
+
+            // Upload du fichier
+            if (move_uploaded_file($file['tmp_name'], $destination)) {
+                // Créer l'entrée en base
+                $titre = 'Image principale - ' . date('Y-m-d H:i:s');
+                $alt = 'Image principale du bien';
+                $idImage = $this->imgRepo->insertImage($titre, $destination, $alt, $extension);
+
+                // Mettre toutes les images en secondaires
+                $this->imgRepo->setAllSecondaires($idBien);
+
+                // Créer l'association et définir comme principale
+                $this->imgRepo->createAssociation($idBien, $idImage, 1);
+
+                $_SESSION['success'] = "Image principale modifiée avec succès.";
+            } else {
+                $_SESSION['error'] = "Erreur lors du téléchargement de l'image.";
+            }
+        }
+
+        header("Location: index.php?action=images&id_bien=$idBien");
+        exit;
+    }
+
+    public function promouvoirImage($idBien, $idImage)
+    {
+        // Mettre toutes les images en secondaires
+        $this->imgRepo->setAllSecondaires($idBien);
+
+        // Définir l'image sélectionnée comme principale
+        $this->imgRepo->setPrincipale($idBien, $idImage);
+
+        $_SESSION['success'] = "Image définie comme principale.";
+        header("Location: index.php?action=images&id_bien=$idBien");
+        exit;
+    }
+
+    public function supprimerImage($idBien, $idImage)
+    {
+        // Récupérer le chemin de l'image avant de la supprimer
+        $image = $this->imgRepo->getImageById($idImage);
+
+        // Supprimer l'image de la base
+        if ($this->imgRepo->deleteImage($idImage)) {
+            // Supprimer le fichier physique si l'image existe
+            if ($image && file_exists($image['chemin_image'])) {
+                unlink($image['chemin_image']);
+            }
+            $_SESSION['success'] = "Image supprimée avec succès.";
+        } else {
+            $_SESSION['error'] = "Erreur lors de la suppression de l'image.";
+        }
+
+        header("Location: index.php?action=images&id_bien=$idBien");
+        exit;
+    }
+
+    public function ajouterImageSecondaire($idBien)
+    {
+        if (isset($_FILES['ajout_image_secondaire']) && $_FILES['ajout_image_secondaire']['error'] === 0) {
+            $file = $_FILES['ajout_image_secondaire'];
+
+            // Validation du type de fichier
+            $allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+            if (!in_array($file['type'], $allowedTypes)) {
+                $_SESSION['error'] = "Type de fichier non autorisé. Utilisez JPG, PNG ou GIF.";
+                header("Location: index.php?action=images&id_bien=$idBien");
+                exit;
+            }
+
+            // Création du nom unique
+            $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+            $newName = 'photo' . uniqid() . '.' . $extension;
+            $destination = './public/img_immo/' . $newName;
+
+            // Upload du fichier
+            if (move_uploaded_file($file['tmp_name'], $destination)) {
+                // Créer l'entrée en base
+                $titre = 'Image secondaire - ' . date('Y-m-d H:i:s');
+                $alt = 'Image secondaire du bien';
+                $idImage = $this->imgRepo->insertImage($titre, $destination, $alt, $extension);
+
+                // Créer l'association comme image secondaire
+                $this->imgRepo->createAssociation($idBien, $idImage, 0);
+
+                $_SESSION['success'] = "Image secondaire ajoutée avec succès.";
+            } else {
+                $_SESSION['error'] = "Erreur lors du téléchargement de l'image.";
+            }
+        }
+
+        header("Location: index.php?action=images&id_bien=$idBien");
+        exit;
+    }
 }
