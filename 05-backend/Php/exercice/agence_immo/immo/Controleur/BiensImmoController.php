@@ -176,36 +176,34 @@ class BiensImmoController
         if (isset($_FILES['nouvelle_image_principale']) && $_FILES['nouvelle_image_principale']['error'] === 0) {
             $file = $_FILES['nouvelle_image_principale'];
 
-            // Validation du type de fichier
-            $allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
-            if (!in_array($file['type'], $allowedTypes)) {
-                $_SESSION['error'] = "Type de fichier non autorisé. Utilisez JPG, PNG ou GIF.";
+            // === UTILISATION DE LA MÉTHODE CENTRALISÉE ===
+            // On traite l'image avec notre méthode qui fait tout le travail
+            $resultatTraitement = $this->traiterImage($file, './public/img_immo/');
+
+            // === VÉRIFICATION DU RÉSULTAT ===
+            if (!$resultatTraitement['success']) {
+                // Si le traitement a échoué, on affiche l'erreur et on arrête
+                $_SESSION['error'] = $resultatTraitement['error'];
                 header("Location: index.php?action=images&id_bien=$idBien");
                 exit;
             }
 
-            // Création du nom unique
-            $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
-            $newName = 'photo' . uniqid() . '.' . $extension;
-            $destination = './public/img_immo/' . $newName;
+            // === ENREGISTREMENT DE LA NOUVELLE IMAGE ===
+            // Extraction de l'extension pour la base de données
+            $extension = pathinfo($resultatTraitement['vignette'], PATHINFO_EXTENSION);
 
-            // Upload du fichier
-            if (move_uploaded_file($file['tmp_name'], $destination)) {
-                // Créer l'entrée en base
-                $titre = 'Image principale - ' . date('Y-m-d H:i:s');
-                $alt = 'Image principale du bien';
-                $idImage = $this->imgRepo->insertImage($titre, $destination, $alt, $extension);
+            // Créer l'entrée image dans la base (on stocke la vignette optimisée)
+            $titre = 'Image principale - ' . date('Y-m-d H:i:s');
+            $alt = 'Image principale du bien';
+            $idImage = $this->imgRepo->insertImage($titre, $resultatTraitement['vignette'], $alt, $extension);
 
-                // Mettre toutes les images en secondaires
-                $this->imgRepo->setAllSecondaires($idBien);
+            // Mettre toutes les images existantes en secondaires
+            $this->imgRepo->setAllSecondaires($idBien);
 
-                // Créer l'association et définir comme principale
-                $this->imgRepo->createAssociation($idBien, $idImage, 1);
+            // Créer l'association comme image principale (1 = principale)
+            $this->imgRepo->createAssociation($idBien, $idImage, 1);
 
-                $_SESSION['success'] = "Image principale modifiée avec succès.";
-            } else {
-                $_SESSION['error'] = "Erreur lors du téléchargement de l'image.";
-            }
+            $_SESSION['success'] = "Image principale modifiée avec succès.";
         }
 
         header("Location: index.php?action=images&id_bien=$idBien");
@@ -235,6 +233,24 @@ class BiensImmoController
             // Supprimer le fichier physique si l'image existe
             if ($image && file_exists($image['chemin_image'])) {
                 unlink($image['chemin_image']);
+
+                // === SUPPRESSION DE LA VIGNETTE ASSOCIÉE ===
+                // Si l'image stockée est une vignette (commence par "vignette_"), 
+                // on supprime aussi l'original
+                $cheminImage = $image['chemin_image'];
+                if (strpos(basename($cheminImage), 'vignette_') === 0) {
+                    // L'image stockée est une vignette, supprimer l'original
+                    $cheminOriginal = str_replace('/vignette_', '/', $cheminImage);
+                    if (file_exists($cheminOriginal)) {
+                        unlink($cheminOriginal);
+                    }
+                } else {
+                    // L'image stockée est l'original, supprimer la vignette
+                    $cheminVignette = dirname($cheminImage) . '/vignette_' . basename($cheminImage);
+                    if (file_exists($cheminVignette)) {
+                        unlink($cheminVignette);
+                    }
+                }
             }
             $_SESSION['success'] = "Image supprimée avec succès.";
         } else {
@@ -250,36 +266,271 @@ class BiensImmoController
         if (isset($_FILES['ajout_image_secondaire']) && $_FILES['ajout_image_secondaire']['error'] === 0) {
             $file = $_FILES['ajout_image_secondaire'];
 
-            // Validation du type de fichier
-            $allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
-            if (!in_array($file['type'], $allowedTypes)) {
-                $_SESSION['error'] = "Type de fichier non autorisé. Utilisez JPG, PNG ou GIF.";
+            // === UTILISATION DE LA MÉTHODE CENTRALISÉE ===
+            // On traite l'image avec notre méthode qui fait tout le travail
+            $resultatTraitement = $this->traiterImage($file, './public/img_immo/');
+
+            // === VÉRIFICATION DU RÉSULTAT ===
+            if (!$resultatTraitement['success']) {
+                // Si le traitement a échoué, on affiche l'erreur et on arrête
+                $_SESSION['error'] = $resultatTraitement['error'];
                 header("Location: index.php?action=images&id_bien=$idBien");
                 exit;
             }
 
-            // Création du nom unique
-            $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
-            $newName = 'photo' . uniqid() . '.' . $extension;
-            $destination = './public/img_immo/' . $newName;
+            // === ENREGISTREMENT DE LA NOUVELLE IMAGE ===
+            // Extraction de l'extension pour la base de données
+            $extension = pathinfo($resultatTraitement['vignette'], PATHINFO_EXTENSION);
 
-            // Upload du fichier
-            if (move_uploaded_file($file['tmp_name'], $destination)) {
-                // Créer l'entrée en base
-                $titre = 'Image secondaire - ' . date('Y-m-d H:i:s');
-                $alt = 'Image secondaire du bien';
-                $idImage = $this->imgRepo->insertImage($titre, $destination, $alt, $extension);
+            // Créer l'entrée image dans la base (on stocke la vignette optimisée)
+            $titre = 'Image secondaire - ' . date('Y-m-d H:i:s');
+            $alt = 'Image secondaire du bien';
+            $idImage = $this->imgRepo->insertImage($titre, $resultatTraitement['vignette'], $alt, $extension);
 
-                // Créer l'association comme image secondaire
-                $this->imgRepo->createAssociation($idBien, $idImage, 0);
+            // Créer l'association comme image secondaire (0 = secondaire)
+            $this->imgRepo->createAssociation($idBien, $idImage, 0);
 
-                $_SESSION['success'] = "Image secondaire ajoutée avec succès.";
-            } else {
-                $_SESSION['error'] = "Erreur lors du téléchargement de l'image.";
-            }
+            $_SESSION['success'] = "Image secondaire ajoutée avec succès.";
         }
 
         header("Location: index.php?action=images&id_bien=$idBien");
+        exit;
+    }
+    /**
+     * Traite et redimensionne une image uploadée
+     * Cette méthode fait tout le travail de traitement d'image en une seule fois
+     * @param array $file Le fichier de $_FILES (ex: $_FILES['mon_input'])
+     * @param string $destination Le dossier où sauver l'image (ex: './public/img_immo/')
+     * @param int $largeurMax La largeur maximum pour la vignette (par défaut 300px)
+     * @return array Un tableau avec le résultat : ['success' => true/false, 'original' => chemin, 'vignette' => chemin, 'error' => message]
+     */
+    private function traiterImage(array $file, string $destination, int $largeurMax = 300): array
+    {
+        // === ÉTAPE 1 : INITIALISATION DU RÉSULTAT ===
+        // On prépare un tableau qui contiendra le résultat de notre traitement
+        $result = [
+            'success' => false,        // Est-ce que tout s'est bien passé ?
+            'original' => '',          // Chemin vers l'image originale
+            'vignette' => '',          // Chemin vers l'image redimensionnée
+            'error' => ''              // Message d'erreur si problème
+        ];
+
+        // === ÉTAPE 2 : VALIDATION DU TYPE DE FICHIER ===
+        // On vérifie que c'est bien une image (sécurité importante !)
+        $allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+        if (!in_array($file['type'], $allowedTypes)) {
+            $result['error'] = "Type de fichier non autorisé. Utilisez JPG, PNG ou GIF.";
+            return $result; // On arrête tout et on retourne l'erreur
+        }
+
+        // === ÉTAPE 3 : EXTRACTION DE L'EXTENSION ===
+        // Le type MIME est comme "image/jpeg", on veut juste "jpeg"
+        $typeParts = explode('/', $file['type']); // Découpe "image/jpeg" en ["image", "jpeg"]
+        $extension = $typeParts[1];               // On prend la deuxième partie : "jpeg"
+
+        // === ÉTAPE 4 : NORMALISATION DE L'EXTENSION ===
+        // On veut toujours "jpg" au lieu de "jpeg" pour simplifier
+        if ($extension === 'jpeg') {
+            $extension = 'jpg';
+        }
+
+        // === ÉTAPE 5 : GÉNÉRATION D'UN NOM UNIQUE ===
+        // uniqid() génère un identifiant unique pour éviter les doublons
+        $newName = 'photo' . uniqid() . '.' . $extension;
+        $cheminOriginal = $destination . $newName; // Ex: './public/img_immo/photo507f1f77bcf86cd799439011.jpg'
+
+        // === ÉTAPE 6 : UPLOAD DU FICHIER ORIGINAL ===
+        // On déplace le fichier temporaire vers sa destination finale
+        if (!move_uploaded_file($file['tmp_name'], $cheminOriginal)) {
+            $result['error'] = "Erreur lors du téléchargement de l'image.";
+            return $result; // Échec de l'upload, on arrête
+        }
+
+        // === ÉTAPE 7 : TRAITEMENT DE L'IMAGE (avec gestion d'erreurs) ===
+        try {
+            // === SOUS-ÉTAPE 7.1 : LECTURE DES DIMENSIONS ORIGINALES ===
+            // getimagesize() nous donne la largeur et hauteur de l'image
+            $dimensionsOriginales = getimagesize($cheminOriginal);
+            if (!$dimensionsOriginales) {
+                $result['error'] = "Impossible de lire les dimensions de l'image.";
+                return $result;
+            }
+
+            $largeurOriginale = $dimensionsOriginales[0]; // Largeur en pixels
+            $hauteurOriginale = $dimensionsOriginales[1]; // Hauteur en pixels
+
+            // === SOUS-ÉTAPE 7.2 : CALCUL DES NOUVELLES DIMENSIONS ===
+            // On garde les proportions ! Si l'image fait 800x600 et qu'on veut 300px de large :
+            // Nouvelle hauteur = 300 * 600 / 800 = 225px
+            $vignetteLargeur = min($largeurMax, $largeurOriginale); // Ne pas agrandir si l'image est plus petite
+            $vignetteHauteur = round($vignetteLargeur * $hauteurOriginale / $largeurOriginale, 0);
+
+            // === SOUS-ÉTAPE 7.3 : CHEMIN DE LA VIGNETTE ===
+            // Ex: './public/img_immo/vignette_photo507f1f77bcf86cd799439011.jpg'
+            $cheminVignette = $destination . 'vignette_' . $newName;
+
+            // === SOUS-ÉTAPE 7.4 : CRÉATION D'UNE IMAGE VIERGE ===
+            // imagecreatetruecolor() crée une "toile" vierge de la taille qu'on veut
+            $imageVignette = imagecreatetruecolor($vignetteLargeur, $vignetteHauteur);
+
+            // === SOUS-ÉTAPE 7.5 : GESTION DE LA TRANSPARENCE ===
+            // Pour PNG et GIF, on veut préserver la transparence
+            if ($extension === 'png' || $extension === 'gif') {
+                imagealphablending($imageVignette, false);                    // Désactive le mélange de couleurs
+                imagesavealpha($imageVignette, true);                        // Active la sauvegarde de la transparence
+                $transparent = imagecolorallocatealpha($imageVignette, 255, 255, 255, 127); // Crée une couleur transparente
+                imagefill($imageVignette, 0, 0, $transparent);               // Remplit l'image de transparent
+            }
+
+            // === SOUS-ÉTAPE 7.6 : CHARGEMENT DE L'IMAGE SOURCE ===
+            // On charge l'image originale en mémoire selon son type
+            $imageSource = null;
+            switch ($extension) {
+                case 'jpg':
+                    $imageSource = imagecreatefromjpeg($cheminOriginal); // Charge un JPEG
+                    break;
+                case 'png':
+                    $imageSource = imagecreatefrompng($cheminOriginal);  // Charge un PNG
+                    break;
+                case 'gif':
+                    $imageSource = imagecreatefromgif($cheminOriginal);  // Charge un GIF
+                    break;
+            }
+
+            // Vérification que le chargement a marché
+            if (!$imageSource) {
+                $result['error'] = "Impossible de traiter l'image.";
+                return $result;
+            }
+
+            // === SOUS-ÉTAPE 7.7 : REDIMENSIONNEMENT AVEC HAUTE QUALITÉ ===
+            // imagecopyresampled() fait un redimensionnement de haute qualité
+            // Les paramètres : (destination, source, x_dest, y_dest, x_source, y_source, largeur_dest, hauteur_dest, largeur_source, hauteur_source)
+            imagecopyresampled(
+                $imageVignette,      // L'image de destination (notre vignette)
+                $imageSource,        // L'image source (l'originale)
+                0,
+                0,               // On commence à copier au point (0,0) de la destination
+                0,
+                0,               // On commence à lire au point (0,0) de la source
+                $vignetteLargeur,   // Largeur de destination
+                $vignetteHauteur,   // Hauteur de destination
+                $largeurOriginale,  // Largeur de source (toute l'image)
+                $hauteurOriginale   // Hauteur de source (toute l'image)
+            );
+
+            // === SOUS-ÉTAPE 7.8 : SAUVEGARDE DE LA VIGNETTE ===
+            // On sauvegarde selon le type, avec optimisation de qualité
+            $saveSuccess = false;
+            switch ($extension) {
+                case 'jpg':
+                    $saveSuccess = imagejpeg($imageVignette, $cheminVignette, 85); // Qualité 85% (bon compromis)
+                    break;
+                case 'png':
+                    $saveSuccess = imagepng($imageVignette, $cheminVignette, 6);   // Compression niveau 6
+                    break;
+                case 'gif':
+                    $saveSuccess = imagegif($imageVignette, $cheminVignette);      // GIF sans compression
+                    break;
+            }
+
+            // === SOUS-ÉTAPE 7.9 : LIBÉRATION DE LA MÉMOIRE ===
+            // IMPORTANT : libérer la mémoire pour éviter les fuites
+            imagedestroy($imageSource);  // Supprime l'image source de la mémoire
+            imagedestroy($imageVignette); // Supprime l'image vignette de la mémoire
+
+            // === ÉTAPE 8 : RÉSULTAT FINAL ===
+            if ($saveSuccess) {
+                // Tout s'est bien passé !
+                $result['success'] = true;
+                $result['original'] = $cheminOriginal;  // Chemin vers l'image complète
+                $result['vignette'] = $cheminVignette;  // Chemin vers l'image optimisée
+            } else {
+                $result['error'] = "Erreur lors de la création de la vignette.";
+            }
+        } catch (Exception $e) {
+            // === GESTION D'ERREURS GÉNÉRALES ===
+            // Si quelque chose se passe mal, on capture l'erreur
+            $result['error'] = "Erreur lors du traitement de l'image : " . $e->getMessage();
+        }
+
+        // On retourne le résultat (succès ou échec)
+        return $result;
+    }
+
+    /**
+     * MÉTHODE UTILITAIRE : Migrer les anciennes images vers le nouveau système
+     * 
+     * Cette méthode parcourt toutes les images existantes et crée leurs vignettes
+     * si elles n'existent pas déjà. Utile pour migrer un site existant.
+     */
+    public function migrerAnciennesImages()
+    {
+        // === RÉCUPÉRATION DE TOUTES LES IMAGES ===
+        $toutesLesImages = $this->imgRepo->getAllImages(); // Vous devrez créer cette méthode
+        $nbTraitees = 0;
+        $nbErreurs = 0;
+
+        foreach ($toutesLesImages as $image) {
+            $cheminOriginal = $image['chemin_image'];
+
+            // Vérifier si l'image originale existe
+            if (!file_exists($cheminOriginal)) {
+                continue; // Passer à l'image suivante si le fichier n'existe pas
+            }
+
+            // Vérifier si ce n'est pas déjà une vignette
+            if (strpos(basename($cheminOriginal), 'vignette_') === 0) {
+                continue; // C'est déjà une vignette, on passe
+            }
+
+            // Calculer le chemin de la vignette
+            $cheminVignette = dirname($cheminOriginal) . '/vignette_' . basename($cheminOriginal);
+
+            // Si la vignette existe déjà, on passe
+            if (file_exists($cheminVignette)) {
+                continue;
+            }
+
+            // === CRÉATION DE LA VIGNETTE ===
+            try {
+                // Simuler un fichier $_FILES pour utiliser traiterImage()
+                $fakeFile = [
+                    'tmp_name' => $cheminOriginal,
+                    'type' => mime_content_type($cheminOriginal),
+                    'size' => filesize($cheminOriginal),
+                    'name' => basename($cheminOriginal)
+                ];
+
+                // Copier l'original vers un fichier temporaire
+                $tempFile = $cheminOriginal . '_temp';
+                copy($cheminOriginal, $tempFile);
+                $fakeFile['tmp_name'] = $tempFile;
+
+                // Traiter l'image
+                $resultat = $this->traiterImage($fakeFile, './public/img_immo/');
+
+                // Nettoyer le fichier temporaire
+                if (file_exists($tempFile)) {
+                    unlink($tempFile);
+                }
+
+                if ($resultat['success']) {
+                    // Mettre à jour la base pour pointer vers la vignette
+                    $this->imgRepo->updateImagePath($image['id'], $resultat['vignette']);
+                    $nbTraitees++;
+                } else {
+                    $nbErreurs++;
+                    error_log("Erreur migration image {$image['id']}: " . $resultat['error']);
+                }
+            } catch (Exception $e) {
+                $nbErreurs++;
+                error_log("Exception migration image {$image['id']}: " . $e->getMessage());
+            }
+        }
+
+        $_SESSION['success'] = "Migration terminée : $nbTraitees images traitées, $nbErreurs erreurs.";
+        header("Location: index.php?action=admin"); // Rediriger vers une page admin
         exit;
     }
 }

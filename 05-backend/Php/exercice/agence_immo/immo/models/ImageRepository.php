@@ -108,4 +108,48 @@ class ImageRepository
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result ?: null;
     }
+
+    /**
+     * Récupère toutes les images de la base (pour migration)
+     */
+    public function getAllImages(): array
+    {
+        $sql = "SELECT id_image, titre_image, chemin_image, texte_alternatif, extension 
+                FROM images 
+                ORDER BY id_image";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Met à jour le chemin d'une image
+     */
+    public function updateImagePath(int $idImage, string $nouveauChemin): bool
+    {
+        $sql = "UPDATE images 
+                SET chemin_image = :chemin 
+                WHERE id_image = :id";
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute([
+            'chemin' => $nouveauChemin,
+            'id' => $idImage
+        ]);
+    }
+
+    /**
+     * Récupère l'image principale d'un bien
+     */
+    public function getImagePrincipale(int $idBien): ?array
+    {
+        $sql = "SELECT images.id_image as id, images.titre_image, images.chemin_image, images.texte_alternatif, images.extension
+                FROM images
+                INNER JOIN association_img ON images.id_image = association_img.id_image
+                WHERE association_img.id = ? AND association_img.img_ppal = 1
+                LIMIT 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$idBien]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ?: null;
+    }
 }

@@ -50,7 +50,8 @@ $actionsAvecRedirection = [
     'changer_image_principale',  // Remplace l'image principale d'un bien
     'promouvoir_image',         // Définit une image secondaire comme principale
     'supprimer_image',          // Supprime une image
-    'ajouter_image_secondaire'  // Ajoute une nouvelle image secondaire
+    'ajouter_image_secondaire', // Ajoute une nouvelle image secondaire
+    'migrer_images'            // Migre les anciennes images vers le nouveau système
 ];
 
 // Si l'action demandée fait partie des actions avec redirection
