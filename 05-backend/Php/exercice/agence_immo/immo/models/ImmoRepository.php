@@ -226,14 +226,10 @@ class ImmoRepository
     /**
      * Supprime un bien immobilier
      */
-    public function deleteBien(int $id): bool
+    public function deleteBien(int $id): bool 
     {
         $sql = "DELETE 
-                FROM biens_immobiliers
-                WHERE id = ?";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute([$id]);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result ?: null;
+        FROM images
+        WHERE id"
     }
 }

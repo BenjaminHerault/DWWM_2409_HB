@@ -1,0 +1,15 @@
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\bin\Debug\net8.0\EsTuMajeur.exe
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\bin\Debug\net8.0\EsTuMajeur.deps.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\bin\Debug\net8.0\EsTuMajeur.runtimeconfig.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\bin\Debug\net8.0\EsTuMajeur.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\bin\Debug\net8.0\EsTuMajeur.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\obj\Debug\net8.0\EsTuMajeur.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\obj\Debug\net8.0\EsTuMajeur.AssemblyInfoInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\obj\Debug\net8.0\EsTuMajeur.AssemblyInfo.cs
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\obj\Debug\net8.0\EsTuMajeur.csproj.CoreCompileInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\obj\Debug\net8.0\EsTuMajeur.sourcelink.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\obj\Debug\net8.0\EsTuMajeur.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\obj\Debug\net8.0\refint\EsTuMajeur.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\obj\Debug\net8.0\EsTuMajeur.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\obj\Debug\net8.0\EsTuMajeur.genruntimeconfig.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\EsTuMajeur\obj\Debug\net8.0\ref\EsTuMajeur.dll

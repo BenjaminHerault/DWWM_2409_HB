@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ClassLibraryBouteille/1.0.0": {
+        "runtime": {
+          "ClassLibraryBouteille.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ClassLibraryBouteille/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

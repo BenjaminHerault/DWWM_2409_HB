@@ -1,0 +1,15 @@
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\bin\Debug\net8.0\rechercherUnNombreDansUnTableau.exe
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\bin\Debug\net8.0\rechercherUnNombreDansUnTableau.deps.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\bin\Debug\net8.0\rechercherUnNombreDansUnTableau.runtimeconfig.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\bin\Debug\net8.0\rechercherUnNombreDansUnTableau.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\bin\Debug\net8.0\rechercherUnNombreDansUnTableau.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\obj\Debug\net8.0\rechercherUnNombreDansUnTableau.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\obj\Debug\net8.0\rechercherUnNombreDansUnTableau.AssemblyInfoInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\obj\Debug\net8.0\rechercherUnNombreDansUnTableau.AssemblyInfo.cs
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\obj\Debug\net8.0\rechercherUnNombreDansUnTableau.csproj.CoreCompileInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\obj\Debug\net8.0\rechercherUnNombreDansUnTableau.sourcelink.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\obj\Debug\net8.0\rechercherUnNombreDansUnTableau.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\obj\Debug\net8.0\refint\rechercherUnNombreDansUnTableau.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\obj\Debug\net8.0\rechercherUnNombreDansUnTableau.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\obj\Debug\net8.0\rechercherUnNombreDansUnTableau.genruntimeconfig.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxPartieCinq\obj\Debug\net8.0\ref\rechercherUnNombreDansUnTableau.dll

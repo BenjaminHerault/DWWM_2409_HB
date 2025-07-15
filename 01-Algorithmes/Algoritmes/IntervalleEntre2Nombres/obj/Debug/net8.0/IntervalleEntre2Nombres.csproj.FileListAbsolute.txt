@@ -1,0 +1,15 @@
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\bin\Debug\net8.0\IntervalleEntre2Nombres.exe
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\bin\Debug\net8.0\IntervalleEntre2Nombres.deps.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\bin\Debug\net8.0\IntervalleEntre2Nombres.runtimeconfig.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\bin\Debug\net8.0\IntervalleEntre2Nombres.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\bin\Debug\net8.0\IntervalleEntre2Nombres.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\obj\Debug\net8.0\IntervalleEntre2Nombres.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\obj\Debug\net8.0\IntervalleEntre2Nombres.AssemblyInfoInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\obj\Debug\net8.0\IntervalleEntre2Nombres.AssemblyInfo.cs
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\obj\Debug\net8.0\IntervalleEntre2Nombres.csproj.CoreCompileInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\obj\Debug\net8.0\IntervalleEntre2Nombres.sourcelink.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\obj\Debug\net8.0\IntervalleEntre2Nombres.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\obj\Debug\net8.0\refint\IntervalleEntre2Nombres.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\obj\Debug\net8.0\IntervalleEntre2Nombres.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\obj\Debug\net8.0\IntervalleEntre2Nombres.genruntimeconfig.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\IntervalleEntre2Nombres\obj\Debug\net8.0\ref\IntervalleEntre2Nombres.dll

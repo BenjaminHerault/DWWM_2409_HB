@@ -1,0 +1,15 @@
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\bin\Debug\net8.0\monPremierObject.exe
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\bin\Debug\net8.0\monPremierObject.deps.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\bin\Debug\net8.0\monPremierObject.runtimeconfig.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\bin\Debug\net8.0\monPremierObject.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\bin\Debug\net8.0\monPremierObject.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\obj\Debug\net8.0\monPremierObject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\obj\Debug\net8.0\monPremierObject.AssemblyInfoInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\obj\Debug\net8.0\monPremierObject.AssemblyInfo.cs
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\obj\Debug\net8.0\monPremierObject.csproj.CoreCompileInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\obj\Debug\net8.0\monPremierObject.sourcelink.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\obj\Debug\net8.0\monPremierObject.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\obj\Debug\net8.0\refint\monPremierObject.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\obj\Debug\net8.0\monPremierObject.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\obj\Debug\net8.0\monPremierObject.genruntimeconfig.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\monPremierObject\obj\Debug\net8.0\ref\monPremierObject.dll

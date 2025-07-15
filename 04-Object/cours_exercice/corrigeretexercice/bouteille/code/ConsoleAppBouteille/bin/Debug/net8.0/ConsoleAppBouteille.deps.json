@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ConsoleAppBouteille/1.0.0": {
+        "dependencies": {
+          "ClassLibraryBouteille": "1.0.0"
+        },
+        "runtime": {
+          "ConsoleAppBouteille.dll": {}
+        }
+      },
+      "ClassLibraryBouteille/1.0.0": {
+        "runtime": {
+          "ClassLibraryBouteille.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleAppBouteille/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ClassLibraryBouteille/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

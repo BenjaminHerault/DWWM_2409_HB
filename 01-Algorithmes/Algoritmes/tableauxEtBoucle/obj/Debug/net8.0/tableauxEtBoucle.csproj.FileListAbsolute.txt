@@ -1,0 +1,5 @@
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxEtBoucle\obj\Debug\net8.0\tableauxEtBoucle.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxEtBoucle\obj\Debug\net8.0\tableauxEtBoucle.AssemblyInfoInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxEtBoucle\obj\Debug\net8.0\tableauxEtBoucle.AssemblyInfo.cs
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxEtBoucle\obj\Debug\net8.0\tableauxEtBoucle.csproj.CoreCompileInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\tableauxEtBoucle\obj\Debug\net8.0\tableauxEtBoucle.sourcelink.json

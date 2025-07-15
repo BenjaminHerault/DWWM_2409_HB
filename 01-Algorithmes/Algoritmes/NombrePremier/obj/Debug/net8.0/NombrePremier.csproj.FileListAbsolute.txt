@@ -1,0 +1,15 @@
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\obj\Debug\net8.0\NombrePremier.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\obj\Debug\net8.0\NombrePremier.AssemblyInfoInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\obj\Debug\net8.0\NombrePremier.AssemblyInfo.cs
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\obj\Debug\net8.0\NombrePremier.csproj.CoreCompileInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\obj\Debug\net8.0\NombrePremier.sourcelink.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\bin\Debug\net8.0\NombrePremier.exe
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\bin\Debug\net8.0\NombrePremier.deps.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\bin\Debug\net8.0\NombrePremier.runtimeconfig.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\bin\Debug\net8.0\NombrePremier.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\bin\Debug\net8.0\NombrePremier.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\obj\Debug\net8.0\NombrePremier.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\obj\Debug\net8.0\refint\NombrePremier.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\obj\Debug\net8.0\NombrePremier.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\obj\Debug\net8.0\NombrePremier.genruntimeconfig.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\NombrePremier\obj\Debug\net8.0\ref\NombrePremier.dll

@@ -1,0 +1,15 @@
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\bin\Debug\net8.0\MaBicyclette.exe
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\bin\Debug\net8.0\MaBicyclette.deps.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\bin\Debug\net8.0\MaBicyclette.runtimeconfig.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\bin\Debug\net8.0\MaBicyclette.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\bin\Debug\net8.0\MaBicyclette.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\obj\Debug\net8.0\MaBicyclette.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\obj\Debug\net8.0\MaBicyclette.AssemblyInfoInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\obj\Debug\net8.0\MaBicyclette.AssemblyInfo.cs
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\obj\Debug\net8.0\MaBicyclette.csproj.CoreCompileInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\obj\Debug\net8.0\MaBicyclette.sourcelink.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\obj\Debug\net8.0\MaBicyclette.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\obj\Debug\net8.0\refint\MaBicyclette.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\obj\Debug\net8.0\MaBicyclette.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\obj\Debug\net8.0\MaBicyclette.genruntimeconfig.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaBicyclette\obj\Debug\net8.0\ref\MaBicyclette.dll

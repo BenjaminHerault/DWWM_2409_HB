@@ -1,0 +1,15 @@
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\bin\Debug\net8.0\MaRetraite.exe
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\bin\Debug\net8.0\MaRetraite.deps.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\bin\Debug\net8.0\MaRetraite.runtimeconfig.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\bin\Debug\net8.0\MaRetraite.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\bin\Debug\net8.0\MaRetraite.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\obj\Debug\net8.0\MaRetraite.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\obj\Debug\net8.0\MaRetraite.AssemblyInfoInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\obj\Debug\net8.0\MaRetraite.AssemblyInfo.cs
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\obj\Debug\net8.0\MaRetraite.csproj.CoreCompileInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\obj\Debug\net8.0\MaRetraite.sourcelink.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\obj\Debug\net8.0\MaRetraite.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\obj\Debug\net8.0\refint\MaRetraite.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\obj\Debug\net8.0\MaRetraite.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\obj\Debug\net8.0\MaRetraite.genruntimeconfig.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\MaRetraite\obj\Debug\net8.0\ref\MaRetraite.dll
