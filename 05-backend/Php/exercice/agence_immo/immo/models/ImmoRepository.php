@@ -230,6 +230,8 @@ class ImmoRepository
     {
         $sql = "DELETE 
         FROM images
-        WHERE id"
+        WHERE id_image = ?";
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute([$id]);
     }
 }

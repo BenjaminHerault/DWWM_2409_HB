@@ -1,0 +1,58 @@
+/* ========================================
+   STYLES POUR LA PAGE DÉTAIL BIEN
+   ======================================== */
+
+/* Style pour l'image de détail du bien */
+.detail-image {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 0.375rem 0 0 0.375rem;
+}
+
+/* Styles spécifiques pour les cartes de biens */
+.bien-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bien-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.bien-titre {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.bien-prix {
+  color: #28a745;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.bien-info {
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+.bien-description {
+  text-align: justify;
+  line-height: 1.6;
+}
+
+/* Icônes pour les informations */
+.info-icon {
+  margin-right: 8px;
+  width: 16px;
+  display: inline-block;
+}
+
+/* Boutons d'action */
+.btn-retour {
+  transition: all 0.3s ease;
+}
+
+.btn-retour:hover {
+  transform: translateX(-5px);
+}

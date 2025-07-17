@@ -1,0 +1,190 @@
+/* 
+ * STYLES POUR LA PAGE DE GESTION DES IMAGES
+ * Fichier dédié pour éviter le CSS inline dans le HTML
+ */
+
+/* === CONTENEUR PRINCIPAL === */
+.gestion-images-container {
+    margin-top: 2rem;
+}
+
+.gestion-images-title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* === SECTION IMAGE PRINCIPALE === */
+.image-principale-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.image-principale-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.image-principale {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 3px solid #007bff;
+}
+
+.form-changer-principale {
+    margin-top: 10px;
+}
+
+/* === SECTION IMAGES SECONDAIRES === */
+.images-secondaires-section {
+    margin-bottom: 2rem;
+}
+
+.images-secondaires-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.images-secondaires-container {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* === IMAGES SECONDAIRES === */
+.image-secondaire-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.image-secondaire {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+.image-secondaire:hover {
+    border-color: #007bff;
+}
+
+/* === BOUTONS D'ACTION === */
+.btn-promouvoir {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+
+.btn-supprimer {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+/* === ZONE D'AJOUT D'IMAGE === */
+.form-ajouter-image {
+    display: inline-block;
+}
+
+.zone-ajout-image {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border: 2px dashed #007bff;
+    border-radius: 10px;
+    font-size: 2.5rem;
+    color: #007bff;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.zone-ajout-image:hover {
+    background: #e9ecef;
+    border-color: #0056b3;
+    color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* === CHAMPS DE FICHIER CACHÉS === */
+.input-file-cache {
+    display: none;
+}
+
+/* === BOUTON RETOUR === */
+.btn-retour {
+    margin-top: 2rem;
+}
+
+/* === MESSAGES D'ALERTE === */
+.alert {
+    margin-bottom: 1.5rem;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .images-secondaires-container {
+        justify-content: center;
+    }
+    
+    .image-principale {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .image-secondaire {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .zone-ajout-image {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.image-secondaire-wrapper {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* === EFFET HOVER SUR LES BOUTONS === */
+.btn-promouvoir:hover {
+    transform: scale(1.1);
+}
+
+.btn-supprimer:hover {
+    transform: scale(1.1);
+}
+
+/* === LOADER POUR L'UPLOAD === */
+.upload-loader {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #007bff;
+}

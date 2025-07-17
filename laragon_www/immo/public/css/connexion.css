@@ -1,0 +1,60 @@
+/* ========================================
+   STYLES POUR LES FORMULAIRES DE CONNEXION
+   ======================================== */
+
+.text-on-pannel {
+  background: #fff none repeat scroll 0 0;
+  height: auto;
+  margin-left: 20px;
+  padding: 3px 5px;
+  position: absolute;
+  margin-top: -47px;
+  border: 1px solid #337ab7;
+  border-radius: 8px;
+}
+
+.panel {
+  margin-top: 27px !important;
+}
+
+.panel-body {
+  padding-top: 30px !important;
+}
+
+.form-center {
+  text-align: center;
+}
+
+.form-center-full {
+  text-align: center;
+  width: 100%;
+}
+
+.form-label {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.btn-center {
+  text-align: center;
+}
+
+/* Styles pour les champs de formulaire */
+label {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+fieldset {
+  margin-top: 50px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.currencyinput {
+  border: 1px inset #ccc;
+}
+
+.currencyinput input {
+  border: 0;
+}
