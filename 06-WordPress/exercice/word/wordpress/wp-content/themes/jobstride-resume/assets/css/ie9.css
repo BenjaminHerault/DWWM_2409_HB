@@ -1,0 +1,43 @@
+/*
+Theme Name: Jobstride Resume
+Description: IE9 specific styles.
+*/
+
+.has-header-image.jobstride-resume-front-page .custom-header,
+.has-header-video.jobstride-resume-front-page .custom-header,
+.has-header-image.home.blog .custom-header,
+.has-header-video.home.blog .custom-header {
+	height: 300px;
+}
+
+.has-header-image .custom-header-media img,
+.has-header-video .custom-header-media video,
+.has-header-video .custom-header-media iframe {
+	min-width: 100%;
+}
+
+@media screen and (min-width: 30em) {
+
+	.has-header-image.jobstride-resume-front-page .custom-header,
+	.has-header-video.jobstride-resume-front-page .custom-header,
+	.has-header-image.home.blog .custom-header,
+	.has-header-video.home.blog .custom-header,
+	.jobstride-resume-front-page.has-header-image .custom-header-media,
+	.home.blog.has-header-image .custom-header-media,
+	.panel-image {
+		height: 700px;
+	}
+}
+
+@media screen and (min-width: 48em) {
+
+	.has-header-image.jobstride-resume-front-page .custom-header,
+	.has-header-video.jobstride-resume-front-page .custom-header,
+	.has-header-image.home.blog .custom-header,
+	.has-header-video.home.blog .custom-header,
+	.jobstride-resume-front-page.has-header-image .custom-header-media,
+	.home.blog.has-header-image .custom-header-media,
+	.panel-image {
+		height: 1000px;
+	}
+}
