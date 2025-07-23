@@ -1,0 +1,15 @@
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\bin\Debug\net8.0\jeuDeLaFourchette.exe
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\bin\Debug\net8.0\jeuDeLaFourchette.deps.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\bin\Debug\net8.0\jeuDeLaFourchette.runtimeconfig.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\bin\Debug\net8.0\jeuDeLaFourchette.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\bin\Debug\net8.0\jeuDeLaFourchette.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\obj\Debug\net8.0\jeuDeLaFourchette.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\obj\Debug\net8.0\jeuDeLaFourchette.AssemblyInfoInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\obj\Debug\net8.0\jeuDeLaFourchette.AssemblyInfo.cs
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\obj\Debug\net8.0\jeuDeLaFourchette.csproj.CoreCompileInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\obj\Debug\net8.0\jeuDeLaFourchette.sourcelink.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\obj\Debug\net8.0\jeuDeLaFourchette.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\obj\Debug\net8.0\refint\jeuDeLaFourchette.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\obj\Debug\net8.0\jeuDeLaFourchette.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\obj\Debug\net8.0\jeuDeLaFourchette.genruntimeconfig.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\jeuDeLaFourchette\obj\Debug\net8.0\ref\jeuDeLaFourchette.dll

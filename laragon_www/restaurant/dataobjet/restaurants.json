@@ -1,0 +1,20 @@
+[
+    {
+        "id": 22,
+        "nom": "Je suis un restaurent  trop vhrer",
+        "adresse": "99 rue de la vie 688562",
+        "prix": "900.00",
+        "commentaire": "trop cherefk,ffffffffff",
+        "note": 5,
+        "visite": "2025-05-26 08:24:52"
+    },
+    {
+        "id": 24,
+        "nom": "gkjgmd sgùksùgùsgùskù",
+        "adresse": "99 rue de la vie 688562",
+        "prix": "90.00",
+        "commentaire": "echo htmlspecialchars('<b>Bonjour<\/b>');",
+        "note": 8,
+        "visite": "2025-05-27 09:33:54"
+    }
+]

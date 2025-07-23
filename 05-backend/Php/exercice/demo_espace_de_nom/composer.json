@@ -1,0 +1,10 @@
+{
+    "name": "bherault/dwwm_2409_hb",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require": {}
+}

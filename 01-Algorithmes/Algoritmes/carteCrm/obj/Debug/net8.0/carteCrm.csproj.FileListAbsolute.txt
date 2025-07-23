@@ -1,0 +1,15 @@
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\bin\Debug\net8.0\carteCrm.exe
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\bin\Debug\net8.0\carteCrm.deps.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\bin\Debug\net8.0\carteCrm.runtimeconfig.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\bin\Debug\net8.0\carteCrm.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\bin\Debug\net8.0\carteCrm.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\obj\Debug\net8.0\carteCrm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\obj\Debug\net8.0\carteCrm.AssemblyInfoInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\obj\Debug\net8.0\carteCrm.AssemblyInfo.cs
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\obj\Debug\net8.0\carteCrm.csproj.CoreCompileInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\obj\Debug\net8.0\carteCrm.sourcelink.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\obj\Debug\net8.0\carteCrm.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\obj\Debug\net8.0\refint\carteCrm.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\obj\Debug\net8.0\carteCrm.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\obj\Debug\net8.0\carteCrm.genruntimeconfig.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\carteCrm\obj\Debug\net8.0\ref\carteCrm.dll

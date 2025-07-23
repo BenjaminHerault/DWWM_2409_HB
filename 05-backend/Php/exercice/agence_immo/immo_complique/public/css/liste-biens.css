@@ -1,0 +1,134 @@
+/* Liste des biens immobiliers - Styles spécifiques */
+
+/* Conteneur principal */
+.biens-container {
+    margin-top: 3rem;
+}
+
+.biens-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Carte de filtres */
+.filter-card {
+    margin-bottom: 3rem;
+    border: 2px solid var(--bs-primary) !important;
+}
+
+.filter-card .card-header {
+    background-color: var(--bs-primary);
+    color: white;
+}
+
+.filter-card .card-header h5 {
+    margin-bottom: 0;
+}
+
+/* Labels des formulaires */
+.filter-label {
+    height: 24px;
+    display: block;
+}
+
+/* Bouton de recherche */
+.search-button-container {
+    text-align: center;
+}
+
+/* Cartes des biens */
+.bien-card {
+    margin-bottom: 3rem;
+    border: 2px solid #6c757d !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bien-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.bien-card-img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.bien-card-body {
+    padding: 1.5rem;
+}
+
+.bien-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #495057;
+}
+
+.bien-price {
+    font-weight: bold;
+    color: var(--bs-primary);
+    font-size: 1.1rem;
+}
+
+.bien-details {
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.bien-description {
+    color: #6c757d;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.bien-btn {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    transition: all 0.3s ease;
+}
+
+.bien-btn:hover {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .biens-container {
+        margin-top: 2rem;
+    }
+    
+    .biens-title {
+        margin-bottom: 2rem;
+        font-size: 1.75rem;
+    }
+    
+    .filter-card {
+        margin-bottom: 2rem;
+    }
+    
+    .bien-card {
+        margin-bottom: 2rem;
+    }
+    
+    .bien-card-img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .biens-title {
+        font-size: 1.5rem;
+    }
+    
+    .bien-card-img {
+        height: 160px;
+    }
+    
+    .bien-card-body {
+        padding: 1rem;
+    }
+}

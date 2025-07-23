@@ -1,0 +1,12 @@
+{
+    "name": "bherault/markdown",
+    "type": "library",
+    "require": {
+        "league/commonmark": "^2.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/"
+        }
+    }
+}

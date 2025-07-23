@@ -1,0 +1,15 @@
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\bin\Debug\net8.0\controleLaSaisieAvecLimite.exe
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\bin\Debug\net8.0\controleLaSaisieAvecLimite.deps.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\bin\Debug\net8.0\controleLaSaisieAvecLimite.runtimeconfig.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\bin\Debug\net8.0\controleLaSaisieAvecLimite.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\bin\Debug\net8.0\controleLaSaisieAvecLimite.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\obj\Debug\net8.0\controleLaSaisieAvecLimite.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\obj\Debug\net8.0\controleLaSaisieAvecLimite.AssemblyInfoInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\obj\Debug\net8.0\controleLaSaisieAvecLimite.AssemblyInfo.cs
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\obj\Debug\net8.0\controleLaSaisieAvecLimite.csproj.CoreCompileInputs.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\obj\Debug\net8.0\controleLaSaisieAvecLimite.sourcelink.json
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\obj\Debug\net8.0\controleLaSaisieAvecLimite.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\obj\Debug\net8.0\refint\controleLaSaisieAvecLimite.dll
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\obj\Debug\net8.0\controleLaSaisieAvecLimite.pdb
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\obj\Debug\net8.0\controleLaSaisieAvecLimite.genruntimeconfig.cache
+C:\Users\bherault\Documents\GitHub\DWWM_2409_HB\01-Algorithmes\Algoritmes\controleLaSaisieAvecLimite\obj\Debug\net8.0\ref\controleLaSaisieAvecLimite.dll
