@@ -10,6 +10,14 @@ $depDisponibles = $departRepository->getDepartementsDisponibles();
 
 // Récupération des touts les départements 
 //$depDisponibles = $departRepository->searchAll();
+
+
+// Inclusion de la classe InstitutionRepository
+require_once __DIR__ . '/models/InstitutionRepository.php';
+$institutionRepository = new InstitutionRepository();
+
+// Récupération des institutions
+$institutions = $institutionRepository->searchAll();
 ?>
 <!doctype html>
 <html lang="Fr">
@@ -116,7 +124,16 @@ $depDisponibles = $departRepository->getDepartementsDisponibles();
                         </tr>
                     </thead>
                     <tbody>
-
+                        <?php foreach ($institutions as $institution) : ?>
+                            <tr>
+                                <td><?= htmlspecialchars($institution['nom_etab'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($institution['type_etab'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($institution['nom_resp'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($institution['adresse'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($institution['mobile'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($institution['email'] ?? '') ?></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
 
