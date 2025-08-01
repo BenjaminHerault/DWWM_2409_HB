@@ -23,21 +23,24 @@ $colonnes = [
 ];
 
 //Récupération des filtres
+//Récupération des filtres
 $departementFiltre = isset($_GET['depList']) && !empty($_GET['depList']) ? $_GET['depList'] : null;
 $typesFiltre = isset($_GET['types']) && is_array($_GET['types']) ? $_GET['types'] : [];
 
-
 // Récupération des institutions avec les filtres
-if ($departementFiltre === 'all' || !empty($typesFiltre)) {
-    // Si "Tous les départements" est sélectionné ou si des types sont cochés
+if ($departementFiltre === 'all' || $departementFiltre === 'none' || is_numeric($departementFiltre) || !empty($typesFiltre)) {
+    // Conversion pour le repository
     if ($departementFiltre === 'all') {
-        $departementFiltre = null; // Pour récupérer tous les départements
+        $departementFiltre = null; // Tous les départements
     } else if (is_numeric($departementFiltre)) {
-        $departementFiltre = (int)$departementFiltre;
+        $departementFiltre = (int)$departementFiltre; // Département spécifique
     }
+    // Pour 'none', on garde la valeur string 'none'
+
     $institutions = $institutionRepository->searchWithFilters($departementFiltre, $typesFiltre);
 } else {
-    $institutions = []; // Si aucun filtre n'est appliqué, on affiche un tableau vide
+    // Par défaut, aucun listing n'est affiché (cahier des charges)
+    $institutions = [];
 }
 ?>
 <!doctype html>
@@ -48,10 +51,11 @@ if ($departementFiltre === 'all' || !empty($typesFiltre)) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Entrainement Centre de Readaptation</title>
     <!-- Bootstrap CSS depuis CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <!-- Tes styles personnalisés -->
     <link rel="stylesheet" media="screen" href="css/style.css">
     <link href="public/css/global.css" rel="stylesheet">
+    <script src="js/main.js" type="module"></script>
 </head>
 
 <body>
@@ -111,10 +115,10 @@ if ($departementFiltre === 'all' || !empty($typesFiltre)) {
                                         <!-- Filtre département -->
                                         <div class="col-md-4 mb-3">
                                             <input type="hidden" name="lib_cat" value="" id="lib_cat" />
-                                            <label for="depList" class="form-label filter-label">Choisisser votre département</label>
+                                            <label for="depList" class="form-label filter-label">Choisisser votre dépatement</label>
                                             <select name="depList" id="depList" class="form-select">
                                                 <option value="">Sélectionner un département</option>
-                                                <option value="all" <?php if (isset($_GET['depList']) && $_GET['depList'] == 'all') echo 'selected'; ?>>Tous les départements</option>
+                                                <option value="all">Tous les départements</option>
                                                 <?php foreach ($depDisponibles as $dep) : ?>
                                                     <option value="
                                                     <?= htmlspecialchars($dep['id_dep']) ?>"
@@ -130,6 +134,17 @@ if ($departementFiltre === 'all' || !empty($typesFiltre)) {
                                         <div class="col-md-8 mb-3">
                                             <label class="form-label filter-label">type d'établissements</label>
                                             <div class="row">
+                                                <div class="row mb-2">
+                                                    <div class="col-12">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="selectAll">
+                                                            <label class="form-check-label fw-bold" for="selectAll">
+                                                                Sélectionner tout
+                                                            </label>
+                                                        </div>
+                                                        <hr class="my-2">
+                                                    </div>
+                                                </div>
                                                 <?php
                                                 $typesEntreprises = [
                                                     'TPE' => 'TPE',
@@ -144,7 +159,7 @@ if ($departementFiltre === 'all' || !empty($typesFiltre)) {
                                                     <div class="col-md-4 mb-2">
                                                         <div class="form-check">
                                                             <input type="checkbox"
-                                                                class="form-check-input"
+                                                                class="form-check-input type-checkbox"
                                                                 name="types[]"
                                                                 value="<?= htmlspecialchars($valeur) ?>"
                                                                 id="type_<?= str_replace([' ', '(', ')'], ['_', '_', '_'], $valeur) ?>"
@@ -172,8 +187,11 @@ if ($departementFiltre === 'all' || !empty($typesFiltre)) {
                                             <a href="index.php" class="btn btn-secondary ms-2">
                                                 🔄️Réinitialiser
                                             </a>
+                                            <button type="button" class="btn btn-success ms-2" id="printBtn">
+                                                🖨️ Imprimer
+                                            </button>
                                             <span class="ms-3 text-muted">
-                                                <?php if ($departementFiltre === 'all' || $departementFiltre || !empty($typesFiltre)) : ?>
+                                                <?php if ($departementFiltre || !empty($typesFiltre)) : ?>
                                                     <?= count($institutions) ?> résultat(s) trouvé(s)
                                                 <?php else : ?>
                                                     Prêt pour la recherche
@@ -199,7 +217,7 @@ if ($departementFiltre === 'all' || !empty($typesFiltre)) {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (empty($institutions) && ($departementFiltre === 'all' || $departementFiltre || !empty($typesFiltre))) : ?>
+                        <?php if (empty($institutions) && ($departementFiltre === 'all' || $departementFiltre === 'none' || is_numeric($departementFiltre) || !empty($typesFiltre))) : ?>
                             <tr>
                                 <td colspan="<?= count($colonnes) ?>" class="text-center text-muted">
                                     Aucun résultat trouvé pour les critères sélectionnés
@@ -229,7 +247,7 @@ if ($departementFiltre === 'all' || !empty($typesFiltre)) {
         </footer>
     </div>
     <!-- Bootstrap JS depuis CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
