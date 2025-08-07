@@ -1,0 +1,32 @@
+/* Variables CSS pour les couleurs */
+:root {
+    --primary-color: #00008c;    /* Bleu principal */
+    --secondary-color: #3333a3;  /* Vert secondaire */
+    --accent-color: #e74c3c;     /* Rouge accent */
+    --text-color: #ffff00;       /* Couleur du texte */
+    --background-color: #00008c; /* Couleur de fond */
+    --color-bouton: #d7f7f7;
+    --couleurs-contour: #ff8c00;
+    --background-color-input: #5c5cb5;
+}
+
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+body{
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+.form{
+    background-color: var(--secondary-color);
+}
+.couleurs{
+    border-color: var(--couleurs-contour);
+    background-color: var(--background-color-input) ;
+}
+
+.text{
+    color: var(--color-bouton);
+}
