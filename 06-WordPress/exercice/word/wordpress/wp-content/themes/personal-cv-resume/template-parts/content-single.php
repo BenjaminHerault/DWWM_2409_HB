@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying posts
  *
@@ -9,37 +10,41 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( array('content-post-wrap') ); ?> data-aos="fade-up">
+<article id="post-<?php the_ID(); ?>" <?php post_class(array('content-post-wrap')); ?> data-aos="fade-up">
 
- 	 <?php
+    <?php
     /**
-    * Hook - personal_cv_resume_posts_blog_media.
-    *
-    * @hooked personal_cv_resume_posts_formats_thumbnail - 10
-    */
-    do_action( 'personal_cv_resume_posts_blog_media' );
+     * Hook - personal_cv_resume_posts_blog_media.
+     *
+     * @hooked personal_cv_resume_posts_formats_thumbnail - 10
+     */
+    do_action('personal_cv_resume_posts_blog_media');
     ?>
     <div class="post">
-    	
-		<?php
+
+        <?php
         /**
-        * Hook - personal-cv-resume_site_content_type.
-        *
-		* @hooked site_loop_heading - 10
-        * @hooked render_meta_list	- 20
-		* @hooked site_content_type - 30
-        */
-		
-		$meta = array();
-		$meta = array( 'author', 'date', 'category', 'comments' );
-		$meta = apply_filters( 'personal_cv_resume_single_post_meta', $meta );
+         * Hook - personal-cv-resume_site_content_type.
+         *
+         * @hooked site_loop_heading - 10
+         * @hooked render_meta_list	- 20
+         * @hooked site_content_type - 30
+         */
 
-		 do_action( 'personal_cv_resume_site_content_type', $meta  );
+        $meta = array();
+        $meta = array('author', 'date', 'category', 'comments');
 
-		 do_action( 'personal_cv_resume_do_tags', $meta  );
+        echo 'Employeur: ' . get_field('employeur') . '<br>';
+        echo 'Salaire: ' . get_field('remuneration') . ' € <br>';
+        echo 'Responsable: ' . get_field('responsable') . '<br>';
+        $meta = apply_filters('personal_cv_resume_single_post_meta', $meta);
+
+        do_action('personal_cv_resume_site_content_type', $meta);
+
+        do_action('personal_cv_resume_do_tags', $meta);
         ?>
-      
-       
+
+
     </div>
-    
+
 </article><!-- #post-<?php the_ID(); ?> -->
