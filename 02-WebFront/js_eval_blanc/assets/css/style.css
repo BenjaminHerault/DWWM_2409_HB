@@ -19,14 +19,46 @@ body{
     color: var(--text-color);
     background-color: var(--background-color);
 }
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
 .form{
     background-color: var(--secondary-color);
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
 }
 .couleurs{
-    border-color: var(--couleurs-contour);
     background-color: var(--background-color-input) ;
+    padding: 10px;
+    border: 2px solid var(--couleurs-contour);
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+    color: white;
 }
-
 .text{
     color: var(--color-bouton);
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+
+    font-weight: bold;
+}
+button.couleurs{
+    padding: 12px 30px;
+    border: 2px solid var(--couleurs-contour);
+    border-radius: 5px;
+    background-color: var(--background-color-input);
+    cursor: pointer;
+    font-weight: bold;
+}
+footer {
+    text-align: center;
+    margin-top: 50px;
+   
 }
