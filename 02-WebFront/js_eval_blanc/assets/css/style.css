@@ -1,64 +1,92 @@
-/* Variables CSS pour les couleurs */
-:root {
-    --primary-color: #00008c;    /* Bleu principal */
-    --secondary-color: #3333a3;  /* Vert secondaire */
-    --accent-color: #e74c3c;     /* Rouge accent */
-    --text-color: #ffff00;       /* Couleur du texte */
-    --background-color: #00008c; /* Couleur de fond */
-    --color-bouton: #d7f7f7;
-    --couleurs-contour: #ff8c00;
-    --background-color-input: #5c5cb5;
+:root 
+{
+    --couleurs-fond-principale: #00008b;
+    --couleurs-fond-secondaire: #3333a2;
+    --couleur-bordure: #ff8c00;
+    --couleurs-police: #ffff00;
+    --couleurs-input: #5c5cb5;
+    --couleurs-texte-bouton: #e0ffff;
+}
+* 
+{
+     margin: 0; 
+     padding: 0; 
 }
 
-*{
-    padding: 0%;
-    margin: 0%;
+body 
+{
+    background: var(--couleurs-fond-principale);
+    color: var(--couleurs-police);
+    font-family: Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-body{
-    color: var(--text-color);
-    background-color: var(--background-color);
+h1 
+{ 
+    margin-bottom: 30px; font-size: 2em; 
 }
-h1{
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2em;
-}
-.form{
-    background-color: var(--secondary-color);
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 30px;
+
+.form 
+{
+    width: 800px;
+    padding: 40px;
+    border: 2px solid var(--couleur-bordure);
     border-radius: 10px;
+    background: var(--couleurs-fond-secondaire);
+    margin: 20px auto;
 }
-.couleurs{
-    background-color: var(--background-color-input) ;
-    padding: 10px;
-    border: 2px solid var(--couleurs-contour);
-    border-radius: 5px;
-    width: 100%;
-    margin-bottom: 10px;
-    color: white;
-}
-.text{
-    color: var(--color-bouton);
-}
-label {
-    display: block;
-    margin-bottom: 5px;
 
-    font-weight: bold;
+.form-row 
+{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
 }
-button.couleurs{
-    padding: 12px 30px;
-    border: 2px solid var(--couleurs-contour);
-    border-radius: 5px;
-    background-color: var(--background-color-input);
+
+label 
+{
+    width: 240px;
+    font-weight: bold;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.couleurs 
+{
+    width: 300px;
+    padding: 10px;
+    border: 2px solid var(--couleur-bordure);
+    background: var(--couleurs-input);
+    color: var(--couleurs-texte-bouton);
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+button.couleurs 
+{
+    width: 200px;
+    margin: 10px auto 0;
+    display: block;
     cursor: pointer;
-    font-weight: bold;
 }
-footer {
-    text-align: center;
-    margin-top: 50px;
-   
+
+button.couleurs:hover 
+{ 
+    background: var(--couleurs-fond-principale); 
 }
+
+.container 
+{
+    text-align: center; 
+}
+
+footer 
+{
+    margin-top: 20px; 
+}
+
