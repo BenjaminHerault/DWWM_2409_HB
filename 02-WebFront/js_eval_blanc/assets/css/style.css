@@ -63,8 +63,8 @@ label
     border: 2px solid var(--couleur-bordure);
     background: var(--couleurs-input);
     color: var(--couleurs-texte-bouton);
-    font-weight: bold;
     box-sizing: border-box;
+    font-size: 20px;
 }
 
 button.couleurs 
@@ -88,5 +88,10 @@ button.couleurs:hover
 footer 
 {
     margin-top: 20px; 
+}
+.texte_erreur
+{
+    color: var(--couleurs-police);
+    margin-top: 25px;
 }
 

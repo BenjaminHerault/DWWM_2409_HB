@@ -16,30 +16,31 @@
             <h1>Créer votre compte</h1>
 
             <fieldset class="form">
-                <form id="Form" method="post">
+                <form id="Form" @submit.prevent>
                     <div class="form-row">
                         <label for="username">Nom d'utilisateur</label>
-                        <input type="text" id="username" class="couleurs" name="username"
+                        <input v-model="nomUtilisateur" type="text" id="username" class="couleurs" name="username"
                             placeholder="Nom d'utilisateur" required>
                     </div>
 
                     <div class="form-row">
                         <label for="password">Mot de passe</label>
-                        <input type="password" id="password" class="couleurs" name="password" placeholder="Mot de passe"
-                            required>
+                        <input v-model="motDePasse" type="password" id="password" class="couleurs" name="password"
+                            placeholder="Mot de passe" required>
                     </div>
 
                     <div class="form-row">
                         <label for="password_verif">Confirmer le mot de passe</label>
-                        <input type="password" id="password_verif" class="couleurs" name="password_verif"
-                            placeholder="Mot de passe (confirmer)" required>
+                        <input v-model="motDePasseVerif" type="password" id="password_verif" class="couleurs"
+                            name="password_verif" placeholder="Mot de passe (confirmer)" required>
                     </div>
-
-                    <button type="submit" class="couleurs text">Suivant</button>
+                    <button @click="verifierFormulaire" class="couleurs text">Suivant</button>
+                    <p v-if="erreur" class="texte_erreur">{{ erreur }}</p>
                 </form>
             </fieldset>
+            <p v-if="affichageUser">{{ affichageUser}}</p>
             <footer>
-                <p>Copyright © 2025 {{nom}}{{prenom}}</p>
+                <p>Copyright © 2025 {{ nom }} {{ prenom }}</p>
             </footer>
         </div>
     </div>
