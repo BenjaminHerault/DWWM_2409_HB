@@ -1,0 +1,13 @@
+[
+    {   
+        "titre": "Je pratique et j'apprend !",
+        "nom": "Herault",
+        "prenom": "Benjamin",
+        "job": "formation de Développeur Web",
+        "age": "29 ans",
+        "mail": "bherault@example.com",
+        "tel": "+33 6 02 03 04 05",
+        "texte_prestation":
+        "Ouvert à la discussion, ma bonne humeur m’a toujours permis de communiquer facilement avec mes collègues et d’être à l’aise dans le travail en équipe. Ma curiosité me pousse à explorer chaque technologie par moimême pour compléter les enseignements de mon formateur. Organisé, je m’applique à produire un travail soigné et à rester attentif à la critique. Cela me permet d’améliorer mes pratiques, notamment dans la rédaction de mon code et de mes écrits professionnels. "
+    }
+]

@@ -1,15 +1,34 @@
 const monApp = {
     data() {
         return {
-            titre: "Je pratique et j'apprend !",
-            nom: "Herault",
-            prenom: "Benjamin",
-            job: "formation de Développeur Web",
-            age: "29 ans",
-            mail: "bherault@example.com",
-            tel: "+33 6 02 03 04 05",
-            texte_prestation:
-                "Ouvert à la discussion, ma bonne humeur m’a toujours permis de communiquer facilement avec mes collègues et d’être à l’aise dans le travail en équipe. Ma curiosité me pousse à explorer chaque technologie par moimême pour compléter les enseignements de mon formateur. Organisé, je m’applique à produire un travail soigné et à rester attentif à la critique. Cela me permet d’améliorer mes pratiques, notamment dans la rédaction de mon code et de mes écrits professionnels. ",
+            user: {
+                titre: "",
+                nom: "",
+                prenom: "",
+                job: "",
+                age: "",
+                mail: "",
+                tel: "",
+                texte_prestation: "",
+            },
+        };
+    },
+    async mounted() {
+        let response = await fetch("./data/info.json");
+        let json = await response.json();
+        // info.json renvoie un tableau -> on prend le premier élément si nécessaire
+        const data = Array.isArray(json) ? json[0] : json;
+
+        // Normaliser l'objet user : garder les clés existantes et ajouter des alias
+        this.user = {
+            titre: data.titre || "",
+            nom: data.nom || "",
+            prenom: data.prenom || "",
+            job: data.job || "",
+            age: data.age || "",
+            mail: data.mail || "",
+            tel: data.tel || "",
+            texte_prestation: data.texte_prestation || "",
         };
     },
 };
