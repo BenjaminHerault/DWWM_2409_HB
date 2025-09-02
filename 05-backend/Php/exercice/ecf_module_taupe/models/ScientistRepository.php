@@ -14,7 +14,7 @@ class ScientistRepository
 
     public function searcheAll(): array
     {
-        $stmt = $this->db->query("SELECT id_scientist, lastname_scientist, firstname_scientist, mail_scientist, pass_scientist, level_scientist FROM SCIENTISTS");
+        $stmt = $this->db->query("SELECT id_scientist, lastname_scientist, firstname_scientist, mail_scientist, level_scientist FROM SCIENTISTS");
         return $stmt->fetchAll();
     }
 

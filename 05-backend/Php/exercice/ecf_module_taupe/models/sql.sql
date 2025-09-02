@@ -17,3 +17,8 @@ pass_scientist varchar(500) NOT NULL,
 level_scientist smallint NOT NULL,
 CONSTRAINT PK_SCIENTISTS PRIMARY KEY (id_scientist)
 ) ENGINE=InnoDB;
+
+
+-- pour insert des untilisateur avec le mot de passe crypte
+-- INSERT INTO scientists VALUES
+-- (id_scientist,'MORTIMER','Philip','p.mortimer@mifivesec.eu','et le mot de passe crypte ', 2),
