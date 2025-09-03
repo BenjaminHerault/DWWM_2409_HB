@@ -4,7 +4,7 @@
 // Le mot de passe en clair
 $motDePasseClair = "Espadon25";
 
-// Cryptage du mot de passe avec password_hash()
+// Cryptage du mot de passe avec password_hash() le PASSWORD_DEFAULT et argon2id
 $motDePasseCrypte = password_hash($motDePasseClair, PASSWORD_DEFAULT);
 
 // Affichage avec echo

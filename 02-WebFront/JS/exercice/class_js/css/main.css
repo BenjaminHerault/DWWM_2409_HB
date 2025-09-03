@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size:  62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+label, input, select {
+    display: inline-block;
+    width: 20rem;
+    margin: 1rem;
+    padding: .5rem;
+}

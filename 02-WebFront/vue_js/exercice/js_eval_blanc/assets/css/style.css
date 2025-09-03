@@ -1,0 +1,97 @@
+:root 
+{
+    --couleurs-fond-principale: #00008b;
+    --couleurs-fond-secondaire: #3333a2;
+    --couleur-bordure: #ff8c00;
+    --couleurs-police: #ffff00;
+    --couleurs-input: #5c5cb5;
+    --couleurs-texte-bouton: #e0ffff;
+}
+* 
+{
+     margin: 0; 
+     padding: 0; 
+}
+
+body 
+{
+    background: var(--couleurs-fond-principale);
+    color: var(--couleurs-police);
+    font-family: Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 
+{ 
+    margin-bottom: 30px; font-size: 2em; 
+}
+
+.form 
+{
+    width: 800px;
+    padding: 40px;
+    border: 2px solid var(--couleur-bordure);
+    border-radius: 10px;
+    background: var(--couleurs-fond-secondaire);
+    margin: 20px auto;
+}
+
+.form-row 
+{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+label 
+{
+    width: 240px;
+    font-weight: bold;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.couleurs 
+{
+    width: 300px;
+    padding: 10px;
+    border: 2px solid var(--couleur-bordure);
+    background: var(--couleurs-input);
+    color: var(--couleurs-texte-bouton);
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+button.couleurs 
+{
+    width: 200px;
+    margin: 10px auto 0;
+    display: block;
+    cursor: pointer;
+}
+
+button.couleurs:hover 
+{ 
+    background: var(--couleurs-fond-principale); 
+}
+
+.container 
+{
+    text-align: center; 
+}
+
+footer 
+{
+    margin-top: 20px; 
+}
+.texte_erreur
+{
+    color: var(--couleurs-police);
+    margin-top: 25px;
+}
+

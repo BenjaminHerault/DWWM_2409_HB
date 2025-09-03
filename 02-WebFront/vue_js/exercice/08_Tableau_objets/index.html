@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="./assets/index.js"></script>
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Tableau d'objets</title>
+</head>
+
+<body>
+    <div id="app">
+        <div id="notification" v-show="notificationVisible" role="alert" aria-live="assertive">{{ messageNotification }}
+        </div>
+        <fieldset id="fielBody">
+            <div id="containerP">
+                <h1>Espace membres</h1>
+            </div>
+            <fieldset id="fielForm" v-show="!utilisateurCourant">
+                <form @submit.prevent="connexion">
+                    <p>Identification</p>
+                    <div id="monIdentifiant">
+                        <label for="identifiantInput" class="texteChange">Identifiant:</label>
+                        <input type="text" id="identifiantInput" v-model="identifiant" name="saisi_identifiant">
+                    </div>
+                    <div id="monMDP">
+                        <label for="motDePasseInput" class="texteChange">Mot de passe:</label>
+                        <input type="password" id="motDePasseInput" v-model="motDePasse" name="saisi_MDP">
+                    </div>
+                    <div id="btn">
+                        <input type="submit" value="Connexion" id="btnConnexion">
+                    </div>
+                </form>
+            </fieldset>
+
+            <div id="welcome" v-if="utilisateurCourant" class="welcomeBox" aria-live="polite">
+                <span>Bonjour {{ utilisateurCourant.firstname }} {{ utilisateurCourant.lastname }}</span>
+                <button id="deconnexion" @click="deconnexion">Déconnexion</button>
+            </div>
+
+            <div id="tableContainer" v-if="utilisateurCourant">
+                <table id="monTableau">
+                    <thead>
+                        <tr>
+                            <th id="monTh">Nom</th>
+                            <th id="monTh">Prénom</th>
+                            <th id="monTh">Date de naissance</th>
+                            <th id="monTh">Email</th>
+                            <th id="monTh">Salaire</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="u in utilisateurs" :key="u.id"
+                            :class="{ surbrillance: utilisateurCourant && utilisateurCourant.id === u.id }">
+                            <td id="celluleInfo">{{ u.lastname }}</td>
+                            <td id="celluleInfo">{{ u.firstname }}</td>
+                            <td id="celluleInfo">{{ formatDateFR(u.birthday) }}</td>
+                            <td id="celluleInfo">{{ genererEmail(u) }}</td>
+                            <td id="celluleInfo">{{ formatSalaire(u.salary) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+</body>
+
+</html>

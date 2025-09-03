@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/main.js" type="module"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Carte de Visite Moderne (Photo à Droite)</title>
+</head>
+
+<body>
+    <!-- <details>
+        <summary>Titre</summary>
+        <p>texte blabla</p>
+
+    </details> -->
+    <main id="app">
+        <div class="card-container">
+            <div class="business-card">
+                <div class="card-content">
+                    <p class="citation">{{user.titre}}</p>
+                    <h2 class="name">{{ user.nom}} {{user.prenom}}</h2>
+                    <p class="job">{{ user.job }}</p>
+                    <p class="age">{{ user.age }}</p>
+                    <div class="contact-info">
+                        <p>
+                            <span class="icon">📧</span>
+                            {{ user.mail }}
+                        </p>
+                        <p>
+                            <span class="icon">📞</span>
+                            {{ user.tel }}
+                        </p>
+                    </div>
+                </div>
+                <div class="card-image">
+                    <img src="./data/image/chat.png" alt="photo de profil" class="photo-profil" />
+                </div>
+            </div>
+            <p class="description">{{ user.texte_prestation }}</p>
+        </div>
+
+    </main>
+</body>
+
+</html>
