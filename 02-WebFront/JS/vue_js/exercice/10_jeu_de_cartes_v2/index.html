@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Vue (bundle global) : permet d'utiliser Vue.createApp(...) -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Script principal de l'application (définit l'app Vue et le template) -->
+    <script src="./assets/js/main.js" type="module"></script>
+    <!-- Feuille de styles pour le tableau et l'UI -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Favicon de la page (icône affichée dans l'onglet) -->
+    <link rel="icon" href="./data/img/carte_as.png" type="image/x-icon" sizes="32x32" />
+    <title>Jeu de cartes</title>
+</head>
+
+<body>
+    <div id="app">
+        <main>
+            <div class="cardgame-app">
+                <h2>Liste des cartes</h2>
+                <div class="table-wrapper">
+                    <table class="card-table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                                <th>level</th>
+                                <th>description</th>
+                                <th>power</th>
+                                <th>attack</th>
+                                <th>armor</th>
+                                <th>damage</th>
+                                <th>mitigation</th>
+                                <th>played</th>
+                                <th>victory</th>
+                                <th>defeat</th>
+                                <th>draw</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="carte in listeCarte" :key="carte.id">
+                                <td>{{ carte.id }}</td>
+                                <td>{{ carte.name }}</td>
+                                <td>{{ carte.level }}</td>
+                                <td>{{ carte.description }}</td>
+                                <td>{{ carte.power }}</td>
+                                <td>{{ carte.attack }}</td>
+                                <td>{{ carte.armor }}</td>
+                                <td>{{ formatNumber(carte.damage) }}</td>
+                                <td>{{ carte.mitigation }}</td>
+                                <td>{{ formatNumber(carte.played) }}</td>
+                                <td>{{ formatNumber(carte.victory) }}</td>
+                                <td>{{ formatNumber(carte.defeat) }}</td>
+                                <td>{{ formatNumber(carte.draw) }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <section class="stats">
+                    <h3>Statistiques</h3>
+                    <p v-if="plusJouee">
+                        Carte la plus jouée : <strong>{{ plusJouee.name }}</strong>
+                        — Victoires : <strong>{{ formatNumber(plusJouee.victory) }}</strong>
+                    </p>
+
+                    <p v-if="meilleurRatio">
+                        Meilleur ratio victoires/défaites (défaites &gt; 0) :
+                        <strong>{{ meilleurRatio.name }}</strong>
+                        — Parties : <strong>{{ formatNumber(meilleurRatio.played) }}</strong>
+                        — Victoires : <strong>{{ formatNumber(meilleurRatio.victory) }}</strong>
+                        — Ratio : <strong>{{ meilleurRatio.ratio.toFixed(3) }}</strong>
+                    </p>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
