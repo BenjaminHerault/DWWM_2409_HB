@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/main.js" type="module"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" href="./data/img/france-map.webp" type="image/x-icon" sizes="32x32" />
+    <title>code postaux</title>
+</head>
+
+<body>
+    <!--
+        Application Vue.js pour rechercher une ville par code postal.
+        - Un champ de recherche (type search)
+        - Un bouton de validation
+        - Suggestions dynamiques avec <datalist>
+        - Affichage des infos de la ville sélectionnée
+    -->
+    <div id="app">
+        <h1>Rechercher une ville par code postal</h1>
+        <form @submit.prevent="validerVille">
+            <input type="search" v-model="recherche" list="suggestions" placeholder="Entrez un code postal..."
+                @input="mettreAJourSuggestions" autocomplete="off">
+            <datalist id="suggestions">
+                <option v-for="ville in suggestions" :key="ville.codePostal + ville.nomCommune"
+                    :value="ville.codePostal + ' - ' + ville.nomCommune">
+                </option>
+            </datalist>
+            <button type="submit">Valider</button>
+        </form>
+        <div v-if="villeSelectionnee">
+            <h2>Informations sur la ville</h2>
+            <p><strong>Nom :</strong> {{ villeSelectionnee.nomCommune }}</p>
+            <p><strong>Code postal :</strong> {{ villeSelectionnee.codePostal }}</p>
+            <template v-for="(valeur, cle) in infosVille">
+                <p :key="cle"><strong>{{ cle }} :</strong> {{ valeur }}</p>
+            </template>
+        </div>
+    </div>
+</body>
+
+</html>
