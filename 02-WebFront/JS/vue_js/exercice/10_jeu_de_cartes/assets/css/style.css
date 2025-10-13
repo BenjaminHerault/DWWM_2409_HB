@@ -1,0 +1,51 @@
+/* Styles pour le tableau du jeu de cartes */
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background: #f8f8f8;
+	color: #222;
+	padding: 20px;
+}
+
+.cardgame-app {
+	max-width: 1100px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 16px;
+	border-radius: 6px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.card-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 13px;
+}
+
+.card-table thead th {
+	background: #e9e9ef;
+	color: #333;
+	padding: 8px 10px;
+	text-align: left;
+	border-bottom: 2px solid #ddd;
+}
+
+.card-table tbody td {
+	padding: 8px 10px;
+	border-bottom: 1px solid #eee;
+}
+
+.card-table tbody tr:nth-child(even) {
+	background: #fafafa;
+}
+
+.table-wrapper {
+	overflow-x: auto;
+}
+
+.stats {
+	margin-top: 18px;
+	font-size: 15px;
+}
+
+.stats p { margin: 6px 0; }
+
