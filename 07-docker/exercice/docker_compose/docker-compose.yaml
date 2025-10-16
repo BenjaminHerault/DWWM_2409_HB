@@ -38,6 +38,8 @@ services:
     depends_on:
       my:
         condition: service_healthy
+    ports:
+      - "80:80"
     volumes:
       - www:/var/www/html:rw
 
