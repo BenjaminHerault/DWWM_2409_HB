@@ -1,0 +1,13 @@
+services:
+  pureftpd:
+    build: .
+    container_name: pureftpd
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
+    volumes:
+      - ./ftpdata:/home/ftpusers/benjamin
+    environment:
+      FTP_USER_NAME: benjamin
+      FTP_USER_PASS: monsupermotdepasse
+    restart: unless-stopped
