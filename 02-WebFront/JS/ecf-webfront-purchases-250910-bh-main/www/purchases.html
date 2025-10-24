@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande d'achats</title>
+    <link rel="stylesheet" href="assets/css/purchases.css">
+    <script src="assets/js/main.js" type="module"></script>
+</head>
+
+<body>
+    <header class="title">
+        <h1>Formulaire de Demande d'Achats</h1>
+        <img src="img/logo-centre-de-readaptation-de-mulhouse-colors.svg" alt="Logo de l'entreprise">
+    </header>
+
+    <main>
+        <form class="purchase" id="purchase">
+            <fieldset>
+                <fieldset class="infos">
+                    <legend>Vos informations</legend>
+
+                    <div class="form-row">
+                        <label for="prenom">Prénom :</label>
+                        <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="nom">Nom :</label>
+                        <input type="text" id="nom" name="nom" placeholder="Nom" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="mail">Mail:</label>
+                        <input type="mail" id="mail" name="mail" placeholder="Mail" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="service">Service :</label>
+                        <select name="service" id="service" required>
+                            <option value="">-- Sélectionnez un service --</option>
+                            <option value="comptabilite">Comptabilité</option>
+                            <option value="rh">Ressources humaines</option>
+                            <option value="informatique">Service informatique</option>
+                        </select>
+                    </div>
+
+                </fieldset>
+
+                <fieldset class="article">
+                    <legend>Détails de l'article demandé</legend>
+
+                    <div class="form-row">
+                        <label for="nom-article">Nom de l'article :</label>
+                        <input type="text" id="nom-article" name="nom-article" placeholder="Nom de l'article" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="desc-article">Description de l'article :</label>
+                        <textarea id="desc-article" name="desc-article" rows="3" placeholder="Description de l'article"
+                            required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <label for="quantite">Quantité :</label>
+                        <input type="number" id="quantite" name="quantite" min="1" max="1000" placeholder="Quantité"
+                            required>
+                    </div>
+                    <div class="form-row">
+                        <label for="prix">Prix unitaire (€) :</label>
+                        <input type="number" id="prix" name="prix" min="1" step="1" placeholder="Prix unitaire (€)"
+                            required>
+                        <span class="textSmall">(arrondi à l'Euro supérieur)</span>
+                    </div>
+                    <div class="form-row">
+                        <label for="date-livraison">Date de livraison souhaitée :</label>
+                        <input type="date" id="date-livraison" name="date-livraison" required>
+                    </div>
+
+                </fieldset>
+
+                <fieldset class="justification">
+                    <legend>Justification de la demande</legend>
+
+                    <div class="form-row">
+                        <label for="justification">Expliquez la nécessité de l'achat :</label>
+                        <textarea id="justification" name="justification" rows="4"
+                            placeholder="Expliquez la nécessité de l'achat " required></textarea>
+                    </div>
+                </fieldset>
+
+                <div class="form-buttons">
+                    <button type="submit">Envoyer la demande</button>
+                    <button type="reset">Annuler</button>
+                </div>
+            </fieldset>
+
+        </form>
+        <aside id="total-commande"></aside>
+    </main>
+
+    <footer class="info">
+        <h2>Informations Complémentaires</h2>
+        <p>Veuillez remplir ce formulaire avec précision. Toute demande incomplète sera ignorée sans notification.</p>
+        <p>Pour toute question, veuillez contacter le service des achats à l'adresse email suivante : <a
+                href="mailto:achats@example.com">achats@example.com</a></p>
+    </footer>
+</body>
+
+</html>
